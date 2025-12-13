@@ -107,7 +107,7 @@ const translations = {
       quickSupport: 'Assistance Rapide',
       needHelp: 'Besoin d\'aide?',
       help: 'Aide',
-      freeScan: 'Scan gratuit',
+      freeScan: 'Diagnostic gratuit',
       getStarted: 'C\'est parti!',
       backHome: 'Retour à l\'accueil',
       belgianCompany: 'Entreprise belge',
@@ -278,11 +278,11 @@ const translations = {
       offers: {
         s: {
           badge: 'Starter',
-          name: 'Offre S',
+          name: 'Protection Essentielle',
           storage: '10 GB de stockage',
           features: [
             'Espace Cloud 10GB',
-            'MaSecuSecurity Software',
+            'MaSecu Antivirus',
             '3h d\'assistance/mois',
             'Retour sous 24h',
             'Mises à jour annuelles'
@@ -290,10 +290,10 @@ const translations = {
         },
         m: {
           badge: 'Medium',
-          name: 'Offre M',
+          name: 'Protection Famille',
           storage: '30 GB de stockage',
           features: [
-            'Tout de l\'offre S',
+            'Tout de Protection Essentielle',
             'Espace Cloud 30GB',
             '5h d\'assistance/mois',
             'Suivi personnalisé',
@@ -302,10 +302,10 @@ const translations = {
         },
         l: {
           badge: 'Performance',
-          name: 'Offre L',
+          name: 'Protection Complète',
           storage: '120 GB de stockage',
           features: [
-            'Tout de l\'offre M',
+            'Tout de Protection Famille',
             'Espace Cloud 120GB',
             'Assistance illimitée',
             'Retour illimité',
@@ -335,9 +335,9 @@ const translations = {
         { name: 'Aide et Support de professionnels certifiés', description: 'Nous aidons à réparer les problèmes sur votre ordinateur', values: ['3 heures\npar mois', '5 heures\npar mois', 'Illimité'] },
         { name: 'Temps de réponse', description: 'Notre réponse à vos problèmes informatiques', values: ['Sous 24 heures', 'Maximum\n3 heures', 'Immédiat'] },
         { name: 'Espace Cloud Sécurisé', description: 'Stockage cloud chiffré pour vos fichiers', values: ['10 GB', '30 GB', '120 GB'] },
-        { name: 'MaSecuSecurity Software', description: 'Protection antivirus et anti-malware avancée', values: ['✓', '✓', '✓'] },
-        { name: 'MaSecuAdBlocker', description: 'Protège votre navigation et bloque les publicités', values: ['✓', '✓', '✓'] },
-        { name: 'Nettoyer', bullets: ['+15 Go récupérés en moyenne', 'Trackers & mouchards supprimés', 'Navigateur jusqu\'à 3x plus rapide', 'Données personnelles protégées'], values: ['✓', '✓', '✓'] },
+        { name: 'MaSecu Antivirus', description: 'Protection antivirus et anti-malware avancée', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecu AdBlocker', description: 'Protège votre navigation et bloque les publicités', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecu Cleaner', bullets: ['+15 Go récupérés en moyenne', 'Trackers & mouchards supprimés', 'Navigateur jusqu\'à 3x plus rapide', 'Données personnelles protégées'], values: ['✓', '✓', '✓'] },
         { name: 'Optimisation', bullets: ['Démarrage en moins de 30 sec', '100% de votre RAM disponible', 'Fini les ralentissements', 'Performances du 1er jour'], values: ['✓', '✓', '✓'] },
         { name: 'Souscription transférable', description: 'Transférez votre abonnement à un autre ordinateur', values: ['—', '✓', '✓'] },
         { name: 'Maintenance régulière', description: 'Maintenance préventive pour votre appareil', values: ['Annuelles', 'Semestrielles', 'Trimestrielles'] },
@@ -383,7 +383,7 @@ const translations = {
       badge: 'Options Premium',
       title: 'Boostez votre protection',
       subtitle: 'Ajoutez des fonctionnalités premium à votre abonnement existant.',
-      requirement: 'Nécessite un abonnement actif (Offre S, M ou L)',
+      requirement: 'Nécessite un abonnement actif (Protection Essentielle, Famille ou Complète)',
       vpnPro: {
         name: 'MaSecuVPN Pro',
         price: '9.99€',
@@ -1935,7 +1935,7 @@ const translations = {
       quickSupport: 'Quick Support',
       needHelp: 'Need help?',
       help: 'Help',
-      freeScan: 'Free scan',
+      freeScan: 'Free diagnosis',
       getStarted: 'Let\'s go!',
       backHome: 'Back to home',
       belgianCompany: 'Belgian company',
@@ -2106,11 +2106,11 @@ const translations = {
       offers: {
         s: {
           badge: 'Starter',
-          name: 'Plan S',
+          name: 'Essential Protection',
           storage: '10 GB storage',
           features: [
             'Cloud Space 10GB',
-            'MaSecuSecurity Software',
+            'MaSecu Antivirus',
             '3h support/month',
             'Response within 24h',
             'Annual updates'
@@ -2118,10 +2118,10 @@ const translations = {
         },
         m: {
           badge: 'Medium',
-          name: 'Plan M',
+          name: 'Family Protection',
           storage: '30 GB storage',
           features: [
-            'All Plan S features',
+            'All Essential Protection features',
             'Cloud Space 30GB',
             '5h support/month',
             'Personalized follow-up',
@@ -2130,10 +2130,10 @@ const translations = {
         },
         l: {
           badge: 'Performance',
-          name: 'Plan L',
+          name: 'Complete Protection',
           storage: '120 GB storage',
           features: [
-            'All Plan M features',
+            'All Family Protection features',
             'Cloud Space 120GB',
             'Unlimited support',
             'Unlimited returns',
@@ -2163,9 +2163,9 @@ const translations = {
         { name: 'Help and Support from certified professionals', description: 'We help fix problems on your computer', values: ['3 hours\nper month', '5 hours\nper month', 'Unlimited'] },
         { name: 'Response Time', description: 'Our response to your IT problems', values: ['Within 24 hours', 'Maximum\n3 hours', 'Immediate'] },
         { name: 'Secure Cloud Space', description: 'Encrypted cloud storage for your files', values: ['10 GB', '30 GB', '120 GB'] },
-        { name: 'MaSecuSecurity Software', description: 'Advanced antivirus and anti-malware protection', values: ['✓', '✓', '✓'] },
-        { name: 'MaSecuAdBlocker', description: 'Protects your browsing and blocks ads', values: ['✓', '✓', '✓'] },
-        { name: 'Deep Clean', bullets: ['+15 GB recovered on average', 'Trackers & spyware removed', 'Browser up to 3x faster', 'Personal data protected'], values: ['✓', '✓', '✓'] },
+        { name: 'MaSecu Antivirus', description: 'Advanced antivirus and anti-malware protection', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecu AdBlocker', description: 'Protects your browsing and blocks ads', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecu Cleaner', bullets: ['+15 GB recovered on average', 'Trackers & spyware removed', 'Browser up to 3x faster', 'Personal data protected'], values: ['✓', '✓', '✓'] },
         { name: 'Optimization', bullets: ['Startup under 30 seconds', '100% of your RAM available', 'No more sudden slowdowns', 'Day-one performance restored'], values: ['✓', '✓', '✓'] },
         { name: 'Transferable Subscription', description: 'Transfer your subscription to another computer', values: ['—', '✓', '✓'] },
         { name: 'Regular Maintenance', description: 'Proactive maintenance for your device', values: ['Annual', 'Bimonthly', 'Quarterly'] },
@@ -2211,7 +2211,7 @@ const translations = {
       badge: 'Premium Options',
       title: 'Boost Your Protection',
       subtitle: 'Add premium features to your existing subscription.',
-      requirement: 'Requires an active subscription (Plan S, M or L)',
+      requirement: 'Requires an active subscription (Essential, Family or Complete Protection)',
       vpnPro: {
         name: 'MaSecuVPN Pro',
         price: '€9.99',
@@ -3763,7 +3763,7 @@ const translations = {
       quickSupport: 'Asistencia Rápida',
       needHelp: '¿Necesitas ayuda?',
       help: 'Ayuda',
-      freeScan: 'Escaneo gratis',
+      freeScan: 'Diagnóstico gratuito',
       getStarted: '¡Vamos!',
       backHome: 'Volver al inicio',
       belgianCompany: 'Empresa belga',
@@ -3934,11 +3934,11 @@ const translations = {
       offers: {
         s: {
           badge: 'Inicial',
-          name: 'Oferta S',
+          name: 'Protección Esencial',
           storage: '10 GB de almacenamiento',
           features: [
             'Espacio Cloud 10 GB',
-            'MaSecuSecurity Software',
+            'MaSecu Antivirus',
             '3 horas de asistencia/mes',
             'Respuesta en 24 horas',
             'Actualizaciones anuales'
@@ -3946,10 +3946,10 @@ const translations = {
         },
         m: {
           badge: 'Media',
-          name: 'Oferta M',
+          name: 'Protección Familiar',
           storage: '30 GB de almacenamiento',
           features: [
-            'Todo lo de la Oferta S',
+            'Todo lo de Protección Esencial',
             'Espacio Cloud 30 GB',
             '5 horas de asistencia/mes',
             'Seguimiento personalizado',
@@ -3958,10 +3958,10 @@ const translations = {
         },
         l: {
           badge: 'Rendimiento',
-          name: 'Oferta L',
+          name: 'Protección Completa',
           storage: '120 GB de almacenamiento',
           features: [
-            'Todo lo de la Oferta M',
+            'Todo lo de Protección Familiar',
             'Espacio Cloud 120 GB',
             'Asistencia ilimitada',
             'Respuestas ilimitadas',
@@ -3991,9 +3991,9 @@ const translations = {
         { name: 'Ayuda y asistencia de profesionales certificados', description: 'Le ayudamos a resolver los problemas de su ordenador', values: ['3 horas\nal mes', '5 horas\nal mes', 'Ilimitado'] },
         { name: 'Tiempo de respuesta', description: 'Nuestra respuesta a sus problemas informáticos', values: ['En 24 horas', 'Máximo\n3 horas', 'Inmediato'] },
         { name: 'Espacio Cloud Seguro', description: 'Almacenamiento cloud cifrado para sus archivos', values: ['10 GB', '30 GB', '120 GB'] },
-        { name: 'MaSecuSecurity Software', description: 'Protección antivirus y antimalware avanzada', values: ['✓', '✓', '✓'] },
-        { name: 'MaSecuSafeBrowse', description: 'Protege su navegación y bloquea anuncios', values: ['✓', '✓', '✓'] },
-        { name: 'Limpieza', bullets: ['+15 GB recuperados en promedio', 'Trackers y espías eliminados', 'Navegador hasta 3x más rápido', 'Datos personales protegidos'], values: ['✓', '✓', '✓'] },
+        { name: 'MaSecu Antivirus', description: 'Protección antivirus y antimalware avanzada', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecu AdBlocker', description: 'Protege su navegación y bloquea anuncios', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecu Cleaner', bullets: ['+15 GB recuperados en promedio', 'Trackers y espías eliminados', 'Navegador hasta 3x más rápido', 'Datos personales protegidos'], values: ['✓', '✓', '✓'] },
         { name: 'Optimización', bullets: ['Inicio en menos de 30 seg', '100% de tu RAM disponible', 'Adiós a los bloqueos', 'Rendimiento del primer día'], values: ['✓', '✓', '✓'] },
         { name: 'Suscripción transferible', description: 'Transfiera su suscripción a otro ordenador', values: ['—', '✓', '✓'] },
         { name: 'Mantenimiento periódico', description: 'Mantenimiento proactivo para su dispositivo', values: ['Anuales', 'Bimestrales', 'Trimestrales'] },
@@ -4038,7 +4038,7 @@ const translations = {
       badge: 'Opciones Premium',
       title: 'Potencie su protección',
       subtitle: 'Añada prestaciones premium a su suscripción existente.',
-      requirement: 'Requiere una suscripción activa (Oferta S, M o L)',
+      requirement: 'Requiere una suscripción activa (Protección Esencial, Familiar o Completa)',
       vpnPro: {
         name: 'MaSecuVPN Pro',
         price: '9,99 €',

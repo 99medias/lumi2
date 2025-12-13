@@ -180,7 +180,7 @@ const VPNProduct = () => {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             <ModernPricingCard
-              title="Offre S"
+              title="Protection Essentielle"
               subtitle="Essentiel"
               storage="10 GB de stockage"
               tiers={[
@@ -191,7 +191,7 @@ const VPNProduct = () => {
               ]}
               features={[
                 'Espace Cloud 10GB',
-                'MaSecuSecurity Software',
+                'MaSecu Antivirus',
                 'MaSecuIntelligard',
                 '3h d\'assistance/mois',
                 'Retour sous 24h',
@@ -201,7 +201,7 @@ const VPNProduct = () => {
             />
 
             <ModernPricingCard
-              title="Offre M"
+              title="Protection Famille"
               subtitle="Populaire"
               storage="30 GB de stockage"
               popular={true}
@@ -212,7 +212,7 @@ const VPNProduct = () => {
                 { duration: '6 mois', totalPrice: 549, monthlyPrice: 91.50 }
               ]}
               features={[
-                'Tout de l\'offre S',
+                'Tout de Protection Essentielle',
                 'Espace Cloud 30GB',
                 '5h d\'assistance/mois',
                 'Retour sous 3h',
@@ -224,7 +224,7 @@ const VPNProduct = () => {
             />
 
             <ModernPricingCard
-              title="Offre L"
+              title="Protection Complète"
               subtitle="Complet"
               storage="120 GB de stockage"
               tiers={[
@@ -234,7 +234,7 @@ const VPNProduct = () => {
                 { duration: '6 mois', totalPrice: 649, monthlyPrice: 108.16 }
               ]}
               features={[
-                'Tout de l\'offre M',
+                'Tout de Protection Famille',
                 'Espace Cloud 120GB',
                 'Assistance illimitée',
                 'Temps de retour illimité',
