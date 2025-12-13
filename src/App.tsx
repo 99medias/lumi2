@@ -294,28 +294,45 @@ function App() {
         </div>
       </section>
 
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-10 w-64 h-64 bg-emerald-300 rounded-full filter blur-3xl animate-float"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
-            <div className="relative">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-emerald-200 to-emerald-200 rounded-3xl opacity-50 blur-2xl"></div>
-                <img
-                  src="https://images.pexels.com/photos/7640412/pexels-photo-7640412.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Senior woman video calling with family"
-                  className="relative rounded-3xl shadow-2xl w-full h-auto transform hover:scale-105 transition-all duration-500"
-                />
-              </div>
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+            <div className="rounded-3xl overflow-hidden">
+              <img
+                src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Notre équipe de support"
+                className="w-full h-full object-cover"
+              />
             </div>
+
             <div>
-              <h3 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-6">{t('services.family.title')}</h3>
-              <p className="text-xl text-slate-600 leading-relaxed">
-                {t('services.family.description')}
+              <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
+                Notre engagement
+              </span>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Une équipe belge à votre écoute
+              </h2>
+              <p className="text-gray-600 mb-6">
+                Pas de call center à l'étranger, pas de robot. Quand vous nous appelez,
+                vous parlez à de vraies personnes qui comprennent vos problèmes et parlent votre langue.
               </p>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-gray-700">
+                  <span className="text-emerald-500 text-xl">✓</span>
+                  <span>Support en français</span>
+                </li>
+                <li className="flex items-center gap-3 text-gray-700">
+                  <span className="text-emerald-500 text-xl">✓</span>
+                  <span>Réponse rapide garantie</span>
+                </li>
+                <li className="flex items-center gap-3 text-gray-700">
+                  <span className="text-emerald-500 text-xl">✓</span>
+                  <span>Disponible 7j/7</span>
+                </li>
+              </ul>
             </div>
+
           </div>
         </div>
       </section>
@@ -380,11 +397,11 @@ function App() {
                     </span>
                   </div>
                 </div>
-                <div className="p-4 text-center rounded-tr-3xl hover:bg-emerald-50 transition-all duration-200">
+                <div className="p-4 text-center rounded-tr-3xl bg-purple-50/20 hover:bg-purple-50/40 transition-all duration-200">
                   <div className="flex flex-col items-center gap-1.5">
-                    <Crown className="w-7 h-7 text-emerald-600 fill-emerald-600" />
+                    <Crown className="w-7 h-7 text-purple-600 fill-purple-600" />
                     <h3 className="text-xl font-bold text-[#1e293b]">{(t('pricing.offers.l') as any).name}</h3>
-                    <span className="text-xs text-gray-500 font-medium">{t('pricing.complete')}</span>
+                    <span className="text-xs text-purple-600 font-medium">{t('pricing.complete')}</span>
                   </div>
                 </div>
               </div>
@@ -419,13 +436,13 @@ function App() {
                     )}
                   </div>
                   <div className="p-4 text-center text-[#1e293b] border-r border-emerald-100/50 flex items-center justify-center transition-all duration-200">
-                    <span className={feature.values[0] === '✓' ? 'text-[#f97316] text-2xl font-bold checkmark-animate checkmark-hover cursor-pointer' : feature.values[0] === '—' ? 'text-[#94a3b8] text-xl' : 'whitespace-pre-line'} style={feature.values[0] === '✓' ? {animationDelay: `${idx * 0.05}s`} : {}}>{feature.values[0]}</span>
+                    <span className={feature.values[0] === '✓' ? 'text-emerald-500 text-2xl font-bold checkmark-animate checkmark-hover cursor-pointer' : feature.values[0] === '—' ? 'text-[#94a3b8] text-xl' : 'whitespace-pre-line'} style={feature.values[0] === '✓' ? {animationDelay: `${idx * 0.05}s`} : {}}>{feature.values[0]}</span>
                   </div>
                   <div className="p-4 text-center bg-emerald-50/30 text-[#1e293b] font-semibold border-r border-emerald-200/50 flex items-center justify-center popular-glow transition-all duration-200">
-                    <span className={feature.values[1] === '✓' ? 'text-[#f97316] text-2xl font-bold checkmark-animate checkmark-hover cursor-pointer' : feature.values[1] === '—' ? 'text-[#94a3b8] text-xl' : 'whitespace-pre-line'} style={feature.values[1] === '✓' ? {animationDelay: `${idx * 0.05}s`} : {}}>{feature.values[1]}</span>
+                    <span className={feature.values[1] === '✓' ? 'text-emerald-600 text-2xl font-bold checkmark-animate checkmark-hover cursor-pointer' : feature.values[1] === '—' ? 'text-[#94a3b8] text-xl' : 'whitespace-pre-line'} style={feature.values[1] === '✓' ? {animationDelay: `${idx * 0.05}s`} : {}}>{feature.values[1]}</span>
                   </div>
-                  <div className="p-4 text-center text-[#1e293b] flex items-center justify-center transition-all duration-200">
-                    <span className={feature.values[2] === '✓' ? 'text-[#f97316] text-2xl font-bold checkmark-animate checkmark-hover cursor-pointer' : feature.values[2] === '—' ? 'text-[#94a3b8] text-xl' : 'whitespace-pre-line'} style={feature.values[2] === '✓' ? {animationDelay: `${idx * 0.05}s`} : {}}>{feature.values[2]}</span>
+                  <div className="p-4 text-center bg-purple-50/30 text-[#1e293b] flex items-center justify-center transition-all duration-200">
+                    <span className={feature.values[2] === '✓' ? 'text-purple-600 text-2xl font-bold checkmark-animate checkmark-hover cursor-pointer' : feature.values[2] === '—' ? 'text-[#94a3b8] text-xl' : 'whitespace-pre-line'} style={feature.values[2] === '✓' ? {animationDelay: `${idx * 0.05}s`} : {}}>{feature.values[2]}</span>
                   </div>
                 </div>
               ))}
@@ -540,7 +557,7 @@ function App() {
                     </div>
                     <div className="text-base text-[#1e293b] mt-2 font-bold">{row.totals[1]}</div>
                   </div>
-                  <div className="p-5 text-center flex flex-col items-center justify-center transition-all duration-200 group-hover:scale-105">
+                  <div className="p-5 text-center bg-purple-50/30 flex flex-col items-center justify-center transition-all duration-200 group-hover:scale-105">
                     <div className="flex items-baseline gap-1">
                       <span className="text-2xl font-bold text-emerald-500">{row.prices[2]}</span>
                       <span className="text-base font-semibold text-slate-600">{t('pricing.perMonthShort')}</span>
@@ -712,8 +729,8 @@ function App() {
 
           <div className="grid lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {/* VPN Pro Card */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 hover:border-emerald-500/50 transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 hover:border-blue-500/50 transition-all duration-300 group">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2"/>
                 </svg>
@@ -743,8 +760,8 @@ function App() {
             </div>
 
             {/* AdBlock Plus Card */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 hover:border-emerald-500/50 transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 hover:border-purple-500/50 transition-all duration-300 group">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
                 <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none">
                   <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
                   <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>

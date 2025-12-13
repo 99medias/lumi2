@@ -140,9 +140,9 @@ const translations = {
       satisfaction: 'Satisfait ou Remboursé'
     },
     hero: {
-      title: 'Protégez vos données.',
-      subtitle: 'Simplifiez votre informatique.',
-      description: 'Solutions Cloud sécurisées et interventions informatiques rapides pour particuliers et professionnels',
+      title: 'Votre tranquillité numérique,',
+      subtitle: 'c\'est notre priorité.',
+      description: 'Une protection complète pour vous et votre famille. Simple à utiliser, avec une équipe belge disponible 7j/7.',
       cta: 'Découvrir nos services',
       ctaSecondary: 'Nous contacter',
       simpleToUse: 'Simple d\'utilisation',
