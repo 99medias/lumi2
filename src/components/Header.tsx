@@ -1,46 +1,130 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { usePhoneByLocation } from '../hooks/usePhoneByLocation';
 import LanguageSelector from './LanguageSelector';
 import Logo from './Logo';
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const phoneNumber = usePhoneByLocation();
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-6">
-        <nav className="flex justify-between items-center py-5">
-          <Link to="/" className="flex items-center transition-all duration-300 hover:scale-105">
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
+      <div className="bg-emerald-50 py-2 px-4 hidden md:block">
+        <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
+          <div className="flex items-center gap-6">
+            <span className="flex items-center gap-1 text-gray-600">
+              <span>🇧🇪</span> {t('nav.belgianCompany')}
+            </span>
+            <a href={`tel:${phoneNumber}`} className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 transition-colors">
+              <span>📞</span> {phoneNumber}
+            </a>
+            <span className="flex items-center gap-1 text-gray-600">
+              <span>💬</span> {t('nav.frenchSupport')}
+            </span>
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="text-emerald-600 font-medium">{t('nav.businessHours')}</span>
+            <span className="text-gray-400">|</span>
+            <span className="text-emerald-600 font-medium">{t('nav.emergency247')}</span>
+          </div>
+        </div>
+      </div>
+
+      <nav className="max-w-7xl mx-auto px-4 py-4">
+        <div className="flex items-center justify-between">
+          <Link to="/" className="flex items-center">
             <Logo variant="header" />
           </Link>
 
-          <div className="flex items-center gap-4">
-            <ul className={`${mobileMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row gap-4 lg:gap-6 items-center absolute md:relative top-full left-0 right-0 md:top-0 bg-white md:bg-transparent p-6 md:p-0 shadow-lg md:shadow-none`}>
-              <li><Link to="/" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('nav.home')}</Link></li>
-              <li><a href="/#services" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('nav.services')}</a></li>
-              <li><a href="/#pricing" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('nav.pricing')}</a></li>
-              <li><a href="/#features" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('nav.features')}</a></li>
-              <li><Link to="/analyse-rapide" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('nav.quickAnalysis')}</Link></li>
-              <li><Link to="/verification" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('breachChecker.navTitle')}</Link></li>
-              <li><Link to="/about" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('nav.about')}</Link></li>
-              <li><Link to="/contact" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('nav.contact')}</Link></li>
-              <li><a href="https://masecu2025.getscreen.me/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white rounded-full font-bold hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl transform whitespace-nowrap">{t('nav.quickSupport')}</a></li>
-            </ul>
+          <div className="hidden lg:flex items-center gap-1">
+            <Link to="/" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium">
+              {t('nav.home')}
+            </Link>
+            <a href="/#services" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium">
+              {t('nav.ourServices')}
+            </a>
+            <a href="/#pricing" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium">
+              {t('nav.pricing')}
+            </a>
+            <Link to="/about" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium">
+              {t('nav.whoAreWe')}
+            </Link>
+          </div>
 
-            <div className="hidden md:block">
+          <div className="flex items-center gap-3">
+            <Link
+              to="/verification"
+              className="hidden md:flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition-colors font-medium border border-emerald-200"
+            >
+              <span>🔍</span>
+              <span>{t('nav.freeScan')}</span>
+            </Link>
+
+            <Link
+              to="/contact"
+              className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-emerald-600 transition-colors font-medium"
+            >
+              {t('nav.contact')}
+            </Link>
+
+            <a
+              href="https://masecu2025.getscreen.me/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 bg-emerald-500 text-white rounded-full hover:bg-emerald-600 transition-all duration-300 font-semibold shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
+            >
+              <span>🆘</span>
+              <span className="hidden sm:inline">{t('nav.needHelp')}</span>
+              <span className="sm:hidden">{t('nav.help')}</span>
+            </a>
+
+            <div className="hidden lg:block">
               <LanguageSelector />
             </div>
 
-            <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2">
-              <div className="w-6 h-0.5 bg-emerald-600 mb-1.5"></div>
-              <div className="w-6 h-0.5 bg-emerald-600 mb-1.5"></div>
-              <div className="w-6 h-0.5 bg-emerald-600"></div>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
             </button>
           </div>
-        </nav>
-      </div>
+        </div>
+
+        {mobileMenuOpen && (
+          <div className="lg:hidden mt-4 py-4 border-t border-gray-100">
+            <div className="flex flex-col gap-2">
+              <Link to="/" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
+                {t('nav.home')}
+              </Link>
+              <a href="/#services" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
+                {t('nav.ourServices')}
+              </a>
+              <a href="/#pricing" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
+                {t('nav.pricing')}
+              </a>
+              <Link to="/about" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
+                {t('nav.whoAreWe')}
+              </Link>
+              <Link to="/verification" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
+                🔍 {t('nav.freeScan')}
+              </Link>
+              <Link to="/contact" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
+                {t('nav.contact')}
+              </Link>
+              <div className="mt-4 pt-4 border-t border-gray-100">
+                <LanguageSelector />
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
     </header>
   );
 }

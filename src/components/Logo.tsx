@@ -8,47 +8,43 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
   if (variant === 'full' || variant === 'header') {
     return (
       <svg
-        width="240"
-        height="55"
-        viewBox="0 0 350 80"
+        width="220"
+        height="50"
+        viewBox="0 0 280 60"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
       >
         <text
           x="0"
-          y="38"
-          fontFamily="Nunito, system-ui, -apple-system, sans-serif"
-          fontSize="32"
+          y="28"
+          fontFamily="Nunito, system-ui, sans-serif"
+          fontSize="24"
           fontWeight="700"
           fill="#2D3748"
         >
           masecurité.be
         </text>
 
-        <g transform="translate(270, 2)">
+        <g transform="translate(195, 0)">
           <path
-            d="M5 5 L5 32 Q5 46 20 54 Q35 46 35 32 L35 5 Q20 5 5 5 Z"
+            d="M3 4 L3 28 Q3 40 15 46 Q27 40 27 28 L27 4 Z"
             stroke="#10B981"
-            strokeWidth="2.5"
+            strokeWidth="2"
             fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
           />
           <path
-            d="M20 12 L20 38 Q20 50 33 56 Q46 50 46 38 L46 12 Q33 12 20 12 Z"
+            d="M15 10 L15 32 Q15 42 25 47 Q35 42 35 32 L35 10 Z"
             stroke="#10B981"
-            strokeWidth="2.5"
+            strokeWidth="2"
             fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
           />
         </g>
 
         <text
-          x="45"
-          y="60"
-          fontFamily="Nunito, system-ui, -apple-system, sans-serif"
-          fontSize="13"
+          x="0"
+          y="48"
+          fontFamily="Nunito, system-ui, sans-serif"
+          fontSize="11"
           fill="#10B981"
         >
           votre tranquillité digitale
@@ -60,47 +56,43 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
   if (variant === 'footer') {
     return (
       <svg
-        width="240"
-        height="60"
-        viewBox="0 0 350 80"
+        width="220"
+        height="50"
+        viewBox="0 0 280 60"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
       >
         <text
           x="0"
-          y="38"
-          fontFamily="Nunito, system-ui, -apple-system, sans-serif"
-          fontSize="32"
+          y="28"
+          fontFamily="Nunito, system-ui, sans-serif"
+          fontSize="24"
           fontWeight="700"
           fill="#FFFFFF"
         >
           masecurité.be
         </text>
 
-        <g transform="translate(270, 2)">
+        <g transform="translate(195, 0)">
           <path
-            d="M5 5 L5 32 Q5 46 20 54 Q35 46 35 32 L35 5 Q20 5 5 5 Z"
+            d="M3 4 L3 28 Q3 40 15 46 Q27 40 27 28 L27 4 Z"
             stroke="#FFFFFF"
-            strokeWidth="2.5"
+            strokeWidth="2"
             fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
           />
           <path
-            d="M20 12 L20 38 Q20 50 33 56 Q46 50 46 38 L46 12 Q33 12 20 12 Z"
+            d="M15 10 L15 32 Q15 42 25 47 Q35 42 35 32 L35 10 Z"
             stroke="#FFFFFF"
-            strokeWidth="2.5"
+            strokeWidth="2"
             fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
           />
         </g>
 
         <text
-          x="45"
-          y="60"
-          fontFamily="Nunito, system-ui, -apple-system, sans-serif"
-          fontSize="13"
+          x="0"
+          y="48"
+          fontFamily="Nunito, system-ui, sans-serif"
+          fontSize="11"
           fill="#FFFFFF"
         >
           votre tranquillité digitale
@@ -113,38 +105,34 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
     return (
       <svg
         width="180"
-        height="40"
-        viewBox="0 0 350 80"
+        height="35"
+        viewBox="0 0 280 60"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
       >
         <text
           x="0"
-          y="38"
-          fontFamily="Nunito, system-ui, -apple-system, sans-serif"
-          fontSize="32"
+          y="28"
+          fontFamily="Nunito, system-ui, sans-serif"
+          fontSize="24"
           fontWeight="700"
           fill="#2D3748"
         >
           masecurité.be
         </text>
 
-        <g transform="translate(270, 2)">
+        <g transform="translate(195, 0)">
           <path
-            d="M5 5 L5 32 Q5 46 20 54 Q35 46 35 32 L35 5 Q20 5 5 5 Z"
+            d="M3 4 L3 28 Q3 40 15 46 Q27 40 27 28 L27 4 Z"
             stroke="#10B981"
-            strokeWidth="2.5"
+            strokeWidth="2"
             fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
           />
           <path
-            d="M20 12 L20 38 Q20 50 33 56 Q46 50 46 38 L46 12 Q33 12 20 12 Z"
+            d="M15 10 L15 32 Q15 42 25 47 Q35 42 35 32 L35 10 Z"
             stroke="#10B981"
-            strokeWidth="2.5"
+            strokeWidth="2"
             fill="none"
-            strokeLinecap="round"
-            strokeLinejoin="round"
           />
         </g>
       </svg>

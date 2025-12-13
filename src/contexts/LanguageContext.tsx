@@ -96,15 +96,24 @@ const translations = {
     nav: {
       home: 'Accueil',
       services: 'Services',
+      ourServices: 'Nos services',
       pricing: 'Tarifs',
       features: 'Avantages',
-      quickAnalysis: 'Analyse Rapide',
-      quickScan: 'Analyse Rapide',
+      quickAnalysis: 'Diagnostic rapide',
+      quickScan: 'Diagnostic rapide',
       about: 'À propos',
-      contact: 'Contact',
+      whoAreWe: 'Qui sommes-nous?',
+      contact: 'Nous contacter',
       quickSupport: 'Assistance Rapide',
-      getStarted: 'Commencer',
-      backHome: 'Retour à l\'accueil'
+      needHelp: 'Besoin d\'aide?',
+      help: 'Aide',
+      freeScan: 'Scan gratuit',
+      getStarted: 'C\'est parti!',
+      backHome: 'Retour à l\'accueil',
+      belgianCompany: 'Entreprise belge',
+      frenchSupport: 'Support en français',
+      businessHours: 'Lun-Ven: 9h-18h',
+      emergency247: 'Urgences: 24h/24'
     },
     trustBadges: {
       ssl: {
@@ -1915,15 +1924,24 @@ const translations = {
     nav: {
       home: 'Home',
       services: 'Services',
+      ourServices: 'Our services',
       pricing: 'Pricing',
       features: 'Features',
-      quickAnalysis: 'Quick Analysis',
-      quickScan: 'Quick Scan',
+      quickAnalysis: 'Quick Diagnosis',
+      quickScan: 'Quick Diagnosis',
       about: 'About',
-      contact: 'Contact',
+      whoAreWe: 'Who are we?',
+      contact: 'Contact us',
       quickSupport: 'Quick Support',
-      getStarted: 'Get Started',
-      backHome: 'Back to home'
+      needHelp: 'Need help?',
+      help: 'Help',
+      freeScan: 'Free scan',
+      getStarted: 'Let\'s go!',
+      backHome: 'Back to home',
+      belgianCompany: 'Belgian company',
+      frenchSupport: 'Support in French',
+      businessHours: 'Mon-Fri: 9am-6pm',
+      emergency247: 'Emergency: 24/7'
     },
     trustBadges: {
       ssl: {
@@ -3734,15 +3752,24 @@ const translations = {
     nav: {
       home: 'Inicio',
       services: 'Servicios',
+      ourServices: 'Nuestros servicios',
       pricing: 'Tarifas',
       features: 'Ventajas',
-      quickAnalysis: 'Análisis Rápido',
-      quickScan: 'Escaneo Rápido',
+      quickAnalysis: 'Diagnóstico rápido',
+      quickScan: 'Diagnóstico rápido',
       about: 'Sobre nosotros',
-      contact: 'Contacto',
+      whoAreWe: '¿Quiénes somos?',
+      contact: 'Contáctenos',
       quickSupport: 'Asistencia Rápida',
-      getStarted: 'Comenzar',
-      backHome: 'Volver al inicio'
+      needHelp: '¿Necesitas ayuda?',
+      help: 'Ayuda',
+      freeScan: 'Escaneo gratis',
+      getStarted: '¡Vamos!',
+      backHome: 'Volver al inicio',
+      belgianCompany: 'Empresa belga',
+      frenchSupport: 'Soporte en francés',
+      businessHours: 'Lun-Vie: 9h-18h',
+      emergency247: 'Urgencias: 24/7'
     },
     trustBadges: {
       ssl: {
