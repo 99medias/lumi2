@@ -331,378 +331,275 @@ function App() {
         </div>
       </section>
 
-      <section id="pricing" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4">
-
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
-              Nos formules
-            </span>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Des prix clairs, sans surprises
-            </h2>
-            <p className="text-gray-600">
-              Choisissez la formule adaptée à vos besoins. Sans engagement.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-
-            {/* Plan 1 - Essentielle */}
-            <div className="relative bg-gradient-to-b from-gray-50 to-white rounded-3xl p-8 border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center mb-6">
-                <span className="text-2xl">🛡️</span>
-              </div>
-
-              <h3 className="text-xl font-bold text-gray-900 mb-1">Protection Essentielle</h3>
-              <p className="text-gray-500 text-sm mb-6">Pour un appareil</p>
-
-              <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-4xl font-bold text-gray-900">€9,99</span>
-                <span className="text-gray-500">/mois</span>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="text-emerald-500">✓</span>
-                  <span>1 appareil protégé</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="text-emerald-500">✓</span>
-                  <span>Antivirus complet</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="text-emerald-500">✓</span>
-                  <span>Protection web</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="text-emerald-500">✓</span>
-                  <span>Support email</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-400">
-                  <span>—</span>
-                  <span>Contrôle parental</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-400">
-                  <span>—</span>
-                  <span>VPN inclus</span>
-                </li>
-              </ul>
-
-              <Link to="/contact" className="block w-full py-3 px-6 text-center bg-white border-2 border-gray-200 text-gray-700 rounded-xl font-semibold hover:border-emerald-500 hover:text-emerald-600 transition-all">
-                Choisir
-              </Link>
-            </div>
-
-            {/* Plan 2 - Famille (POPULAR) */}
-            <div className="relative bg-emerald-500 rounded-3xl p-8 text-white transform md:-translate-y-4 shadow-xl shadow-emerald-500/20 hover:shadow-2xl hover:-translate-y-5 transition-all duration-300">
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                <span className="bg-orange-500 text-white text-xs font-bold px-4 py-1.5 rounded-full shadow-lg uppercase tracking-wide">
-                  Le plus populaire
-                </span>
-              </div>
-
-              <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mb-6 mt-2">
-                <span className="text-2xl">👨‍👩‍👧‍👦</span>
-              </div>
-
-              <h3 className="text-xl font-bold mb-1">Protection Famille</h3>
-              <p className="text-emerald-100 text-sm mb-6">Jusqu'à 5 appareils</p>
-
-              <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-4xl font-bold">€19,99</span>
-                <span className="text-emerald-200">/mois</span>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-3">
-                  <span>✓</span>
-                  <span>Jusqu'à 5 appareils</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span>✓</span>
-                  <span>Antivirus complet</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span>✓</span>
-                  <span>Protection web</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span>✓</span>
-                  <span>Contrôle parental</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span>✓</span>
-                  <span>VPN sécurisé</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <span>✓</span>
-                  <span>Support prioritaire 7j/7</span>
-                </li>
-              </ul>
-
-              <Link to="/contact" className="block w-full py-3 px-6 text-center bg-white text-emerald-600 rounded-xl font-semibold hover:bg-emerald-50 transition-all">
-                Choisir
-              </Link>
-            </div>
-
-            {/* Plan 3 - Complète */}
-            <div className="relative bg-gradient-to-b from-purple-50 to-white rounded-3xl p-8 border border-purple-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              <div className="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-6">
-                <span className="text-2xl">👑</span>
-              </div>
-
-              <h3 className="text-xl font-bold text-gray-900 mb-1">Protection Complète</h3>
-              <p className="text-gray-500 text-sm mb-6">Appareils illimités</p>
-
-              <div className="flex items-baseline gap-1 mb-6">
-                <span className="text-4xl font-bold text-gray-900">€29,99</span>
-                <span className="text-gray-500">/mois</span>
-              </div>
-
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="text-purple-500">✓</span>
-                  <span>Appareils illimités</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="text-purple-500">✓</span>
-                  <span>Tout du Pack Famille</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="text-purple-500">✓</span>
-                  <span>Gestionnaire mots de passe</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="text-purple-500">✓</span>
-                  <span>Sauvegarde cloud 100GB</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="text-purple-500">✓</span>
-                  <span>Support VIP 24h/24</span>
-                </li>
-                <li className="flex items-center gap-3 text-gray-700">
-                  <span className="text-purple-500">✓</span>
-                  <span>Formation personnalisée</span>
-                </li>
-              </ul>
-
-              <Link to="/contact" className="block w-full py-3 px-6 text-center bg-purple-600 text-white rounded-xl font-semibold hover:bg-purple-700 transition-all">
-                Choisir
-              </Link>
-            </div>
-
-          </div>
-
-          {/* Guarantee bar */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-            <span className="flex items-center gap-2">
-              <span className="text-emerald-500">✓</span> Sans engagement
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="text-emerald-500">✓</span> Satisfait ou remboursé 30 jours
-            </span>
-            <span className="flex items-center gap-2">
-              <span className="text-emerald-500">✓</span> Paiement sécurisé
-            </span>
-          </div>
-
+      <section id="pricing" className="py-24 bg-[#fef7f0] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-gradient-to-br from-emerald-300 to-emerald-300 rounded-full filter blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-gradient-to-br from-emerald-300 to-emerald-300 rounded-full filter blur-3xl animate-float-delayed"></div>
         </div>
-      </section>
+        <div className="max-w-7xl mx-auto px-6 relative z-10">
+          <SectionHeader
+            title={t('pricing.title')}
+            subtitle={t('pricing.subtitle')}
+          />
 
-      <section className="py-20 bg-gray-50" id="services-autonomes">
-        <div className="max-w-4xl mx-auto px-4">
+          <div className="flex justify-center mb-12">
+            <div className="bg-white p-1.5 rounded-2xl shadow-xl inline-flex border-2 border-emerald-200">
+              <button
+                onClick={() => setCustomerType('particulier')}
+                className={`px-10 py-4 rounded-xl font-bold transition-all duration-300 ${customerType === 'particulier' ? 'bg-gradient-to-r from-emerald-400 to-[#f97316] text-white shadow-lg' : 'text-[#1e293b] hover:text-[#f97316]'}`}
+              >
+                {t('pricing.customerType.individual')}
+              </button>
+              <button
+                onClick={() => setCustomerType('professionnel')}
+                className={`px-10 py-4 rounded-xl font-bold transition-all duration-300 ${customerType === 'professionnel' ? 'bg-gradient-to-r from-emerald-400 to-[#f97316] text-white shadow-lg' : 'text-[#1e293b] hover:text-[#f97316]'}`}
+              >
+                {t('pricing.customerType.professional')}
+              </button>
+            </div>
+          </div>
 
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
-              Services à la carte
-            </span>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Besoin d'un coup de main ponctuel?
-            </h2>
-            <p className="text-gray-600">
-              Pas besoin d'abonnement. Payez uniquement ce dont vous avez besoin.
+          {/* Payment Trust Badges */}
+          <div className="mb-12 max-w-4xl mx-auto">
+            <PaymentBadges variant="full" title={t('paymentBadges.title')} />
+          </div>
+
+          {/* Feature Comparison Table */}
+          <div className="mb-12 overflow-x-auto">
+            <div className="max-w-[1000px] mx-auto bg-gradient-to-b from-white to-emerald-50/20 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 border-2 border-emerald-200/50 overflow-hidden">
+              {/* Table Header */}
+              <div className="grid grid-cols-4 bg-gradient-to-b from-slate-50 to-slate-100/50 sticky top-0 z-10">
+                <div className="p-5 font-bold text-lg text-[#1e293b] border-r border-[#e2e8f0] rounded-tl-3xl">
+                  {t('pricing.features')}
+                </div>
+                <div className="p-4 text-center border-r border-[#e2e8f0] hover:bg-emerald-50 transition-all duration-200">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <Shield className="w-7 h-7 text-emerald-400" strokeWidth={2} />
+                    <h3 className="text-xl font-bold text-[#1e293b]">{(t('pricing.offers.s') as any).name}</h3>
+                    <span className="text-xs text-gray-500 font-medium">{t('pricing.essential')}</span>
+                    <span className="text-[10px] px-2.5 py-0.5 rounded-full border border-emerald-300 text-emerald-600 bg-emerald-50 mt-0.5">
+                      {t('pricing.bestPrice')}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4 text-center bg-gradient-to-br from-[#f97316] to-[#ea580c] text-white border-r border-[#ea580c] popular-glow relative hover:scale-[1.01] transition-all duration-200">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <Star className="w-7 h-7 text-white fill-white" />
+                    <h3 className="text-xl font-bold">{(t('pricing.offers.m') as any).name}</h3>
+                    <span className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">
+                      {t('pricing.mostPopular')}
+                    </span>
+                  </div>
+                </div>
+                <div className="p-4 text-center rounded-tr-3xl hover:bg-emerald-50 transition-all duration-200">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <Crown className="w-7 h-7 text-emerald-600 fill-emerald-600" />
+                    <h3 className="text-xl font-bold text-[#1e293b]">{(t('pricing.offers.l') as any).name}</h3>
+                    <span className="text-xs text-gray-500 font-medium">{t('pricing.complete')}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Feature Rows */}
+              {(t('pricing.featureTable') as any[]).map((feature, idx) => (
+                <div key={idx} className={`grid grid-cols-4 ${idx % 2 === 0 ? 'bg-white' : 'bg-emerald-50/20'} border-t border-emerald-100/50 hover:bg-emerald-100/40 transition-all duration-200 group`}>
+                  <div className="p-4 border-r border-emerald-100/50 row-hover-slide">
+                    <div className="font-bold text-[#1e293b] text-[0.9rem] mb-2">{feature.name}</div>
+                    {feature.bullets ? (
+                      <ul className="flex flex-col gap-1 list-none p-0 m-0">
+                        {feature.bullets.map((bullet: string, bulletIdx: number) => (
+                          <li key={bulletIdx} className="flex items-center gap-1.5 text-[0.8rem] text-[#64748b] leading-snug">
+                            <span className="text-[#f97316] text-base leading-none">•</span>
+                            <span>{bullet}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div className="text-[0.8rem] text-[#64748b] leading-relaxed">{feature.description}</div>
+                    )}
+                    {feature.badge && (
+                      <div className="mt-2">
+                        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-medium ${
+                          feature.badgeColor === 'red' ? 'bg-red-50 text-red-600' :
+                          feature.badgeColor === 'green' ? 'bg-green-50 text-green-600' :
+                          'bg-gray-100 text-gray-600'
+                        }`}>
+                          {feature.badge}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-4 text-center text-[#1e293b] border-r border-emerald-100/50 flex items-center justify-center transition-all duration-200">
+                    <span className={feature.values[0] === '✓' ? 'text-[#f97316] text-2xl font-bold checkmark-animate checkmark-hover cursor-pointer' : feature.values[0] === '—' ? 'text-[#94a3b8] text-xl' : 'whitespace-pre-line'} style={feature.values[0] === '✓' ? {animationDelay: `${idx * 0.05}s`} : {}}>{feature.values[0]}</span>
+                  </div>
+                  <div className="p-4 text-center bg-emerald-50/30 text-[#1e293b] font-semibold border-r border-emerald-200/50 flex items-center justify-center popular-glow transition-all duration-200">
+                    <span className={feature.values[1] === '✓' ? 'text-[#f97316] text-2xl font-bold checkmark-animate checkmark-hover cursor-pointer' : feature.values[1] === '—' ? 'text-[#94a3b8] text-xl' : 'whitespace-pre-line'} style={feature.values[1] === '✓' ? {animationDelay: `${idx * 0.05}s`} : {}}>{feature.values[1]}</span>
+                  </div>
+                  <div className="p-4 text-center text-[#1e293b] flex items-center justify-center transition-all duration-200">
+                    <span className={feature.values[2] === '✓' ? 'text-[#f97316] text-2xl font-bold checkmark-animate checkmark-hover cursor-pointer' : feature.values[2] === '—' ? 'text-[#94a3b8] text-xl' : 'whitespace-pre-line'} style={feature.values[2] === '✓' ? {animationDelay: `${idx * 0.05}s`} : {}}>{feature.values[2]}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Pricing Table */}
+          <div className="mb-12 overflow-x-auto">
+            <div className="max-w-[1000px] mx-auto bg-gradient-to-b from-white to-emerald-50/20 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-300 border-2 border-emerald-200/50 overflow-hidden">
+              {/* Light Title Header */}
+              <div className="bg-gradient-to-r from-emerald-50 via-amber-50 to-emerald-50 text-[#1e293b] p-5 text-center border-b border-emerald-200/50">
+                <h3 className="text-xl font-bold">{t('pricing.bestMonthlyValue')}</h3>
+              </div>
+
+              {/* Column Headers */}
+              <div className="grid grid-cols-4 bg-gradient-to-b from-slate-50 to-slate-100/50 border-b border-emerald-200/50 sticky top-0 z-10">
+                <div className="p-5 font-bold text-lg text-[#1e293b] border-r border-emerald-100/50">
+                  {t('pricing.durationHeader')}
+                </div>
+                <div className="p-4 text-center border-r border-emerald-100/50 hover:bg-emerald-50 transition-all duration-200">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <Shield className="w-7 h-7 text-emerald-400" strokeWidth={2} />
+                    <h3 className="text-xl font-bold text-[#1e293b]">{(t('pricing.offers.s') as any).name}</h3>
+                    <span className="text-xs text-gray-500 font-medium">{t('pricing.essential')}</span>
+                    <span className="text-[10px] px-2.5 py-0.5 rounded-full border border-emerald-300 text-emerald-600 bg-emerald-50 mt-0.5">
+                      {t('pricing.bestPrice')}
+                    </span>
+                    <span className="text-[10px] text-gray-400 mt-0.5">{t('pricing.from')} €19,98{t('pricing.perMonthShort')}</span>
+                  </div>
+                </div>
+                <div className="p-4 text-center bg-gradient-to-br from-[#f97316] to-[#ea580c] text-white border-r border-[#ea580c] relative popular-glow hover:scale-[1.01] transition-all duration-200">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <Star className="w-7 h-7 text-white fill-white" />
+                    <h3 className="text-xl font-bold">{(t('pricing.offers.m') as any).name}</h3>
+                    <span className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg animate-pulse">
+                      {t('pricing.mostPopular')}
+                    </span>
+                    <span className="text-[10px] text-emerald-100 mt-0.5">{t('pricing.from')} €22,48{t('pricing.perMonthShort')}</span>
+                  </div>
+                </div>
+                <div className="p-4 text-center hover:bg-emerald-50 transition-all duration-200">
+                  <div className="flex flex-col items-center gap-1.5">
+                    <Crown className="w-7 h-7 text-emerald-600 fill-emerald-600" />
+                    <h3 className="text-xl font-bold text-[#1e293b]">{(t('pricing.offers.l') as any).name}</h3>
+                    <span className="text-xs text-gray-500 font-medium">{t('pricing.complete')}</span>
+                    <span className="text-[10px] text-gray-400 mt-0.5">{t('pricing.from')} €29,98{t('pricing.perMonthShort')}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Duration Rows */}
+              {[
+                {
+                  duration: t('pricing.tableRows.duration36'),
+                  sublabel: t('pricing.inAdvancePlus24Free'),
+                  badge: t('pricing.bestValue'),
+                  badgeColor: 'bg-[#f97316]',
+                  note: `(${t('pricing.onlyAfterFreeVerification')})`,
+                  prices: ['€19,98', '€22,48', '€29,98'],
+                  totals: [`60 ${t('pricing.monthsShort')} / €1199`, `60 ${t('pricing.monthsShort')} / €1349`, `60 ${t('pricing.monthsShort')} / €1799`]
+                },
+                {
+                  duration: t('pricing.tableRows.duration24'),
+                  sublabel: t('pricing.inAdvancePlus12Free'),
+                  badge: t('pricing.recommended'),
+                  badgeColor: 'bg-[#f97316]',
+                  prices: ['€26,36', '€31,92', '€34,69'],
+                  totals: [`36 ${t('pricing.monthsShort')} / €949`, `36 ${t('pricing.monthsShort')} / €1149`, `36 ${t('pricing.monthsShort')} / €1249`]
+                },
+                {
+                  duration: t('pricing.tableRows.duration12'),
+                  sublabel: t('pricing.inAdvancePlus3Free'),
+                  prices: ['€46,60', '€53,27', '€63,27'],
+                  totals: [`15 ${t('pricing.monthsShort')} / €699`, `15 ${t('pricing.monthsShort')} / €799`, `15 ${t('pricing.monthsShort')} / €949`]
+                },
+                {
+                  duration: t('pricing.tableRows.duration6'),
+                  sublabel: '',
+                  prices: ['€74,83', '€91,50', '€108,17'],
+                  totals: [`6 ${t('pricing.monthsShort')} / €449`, `6 ${t('pricing.monthsShort')} / €549`, `6 ${t('pricing.monthsShort')} / €649`]
+                }
+              ].map((row, idx) => (
+                <div key={idx} className={`grid grid-cols-4 ${idx % 2 === 0 ? 'bg-white' : 'bg-emerald-50/20'} border-t border-emerald-100/50 hover:bg-emerald-100/40 transition-all duration-200 group`}>
+                  <div className="p-5 border-r border-emerald-100/50 row-hover-slide">
+                    <div className="font-extrabold text-emerald-600 text-xl">{row.duration}</div>
+                    {row.sublabel && (
+                      <div className="text-base text-green-600 font-bold mt-1.5">{row.sublabel}</div>
+                    )}
+                    {row.badge && (
+                      <div className="mt-3">
+                        <span className={`${row.badgeColor} text-white text-xs font-bold px-4 py-2 rounded-full shadow-md inline-flex items-center gap-1.5`}>
+                          <span className="inline-block w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+                          {row.badge}
+                        </span>
+                      </div>
+                    )}
+                    {row.note && (
+                      <div className="text-xs text-[#64748b] mt-2 italic">{row.note}</div>
+                    )}
+                  </div>
+                  <div className="p-5 text-center border-r border-emerald-100/50 flex flex-col items-center justify-center transition-all duration-200 group-hover:scale-105">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-bold text-emerald-500">{row.prices[0]}</span>
+                      <span className="text-base font-semibold text-slate-600">{t('pricing.perMonthShort')}</span>
+                    </div>
+                    <div className="text-base text-[#1e293b] mt-2 font-semibold">{row.totals[0]}</div>
+                  </div>
+                  <div className="p-5 text-center bg-emerald-50/30 border-r border-emerald-200/50 flex flex-col items-center justify-center popular-glow transition-all duration-200 group-hover:scale-105">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-bold text-emerald-500">{row.prices[1]}</span>
+                      <span className="text-base font-semibold text-slate-600">{t('pricing.perMonthShort')}</span>
+                    </div>
+                    <div className="text-base text-[#1e293b] mt-2 font-bold">{row.totals[1]}</div>
+                  </div>
+                  <div className="p-5 text-center flex flex-col items-center justify-center transition-all duration-200 group-hover:scale-105">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-bold text-emerald-500">{row.prices[2]}</span>
+                      <span className="text-base font-semibold text-slate-600">{t('pricing.perMonthShort')}</span>
+                    </div>
+                    <div className="text-base text-[#1e293b] mt-2 font-semibold">{row.totals[2]}</div>
+                  </div>
+                </div>
+              ))}
+
+              {/* CTA Row */}
+              <div className="grid grid-cols-4 bg-gradient-to-r from-emerald-50 via-amber-50 to-emerald-50 border-t-2 border-emerald-200/50">
+                <div className="p-5"></div>
+                <div className="p-5 text-center">
+                  <Link
+                    to="/contact"
+                    className="inline-block w-full px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-2xl font-bold hover:from-emerald-600 hover:to-emerald-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  >
+                    {t('pricing.choose')}
+                  </Link>
+                </div>
+                <div className="p-5 text-center bg-emerald-50/30 popular-glow">
+                  <Link
+                    to="/contact"
+                    className="inline-block w-full px-6 py-4 bg-gradient-to-r from-[#f97316] to-[#ea580c] text-white rounded-2xl font-bold text-lg hover:from-emerald-600 hover:to-emerald-700 hover:scale-110 active:scale-95 transition-all duration-200 shadow-xl hover:shadow-2xl ring-2 ring-emerald-200 hover:ring-emerald-300"
+                  >
+                    {t('pricing.choose')}
+                  </Link>
+                </div>
+                <div className="p-5 text-center">
+                  <Link
+                    to="/contact"
+                    className="inline-block w-full px-6 py-3 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-2xl font-bold hover:from-emerald-600 hover:to-emerald-700 hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl"
+                  >
+                    {t('pricing.choose')}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Installation Fees Section */}
+          <div className="bg-gradient-to-br from-white via-emerald-50/20 to-white rounded-3xl shadow-2xl border-2 border-emerald-200/50 p-10 mb-8 hover:shadow-3xl transition-all duration-300">
+            <h3 className="text-2xl font-bold text-[#1e293b] mb-4 text-center">{t('pricing.installation.title')}</h3>
+            <p className="text-[#1e293b] text-center leading-relaxed mb-6 max-w-3xl mx-auto">
+              {t('pricing.installation.description')} <strong className="text-[#f97316] bg-emerald-100 px-2 py-1 rounded-lg">{t('pricing.installation.priceAmount')}</strong>
             </p>
+            <PaymentBadges variant="full" title={t('pricing.installation.paymentMethodsTitle')} />
           </div>
-
-          <div className="space-y-4">
-
-            {/* Service 1 - Diagnostic */}
-            <div className="bg-white rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <span className="text-xl">🔍</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">Diagnostic complet</h3>
-                  <p className="text-gray-600 text-sm">Analyse complète de votre appareil avec rapport détaillé et recommandations.</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 md:flex-shrink-0">
-                <div className="text-right">
-                  <span className="text-2xl font-bold text-gray-900">€29</span>
-                  <span className="text-gray-500 text-sm block">une fois</span>
-                </div>
-                <Link to="/contact" className="px-5 py-2.5 bg-emerald-500 text-white rounded-lg font-medium hover:bg-emerald-600 transition-colors">
-                  Commander
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 2 - Nettoyage virus */}
-            <div className="bg-white rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <span className="text-xl">🦠</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">Nettoyage virus & malware</h3>
-                  <p className="text-gray-600 text-sm">Suppression complète des virus, malwares et logiciels indésirables.</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 md:flex-shrink-0">
-                <div className="text-right">
-                  <span className="text-2xl font-bold text-gray-900">€49</span>
-                  <span className="text-gray-500 text-sm block">une fois</span>
-                </div>
-                <Link to="/contact" className="px-5 py-2.5 bg-emerald-500 text-white rounded-lg font-medium hover:bg-emerald-600 transition-colors">
-                  Commander
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 3 - Installation */}
-            <div className="bg-white rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <span className="text-xl">⚙️</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">Installation & configuration</h3>
-                  <p className="text-gray-600 text-sm">On installe et configure vos logiciels de sécurité. Vous n'avez rien à faire!</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 md:flex-shrink-0">
-                <div className="text-right">
-                  <span className="text-2xl font-bold text-gray-900">€39</span>
-                  <span className="text-gray-500 text-sm block">une fois</span>
-                </div>
-                <Link to="/contact" className="px-5 py-2.5 bg-emerald-500 text-white rounded-lg font-medium hover:bg-emerald-600 transition-colors">
-                  Commander
-                </Link>
-              </div>
-            </div>
-
-            {/* Service 4 - Formation */}
-            <div className="bg-white rounded-2xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 border border-gray-100 hover:border-emerald-200 hover:shadow-md transition-all">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <span className="text-xl">🎓</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-900 mb-1">Formation sécurité (1h)</h3>
-                  <p className="text-gray-600 text-sm">Apprenez à reconnaître les arnaques et à protéger vos données. Session personnalisée.</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 md:flex-shrink-0">
-                <div className="text-right">
-                  <span className="text-2xl font-bold text-gray-900">€59</span>
-                  <span className="text-gray-500 text-sm block">1 heure</span>
-                </div>
-                <Link to="/contact" className="px-5 py-2.5 bg-emerald-500 text-white rounded-lg font-medium hover:bg-emerald-600 transition-colors">
-                  Commander
-                </Link>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
-      <section className="py-20 bg-white" id="options">
-        <div className="max-w-6xl mx-auto px-4">
-
-          <div className="text-center mb-12">
-            <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
-              Options supplémentaires
-            </span>
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Boostez votre protection
-            </h2>
-            <p className="text-gray-600">
-              Ajoutez ces options à n'importe quelle formule pour une protection renforcée.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-
-            {/* Add-on 1 - VPN Premium */}
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              <div className="w-10 h-10 bg-blue-500 rounded-xl flex items-center justify-center mb-4">
-                <span className="text-lg">🌐</span>
-              </div>
-              <h3 className="font-bold text-gray-900 mb-1">VPN Premium</h3>
-              <p className="text-gray-600 text-sm mb-4">Navigation anonyme sur tous vos appareils</p>
-              <div className="flex items-baseline gap-1 mb-4">
-                <span className="text-2xl font-bold text-gray-900">€4,99</span>
-                <span className="text-gray-500 text-sm">/mois</span>
-              </div>
-              <Link to="/contact" className="block w-full py-2 px-4 text-center bg-blue-500 text-white rounded-lg text-sm font-medium hover:bg-blue-600 transition-colors">
-                Ajouter
-              </Link>
-            </div>
-
-            {/* Add-on 2 - Gestionnaire MDP */}
-            <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 border border-purple-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              <div className="w-10 h-10 bg-purple-500 rounded-xl flex items-center justify-center mb-4">
-                <span className="text-lg">🔐</span>
-              </div>
-              <h3 className="font-bold text-gray-900 mb-1">Coffre-fort MDP</h3>
-              <p className="text-gray-600 text-sm mb-4">Tous vos mots de passe sécurisés</p>
-              <div className="flex items-baseline gap-1 mb-4">
-                <span className="text-2xl font-bold text-gray-900">€2,99</span>
-                <span className="text-gray-500 text-sm">/mois</span>
-              </div>
-              <Link to="/contact" className="block w-full py-2 px-4 text-center bg-purple-500 text-white rounded-lg text-sm font-medium hover:bg-purple-600 transition-colors">
-                Ajouter
-              </Link>
-            </div>
-
-            {/* Add-on 3 - Sauvegarde Cloud */}
-            <div className="bg-gradient-to-br from-emerald-50 to-white rounded-2xl p-6 border border-emerald-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              <div className="w-10 h-10 bg-emerald-500 rounded-xl flex items-center justify-center mb-4">
-                <span className="text-lg">☁️</span>
-              </div>
-              <h3 className="font-bold text-gray-900 mb-1">Sauvegarde Cloud</h3>
-              <p className="text-gray-600 text-sm mb-4">100GB de stockage sécurisé</p>
-              <div className="flex items-baseline gap-1 mb-4">
-                <span className="text-2xl font-bold text-gray-900">€3,99</span>
-                <span className="text-gray-500 text-sm">/mois</span>
-              </div>
-              <Link to="/contact" className="block w-full py-2 px-4 text-center bg-emerald-500 text-white rounded-lg text-sm font-medium hover:bg-emerald-600 transition-colors">
-                Ajouter
-              </Link>
-            </div>
-
-            {/* Add-on 4 - Support Premium */}
-            <div className="bg-gradient-to-br from-orange-50 to-white rounded-2xl p-6 border border-orange-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-              <div className="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center mb-4">
-                <span className="text-lg">⚡</span>
-              </div>
-              <h3 className="font-bold text-gray-900 mb-1">Support Express</h3>
-              <p className="text-gray-600 text-sm mb-4">Réponse garantie en 1h max</p>
-              <div className="flex items-baseline gap-1 mb-4">
-                <span className="text-2xl font-bold text-gray-900">€5,99</span>
-                <span className="text-gray-500 text-sm">/mois</span>
-              </div>
-              <Link to="/contact" className="block w-full py-2 px-4 text-center bg-orange-500 text-white rounded-lg text-sm font-medium hover:bg-orange-600 transition-colors">
-                Ajouter
-              </Link>
-            </div>
-
-          </div>
-
         </div>
       </section>
 
