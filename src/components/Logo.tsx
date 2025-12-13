@@ -8,50 +8,55 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
   if (variant === 'full' || variant === 'header') {
     return (
       <svg
-        width="280"
-        height="50"
-        viewBox="0 0 300 55"
+        width="240"
+        height="45"
+        viewBox="0 0 240 45"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
       >
         <text
           x="0"
-          y="35"
+          y="26"
           fontFamily="Poppins, system-ui, sans-serif"
-          fontSize="30"
+          fontSize="24"
           fontWeight="700"
           fill="#1a202c"
         >
           MaSécurité
         </text>
 
-        <rect x="188" y="12" width="40" height="28" rx="6" fill="#10b981" />
+        <rect x="142" y="8" width="32" height="22" rx="5" fill="#10b981" />
         <text
-          x="193"
-          y="32"
+          x="146"
+          y="24"
           fontFamily="Poppins, system-ui, sans-serif"
-          fontSize="16"
+          fontSize="13"
           fontWeight="700"
           fill="white"
         >
           .be
         </text>
 
-        <g transform="translate(240, 8)">
+        <g transform="translate(180, 3)">
           <path
-            d="M18 2 L4 7 L4 20 Q4 34 18 40 Q32 34 32 20 L32 7 Z"
+            d="M14 2 L4 5 L4 17 Q4 27 14 32 Q24 27 24 17 L24 5 Z"
+            fill="#10b981"
+            opacity="0.15"
+          />
+          <path
+            d="M14 2 L4 5 L4 17 Q4 27 14 32 Q24 27 24 17 L24 5 Z"
             stroke="#10b981"
-            strokeWidth="2.5"
+            strokeWidth="2"
             fill="none"
           />
         </g>
 
         <text
           x="0"
-          y="50"
+          y="42"
           fontFamily="Poppins, system-ui, sans-serif"
-          fontSize="11"
-          fontWeight="400"
+          fontSize="10"
+          fontWeight="500"
           fill="#10b981"
         >
           votre tranquillité digitale
@@ -63,50 +68,55 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
   if (variant === 'footer') {
     return (
       <svg
-        width="280"
-        height="50"
-        viewBox="0 0 300 55"
+        width="240"
+        height="45"
+        viewBox="0 0 240 45"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
       >
         <text
           x="0"
-          y="35"
+          y="26"
           fontFamily="Poppins, system-ui, sans-serif"
-          fontSize="30"
+          fontSize="24"
           fontWeight="700"
           fill="#ffffff"
         >
           MaSécurité
         </text>
 
-        <rect x="188" y="12" width="40" height="28" rx="6" fill="#10b981" />
+        <rect x="142" y="8" width="32" height="22" rx="5" fill="#10b981" />
         <text
-          x="193"
-          y="32"
+          x="146"
+          y="24"
           fontFamily="Poppins, system-ui, sans-serif"
-          fontSize="16"
+          fontSize="13"
           fontWeight="700"
           fill="white"
         >
           .be
         </text>
 
-        <g transform="translate(240, 8)">
+        <g transform="translate(180, 3)">
           <path
-            d="M18 2 L4 7 L4 20 Q4 34 18 40 Q32 34 32 20 L32 7 Z"
+            d="M14 2 L4 5 L4 17 Q4 27 14 32 Q24 27 24 17 L24 5 Z"
+            fill="#10b981"
+            opacity="0.15"
+          />
+          <path
+            d="M14 2 L4 5 L4 17 Q4 27 14 32 Q24 27 24 17 L24 5 Z"
             stroke="#10b981"
-            strokeWidth="2.5"
+            strokeWidth="2"
             fill="none"
           />
         </g>
 
         <text
           x="0"
-          y="50"
+          y="42"
           fontFamily="Poppins, system-ui, sans-serif"
-          fontSize="11"
-          fontWeight="400"
+          fontSize="10"
+          fontWeight="500"
           fill="#9ca3af"
         >
           votre tranquillité digitale
@@ -118,40 +128,45 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
   if (variant === 'compact') {
     return (
       <svg
-        width="260"
-        height="38"
-        viewBox="0 0 280 40"
+        width="210"
+        height="32"
+        viewBox="0 0 210 32"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
       >
         <text
           x="0"
-          y="28"
+          y="22"
           fontFamily="Poppins, system-ui, sans-serif"
-          fontSize="26"
+          fontSize="20"
           fontWeight="700"
           fill="#1a202c"
         >
           MaSécurité
         </text>
 
-        <rect x="165" y="8" width="36" height="24" rx="5" fill="#10b981" />
+        <rect x="120" y="6" width="28" height="18" rx="4" fill="#10b981" />
         <text
-          x="170"
-          y="26"
+          x="123"
+          y="20"
           fontFamily="Poppins, system-ui, sans-serif"
-          fontSize="14"
+          fontSize="11"
           fontWeight="700"
           fill="white"
         >
           .be
         </text>
 
-        <g transform="translate(212, 5)">
+        <g transform="translate(154, 2)">
           <path
-            d="M15 2 L4 6 L4 17 Q4 28 15 33 Q26 28 26 17 L26 6 Z"
+            d="M12 2 L4 4 L4 14 Q4 22 12 26 Q20 22 20 14 L20 4 Z"
+            fill="#10b981"
+            opacity="0.15"
+          />
+          <path
+            d="M12 2 L4 4 L4 14 Q4 22 12 26 Q20 22 20 14 L20 4 Z"
             stroke="#10b981"
-            strokeWidth="2"
+            strokeWidth="1.5"
             fill="none"
           />
         </g>
