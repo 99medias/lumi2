@@ -17,7 +17,7 @@ const PageHeader = ({ showLanguageSelector = true }: PageHeaderProps) => {
       <div className="max-w-7xl mx-auto px-6">
         <nav className="flex justify-between items-center py-4">
           <Link to="/" className="flex items-center transition-all duration-300 hover:scale-105">
-            <Logo variant="header" className="scale-125" />
+            <Logo variant="header" />
           </Link>
 
           <div className="flex items-center gap-4">

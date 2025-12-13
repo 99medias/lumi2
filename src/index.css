@@ -60,3 +60,29 @@ a[href*="bolt.new"] {
 .popular-glow {
   box-shadow: 0 0 30px rgba(16, 185, 129, 0.2), inset 0 0 20px rgba(16, 185, 129, 0.05);
 }
+
+/* Logo Styles */
+.logo-image {
+  transition: all 0.3s ease;
+}
+
+.logo-image:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .logo-image {
+    height: 36px !important;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
+}
