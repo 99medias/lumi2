@@ -51,28 +51,20 @@ function Header() {
               </button>
 
               {/* Dropdown Menu */}
-              <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div className="p-2">
-                  <a href="/#pricing" className="block px-4 py-3 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-emerald-600 transition-colors">
-                    <div className="font-medium">{t('nav.essentialProtection')}</div>
-                    <div className="text-sm text-gray-500">{t('nav.essentialProtectionDesc')}</div>
-                  </a>
-                  <a href="/#pricing" className="block px-4 py-3 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-emerald-600 transition-colors">
-                    <div className="font-medium">{t('nav.familyProtection')}</div>
-                    <div className="text-sm text-gray-500">{t('nav.familyProtectionDesc')}</div>
-                  </a>
-                  <a href="/#pricing" className="block px-4 py-3 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-emerald-600 transition-colors">
-                    <div className="font-medium">{t('nav.completeProtection')}</div>
-                    <div className="text-sm text-gray-500">{t('nav.completeProtectionDesc')}</div>
-                  </a>
-                  <hr className="my-2 border-gray-100" />
-                  <Link to="/verification" className="block px-4 py-3 rounded-lg hover:bg-orange-50 text-gray-700 hover:text-orange-600 transition-colors">
-                    <div className="font-medium flex items-center gap-2">
-                      <span>🔍</span> {t('nav.checkMyData')}
-                    </div>
-                    <div className="text-sm text-gray-500">{t('nav.checkMyDataDesc')}</div>
-                  </Link>
-                </div>
+              <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-2">
+                <a href="/#pricing" className="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                  {t('nav.essentialProtection')}
+                </a>
+                <a href="/#pricing" className="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                  {t('nav.familyProtection')}
+                </a>
+                <a href="/#pricing" className="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
+                  {t('nav.completeProtection')}
+                </a>
+                <hr className="my-2 border-gray-100" />
+                <Link to="/verification" className="block px-4 py-2 text-orange-600 hover:bg-orange-50 transition-colors">
+                  🔍 {t('nav.checkMyData')}
+                </Link>
               </div>
             </div>
 
@@ -139,18 +131,18 @@ function Header() {
                   <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
                 </button>
                 {servicesOpen && (
-                  <div className="ml-4 mt-2 space-y-1">
-                    <a href="/#pricing" className="block px-3 py-2 rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm" onClick={() => setMobileMenuOpen(false)}>
+                  <div className="ml-4 mt-1 space-y-0.5">
+                    <a href="/#pricing" className="block px-3 py-2 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                       {t('nav.essentialProtection')}
                     </a>
-                    <a href="/#pricing" className="block px-3 py-2 rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm" onClick={() => setMobileMenuOpen(false)}>
+                    <a href="/#pricing" className="block px-3 py-2 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                       {t('nav.familyProtection')}
                     </a>
-                    <a href="/#pricing" className="block px-3 py-2 rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm" onClick={() => setMobileMenuOpen(false)}>
+                    <a href="/#pricing" className="block px-3 py-2 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                       {t('nav.completeProtection')}
                     </a>
-                    <hr className="my-2 border-gray-100" />
-                    <Link to="/verification" className="block px-3 py-2 rounded-lg text-orange-600 hover:bg-orange-50 transition-colors text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
+                    <hr className="my-1.5 border-gray-100" />
+                    <Link to="/verification" className="block px-3 py-2 text-orange-600 hover:bg-orange-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                       🔍 {t('nav.checkMyData')}
                     </Link>
                   </div>
