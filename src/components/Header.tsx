@@ -32,54 +32,37 @@ function Header() {
         </div>
       </div>
 
-      <nav className="max-w-7xl mx-auto px-4 py-4">
+      <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex-shrink-0">
             <Logo variant="header" />
           </Link>
 
           <div className="hidden lg:flex items-center gap-8">
-            <Link to="/" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
+            <Link to="/" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors whitespace-nowrap">
               {t('nav.home')}
             </Link>
 
-            {/* Services Dropdown */}
-            <div className="relative group">
-              <button className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 font-medium transition-colors">
-                {t('nav.ourServices')}
-                <ChevronDown className="w-4 h-4" />
-              </button>
+            <a href="/#pricing" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors whitespace-nowrap">
+              {t('nav.ourServices')}
+            </a>
 
-              {/* Dropdown Menu */}
-              <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 py-2">
-                <a href="/#pricing" className="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
-                  {t('nav.essentialProtection')}
-                </a>
-                <a href="/#pricing" className="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
-                  {t('nav.familyProtection')}
-                </a>
-                <a href="/#pricing" className="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
-                  {t('nav.completeProtection')}
-                </a>
-              </div>
-            </div>
-
-            <a href="/#pricing" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
+            <a href="/#pricing" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors whitespace-nowrap">
               {t('nav.pricing')}
             </a>
-            <Link to="/about" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
+            <Link to="/about" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors whitespace-nowrap">
               {t('nav.whoAreWe')}
             </Link>
-            <Link to="/contact" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
+            <Link to="/contact" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors whitespace-nowrap">
               {t('nav.contact')}
             </Link>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 flex-shrink-0">
             {/* Vérifier mes données - Orange accent button */}
             <Link
               to="/verification"
-              className="hidden lg:flex items-center gap-2 px-4 py-2 text-orange-600 font-medium border border-orange-200 rounded-full hover:bg-orange-50 transition-colors"
+              className="hidden xl:flex items-center gap-1.5 px-4 py-2 text-orange-600 font-medium border border-orange-200 rounded-full hover:bg-orange-50 transition-colors whitespace-nowrap"
             >
               <span>🔍</span>
               <span>{t('nav.checkMyData')}</span>
@@ -88,7 +71,7 @@ function Header() {
             {/* Diagnostic Rapide - Green text button */}
             <Link
               to="/analyse-rapide"
-              className="hidden md:flex items-center gap-2 px-4 py-2 text-emerald-600 font-medium hover:bg-emerald-50 rounded-full transition-colors"
+              className="hidden md:flex items-center gap-1.5 px-4 py-2 text-emerald-600 font-medium hover:bg-emerald-50 rounded-full transition-colors whitespace-nowrap"
             >
               <span>⚡</span>
               <span>{t('nav.quickScan')}</span>
@@ -99,7 +82,7 @@ function Header() {
               href="https://masecu2025.getscreen.me/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-5 py-2.5 bg-emerald-500 text-white rounded-full font-semibold hover:bg-emerald-600 transition-colors"
+              className="px-5 py-2.5 bg-emerald-500 text-white rounded-full font-semibold hover:bg-emerald-600 transition-colors whitespace-nowrap"
             >
               <span className="hidden sm:inline">{t('nav.needHelp')}</span>
               <span className="sm:hidden">🆘</span>
@@ -111,7 +94,7 @@ function Header() {
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg hover:bg-gray-100"
+              className="lg:hidden p-2 rounded-lg hover:bg-gray-100 flex-shrink-0"
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
