@@ -182,8 +182,7 @@ function App() {
               <p className="text-gray-600 mb-6">
                 Antivirus professionnel, pare-feu intelligent et mises à jour automatiques pour une protection complète.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-emerald-600 font-semibold">À partir de €9,99/mois</span>
+              <div className="flex items-center justify-end">
                 <a href="/#pricing" className="text-emerald-600 font-medium group-hover:underline">
                   En savoir plus →
                 </a>
@@ -198,8 +197,7 @@ function App() {
               <p className="text-gray-600 mb-6">
                 Protégez jusqu'à 5 appareils. Contrôle parental inclus pour une navigation sécurisée pour vos enfants.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-blue-600 font-semibold">€19,99/mois</span>
+              <div className="flex items-center justify-end">
                 <a href="/#pricing" className="text-blue-600 font-medium group-hover:underline">
                   En savoir plus →
                 </a>
@@ -214,8 +212,7 @@ function App() {
               <p className="text-gray-600 mb-6">
                 Un technicien se déplace chez vous pour résoudre vos problèmes informatiques rapidement.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-orange-600 font-semibold">€49 / intervention</span>
+              <div className="flex items-center justify-end">
                 <a href="/contact" className="text-orange-600 font-medium group-hover:underline">
                   En savoir plus →
                 </a>
