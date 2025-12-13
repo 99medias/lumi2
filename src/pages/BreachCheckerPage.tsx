@@ -98,18 +98,18 @@ export default function BreachCheckerPage() {
   const estimatedValue = calculateDataValue(results?.breaches || []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-orange-50 to-white flex flex-col">
+    <div className="min-h-screen bg-gradient-to-b from-white via-emerald-50 to-white flex flex-col">
       <Header />
       <section className="pt-32 pb-12 px-4 flex-1">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-3 bg-orange-100 px-6 py-3 rounded-full mb-8">
-            <span className="inline-block w-2 h-2 bg-orange-600 rounded-full animate-pulse"></span>
-            <span className="font-semibold text-orange-700">{t('breachChecker.hero.badge')}</span>
+          <div className="inline-flex items-center gap-3 bg-emerald-100 px-6 py-3 rounded-full mb-8">
+            <span className="inline-block w-2 h-2 bg-emerald-600 rounded-full animate-pulse"></span>
+            <span className="font-semibold text-emerald-700">{t('breachChecker.hero.badge')}</span>
           </div>
 
           <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 mb-6 leading-tight">
             {t('breachChecker.hero.title')}{' '}
-            <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">{t('breachChecker.hero.titleHighlight')}</span>
+            <span className="bg-gradient-to-r from-red-600 to-emerald-600 bg-clip-text text-transparent">{t('breachChecker.hero.titleHighlight')}</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-slate-600 max-w-3xl mx-auto mb-12 leading-relaxed">
@@ -180,7 +180,7 @@ export default function BreachCheckerPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
                 <a
                   href="/tarifs"
-                  className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold hover:from-orange-600 hover:to-orange-700 transition-all inline-flex items-center justify-center gap-2"
+                  className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-bold hover:from-emerald-600 hover:to-emerald-700 transition-all inline-flex items-center justify-center gap-2"
                 >
                   <span>{t('breachChecker.cta.button')}</span>
                   <span>→</span>

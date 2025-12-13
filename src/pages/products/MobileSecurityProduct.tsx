@@ -30,7 +30,7 @@ const MobileSecurityProduct = () => {
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl animate-float"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500 rounded-full filter blur-3xl animate-float-delayed"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl animate-float-delayed"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -86,7 +86,7 @@ const MobileSecurityProduct = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-emerald-500/10 to-orange-500/10 backdrop-blur-lg border border-emerald-500/30 rounded-3xl p-8 mb-16">
+          <div className="bg-gradient-to-br from-emerald-500/10 to-emerald-500/10 backdrop-blur-lg border border-emerald-500/30 rounded-3xl p-8 mb-16">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">{productData.browsersTitle}</h3>
             <p className="text-slate-300 text-center mb-6">
               {productData.browsersSubtitle}
@@ -119,7 +119,7 @@ const MobileSecurityProduct = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 backdrop-blur-lg border border-amber-500/30 rounded-3xl p-8 mb-16">
+          <div className="bg-gradient-to-br from-amber-500/10 to-emerald-500/10 backdrop-blur-lg border border-amber-500/30 rounded-3xl p-8 mb-16">
             <div className="flex items-start gap-4">
               <Shield className="w-12 h-12 text-amber-400 flex-shrink-0" />
               <div>
@@ -143,7 +143,7 @@ const MobileSecurityProduct = () => {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-orange-900 relative overflow-hidden">
+      <section className="py-20 bg-gradient-to-br from-emerald-900 via-emerald-800 to-emerald-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>

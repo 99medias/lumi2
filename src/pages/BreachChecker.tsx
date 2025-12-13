@@ -413,8 +413,8 @@ function BreachChecker() {
         };
       case 'high':
         return {
-          badge: 'bg-orange-500 text-white',
-          tag: 'bg-orange-50 text-orange-700 border border-orange-200',
+          badge: 'bg-emerald-500 text-white',
+          tag: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
         };
       case 'medium':
         return {
@@ -436,7 +436,7 @@ function BreachChecker() {
       <main className="pt-32 pb-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl mb-6 shadow-lg shadow-orange-500/30">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl mb-6 shadow-lg shadow-emerald-500/30">
               <ShieldCheck className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
@@ -453,7 +453,7 @@ function BreachChecker() {
                 onClick={() => { setActiveTab('email'); setPasswordResult(null); setEmailResult(null); setDehashedResult(null); setError(null); }}
                 className={`flex items-center justify-center gap-2 py-5 px-4 font-semibold transition-all duration-300 ${
                   activeTab === 'email'
-                    ? 'text-orange-500 bg-orange-50 border-b-4 border-orange-500'
+                    ? 'text-emerald-500 bg-emerald-50 border-b-4 border-emerald-500'
                     : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
                 }`}
               >
@@ -464,7 +464,7 @@ function BreachChecker() {
                 onClick={() => { setActiveTab('password'); setPasswordResult(null); setEmailResult(null); setDehashedResult(null); setError(null); }}
                 className={`flex items-center justify-center gap-2 py-5 px-4 font-semibold transition-all duration-300 ${
                   activeTab === 'password'
-                    ? 'text-orange-500 bg-orange-50 border-b-4 border-orange-500'
+                    ? 'text-emerald-500 bg-emerald-50 border-b-4 border-emerald-500'
                     : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
                 }`}
               >
@@ -475,7 +475,7 @@ function BreachChecker() {
                 onClick={() => { setActiveTab('darkweb'); setPasswordResult(null); setEmailResult(null); setDehashedResult(null); setError(null); }}
                 className={`flex items-center justify-center gap-2 py-5 px-4 font-semibold transition-all duration-300 ${
                   activeTab === 'darkweb'
-                    ? 'text-orange-500 bg-orange-50 border-b-4 border-orange-500'
+                    ? 'text-emerald-500 bg-emerald-50 border-b-4 border-emerald-500'
                     : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'
                 }`}
               >
@@ -498,7 +498,7 @@ function BreachChecker() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder={t('breachChecker.emailChecker.placeholder')}
-                        className="w-full pl-12 pr-4 py-4 border-2 border-slate-200 rounded-xl focus:border-orange-400 focus:ring-4 focus:ring-orange-100 outline-none transition-all text-slate-700"
+                        className="w-full pl-12 pr-4 py-4 border-2 border-slate-200 rounded-xl focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100 outline-none transition-all text-slate-700"
                         onKeyDown={(e) => e.key === 'Enter' && handleEmailCheck()}
                       />
                     </div>
@@ -507,7 +507,7 @@ function BreachChecker() {
                   <button
                     onClick={handleEmailCheck}
                     disabled={loading || !email.trim()}
-                    className="w-full flex items-center justify-center gap-3 py-4 px-6 bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold rounded-xl hover:from-orange-500 hover:to-orange-600 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none"
+                    className="w-full flex items-center justify-center gap-3 py-4 px-6 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white font-bold rounded-xl hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none"
                   >
                     {loading ? (
                       <>
@@ -544,7 +544,7 @@ function BreachChecker() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         placeholder={t('breachChecker.passwordChecker.placeholder')}
-                        className="w-full pl-12 pr-12 py-4 border-2 border-slate-200 rounded-xl focus:border-orange-400 focus:ring-4 focus:ring-orange-100 outline-none transition-all text-slate-700"
+                        className="w-full pl-12 pr-12 py-4 border-2 border-slate-200 rounded-xl focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100 outline-none transition-all text-slate-700"
                         onKeyDown={(e) => e.key === 'Enter' && handlePasswordCheck()}
                       />
                       <button
@@ -560,7 +560,7 @@ function BreachChecker() {
                   <button
                     onClick={handlePasswordCheck}
                     disabled={loading || !password.trim()}
-                    className="w-full flex items-center justify-center gap-3 py-4 px-6 bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold rounded-xl hover:from-orange-500 hover:to-orange-600 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none"
+                    className="w-full flex items-center justify-center gap-3 py-4 px-6 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white font-bold rounded-xl hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none"
                   >
                     {loading ? (
                       <>
@@ -597,7 +597,7 @@ function BreachChecker() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder={language === 'fr' ? 'votre@email.com' : 'your@email.com'}
-                        className="w-full pl-12 pr-4 py-4 border-2 border-slate-200 rounded-xl focus:border-orange-400 focus:ring-4 focus:ring-orange-100 outline-none transition-all text-slate-700"
+                        className="w-full pl-12 pr-4 py-4 border-2 border-slate-200 rounded-xl focus:border-emerald-400 focus:ring-4 focus:ring-emerald-100 outline-none transition-all text-slate-700"
                         onKeyDown={(e) => e.key === 'Enter' && handleDehashedCheck()}
                       />
                     </div>
@@ -606,7 +606,7 @@ function BreachChecker() {
                   <button
                     onClick={handleDehashedCheck}
                     disabled={loading || !email.trim()}
-                    className="w-full flex items-center justify-center gap-3 py-4 px-6 bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold rounded-xl hover:from-orange-500 hover:to-orange-600 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none"
+                    className="w-full flex items-center justify-center gap-3 py-4 px-6 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white font-bold rounded-xl hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:shadow-none"
                   >
                     {loading ? (
                       <>
@@ -854,12 +854,12 @@ function BreachChecker() {
                       </div>
 
                       <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/10 rounded-full -translate-y-32 translate-x-32" />
-                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-orange-500/10 rounded-full translate-y-24 -translate-x-24" />
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full -translate-y-32 translate-x-32" />
+                        <div className="absolute bottom-0 left-0 w-48 h-48 bg-emerald-500/10 rounded-full translate-y-24 -translate-x-24" />
 
                         <div className="relative">
                           <div className="flex items-center gap-4 mb-6">
-                            <div className="w-16 h-16 bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl flex items-center justify-center">
+                            <div className="w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center">
                               <Shield className="w-8 h-8 text-white" />
                             </div>
                             <div>
@@ -896,7 +896,7 @@ function BreachChecker() {
                           <div className="flex flex-wrap gap-4">
                             <Link
                               to="/#pricing"
-                              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold rounded-xl hover:from-orange-500 hover:to-orange-600 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30"
+                              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white font-bold rounded-xl hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30"
                             >
                               {language === 'fr' ? 'Voir nos offres de protection' : 'View protection plans'}
                             </Link>
@@ -1124,7 +1124,7 @@ function BreachChecker() {
                         </div>
                         <div className="flex items-center justify-between py-3">
                           <span className="text-slate-600">{t('breachChecker.results.passwordPwned.recommendation')}</span>
-                          <span className="font-bold text-orange-600">{t('breachChecker.results.passwordPwned.changeNow')}</span>
+                          <span className="font-bold text-emerald-600">{t('breachChecker.results.passwordPwned.changeNow')}</span>
                         </div>
                       </div>
                     </>
@@ -1148,7 +1148,7 @@ function BreachChecker() {
 
                   <div className="bg-slate-800 rounded-2xl p-8">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-orange-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center flex-shrink-0">
                         <Shield className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
@@ -1160,7 +1160,7 @@ function BreachChecker() {
                         </p>
                         <Link
                           to="/#pricing"
-                          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-orange-500 text-white font-bold rounded-xl hover:from-orange-500 hover:to-orange-600 transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/30"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white font-bold rounded-xl hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 hover:shadow-lg hover:shadow-emerald-500/30"
                         >
                           {t('breachChecker.cta.button')}
                         </Link>
@@ -1179,7 +1179,7 @@ function BreachChecker() {
                 href="https://haveibeenpwned.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-orange-500 hover:text-orange-600 font-medium inline-flex items-center gap-1"
+                className="text-emerald-500 hover:text-emerald-600 font-medium inline-flex items-center gap-1"
               >
                 Have I Been Pwned
                 <ExternalLink className="w-3 h-3" />

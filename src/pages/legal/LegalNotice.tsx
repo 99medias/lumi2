@@ -7,7 +7,7 @@ function LegalNotice() {
     <div className="min-h-screen bg-white">
       <PageHeader showLanguageSelector={true} />
 
-      <section className="relative pt-32 pb-16 overflow-hidden bg-gradient-to-br from-orange-400 via-orange-400 to-orange-500">
+      <section className="relative pt-32 pb-16 overflow-hidden bg-gradient-to-br from-emerald-400 via-emerald-400 to-emerald-500">
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4">Mentions Légales</h1>
           <p className="text-xl text-white/90">Dernière mise à jour : Janvier 2025</p>
@@ -18,7 +18,7 @@ function LegalNotice() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="prose prose-lg max-w-none">
 
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl p-6 mb-8 flex items-start gap-4">
+            <div className="bg-gradient-to-br from-amber-50 to-emerald-50 border-2 border-amber-200 rounded-2xl p-6 mb-8 flex items-start gap-4">
               <Building className="w-8 h-8 text-amber-600 flex-shrink-0 mt-1" />
               <p className="text-lg text-slate-700 leading-relaxed mb-0">
                 Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, voici les mentions légales du site <strong>MySafeSecurity</strong>.
@@ -176,7 +176,7 @@ function LegalNotice() {
               Ce site a été conçu et développé par MySafeSecurity. Les icônes utilisées proviennent de la bibliothèque Lucide React sous licence ISC.
             </p>
 
-            <div className="bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl p-8 mt-12">
+            <div className="bg-gradient-to-br from-amber-50 to-emerald-50 border-2 border-amber-200 rounded-2xl p-8 mt-12">
               <h3 className="text-2xl font-bold text-slate-800 mb-4">Besoin de Plus d'Informations ?</h3>
               <p className="text-lg text-slate-700 mb-4">
                 Pour toute question concernant ces mentions légales, contactez-nous :

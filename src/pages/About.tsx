@@ -56,13 +56,13 @@ function About() {
   const valueColors = [
     { color: 'from-rose-400 to-pink-500', bgColor: 'from-rose-50 to-pink-50' },
     { color: 'from-violet-400 to-purple-500', bgColor: 'from-violet-50 to-purple-50' },
-    { color: 'from-amber-400 to-orange-500', bgColor: 'from-amber-50 to-orange-50' },
-    { color: 'from-orange-400 to-orange-500', bgColor: 'from-orange-50 to-orange-50' }
+    { color: 'from-amber-400 to-emerald-500', bgColor: 'from-amber-50 to-emerald-50' },
+    { color: 'from-emerald-400 to-emerald-500', bgColor: 'from-emerald-50 to-emerald-50' }
   ];
 
   const benefitColors = [
     'text-purple-600', 'text-emerald-600', 'text-amber-600',
-    'text-orange-600', 'text-rose-600', 'text-violet-600'
+    'text-emerald-600', 'text-rose-600', 'text-violet-600'
   ];
 
   return (
@@ -86,7 +86,7 @@ function About() {
 
       <Header />
 
-      <section className="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-orange-400 via-orange-400 to-orange-500">
+      <section className="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-emerald-400 via-emerald-400 to-emerald-500">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-white rounded-full filter blur-3xl animate-float"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full filter blur-3xl animate-float-delayed"></div>
@@ -100,7 +100,7 @@ function About() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-orange-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-emerald-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {(aboutData.stats as StatItem[]).map((stat, index) => {
@@ -136,7 +136,7 @@ function About() {
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-emerald-600 via-orange-600 to-orange-600 bg-clip-text text-transparent mb-6">{aboutData.story.title}</h2>
+            <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-emerald-600 via-emerald-600 to-emerald-600 bg-clip-text text-transparent mb-6">{aboutData.story.title}</h2>
             <p className="text-2xl text-slate-700 max-w-3xl mx-auto">{aboutData.story.subtitle}</p>
           </div>
           <div className="max-w-4xl mx-auto">
@@ -145,10 +145,10 @@ function About() {
                 <strong className="text-emerald-600">MySafeSecurity</strong> {aboutData.story.paragraph1.replace('MySafeSecurity est née', 'est née').replace('MySafeSecurity was born', 'was born').replace('MySafeSecurity nació', 'nació')}
               </p>
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                {aboutData.story.paragraph2.split('chacun mérite')[0]}<strong className="text-orange-600">{aboutData.story.paragraph2.match(/chacun mérite[^.]+\./)?.[0] || aboutData.story.paragraph2.match(/everyone deserves[^.]+\./)?.[0] || aboutData.story.paragraph2.match(/todos merecen[^.]+\./)?.[0]}</strong>{aboutData.story.paragraph2.split(/\. C'est|That's why|Por eso/)[1] ? '. ' + aboutData.story.paragraph2.split(/\. C'est|That's why|Por eso/)[1] : ''}
+                {aboutData.story.paragraph2.split('chacun mérite')[0]}<strong className="text-emerald-600">{aboutData.story.paragraph2.match(/chacun mérite[^.]+\./)?.[0] || aboutData.story.paragraph2.match(/everyone deserves[^.]+\./)?.[0] || aboutData.story.paragraph2.match(/todos merecen[^.]+\./)?.[0]}</strong>{aboutData.story.paragraph2.split(/\. C'est|That's why|Por eso/)[1] ? '. ' + aboutData.story.paragraph2.split(/\. C'est|That's why|Por eso/)[1] : ''}
               </p>
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                {aboutData.story.paragraph3.split('prendre le temps')[0]}<strong className="text-orange-600">{aboutData.story.paragraph3.match(/prendre le temps nécessaire|take the necessary time|tomar el tiempo necesario/)?.[0]}</strong>{aboutData.story.paragraph3.split(/avec chaque|with each|con cada/)[1] ? ' ' + aboutData.story.paragraph3.split(/avec chaque|with each|con cada/)[0].split(/\. /).pop() + ' avec chaque' + aboutData.story.paragraph3.split(/avec chaque|with each|con cada/)[1] : aboutData.story.paragraph3.replace(/.*prendre le temps nécessaire|.*take the necessary time|.*tomar el tiempo necesario/, '')}
+                {aboutData.story.paragraph3.split('prendre le temps')[0]}<strong className="text-emerald-600">{aboutData.story.paragraph3.match(/prendre le temps nécessaire|take the necessary time|tomar el tiempo necesario/)?.[0]}</strong>{aboutData.story.paragraph3.split(/avec chaque|with each|con cada/)[1] ? ' ' + aboutData.story.paragraph3.split(/avec chaque|with each|con cada/)[0].split(/\. /).pop() + ' avec chaque' + aboutData.story.paragraph3.split(/avec chaque|with each|con cada/)[1] : aboutData.story.paragraph3.replace(/.*prendre le temps nécessaire|.*take the necessary time|.*tomar el tiempo necesario/, '')}
               </p>
               <p className="text-xl text-slate-700 leading-relaxed">
                 {aboutData.story.paragraph4.split('150')[0]}<strong className="text-emerald-600">150 000 {aboutData.story.paragraph4.match(/familles|families|familias/)?.[0]}</strong>{aboutData.story.paragraph4.split(/150[., ]000 familles|150[., ]000 families|150[., ]000 familias/)[1]}
@@ -188,7 +188,7 @@ function About() {
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-orange-600 via-orange-600 to-orange-600 bg-clip-text text-transparent mb-6">{aboutData.benefits.title}</h2>
+            <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-emerald-600 via-emerald-600 to-emerald-600 bg-clip-text text-transparent mb-6">{aboutData.benefits.title}</h2>
             <p className="text-2xl text-slate-700">{aboutData.benefits.subtitle}</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -211,14 +211,14 @@ function About() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-amber-50 via-emerald-50 to-rose-50 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-96 h-96 bg-amber-300 rounded-full filter blur-3xl animate-float"></div>
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-rose-300 rounded-full filter blur-3xl animate-float-delayed"></div>
         </div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-amber-600 via-orange-600 to-rose-600 bg-clip-text text-transparent mb-6">{aboutData.testimonialsSection.title}</h2>
+            <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-amber-600 via-emerald-600 to-rose-600 bg-clip-text text-transparent mb-6">{aboutData.testimonialsSection.title}</h2>
             <p className="text-2xl text-slate-700">{aboutData.testimonialsSection.subtitle}</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -240,7 +240,7 @@ function About() {
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-br from-emerald-500 via-orange-500 to-orange-600 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-emerald-500 via-emerald-500 to-emerald-600 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>

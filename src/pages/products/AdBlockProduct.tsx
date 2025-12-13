@@ -35,13 +35,13 @@ const AdBlockProduct = () => {
       {/* Hero Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500 rounded-full filter blur-3xl animate-float"></div>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl animate-float"></div>
           <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-red-500 rounded-full filter blur-3xl animate-float-delayed"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl mb-6 shadow-xl shadow-orange-500/50">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-3xl mb-6 shadow-xl shadow-emerald-500/50">
               <Ban className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6">
@@ -51,7 +51,7 @@ const AdBlockProduct = () => {
               {t('adBlockProduct.hero.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#pricing" className="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl font-bold text-lg hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+              <a href="#pricing" className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-red-600 text-white rounded-xl font-bold text-lg hover:from-emerald-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                 {t('adBlockProduct.hero.ctaPrimary')}
               </a>
               <a href="#features" className="px-8 py-4 bg-slate-700/50 border-2 border-slate-600 text-white rounded-xl font-bold text-lg hover:bg-slate-700 transition-all duration-300">
@@ -75,9 +75,9 @@ const AdBlockProduct = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border-2 border-orange-500/30 rounded-3xl p-8 backdrop-blur-sm">
+            <div className="bg-gradient-to-br from-emerald-500/10 to-red-500/10 border-2 border-emerald-500/30 rounded-3xl p-8 backdrop-blur-sm">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center">
                   <Ban className="w-6 h-6 text-white" />
                 </div>
                 <div>
@@ -88,7 +88,7 @@ const AdBlockProduct = () => {
               <p className="text-slate-400 text-sm">{t('adBlockProduct.liveStats.adsHelper')}</p>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border-2 border-orange-500/30 rounded-3xl p-8 backdrop-blur-sm">
+            <div className="bg-gradient-to-br from-emerald-500/10 to-red-500/10 border-2 border-emerald-500/30 rounded-3xl p-8 backdrop-blur-sm">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
                   <Eye className="w-6 h-6 text-white" />
@@ -101,7 +101,7 @@ const AdBlockProduct = () => {
               <p className="text-slate-400 text-sm">{t('adBlockProduct.liveStats.trackersHelper')}</p>
             </div>
 
-            <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 border-2 border-orange-500/30 rounded-3xl p-8 backdrop-blur-sm">
+            <div className="bg-gradient-to-br from-emerald-500/10 to-red-500/10 border-2 border-emerald-500/30 rounded-3xl p-8 backdrop-blur-sm">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center">
                   <Zap className="w-6 h-6 text-white" />
@@ -147,8 +147,8 @@ const AdBlockProduct = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-orange-500/50 transition-all duration-300 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-emerald-500/50 transition-all duration-300 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-3">{feature.title}</h3>
@@ -224,12 +224,12 @@ const AdBlockProduct = () => {
             </div>
 
             {/* With AdBlock */}
-            <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 backdrop-blur-sm border-2 border-orange-500/50 rounded-3xl p-8">
+            <div className="bg-gradient-to-br from-emerald-500/10 to-red-500/10 backdrop-blur-sm border-2 border-emerald-500/50 rounded-3xl p-8">
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center">
                   <Check className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-orange-400">{t('adBlockProduct.comparison.with.title')}</h3>
+                <h3 className="text-2xl font-bold text-emerald-400">{t('adBlockProduct.comparison.with.title')}</h3>
               </div>
 
               <div className="space-y-4">
@@ -296,7 +296,7 @@ const AdBlockProduct = () => {
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-slate-800 mb-4">{t('adBlockProduct.pricing.planTitle')}</h3>
               <div className="mb-6">
-                <div className="text-5xl font-bold text-orange-600 mb-2">
+                <div className="text-5xl font-bold text-emerald-600 mb-2">
                   {t('adBlockProduct.pricing.price')}
                   <span className="text-2xl text-slate-600"> {t('adBlockProduct.pricing.perMonth')}</span>
                 </div>
@@ -318,7 +318,7 @@ const AdBlockProduct = () => {
 
             <Link
               to="/contact"
-              className="block w-full text-center py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl font-bold text-lg hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="block w-full text-center py-4 bg-gradient-to-r from-emerald-500 to-red-600 text-white rounded-xl font-bold text-lg hover:from-emerald-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               {t('adBlockProduct.pricing.ctaButton')}
             </Link>
@@ -332,7 +332,7 @@ const AdBlockProduct = () => {
             <p className="text-slate-400 mb-4">{t('adBlockProduct.pricing.helpText')}</p>
             <Link
               to="/contact"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white rounded-xl font-bold text-lg hover:from-orange-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-emerald-500 to-red-600 text-white rounded-xl font-bold text-lg hover:from-emerald-600 hover:to-red-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               {t('adBlockProduct.pricing.expertButton')}
             </Link>
@@ -347,17 +347,17 @@ const AdBlockProduct = () => {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-red-600">
+      <section className="py-20 bg-gradient-to-r from-emerald-600 to-red-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {t('adBlockProduct.finalCta.title')}
           </h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-emerald-100 mb-8">
             {t('adBlockProduct.finalCta.subtitle')}
           </p>
           <Link
             to="/contact"
-            className="inline-block px-10 py-5 bg-white text-orange-600 rounded-xl font-bold text-lg hover:bg-slate-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+            className="inline-block px-10 py-5 bg-white text-emerald-600 rounded-xl font-bold text-lg hover:bg-slate-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
           >
             {t('adBlockProduct.finalCta.button')}
           </Link>

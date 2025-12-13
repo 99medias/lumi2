@@ -13,7 +13,7 @@ function PrivacyPolicy() {
     <div className="min-h-screen bg-white">
       <PageHeader showLanguageSelector={true} />
 
-      <section className="relative pt-32 pb-16 overflow-hidden bg-gradient-to-br from-orange-400 via-orange-400 to-orange-500">
+      <section className="relative pt-32 pb-16 overflow-hidden bg-gradient-to-br from-emerald-400 via-emerald-400 to-emerald-500">
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4">{policy.title}</h1>
           <p className="text-xl text-white/90">{policy.lastUpdate}</p>
@@ -24,15 +24,15 @@ function PrivacyPolicy() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="prose prose-lg max-w-none">
 
-            <div className="bg-gradient-to-br from-orange-50 to-orange-50 border-2 border-orange-200 rounded-2xl p-6 mb-8 flex items-start gap-4">
-              <Lock className="w-8 h-8 text-orange-600 flex-shrink-0 mt-1" />
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-50 border-2 border-emerald-200 rounded-2xl p-6 mb-8 flex items-start gap-4">
+              <Lock className="w-8 h-8 text-emerald-600 flex-shrink-0 mt-1" />
               <p className="text-lg text-slate-700 leading-relaxed mb-0">
                 {policy.intro}
               </p>
             </div>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section1.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -51,7 +51,7 @@ function PrivacyPolicy() {
             </div>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section2.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -80,7 +80,7 @@ function PrivacyPolicy() {
             </ul>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section3.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -93,7 +93,7 @@ function PrivacyPolicy() {
             </ul>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section4.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -106,7 +106,7 @@ function PrivacyPolicy() {
             </ul>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section5.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -124,7 +124,7 @@ function PrivacyPolicy() {
             </div>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section6.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -132,7 +132,7 @@ function PrivacyPolicy() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section7.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -145,7 +145,7 @@ function PrivacyPolicy() {
             </ul>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section8.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -174,7 +174,7 @@ function PrivacyPolicy() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section9.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -190,15 +190,15 @@ function PrivacyPolicy() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section10.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              {policy.section10.description} <Link to="/legal/cookie-policy" className="text-orange-600 hover:text-orange-700 font-semibold underline">{policy.section10.cookiePolicyLink}</Link>.
+              {policy.section10.description} <Link to="/legal/cookie-policy" className="text-emerald-600 hover:text-emerald-700 font-semibold underline">{policy.section10.cookiePolicyLink}</Link>.
             </p>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {policy.section11.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">

@@ -12,7 +12,7 @@ function TermsOfService() {
     <div className="min-h-screen bg-white">
       <PageHeader showLanguageSelector={true} />
 
-      <section className="relative pt-32 pb-16 overflow-hidden bg-gradient-to-br from-orange-400 via-orange-400 to-orange-500">
+      <section className="relative pt-32 pb-16 overflow-hidden bg-gradient-to-br from-emerald-400 via-emerald-400 to-emerald-500">
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4">{tos.title}</h1>
           <p className="text-xl text-white/90">{tos.lastUpdate}</p>
@@ -23,7 +23,7 @@ function TermsOfService() {
         <div className="max-w-4xl mx-auto px-6">
           <div className="prose prose-lg max-w-none">
 
-            <div className="bg-gradient-to-br from-orange-50 to-orange-50 border-2 border-orange-200 rounded-2xl p-6 mb-8">
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-50 border-2 border-emerald-200 rounded-2xl p-6 mb-8">
               <p className="text-lg text-slate-700 leading-relaxed mb-0">
                 {tos.intro.split('MySafeSecurity')[0]}
                 <strong>MySafeSecurity</strong>
@@ -32,7 +32,7 @@ function TermsOfService() {
             </div>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section1.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -45,7 +45,7 @@ function TermsOfService() {
             </ul>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section2.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -68,7 +68,7 @@ function TermsOfService() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section3.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -79,7 +79,7 @@ function TermsOfService() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section4.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -110,7 +110,7 @@ function TermsOfService() {
             </div>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section5.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -123,7 +123,7 @@ function TermsOfService() {
             </ul>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section6.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-4">
@@ -136,7 +136,7 @@ function TermsOfService() {
             </ul>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section7.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -149,12 +149,12 @@ function TermsOfService() {
             </ul>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section8.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               {tos.section8.para1.split(tos.section8.privacyPolicyLink)[0]}
-              <Link to="/legal/privacy-policy" className="text-orange-600 hover:text-orange-700 font-semibold underline">
+              <Link to="/legal/privacy-policy" className="text-emerald-600 hover:text-emerald-700 font-semibold underline">
                 {tos.section8.privacyPolicyLink}
               </Link>
               {tos.section8.para1.split(tos.section8.privacyPolicyLink)[1]}
@@ -166,7 +166,7 @@ function TermsOfService() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section9.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -177,7 +177,7 @@ function TermsOfService() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section10.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -188,7 +188,7 @@ function TermsOfService() {
             </p>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
-              <CheckCircle className="w-8 h-8 text-orange-500" />
+              <CheckCircle className="w-8 h-8 text-emerald-500" />
               {tos.section11.title}
             </h2>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
@@ -201,7 +201,7 @@ function TermsOfService() {
               </a>.
             </p>
 
-            <div className="bg-gradient-to-br from-emerald-50 to-orange-50 border-2 border-emerald-200 rounded-2xl p-8 mt-12">
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-50 border-2 border-emerald-200 rounded-2xl p-8 mt-12">
               <h3 className="text-2xl font-bold text-slate-800 mb-4">{tos.contact.title}</h3>
               <p className="text-lg text-slate-700 mb-4">
                 {tos.contact.intro}

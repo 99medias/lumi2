@@ -12,7 +12,7 @@ function CookiePolicy() {
     <div className="min-h-screen bg-white">
       <PageHeader showLanguageSelector={true} />
 
-      <section className="relative pt-32 pb-16 overflow-hidden bg-gradient-to-br from-orange-400 via-orange-400 to-orange-500">
+      <section className="relative pt-32 pb-16 overflow-hidden bg-gradient-to-br from-emerald-400 via-emerald-400 to-emerald-500">
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4">{policy.title}</h1>
           <p className="text-xl text-white/90">{policy.lastUpdate}</p>
@@ -120,7 +120,7 @@ function CookiePolicy() {
             </div>
 
             <h3 className="text-2xl font-bold text-slate-700 mb-4">{policy.section3.advertising.title}</h3>
-            <div className="bg-orange-50 rounded-xl p-6 mb-6">
+            <div className="bg-emerald-50 rounded-xl p-6 mb-6">
               <ul className="space-y-2 text-slate-700 mb-4">
                 <li><strong>Finalité :</strong> {policy.section3.advertising.purpose}</li>
                 <li><strong>Durée :</strong> {policy.section3.advertising.duration}</li>

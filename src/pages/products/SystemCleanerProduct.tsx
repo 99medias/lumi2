@@ -44,13 +44,13 @@ const SystemCleanerProduct = () => {
       {/* Hero Section */}
       <section className="py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500 rounded-full filter blur-3xl animate-float"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500 rounded-full filter blur-3xl animate-float-delayed"></div>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl animate-float"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl animate-float-delayed"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl mb-6 shadow-xl shadow-orange-500/50">
+            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-3xl mb-6 shadow-xl shadow-emerald-500/50">
               <HardDrive className="w-10 h-10 text-white" />
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6">
@@ -60,7 +60,7 @@ const SystemCleanerProduct = () => {
               {t('systemCleanerProduct.hero.subtitle')}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <a href="#pricing" className="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
+              <a href="#pricing" className="px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-bold text-lg hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1">
                 {t('systemCleanerProduct.hero.ctaPrimary')}
               </a>
               <button
@@ -89,14 +89,14 @@ const SystemCleanerProduct = () => {
           {scanning ? (
             <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-12">
               <div className="flex flex-col items-center">
-                <div className="w-32 h-32 border-8 border-orange-500/30 border-t-orange-500 rounded-full animate-spin mb-8"></div>
+                <div className="w-32 h-32 border-8 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin mb-8"></div>
                 <p className="text-slate-300 text-lg">{t('systemCleanerProduct.scan.scanning.analyzing')}</p>
                 <p className="text-slate-500 text-sm mt-2">{t('systemCleanerProduct.scan.scanning.wait')}</p>
               </div>
             </div>
           ) : (
             <div className="space-y-6">
-              <div className="bg-gradient-to-br from-amber-500/10 to-orange-500/10 border-2 border-amber-500/30 rounded-3xl p-8 backdrop-blur-sm">
+              <div className="bg-gradient-to-br from-amber-500/10 to-emerald-500/10 border-2 border-amber-500/30 rounded-3xl p-8 backdrop-blur-sm">
                 <div className="flex items-center gap-4 mb-6">
                   <div className="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center">
                     <Trash2 className="w-6 h-6 text-white" />
@@ -105,7 +105,7 @@ const SystemCleanerProduct = () => {
                     <h3 className="text-2xl font-bold text-white mb-2">{t('systemCleanerProduct.scan.results.tempFiles')}</h3>
                     <div className="flex items-center justify-between">
                       <div className="w-full bg-slate-700 rounded-full h-3 mr-4">
-                        <div className="bg-gradient-to-r from-amber-500 to-orange-500 h-3 rounded-full" style={{width: '87%'}}></div>
+                        <div className="bg-gradient-to-r from-amber-500 to-emerald-500 h-3 rounded-full" style={{width: '87%'}}></div>
                       </div>
                       <span className="text-3xl font-bold text-amber-400">{scanResults.tempFiles}</span>
                     </div>
@@ -132,18 +132,18 @@ const SystemCleanerProduct = () => {
                 <p className="text-slate-400">{t('systemCleanerProduct.scan.results.registryIssuesDesc')}</p>
               </div>
 
-              <div className="bg-gradient-to-br from-orange-500/10 to-yellow-500/10 border-2 border-orange-500/30 rounded-3xl p-8 backdrop-blur-sm">
+              <div className="bg-gradient-to-br from-emerald-500/10 to-yellow-500/10 border-2 border-emerald-500/30 rounded-3xl p-8 backdrop-blur-sm">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center">
+                  <div className="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center">
                     <HardDrive className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-white mb-2">{t('systemCleanerProduct.scan.results.diskSpace')}</h3>
                     <div className="flex items-center justify-between">
                       <div className="w-full bg-slate-700 rounded-full h-3 mr-4">
-                        <div className="bg-gradient-to-r from-orange-500 to-yellow-500 h-3 rounded-full" style={{width: '84%'}}></div>
+                        <div className="bg-gradient-to-r from-emerald-500 to-yellow-500 h-3 rounded-full" style={{width: '84%'}}></div>
                       </div>
-                      <span className="text-3xl font-bold text-orange-400">{scanResults.diskSpace} GB</span>
+                      <span className="text-3xl font-bold text-emerald-400">{scanResults.diskSpace} GB</span>
                     </div>
                   </div>
                 </div>
@@ -168,13 +168,13 @@ const SystemCleanerProduct = () => {
                 <p className="text-slate-400">{t('systemCleanerProduct.scan.results.startupItemsDesc')}</p>
               </div>
 
-              <div className="bg-orange-500/10 border border-orange-500/30 rounded-2xl p-6">
+              <div className="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-6">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center flex-shrink-0">
                     <Check className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <p className="text-orange-200 font-semibold mb-2 text-lg">
+                    <p className="text-emerald-200 font-semibold mb-2 text-lg">
                       {t('systemCleanerProduct.scan.results.solution')}
                     </p>
                     <p className="text-slate-300">
@@ -202,8 +202,8 @@ const SystemCleanerProduct = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-orange-500/50 transition-all duration-300 group">
-                <div className="w-14 h-14 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <div key={index} className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 hover:border-emerald-500/50 transition-all duration-300 group">
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-3">{feature.title}</h3>
@@ -228,7 +228,7 @@ const SystemCleanerProduct = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 text-center">
-              <Gauge className="w-12 h-12 text-orange-400 mx-auto mb-4" />
+              <Gauge className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
               <p className="text-slate-400 mb-2">{t('systemCleanerProduct.comparison.bootTime')}</p>
               <div className="flex items-center justify-center gap-4">
                 <div>
@@ -244,7 +244,7 @@ const SystemCleanerProduct = () => {
             </div>
 
             <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 text-center">
-              <HardDrive className="w-12 h-12 text-orange-400 mx-auto mb-4" />
+              <HardDrive className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
               <p className="text-slate-400 mb-2">{t('systemCleanerProduct.comparison.diskSpace')}</p>
               <div className="flex items-center justify-center gap-4">
                 <div>
@@ -260,7 +260,7 @@ const SystemCleanerProduct = () => {
             </div>
 
             <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 text-center">
-              <RefreshCw className="w-12 h-12 text-orange-400 mx-auto mb-4" />
+              <RefreshCw className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
               <p className="text-slate-400 mb-2">{t('systemCleanerProduct.comparison.performance')}</p>
               <div className="flex items-center justify-center gap-4">
                 <div>
@@ -297,7 +297,7 @@ const SystemCleanerProduct = () => {
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-slate-800 mb-4">{t('systemCleanerProduct.pricing.planTitle')}</h3>
               <div className="mb-6">
-                <div className="text-5xl font-bold text-orange-600 mb-2">
+                <div className="text-5xl font-bold text-emerald-600 mb-2">
                   {t('systemCleanerProduct.pricing.price')}
                   <span className="text-2xl text-slate-600"> {t('systemCleanerProduct.pricing.perMonth')}</span>
                 </div>
@@ -319,7 +319,7 @@ const SystemCleanerProduct = () => {
 
             <Link
               to="/contact"
-              className="block w-full text-center py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="block w-full text-center py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-bold text-lg hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               {t('systemCleanerProduct.pricing.ctaButton')}
             </Link>
@@ -333,7 +333,7 @@ const SystemCleanerProduct = () => {
             <p className="text-slate-400 mb-4">{t('systemCleanerProduct.pricing.helpText')}</p>
             <Link
               to="/contact"
-              className="inline-block px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold text-lg hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+              className="inline-block px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-bold text-lg hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               {t('systemCleanerProduct.pricing.expertButton')}
             </Link>
@@ -348,17 +348,17 @@ const SystemCleanerProduct = () => {
       </div>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-orange-600 to-orange-600">
+      <section className="py-20 bg-gradient-to-r from-emerald-600 to-emerald-600">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             {t('systemCleanerProduct.finalCta.title')}
           </h2>
-          <p className="text-xl text-orange-100 mb-8">
+          <p className="text-xl text-emerald-100 mb-8">
             {t('systemCleanerProduct.finalCta.subtitle')}
           </p>
           <Link
             to="/contact"
-            className="inline-block px-10 py-5 bg-white text-orange-600 rounded-xl font-bold text-lg hover:bg-slate-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
+            className="inline-block px-10 py-5 bg-white text-emerald-600 rounded-xl font-bold text-lg hover:bg-slate-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
           >
             {t('systemCleanerProduct.finalCta.button')}
           </Link>

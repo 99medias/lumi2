@@ -109,8 +109,8 @@ function Contact() {
       subtitle: t('contact.info.phone.hours'),
       value: phoneInfo ? `${phoneInfo.flag} ${phoneInfo.localNumber}` : t('contact.info.phone.value'),
       link: phoneInfo ? `tel:${formatPhoneForTel(phoneInfo)}` : 'tel:0189712866',
-      color: 'from-emerald-400 to-orange-500',
-      bgColor: 'from-emerald-50 to-orange-50'
+      color: 'from-emerald-400 to-emerald-500',
+      bgColor: 'from-emerald-50 to-emerald-50'
     },
     {
       icon: Mail,
@@ -118,8 +118,8 @@ function Contact() {
       subtitle: t('contact.info.email.responseTime'),
       value: t('contact.info.email.value'),
       link: 'mailto:contact@mysafesecurity.org',
-      color: 'from-orange-400 to-orange-500',
-      bgColor: 'from-orange-50 to-orange-50'
+      color: 'from-emerald-400 to-emerald-500',
+      bgColor: 'from-emerald-50 to-emerald-50'
     },
     {
       icon: MapPin,
@@ -136,8 +136,8 @@ function Contact() {
       subtitle: 'Support technique',
       value: t('contact.info.phone.hours'),
       link: '#',
-      color: 'from-amber-400 to-orange-500',
-      bgColor: 'from-amber-50 to-orange-50'
+      color: 'from-amber-400 to-emerald-500',
+      bgColor: 'from-amber-50 to-emerald-50'
     }
   ];
 
@@ -145,7 +145,7 @@ function Contact() {
     <div className="min-h-screen bg-white">
       <Header />
 
-      <section className="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-orange-400 via-orange-400 to-orange-500">
+      <section className="relative pt-32 pb-24 overflow-hidden bg-gradient-to-br from-emerald-400 via-emerald-400 to-emerald-500">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>
@@ -159,7 +159,7 @@ function Contact() {
         </div>
       </section>
 
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-orange-50">
+      <section className="py-20 bg-gradient-to-br from-slate-50 to-emerald-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {contactMethods.map((method, index) => (
@@ -183,14 +183,14 @@ function Contact() {
       <section className="py-24 bg-white">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-orange-600 via-orange-600 to-orange-600 bg-clip-text text-transparent mb-6">
+            <h2 className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-emerald-600 via-emerald-600 to-emerald-600 bg-clip-text text-transparent mb-6">
               {t('contact.form.send')}
             </h2>
             <p className="text-xl text-slate-700">{t('contact.form.formIntro')}</p>
           </div>
 
           {submitStatus === 'success' && (
-            <div className="mb-8 bg-gradient-to-r from-emerald-50 to-orange-50 border-2 border-emerald-300 rounded-2xl p-6 flex items-start gap-4 animate-fade-in">
+            <div className="mb-8 bg-gradient-to-r from-emerald-50 to-emerald-50 border-2 border-emerald-300 rounded-2xl p-6 flex items-start gap-4 animate-fade-in">
               <CheckCircle className="w-8 h-8 text-emerald-600 flex-shrink-0 mt-1" />
               <div>
                 <h3 className="text-xl font-bold text-emerald-800 mb-2">{t('contact.form.success')}</h3>
@@ -221,7 +221,7 @@ function Contact() {
                   required
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl text-lg focus:border-orange-400 focus:outline-none transition-colors"
+                  className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl text-lg focus:border-emerald-400 focus:outline-none transition-colors"
                   placeholder="Jean Dupont"
                 />
               </div>
@@ -235,7 +235,7 @@ function Contact() {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl text-lg focus:border-orange-400 focus:outline-none transition-colors"
+                  className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl text-lg focus:border-emerald-400 focus:outline-none transition-colors"
                   placeholder="jean.dupont@email.fr"
                 />
               </div>
@@ -251,7 +251,7 @@ function Contact() {
                   id="phone"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl text-lg focus:border-orange-400 focus:outline-none transition-colors"
+                  className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl text-lg focus:border-emerald-400 focus:outline-none transition-colors"
                   placeholder="06 12 34 56 78"
                 />
               </div>
@@ -264,7 +264,7 @@ function Contact() {
                   required
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl text-lg focus:border-orange-400 focus:outline-none transition-colors cursor-pointer"
+                  className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl text-lg focus:border-emerald-400 focus:outline-none transition-colors cursor-pointer"
                 >
                   <option value="">{t('contact.form.selectSubject')}</option>
                   <option value="question-generale">{t('contact.form.subjectOptions.general')}</option>
@@ -286,12 +286,12 @@ function Contact() {
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 rows={6}
-                className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl text-lg focus:border-orange-400 focus:outline-none transition-colors resize-none"
+                className="w-full px-5 py-4 border-2 border-slate-200 rounded-xl text-lg focus:border-emerald-400 focus:outline-none transition-colors resize-none"
                 placeholder={t('contact.form.messagePlaceholder')}
               />
             </div>
 
-            <div className="mb-8 bg-gradient-to-br from-amber-50 to-orange-50 border-2 border-amber-200 rounded-2xl p-6">
+            <div className="mb-8 bg-gradient-to-br from-amber-50 to-emerald-50 border-2 border-amber-200 rounded-2xl p-6">
               <label htmlFor="captcha" className="block text-lg font-semibold text-slate-700 mb-3">
                 {t('contact.form.securityCheck')} <span className="text-rose-500">*</span>
               </label>
@@ -319,7 +319,7 @@ function Contact() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-5 bg-gradient-to-r from-orange-500 to-orange-500 text-white rounded-2xl text-xl font-bold hover:from-orange-600 hover:to-orange-600 disabled:from-slate-300 disabled:to-slate-400 disabled:cursor-not-allowed transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex items-center justify-center gap-3"
+              className="w-full py-5 bg-gradient-to-r from-emerald-500 to-emerald-500 text-white rounded-2xl text-xl font-bold hover:from-emerald-600 hover:to-emerald-600 disabled:from-slate-300 disabled:to-slate-400 disabled:cursor-not-allowed transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl flex items-center justify-center gap-3"
             >
               {isSubmitting ? (
                 <>
@@ -335,13 +335,13 @@ function Contact() {
             </button>
 
             <p className="text-center text-slate-600 mt-6">
-              Ou appelez-nous directement au <a href={phoneInfo ? `tel:${formatPhoneForTel(phoneInfo)}` : 'tel:0189712866'} className="font-bold text-orange-600 hover:text-orange-700">{phoneInfo ? `${phoneInfo.flag} ${phoneInfo.localNumber}` : t('contact.info.phone.value')}</a>
+              Ou appelez-nous directement au <a href={phoneInfo ? `tel:${formatPhoneForTel(phoneInfo)}` : 'tel:0189712866'} className="font-bold text-emerald-600 hover:text-emerald-700">{phoneInfo ? `${phoneInfo.flag} ${phoneInfo.localNumber}` : t('contact.info.phone.value')}</a>
             </p>
           </form>
         </div>
       </section>
 
-      <section className="py-24 bg-gradient-to-br from-orange-500 via-orange-500 to-orange-500 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-br from-emerald-500 via-emerald-500 to-emerald-500 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 right-10 w-96 h-96 bg-white rounded-full filter blur-3xl"></div>
           <div className="absolute bottom-10 left-10 w-96 h-96 bg-yellow-200 rounded-full filter blur-3xl"></div>
@@ -384,7 +384,7 @@ function Contact() {
               <p className="text-slate-400 leading-relaxed">Solutions Cloud sécurisées pour particuliers et professionnels</p>
             </div>
             <div>
-              <h3 className="text-lg font-bold mb-4 text-orange-400">Navigation</h3>
+              <h3 className="text-lg font-bold mb-4 text-emerald-400">Navigation</h3>
               <ul className="space-y-3">
                 <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">{t('nav.home')}</Link></li>
                 <li><Link to="/about" className="text-slate-400 hover:text-white transition-colors">{t('footer.about')}</Link></li>
@@ -393,7 +393,7 @@ function Contact() {
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-bold mb-4 text-orange-400">{t('footer.legal')}</h3>
+              <h3 className="text-lg font-bold mb-4 text-emerald-400">{t('footer.legal')}</h3>
               <ul className="space-y-3">
                 <li><Link to="/legal/privacy-policy" className="text-slate-400 hover:text-white transition-colors">{t('footer.privacyPolicy')}</Link></li>
                 <li><Link to="/legal/terms" className="text-slate-400 hover:text-white transition-colors">{t('footer.terms')}</Link></li>
@@ -403,10 +403,10 @@ function Contact() {
               </ul>
             </div>
             <div>
-              <h3 className="text-lg font-bold mb-4 text-orange-400">{t('footer.contact')}</h3>
+              <h3 className="text-lg font-bold mb-4 text-emerald-400">{t('footer.contact')}</h3>
               <ul className="space-y-3">
                 <li className="text-slate-400">{t('footer.support247')}</li>
-                <li className="text-xl font-bold text-orange-400">{t('contact.info.phone.value')}</li>
+                <li className="text-xl font-bold text-emerald-400">{t('contact.info.phone.value')}</li>
                 <li className="text-slate-400">{t('contact.info.email.value')}</li>
               </ul>
             </div>

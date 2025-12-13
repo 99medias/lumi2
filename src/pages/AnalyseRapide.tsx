@@ -592,7 +592,7 @@ function AnalyseRapide() {
     if (scanResults.securityScore < 40) {
       return { level: 'critical', color: 'text-red-500', bgColor: 'bg-red-500' };
     } else if (scanResults.securityScore < 60) {
-      return { level: 'high', color: 'text-orange-500', bgColor: 'bg-orange-500' };
+      return { level: 'high', color: 'text-emerald-500', bgColor: 'bg-emerald-500' };
     } else if (scanResults.securityScore < 80) {
       return { level: 'medium', color: 'text-yellow-500', bgColor: 'bg-yellow-500' };
     } else {
@@ -636,7 +636,7 @@ function AnalyseRapide() {
           <p className="text-slate-300 mb-6">{errorMessage || t('quickScan.error.message')}</p>
           <button
             onClick={() => window.location.reload()}
-            className="px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-full font-bold hover:from-orange-600 hover:to-amber-600 transition-all"
+            className="px-6 py-3 bg-gradient-to-r from-emerald-500 to-amber-500 text-white rounded-full font-bold hover:from-emerald-600 hover:to-amber-600 transition-all"
           >
             {t('quickScan.error.refreshButton')}
           </button>
@@ -649,7 +649,7 @@ function AnalyseRapide() {
     return (
       <div className="min-h-screen bg-slate-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full mb-6 animate-pulse">
+          <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-full mb-6 animate-pulse">
             <Shield className="w-12 h-12 text-white" />
           </div>
           <p className="text-white text-xl">{t('quickScan.initializing')}</p>
@@ -666,14 +666,14 @@ function AnalyseRapide() {
       {!showResults || !scanResults ? (
         <section className="min-h-screen pt-32 pb-20 relative overflow-hidden bg-slate-900">
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500 rounded-full filter blur-3xl animate-pulse"></div>
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl animate-pulse"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500 rounded-full filter blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
           </div>
 
           <div className="max-w-4xl mx-auto px-6 relative z-10">
             <div className="bg-slate-800/80 backdrop-blur-xl border border-slate-700 rounded-3xl p-12 shadow-2xl">
               <div className="text-center mb-12">
-                <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full mb-6 animate-pulse">
+                <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-full mb-6 animate-pulse">
                   <Shield className="w-12 h-12 text-white" />
                 </div>
                 <h1 className="text-4xl font-bold text-white mb-4">{t('quickScan.scanning')}</h1>
@@ -684,9 +684,9 @@ function AnalyseRapide() {
                   {scanStage === 'registry' && t('quickScan.stages.registry')}
                 </p>
                 <div className="text-center mb-4">
-                  <div className="inline-flex items-center justify-center gap-2 bg-orange-500/20 px-6 py-3 rounded-xl border border-orange-500/50">
-                    <Clock className="w-6 h-6 text-orange-400" />
-                    <p className="text-orange-400 text-2xl font-bold font-mono">
+                  <div className="inline-flex items-center justify-center gap-2 bg-emerald-500/20 px-6 py-3 rounded-xl border border-emerald-500/50">
+                    <Clock className="w-6 h-6 text-emerald-400" />
+                    <p className="text-emerald-400 text-2xl font-bold font-mono">
                       {t('quickScan.progress.timeRemaining')}: {formatTimeRemaining(timeRemaining)}
                     </p>
                   </div>
@@ -732,14 +732,14 @@ function AnalyseRapide() {
                         key={threat.id}
                         className={`flex items-center gap-3 p-3 rounded-xl border ${
                           threat.severity === 'critical' ? 'border-red-500/50 bg-red-500/10' :
-                          threat.severity === 'high' ? 'border-orange-500/50 bg-orange-500/10' :
+                          threat.severity === 'high' ? 'border-emerald-500/50 bg-emerald-500/10' :
                           threat.severity === 'medium' ? 'border-yellow-500/50 bg-yellow-500/10' :
                           'border-blue-500/50 bg-blue-500/10'
                         }`}
                       >
                         <span className={`text-xs font-bold px-2 py-1 rounded ${
                           threat.severity === 'critical' ? 'bg-red-500 text-white' :
-                          threat.severity === 'high' ? 'bg-orange-500 text-white' :
+                          threat.severity === 'high' ? 'bg-emerald-500 text-white' :
                           threat.severity === 'medium' ? 'bg-yellow-500 text-black' :
                           'bg-blue-500 text-white'
                         }`}>
@@ -762,7 +762,7 @@ function AnalyseRapide() {
                       <p className="text-xs text-slate-500">{t('quickScan.results.criticalCount')}</p>
                     </div>
                     <div className="text-center">
-                      <p className="text-lg font-bold text-orange-400">{liveThreats.filter(t => t && t.severity === 'high').length}</p>
+                      <p className="text-lg font-bold text-emerald-400">{liveThreats.filter(t => t && t.severity === 'high').length}</p>
                       <p className="text-xs text-slate-500">{t('quickScan.results.highCount')}</p>
                     </div>
                     <div className="text-center">
@@ -781,7 +781,7 @@ function AnalyseRapide() {
                 <div className="relative">
                   <div className="h-4 bg-slate-700 rounded-full overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-orange-500 to-amber-500 transition-all duration-300 ease-out"
+                      className="h-full bg-gradient-to-r from-emerald-500 to-amber-500 transition-all duration-300 ease-out"
                       style={{ width: `${progress}%` }}
                     ></div>
                   </div>
@@ -793,7 +793,7 @@ function AnalyseRapide() {
 
                 <div className="bg-slate-900/50 rounded-xl p-6 border border-slate-700">
                   <div className="flex items-center gap-3 mb-4">
-                    <Activity className="w-5 h-5 text-orange-400 animate-pulse" />
+                    <Activity className="w-5 h-5 text-emerald-400 animate-pulse" />
                     <span className="text-white font-mono text-sm">{t('quickScan.progress.currentFile')} {currentFile}</span>
                   </div>
                   <div className="flex items-center gap-3 text-slate-400 text-sm">
@@ -873,7 +873,7 @@ function AnalyseRapide() {
                           <span className="text-slate-500 w-20">{proc?.memory || '0 MB'}</span>
                           <span className={`w-16 ${
                             proc?.status === 'critical' ? 'text-red-500' :
-                            proc?.status === 'suspicious' ? 'text-orange-500' :
+                            proc?.status === 'suspicious' ? 'text-emerald-500' :
                             proc?.status === 'warning' ? 'text-yellow-500' :
                             'text-green-500'
                           }`}>
@@ -964,7 +964,7 @@ function AnalyseRapide() {
               <div className="relative inline-block mb-8">
                 <div className={`inline-flex items-center justify-center w-32 h-32 rounded-full shadow-2xl relative border-4 ${
                   (scanResults.securityScore || 0) < 40 ? 'bg-gradient-to-br from-red-500 to-red-600 border-red-400' :
-                  (scanResults.securityScore || 0) < 60 ? 'bg-gradient-to-br from-orange-500 to-orange-600 border-orange-400' :
+                  (scanResults.securityScore || 0) < 60 ? 'bg-gradient-to-br from-emerald-500 to-emerald-600 border-emerald-400' :
                   (scanResults.securityScore || 0) < 80 ? 'bg-gradient-to-br from-amber-400 to-yellow-400 border-amber-300' :
                   'bg-gradient-to-br from-green-500 to-emerald-600 border-green-400'
                 }`}>
@@ -974,7 +974,7 @@ function AnalyseRapide() {
               <h1 className="text-5xl font-bold text-white mb-4">{t('quickScan.results.title')}</h1>
               <p className={`text-2xl font-semibold mb-2 ${
                 (scanResults.securityScore || 0) < 40 ? 'text-red-400' :
-                (scanResults.securityScore || 0) < 60 ? 'text-orange-400' :
+                (scanResults.securityScore || 0) < 60 ? 'text-emerald-400' :
                 (scanResults.securityScore || 0) < 80 ? 'text-yellow-400' :
                 'text-green-400'
               }`}>
@@ -1064,7 +1064,7 @@ function AnalyseRapide() {
                           key={threat.id}
                           className={`p-5 rounded-xl border-2 ${
                             threat.severity === 'critical' ? 'bg-red-500/10 border-red-500/50' :
-                            threat.severity === 'high' ? 'bg-orange-500/10 border-orange-500/50' :
+                            threat.severity === 'high' ? 'bg-emerald-500/10 border-emerald-500/50' :
                             threat.severity === 'medium' ? 'bg-yellow-500/10 border-yellow-500/50' :
                             'bg-blue-500/10 border-blue-500/50'
                           }`}
@@ -1072,7 +1072,7 @@ function AnalyseRapide() {
                           <div className="flex items-start gap-4">
                             <div className={`w-14 h-14 rounded-xl flex items-center justify-center text-3xl flex-shrink-0 ${
                               threat.severity === 'critical' ? 'bg-red-500/20' :
-                              threat.severity === 'high' ? 'bg-orange-500/20' :
+                              threat.severity === 'high' ? 'bg-emerald-500/20' :
                               threat.severity === 'medium' ? 'bg-yellow-500/20' :
                               'bg-blue-500/20'
                             }`}>
@@ -1083,7 +1083,7 @@ function AnalyseRapide() {
                               <div className="flex items-center gap-3 mb-2 flex-wrap">
                                 <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${
                                   threat.severity === 'critical' ? 'bg-red-500 text-white' :
-                                  threat.severity === 'high' ? 'bg-orange-500 text-white' :
+                                  threat.severity === 'high' ? 'bg-emerald-500 text-white' :
                                   threat.severity === 'medium' ? 'bg-yellow-500 text-black' :
                                   'bg-blue-500 text-white'
                                 }`}>
@@ -1153,7 +1153,7 @@ function AnalyseRapide() {
               {cookieAnalysis && (
                 <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6">
                   <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <Cookie className="w-5 h-5 text-orange-600" />
+                    <Cookie className="w-5 h-5 text-emerald-600" />
                     {t('quickScan.results.cookiesTrackers')}
                   </h3>
                   <div className="space-y-3 text-sm">
@@ -1163,15 +1163,15 @@ function AnalyseRapide() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">{t('quickScan.results.trackingCookies')}</span>
-                      <span className="text-orange-600 font-semibold">{cookieAnalysis?.trackingCookies || 0}</span>
+                      <span className="text-emerald-600 font-semibold">{cookieAnalysis?.trackingCookies || 0}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">{t('quickScan.results.detectTrackers')}</span>
                       <span className="text-red-600 font-semibold">{cookieAnalysis?.trackers?.length || 0}</span>
                     </div>
-                    <div className={`flex items-center justify-between p-2 rounded ${cookieAnalysis?.dataCollectionRisk === 'high' ? 'bg-red-100' : cookieAnalysis?.dataCollectionRisk === 'medium' ? 'bg-orange-100' : 'bg-amber-100'}`}>
+                    <div className={`flex items-center justify-between p-2 rounded ${cookieAnalysis?.dataCollectionRisk === 'high' ? 'bg-red-100' : cookieAnalysis?.dataCollectionRisk === 'medium' ? 'bg-emerald-100' : 'bg-amber-100'}`}>
                       <span className="text-white text-xs">{t('quickScan.results.privacyRisk')}</span>
-                      <span className={`font-bold text-xs uppercase ${cookieAnalysis?.dataCollectionRisk === 'high' ? 'text-red-600' : cookieAnalysis?.dataCollectionRisk === 'medium' ? 'text-orange-600' : 'text-amber-600'}`}>
+                      <span className={`font-bold text-xs uppercase ${cookieAnalysis?.dataCollectionRisk === 'high' ? 'text-red-600' : cookieAnalysis?.dataCollectionRisk === 'medium' ? 'text-emerald-600' : 'text-amber-600'}`}>
                         {cookieAnalysis?.dataCollectionRisk && t(`quickScan.results.riskLevels.${cookieAnalysis.dataCollectionRisk}`)}
                       </span>
                     </div>
@@ -1229,7 +1229,7 @@ function AnalyseRapide() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">{t('quickScan.results.health')}</span>
-                      <span className={`font-semibold ${batteryInfo.healthStatus === 'critical' ? 'text-red-600' : batteryInfo.healthStatus === 'poor' ? 'text-orange-600' : 'text-green-600'}`}>
+                      <span className={`font-semibold ${batteryInfo.healthStatus === 'critical' ? 'text-red-600' : batteryInfo.healthStatus === 'poor' ? 'text-emerald-600' : 'text-green-600'}`}>
                         {t(`quickScan.results.healthStatuses.${batteryInfo.healthStatus}`)}
                       </span>
                     </div>
@@ -1298,7 +1298,7 @@ function AnalyseRapide() {
               {thirdPartyAnalysis && thirdPartyAnalysis.totalDomains > 0 && (
                 <div className="bg-slate-800 border border-slate-700 rounded-2xl p-6">
                   <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                    <Globe className="w-5 h-5 text-orange-600" />
+                    <Globe className="w-5 h-5 text-emerald-600" />
                     {t('quickScan.results.thirdPartyResources')}
                   </h3>
                   <div className="space-y-3 text-sm">
@@ -1312,7 +1312,7 @@ function AnalyseRapide() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">{t('quickScan.results.analytics')}</span>
-                      <span className="text-orange-600 font-semibold">{thirdPartyAnalysis.analytics}</span>
+                      <span className="text-emerald-600 font-semibold">{thirdPartyAnalysis.analytics}</span>
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">{t('quickScan.results.ads')}</span>
@@ -1428,13 +1428,13 @@ function AnalyseRapide() {
                     </div>
                     <div className="flex justify-between">
                       <span className="text-slate-500">{t('quickScan.results.mediumRisk')}</span>
-                      <span className="text-orange-600 font-semibold">{extensions.filter(e => e.risk === 'moderate').length}</span>
+                      <span className="text-emerald-600 font-semibold">{extensions.filter(e => e.risk === 'moderate').length}</span>
                     </div>
                     <div className="space-y-1 max-h-32 overflow-y-auto">
                       {Array.isArray(extensions) && extensions.length > 0 && extensions.slice(0, 3).map((ext, idx) => (
                         <div key={idx} className="flex items-center justify-between">
                           <p className="text-xs text-slate-400 truncate">{ext?.name || 'Unknown'}</p>
-                          <span className={`text-xs ${ext?.risk === 'risky' ? 'text-red-600' : ext?.risk === 'moderate' ? 'text-orange-600' : 'text-green-600'}`}>
+                          <span className={`text-xs ${ext?.risk === 'risky' ? 'text-red-600' : ext?.risk === 'moderate' ? 'text-emerald-600' : 'text-green-600'}`}>
                             {t(`quickScan.results.riskLevels.${ext?.risk || 'low'}`)}
                           </span>
                         </div>
@@ -1509,12 +1509,12 @@ function AnalyseRapide() {
                 <p className="text-red-300 font-semibold text-sm">{t('quickScan.results.threatsDetected')}</p>
               </div>
 
-              <div className="bg-slate-800/80 border-2 border-orange-500/50 rounded-2xl p-6">
+              <div className="bg-slate-800/80 border-2 border-emerald-500/50 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-3">
-                  <AlertTriangle className="w-8 h-8 text-orange-400" />
-                  <span className="text-5xl font-bold text-orange-400">{scanResults.privacyIssues || 0}</span>
+                  <AlertTriangle className="w-8 h-8 text-emerald-400" />
+                  <span className="text-5xl font-bold text-emerald-400">{scanResults.privacyIssues || 0}</span>
                 </div>
-                <p className="text-orange-300 font-semibold text-sm">{t('quickScan.results.privacyIssues')}</p>
+                <p className="text-emerald-300 font-semibold text-sm">{t('quickScan.results.privacyIssues')}</p>
               </div>
 
               <div className="bg-slate-800/80 border-2 border-yellow-500/50 rounded-2xl p-6">
@@ -1538,7 +1538,7 @@ function AnalyseRapide() {
               <InactionTimeline threats={scanResults.threats?.length || 0} />
             </div>
 
-            <div className="bg-gradient-to-br from-orange-950/40 to-amber-950/40 border-2 border-orange-500/50 rounded-3xl p-8">
+            <div className="bg-gradient-to-br from-emerald-950/40 to-amber-950/40 border-2 border-emerald-500/50 rounded-3xl p-8">
               <div className="text-center mb-8">
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-full font-bold mb-4">
                   <CheckCircle className="w-5 h-5" />
@@ -1557,7 +1557,7 @@ function AnalyseRapide() {
                     <p className="text-slate-400">{getPlanStorage(scanResults.recommendedPlan || 'm')} {t('quickScan.results.storage')}</p>
                   </div>
                   <div className="text-right">
-                    <div className="text-4xl font-bold text-orange-600">{getPlanPrice(scanResults.recommendedPlan || 'm')}€</div>
+                    <div className="text-4xl font-bold text-emerald-600">{getPlanPrice(scanResults.recommendedPlan || 'm')}€</div>
                     <div className="text-slate-400 text-sm">{t('quickScan.results.for5Years')}</div>
                   </div>
                 </div>
@@ -1595,18 +1595,18 @@ function AnalyseRapide() {
 
                 <Link
                   to="/contact"
-                  className="block w-full text-center py-4 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                  className="block w-full text-center py-4 bg-gradient-to-r from-emerald-500 to-amber-500 text-white rounded-xl font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
                 >
                   {t('quickScan.results.protectNow')}
                 </Link>
               </div>
 
               <div className="text-center">
-                <p className="text-orange-200 mb-4">
+                <p className="text-emerald-200 mb-4">
                   <Clock className="w-5 h-5 inline mr-2" />
                   {t('quickScan.results.limitedOffer')}
                 </p>
-                <Link to="/#pricing" className="text-orange-300 hover:text-orange-200 font-semibold underline">
+                <Link to="/#pricing" className="text-emerald-300 hover:text-emerald-200 font-semibold underline">
                   {t('quickScan.results.seeAllOffers')}
                 </Link>
               </div>
@@ -1616,7 +1616,7 @@ function AnalyseRapide() {
       ) : showResults && !scanResults ? (
         <div className="min-h-screen bg-slate-900 flex items-center justify-center">
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full mb-6 animate-pulse">
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-full mb-6 animate-pulse">
               <Shield className="w-12 h-12 text-white" />
             </div>
             <p className="text-white text-xl">{t('quickScan.results.processingResults') || 'Traitement des résultats...'}</p>
@@ -1625,7 +1625,7 @@ function AnalyseRapide() {
       ) : (
         <div className="min-h-screen bg-slate-900 flex items-center justify-center">
           <div className="text-center">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full mb-6 animate-pulse">
+            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-emerald-500 to-amber-500 rounded-full mb-6 animate-pulse">
               <Shield className="w-12 h-12 text-white" />
             </div>
             <p className="text-white text-xl">{t('quickScan.initializing')}</p>

@@ -16,19 +16,19 @@ const TotalCareProduct = () => {
     {
       icon: Shield,
       name: vpnData.name,
-      color: 'from-orange-400 to-orange-600',
+      color: 'from-emerald-400 to-emerald-600',
       features: vpnData.features
     },
     {
       icon: Ban,
       name: adblockData.name,
-      color: 'from-orange-400 to-orange-600',
+      color: 'from-emerald-400 to-emerald-600',
       features: adblockData.features
     },
     {
       icon: HardDrive,
       name: cleanerData.name,
-      color: 'from-orange-400 to-orange-600',
+      color: 'from-emerald-400 to-emerald-600',
       features: cleanerData.features
     }
   ];
@@ -204,7 +204,7 @@ const TotalCareProduct = () => {
                   <tr>
                     <td className="px-6 py-4 text-slate-300">{t('totalCareProduct.comparison.rows.vpnPremium')}</td>
                     <td className="px-6 py-4 text-center">
-                      <Check className="w-6 h-6 text-orange-400 mx-auto" />
+                      <Check className="w-6 h-6 text-emerald-400 mx-auto" />
                     </td>
                     <td className="px-6 py-4 text-center bg-amber-500/5">
                       <Check className="w-6 h-6 text-amber-400 mx-auto" />
@@ -213,7 +213,7 @@ const TotalCareProduct = () => {
                   <tr>
                     <td className="px-6 py-4 text-slate-300">{t('totalCareProduct.comparison.rows.adBlocking')}</td>
                     <td className="px-6 py-4 text-center">
-                      <Check className="w-6 h-6 text-orange-400 mx-auto" />
+                      <Check className="w-6 h-6 text-emerald-400 mx-auto" />
                     </td>
                     <td className="px-6 py-4 text-center bg-amber-500/5">
                       <Check className="w-6 h-6 text-amber-400 mx-auto" />
@@ -222,7 +222,7 @@ const TotalCareProduct = () => {
                   <tr>
                     <td className="px-6 py-4 text-slate-300">{t('totalCareProduct.comparison.rows.systemCleaning')}</td>
                     <td className="px-6 py-4 text-center">
-                      <Check className="w-6 h-6 text-orange-400 mx-auto" />
+                      <Check className="w-6 h-6 text-emerald-400 mx-auto" />
                     </td>
                     <td className="px-6 py-4 text-center bg-amber-500/5">
                       <Check className="w-6 h-6 text-amber-400 mx-auto" />
@@ -318,7 +318,7 @@ const TotalCareProduct = () => {
             <h3 className="text-xl font-bold text-white mb-4">{t('totalCareProduct.pricing.included.title')}</h3>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                   <Shield className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -327,7 +327,7 @@ const TotalCareProduct = () => {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                   <Ban className="w-5 h-5 text-white" />
                 </div>
                 <div>
@@ -336,7 +336,7 @@ const TotalCareProduct = () => {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                   <HardDrive className="w-5 h-5 text-white" />
                 </div>
                 <div>
