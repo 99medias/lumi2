@@ -92,19 +92,19 @@ function App() {
       <section id="accueil" className="hero-new bg-gradient-to-b from-emerald-50 to-white py-20">
         <div className="max-w-6xl mx-auto px-4 text-center">
 
-          <div className="flex justify-center gap-4 mb-8 flex-wrap">
-            <span className="inline-flex items-center gap-1 px-3 py-1 bg-white rounded-full text-sm text-gray-600 shadow-sm">
-              🇧🇪 {t('nav.belgianCompany')}
+          <div className="flex flex-wrap justify-center gap-3 mb-8">
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm text-gray-600 shadow-sm border border-gray-100">
+              🇧🇪 {t('hero.badges.belgian')}
             </span>
-            <span className="inline-flex items-center gap-1 px-3 py-1 bg-white rounded-full text-sm text-gray-600 shadow-sm">
-              ⭐ 4.9/5
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm text-gray-600 shadow-sm border border-gray-100">
+              ⭐ 4.9/5 - {t('hero.badges.rating')}
             </span>
-            <span className="inline-flex items-center gap-1 px-3 py-1 bg-white rounded-full text-sm text-gray-600 shadow-sm">
-              🛡️ +10 000 clients
+            <span className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full text-sm text-gray-600 shadow-sm border border-gray-100">
+              🛡️ {t('hero.badges.customers')}
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             {t('hero.title')}<br />
             <span className="text-emerald-500">{t('hero.subtitle')}</span>
           </h1>
@@ -114,44 +114,30 @@ function App() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <a
-              href="#services"
+            <Link
+              to="/analyse-rapide"
               className="px-8 py-4 bg-emerald-500 text-white rounded-full font-semibold text-lg hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/30"
             >
-              {t('hero.ctaSecondary')}
-            </a>
+              🔍 {t('hero.cta')}
+            </Link>
             <a
               href="tel:+3216186098"
               className="px-8 py-4 bg-white text-gray-700 rounded-full font-semibold text-lg border-2 border-gray-200 hover:border-emerald-500 hover:text-emerald-600 transition-all flex items-center justify-center gap-2"
             >
-              <span>📞</span> 016 18 60 98
+              📞 Appelez-nous: 016 18 60 98
             </a>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl">🔒</span>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">{t('hero.secure')}</h3>
-              <p className="text-gray-600 text-sm">Antivirus, pare-feu et surveillance 24/7</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl">🏠</span>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Intervention à domicile</h3>
-              <p className="text-gray-600 text-sm">Un technicien se déplace chez vous</p>
-            </div>
-
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl">💬</span>
-              </div>
-              <h3 className="font-semibold text-gray-900 mb-2">{t('nav.frenchSupport')}</h3>
-              <p className="text-gray-600 text-sm">Équipe belge disponible 7j/7</p>
-            </div>
+          <div className="flex flex-wrap justify-center gap-6 text-gray-600">
+            <span className="flex items-center gap-2">
+              <span className="text-emerald-500">✓</span> {t('hero.trustPoints.noCommitment')}
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="text-emerald-500">✓</span> {t('hero.trustPoints.moneyBack')}
+            </span>
+            <span className="flex items-center gap-2">
+              <span className="text-emerald-500">✓</span> {t('hero.trustPoints.support247')}
+            </span>
           </div>
 
         </div>
@@ -162,119 +148,130 @@ function App() {
 
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
-              {t('services.title')}
+              Nos services
             </span>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Comment pouvons-nous vous aider?
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              {t('services.subtitle')}
+              Pas besoin d'être un expert en informatique. On s'occupe de votre sécurité, vous profitez de votre vie numérique en toute tranquillité.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <div className="group p-8 bg-gradient-to-br from-emerald-50 to-white rounded-3xl border border-emerald-100 hover:shadow-xl transition-all">
+            <article className="group p-8 bg-gradient-to-br from-emerald-50 to-white rounded-3xl border border-emerald-100 hover:shadow-xl transition-all">
               <div className="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center mb-6">
                 <span className="text-3xl">💻</span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Protection PC & Mac</h3>
               <p className="text-gray-600 mb-6">
-                Antivirus professionnel, pare-feu intelligent et mises à jour automatiques pour une protection complète.
+                Votre ordinateur est lent ou se comporte bizarrement? On installe une protection complète contre les virus, malwares et autres cochonneries du web. Mises à jour automatiques, vous n'avez rien à faire!
               </p>
               <a href="/#pricing" className="text-emerald-600 font-medium hover:underline inline-flex items-center gap-1">
-                En savoir plus →
+                En savoir plus <span>→</span>
               </a>
-            </div>
+            </article>
 
-            <div className="group p-8 bg-gradient-to-br from-blue-50 to-white rounded-3xl border border-blue-100 hover:shadow-xl transition-all">
+            <article className="group p-8 bg-gradient-to-br from-blue-50 to-white rounded-3xl border border-blue-100 hover:shadow-xl transition-all">
               <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6">
                 <span className="text-3xl">👨‍👩‍👧‍👦</span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Pack Famille</h3>
               <p className="text-gray-600 mb-6">
-                Protégez jusqu'à 5 appareils. Contrôle parental inclus pour une navigation sécurisée pour vos enfants.
+                Vos enfants passent du temps sur internet? Protégez toute la famille avec notre pack complet. Contrôle parental inclus pour une navigation sécurisée. Jusqu'à 5 appareils couverts!
               </p>
               <a href="/#pricing" className="text-blue-600 font-medium hover:underline inline-flex items-center gap-1">
-                En savoir plus →
+                En savoir plus <span>→</span>
               </a>
-            </div>
+            </article>
 
-            <div className="group p-8 bg-gradient-to-br from-orange-50 to-white rounded-3xl border border-orange-100 hover:shadow-xl transition-all">
+            <article className="group p-8 bg-gradient-to-br from-orange-50 to-white rounded-3xl border border-orange-100 hover:shadow-xl transition-all">
               <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mb-6">
                 <span className="text-3xl">🔍</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Vérification de sécurité</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Mes données sont-elles piratées?</h3>
               <p className="text-gray-600 mb-6">
-                Analysez gratuitement si vos données personnelles ont été compromises sur le dark web.
+                Vous recevez des emails bizarres? Des appels suspects? Vérifiez gratuitement si vos données personnelles circulent sur le dark web. On vous aide à reprendre le contrôle!
               </p>
               <a href="/verification" className="text-orange-600 font-medium hover:underline inline-flex items-center gap-1">
-                Vérifier maintenant →
+                Vérifier maintenant <span>→</span>
               </a>
-            </div>
+            </article>
 
-            <div className="group p-8 bg-gradient-to-br from-purple-50 to-white rounded-3xl border border-purple-100 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6">
+            <article className="group p-8 bg-gradient-to-br from-red-50 to-white rounded-3xl border border-red-100 hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-red-500 rounded-2xl flex items-center justify-center mb-6">
                 <span className="text-3xl">🆘</span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Assistance d'urgence</h3>
               <p className="text-gray-600 mb-6">
-                Victime d'un virus ou d'une arnaque? Notre équipe intervient rapidement pour vous aider.
+                Vous pensez être victime d'un piratage ou d'une arnaque? Pas de panique! Notre équipe est disponible 24h/24 pour vous aider. On a déjà vu pire, on va trouver une solution.
               </p>
-              <a href="https://masecu2025.getscreen.me/" target="_blank" rel="noopener noreferrer" className="text-purple-600 font-medium hover:underline inline-flex items-center gap-1">
-                Appeler maintenant →
+              <a href="https://masecu2025.getscreen.me/" target="_blank" rel="noopener noreferrer" className="text-red-600 font-medium hover:underline inline-flex items-center gap-1">
+                Appeler maintenant <span>→</span>
               </a>
-            </div>
+            </article>
 
           </div>
 
         </div>
       </section>
 
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50" id="pourquoi-nous">
         <div className="max-w-6xl mx-auto px-4">
 
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
-              Pourquoi nous?
+              Pourquoi nous choisir?
             </span>
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Ce qui nous rend différents
+              Ce qui fait la différence
             </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              On n'est pas une grande boîte anonyme. Chez MaSécurité.be, vous parlez à de vraies personnes qui comprennent vos problèmes.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl font-bold">
-                1
+            <div className="text-center p-6">
+              <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-4xl">🇧🇪</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">100% Belge</h3>
-              <p className="text-gray-600">Équipe locale basée en Belgique</p>
+              <p className="text-gray-600">
+                Une équipe locale qui connaît vos besoins. Pas de call center à l'étranger!
+              </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl font-bold">
-                2
+            <div className="text-center p-6">
+              <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-4xl">💬</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Sans jargon</h3>
-              <p className="text-gray-600">On vous explique tout simplement</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">On parle simple</h3>
+              <p className="text-gray-600">
+                Pas de jargon technique incompréhensible. On vous explique tout clairement.
+              </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl font-bold">
-                3
+            <div className="text-center p-6">
+              <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-4xl">💰</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-2">Prix honnêtes</h3>
-              <p className="text-gray-600">Pas de frais cachés, jamais</p>
+              <p className="text-gray-600">
+                Ce qu'on vous dit, c'est ce que vous payez. Pas de mauvaises surprises sur la facture.
+              </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl font-bold">
-                4
+            <div className="text-center p-6">
+              <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-4xl">⚡</span>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Toujours là</h3>
-              <p className="text-gray-600">Support disponible 7j/7</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Toujours dispo</h3>
+              <p className="text-gray-600">
+                Un problème un samedi soir? On répond. Urgences disponibles 24h/24.
+              </p>
             </div>
 
           </div>
@@ -282,7 +279,7 @@ function App() {
         </div>
       </section>
 
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white" id="comment-ca-marche">
         <div className="max-w-6xl mx-auto px-4">
 
           <div className="text-center mb-16">
@@ -292,32 +289,41 @@ function App() {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
               Comment ça marche?
             </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              En trois étapes, vous êtes protégé. Promis, c'est pas compliqué!
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-emerald-600">
+              <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                 1
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Choisissez votre formule</h3>
-              <p className="text-gray-600">Sélectionnez la protection adaptée à vos besoins</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Vous nous appelez</h3>
+              <p className="text-gray-600">
+                Racontez-nous votre situation. On écoute, on pose quelques questions, et on vous propose la solution adaptée.
+              </p>
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-emerald-600">
+              <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                 2
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Installation en 5 minutes</h3>
-              <p className="text-gray-600">On vous guide pas à pas, c'est très simple</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">On s'occupe de tout</h3>
+              <p className="text-gray-600">
+                Installation à distance ou à domicile, c'est vous qui choisissez. On vous guide pas à pas, c'est super simple.
+              </p>
             </div>
 
             <div className="text-center">
-              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-emerald-600">
+              <div className="w-16 h-16 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold">
                 3
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Vous êtes protégé!</h3>
-              <p className="text-gray-600">Notre équipe veille sur votre sécurité 24/7</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Vous êtes tranquille!</h3>
+              <p className="text-gray-600">
+                Votre protection est active. Si jamais vous avez une question, on reste disponible. Vous n'êtes plus seul!
+              </p>
             </div>
 
           </div>
@@ -958,18 +964,18 @@ function App() {
         <div className="max-w-4xl mx-auto px-4 text-center">
 
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Prêt à sécuriser votre vie numérique?
+            Prêt à dire adieu aux soucis informatiques?
           </h2>
           <p className="text-emerald-100 text-xl mb-10">
-            Commencez par un scan gratuit. C'est rapide et sans engagement.
+            Faites un diagnostic gratuit en 2 minutes. On vous dit exactement si vous êtes à risque.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="/verification"
-              className="px-8 py-4 bg-white text-emerald-600 rounded-full font-bold text-lg hover:bg-emerald-50 transition-all"
+              href="/analyse-rapide"
+              className="px-8 py-4 bg-white text-emerald-600 rounded-full font-bold text-lg hover:bg-emerald-50 transition-all shadow-lg"
             >
-              🔍 Lancer le scan gratuit
+              🔍 Lancer le diagnostic gratuit
             </a>
             <a
               href="tel:+3216186098"
@@ -978,6 +984,10 @@ function App() {
               📞 016 18 60 98
             </a>
           </div>
+
+          <p className="mt-8 text-emerald-200 text-sm">
+            Plus de 10 000 familles belges nous font déjà confiance
+          </p>
 
         </div>
       </section>

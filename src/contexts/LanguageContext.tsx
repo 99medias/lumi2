@@ -101,6 +101,8 @@ const translations = {
       features: 'Avantages',
       quickAnalysis: 'Diagnostic rapide',
       quickScan: 'Diagnostic rapide',
+      quickDiagnostic: 'Diagnostic Rapide',
+      dataBreachCheck: 'Mes données sont-elles piratées?',
       about: 'À propos',
       whoAreWe: 'Qui sommes-nous?',
       contact: 'Nous contacter',
@@ -140,14 +142,24 @@ const translations = {
       satisfaction: 'Satisfait ou Remboursé'
     },
     hero: {
-      title: 'Protégez vos données.',
-      subtitle: 'Simplifiez votre informatique.',
-      description: 'Solutions Cloud sécurisées et interventions informatiques rapides pour particuliers et professionnels',
-      cta: 'Découvrir nos services',
-      ctaSecondary: 'Nous contacter',
+      title: 'Marre des virus et des arnaques?',
+      subtitle: 'On s\'occupe de tout.',
+      description: 'Fini le stress! MaSécurité.be protège vos ordinateurs, téléphones et tablettes. Une équipe belge qui parle votre langue, disponible quand vous en avez besoin.',
+      cta: 'Faire un diagnostic gratuit',
+      ctaSecondary: 'Découvrir nos services',
       simpleToUse: 'Simple d\'utilisation',
-      secure: 'Sécurisé et privé',
-      support247: 'Support 24h/24 et 7j/7'
+      secure: 'Protection complète',
+      support247: 'Support 7j/7',
+      trustPoints: {
+        noCommitment: 'Sans engagement',
+        moneyBack: 'Satisfait ou remboursé',
+        support247: 'Support 7j/7'
+      },
+      badges: {
+        belgian: 'Entreprise belge de confiance',
+        rating: 'Plus de 500 avis',
+        customers: '+10 000 familles protégées'
+      }
     },
     services: {
       title: 'Nos Services',
@@ -1929,6 +1941,8 @@ const translations = {
       features: 'Features',
       quickAnalysis: 'Quick Diagnosis',
       quickScan: 'Quick Diagnosis',
+      quickDiagnostic: 'Quick Diagnostic',
+      dataBreachCheck: 'Is my data compromised?',
       about: 'About',
       whoAreWe: 'Who are we?',
       contact: 'Contact us',
@@ -3757,6 +3771,8 @@ const translations = {
       features: 'Ventajas',
       quickAnalysis: 'Diagnóstico rápido',
       quickScan: 'Diagnóstico rápido',
+      quickDiagnostic: 'Diagnóstico Rápido',
+      dataBreachCheck: '¿Mis datos están comprometidos?',
       about: 'Sobre nosotros',
       whoAreWe: '¿Quiénes somos?',
       contact: 'Contáctenos',

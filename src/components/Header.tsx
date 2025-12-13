@@ -36,7 +36,7 @@ function Header() {
             <Logo variant="header" />
           </Link>
 
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             <Link to="/" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
               {t('nav.home')}
             </Link>
@@ -49,6 +49,9 @@ function Header() {
             <Link to="/about" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
               {t('nav.whoAreWe')}
             </Link>
+            <Link to="/verification" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
+              {t('nav.dataBreachCheck')}
+            </Link>
             <Link to="/contact" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
               {t('nav.contact')}
             </Link>
@@ -56,11 +59,11 @@ function Header() {
 
           <div className="flex items-center gap-4">
             <Link
-              to="/verification"
-              className="hidden md:flex items-center gap-2 text-emerald-600 font-medium hover:underline"
+              to="/analyse-rapide"
+              className="hidden md:flex items-center gap-2 px-4 py-2 text-emerald-600 font-medium border border-emerald-200 rounded-full hover:bg-emerald-50 transition-colors"
             >
               <span>🔍</span>
-              <span>{t('nav.freeScan')}</span>
+              <span>{t('nav.quickDiagnostic')}</span>
             </Link>
 
             <a
