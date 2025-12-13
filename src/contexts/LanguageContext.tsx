@@ -101,8 +101,6 @@ const translations = {
       features: 'Avantages',
       quickAnalysis: 'Diagnostic rapide',
       quickScan: 'Diagnostic rapide',
-      quickDiagnostic: 'Diagnostic Rapide',
-      dataBreachCheck: 'Mes données sont-elles piratées?',
       about: 'À propos',
       whoAreWe: 'Qui sommes-nous?',
       contact: 'Nous contacter',
@@ -142,24 +140,14 @@ const translations = {
       satisfaction: 'Satisfait ou Remboursé'
     },
     hero: {
-      title: 'Marre des virus et des arnaques?',
-      subtitle: 'On s\'occupe de tout.',
-      description: 'Fini le stress! MaSécurité.be protège vos ordinateurs, téléphones et tablettes. Une équipe belge qui parle votre langue, disponible quand vous en avez besoin.',
-      cta: 'Faire un diagnostic gratuit',
-      ctaSecondary: 'Découvrir nos services',
+      title: 'Protégez vos données.',
+      subtitle: 'Simplifiez votre informatique.',
+      description: 'Solutions Cloud sécurisées et interventions informatiques rapides pour particuliers et professionnels',
+      cta: 'Découvrir nos services',
+      ctaSecondary: 'Nous contacter',
       simpleToUse: 'Simple d\'utilisation',
-      secure: 'Protection complète',
-      support247: 'Support 7j/7',
-      trustPoints: {
-        noCommitment: 'Sans engagement',
-        moneyBack: 'Satisfait ou remboursé',
-        support247: 'Support 7j/7'
-      },
-      badges: {
-        belgian: 'Entreprise belge de confiance',
-        rating: 'Plus de 500 avis',
-        customers: '+10 000 familles protégées'
-      }
+      secure: 'Sécurisé et privé',
+      support247: 'Support 24h/24 et 7j/7'
     },
     services: {
       title: 'Nos Services',
@@ -289,8 +277,8 @@ const translations = {
       },
       offers: {
         s: {
-          badge: 'Pour débuter',
-          name: 'Protection Essentielle',
+          badge: 'Starter',
+          name: 'Offre S',
           storage: '10 GB de stockage',
           features: [
             'Espace Cloud 10GB',
@@ -301,11 +289,11 @@ const translations = {
           ]
         },
         m: {
-          badge: 'Pour la famille',
-          name: 'Protection Famille',
+          badge: 'Medium',
+          name: 'Offre M',
           storage: '30 GB de stockage',
           features: [
-            'Tout de Protection Essentielle',
+            'Tout de l\'offre S',
             'Espace Cloud 30GB',
             '5h d\'assistance/mois',
             'Suivi personnalisé',
@@ -313,11 +301,11 @@ const translations = {
           ]
         },
         l: {
-          badge: 'Protection maximale',
-          name: 'Protection Complète',
+          badge: 'Performance',
+          name: 'Offre L',
           storage: '120 GB de stockage',
           features: [
-            'Tout de Protection Famille',
+            'Tout de l\'offre M',
             'Espace Cloud 120GB',
             'Assistance illimitée',
             'Retour illimité',
@@ -395,7 +383,7 @@ const translations = {
       badge: 'Options Premium',
       title: 'Boostez votre protection',
       subtitle: 'Ajoutez des fonctionnalités premium à votre abonnement existant.',
-      requirement: 'Nécessite un abonnement actif (Protection Essentielle, Famille ou Complète)',
+      requirement: 'Nécessite un abonnement actif (Offre S, M ou L)',
       vpnPro: {
         name: 'MaSecuVPN Pro',
         price: '9.99€',
@@ -1941,8 +1929,6 @@ const translations = {
       features: 'Features',
       quickAnalysis: 'Quick Diagnosis',
       quickScan: 'Quick Diagnosis',
-      quickDiagnostic: 'Quick Diagnostic',
-      dataBreachCheck: 'Is my data compromised?',
       about: 'About',
       whoAreWe: 'Who are we?',
       contact: 'Contact us',
@@ -2119,8 +2105,8 @@ const translations = {
       },
       offers: {
         s: {
-          badge: 'To get started',
-          name: 'Essential Protection',
+          badge: 'Starter',
+          name: 'Plan S',
           storage: '10 GB storage',
           features: [
             'Cloud Space 10GB',
@@ -2131,11 +2117,11 @@ const translations = {
           ]
         },
         m: {
-          badge: 'For the family',
-          name: 'Family Protection',
+          badge: 'Medium',
+          name: 'Plan M',
           storage: '30 GB storage',
           features: [
-            'All Essential Protection features',
+            'All Plan S features',
             'Cloud Space 30GB',
             '5h support/month',
             'Personalized follow-up',
@@ -2143,11 +2129,11 @@ const translations = {
           ]
         },
         l: {
-          badge: 'Maximum protection',
-          name: 'Complete Protection',
+          badge: 'Performance',
+          name: 'Plan L',
           storage: '120 GB storage',
           features: [
-            'All Family Protection features',
+            'All Plan M features',
             'Cloud Space 120GB',
             'Unlimited support',
             'Unlimited returns',
@@ -2225,7 +2211,7 @@ const translations = {
       badge: 'Premium Options',
       title: 'Boost Your Protection',
       subtitle: 'Add premium features to your existing subscription.',
-      requirement: 'Requires an active subscription (Essential, Family or Complete Protection)',
+      requirement: 'Requires an active subscription (Plan S, M or L)',
       vpnPro: {
         name: 'MaSecuVPN Pro',
         price: '€9.99',
@@ -3771,8 +3757,6 @@ const translations = {
       features: 'Ventajas',
       quickAnalysis: 'Diagnóstico rápido',
       quickScan: 'Diagnóstico rápido',
-      quickDiagnostic: 'Diagnóstico Rápido',
-      dataBreachCheck: '¿Mis datos están comprometidos?',
       about: 'Sobre nosotros',
       whoAreWe: '¿Quiénes somos?',
       contact: 'Contáctenos',
@@ -3949,8 +3933,8 @@ const translations = {
       },
       offers: {
         s: {
-          badge: 'Para empezar',
-          name: 'Protección Esencial',
+          badge: 'Inicial',
+          name: 'Oferta S',
           storage: '10 GB de almacenamiento',
           features: [
             'Espacio Cloud 10 GB',
@@ -3961,11 +3945,11 @@ const translations = {
           ]
         },
         m: {
-          badge: 'Para la familia',
-          name: 'Protección Familiar',
+          badge: 'Media',
+          name: 'Oferta M',
           storage: '30 GB de almacenamiento',
           features: [
-            'Todo lo de Protección Esencial',
+            'Todo lo de la Oferta S',
             'Espacio Cloud 30 GB',
             '5 horas de asistencia/mes',
             'Seguimiento personalizado',
@@ -3973,11 +3957,11 @@ const translations = {
           ]
         },
         l: {
-          badge: 'Protección máxima',
-          name: 'Protección Completa',
+          badge: 'Rendimiento',
+          name: 'Oferta L',
           storage: '120 GB de almacenamiento',
           features: [
-            'Todo lo de Protección Familiar',
+            'Todo lo de la Oferta M',
             'Espacio Cloud 120 GB',
             'Asistencia ilimitada',
             'Respuestas ilimitadas',
@@ -4054,7 +4038,7 @@ const translations = {
       badge: 'Opciones Premium',
       title: 'Potencie su protección',
       subtitle: 'Añada prestaciones premium a su suscripción existente.',
-      requirement: 'Requiere una suscripción activa (Protección Esencial, Familiar o Completa)',
+      requirement: 'Requiere una suscripción activa (Oferta S, M o L)',
       vpnPro: {
         name: 'MaSecuVPN Pro',
         price: '9,99 €',
