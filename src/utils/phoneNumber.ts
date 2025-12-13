@@ -1,4 +1,4 @@
-interface PhoneInfo {
+export interface PhoneInfo {
   number: string;
   localNumber: string;
   countryCode: string;

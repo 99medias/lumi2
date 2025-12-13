@@ -7,8 +7,8 @@ import Logo from './Logo';
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { t, language } = useLanguage();
-  const phoneNumber = usePhoneByLocation();
+  const { t } = useLanguage();
+  const { phoneInfo, loading } = usePhoneByLocation();
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
@@ -18,8 +18,8 @@ function Header() {
             <span className="flex items-center gap-1 text-gray-600">
               <span>🇧🇪</span> {t('nav.belgianCompany')}
             </span>
-            <a href={`tel:${phoneNumber}`} className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 transition-colors">
-              <span>📞</span> {phoneNumber}
+            <a href={`tel:${phoneInfo?.number.replace(/\s+/g, '') || ''}`} className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 transition-colors">
+              <span>📞</span> {phoneInfo?.number || '+32 2 808 94 47'}
             </a>
             <span className="flex items-center gap-1 text-gray-600">
               <span>💬</span> {t('nav.frenchSupport')}
