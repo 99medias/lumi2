@@ -10,11 +10,13 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
       <img
         src="/green_modern_marketing_logo.png"
         alt="MaSécurité.be - Votre tranquillité digitale"
-        className={`logo-image ${className}`}
+        className={`logo-image ${variant === 'header' ? 'navbar-logo' : 'logo-full'} ${className}`}
         style={{
-          height: variant === 'header' ? '45px' : '55px',
+          height: variant === 'header' ? '48px' : '55px',
           width: 'auto',
-          objectFit: 'contain'
+          objectFit: 'contain',
+          minHeight: variant === 'header' ? '42px' : '50px',
+          maxHeight: variant === 'header' ? '52px' : '60px'
         }}
       />
     );
