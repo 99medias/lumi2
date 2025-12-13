@@ -11,7 +11,7 @@ interface SimplePricingCardProps {
   highlighted?: boolean;
   ctaText: string;
   ctaLink: string;
-  color?: 'violet' | 'emerald' | 'sky' | 'amber' | 'teal' | 'orange';
+  color?: 'violet' | 'emerald' | 'sky' | 'amber' | 'teal' | 'cyan';
 }
 
 const colorClasses = {
@@ -55,13 +55,13 @@ const colorClasses = {
     hover: 'hover:border-emerald-400',
     button: 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-emerald-500/50'
   },
-  orange: {
-    gradient: 'from-emerald-500 to-emerald-600',
-    border: 'border-emerald-500/50',
-    bg: 'from-emerald-500/10 to-red-500/10',
-    text: 'text-emerald-400',
-    hover: 'hover:border-emerald-400',
-    button: 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-emerald-500/50'
+  cyan: {
+    gradient: 'from-cyan-500 to-cyan-600',
+    border: 'border-cyan-500/50',
+    bg: 'from-cyan-500/10 to-cyan-500/10',
+    text: 'text-cyan-400',
+    hover: 'hover:border-cyan-400',
+    button: 'bg-gradient-to-r from-cyan-500 to-cyan-600 hover:from-cyan-600 hover:to-cyan-700 shadow-cyan-500/50'
   }
 };
 

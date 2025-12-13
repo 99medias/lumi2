@@ -204,8 +204,8 @@ function App() {
               </div>
             </div>
 
-            <div className="group p-8 bg-gradient-to-br from-orange-50 to-white rounded-3xl border border-orange-100 hover:shadow-xl transition-all">
-              <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mb-6">
+            <div className="group p-8 bg-gradient-to-br from-cyan-50 to-white rounded-3xl border border-cyan-100 hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-cyan-500 rounded-2xl flex items-center justify-center mb-6">
                 <span className="text-3xl">🔧</span>
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-3">Dépannage à domicile</h3>
@@ -213,7 +213,7 @@ function App() {
                 Un technicien se déplace chez vous pour résoudre vos problèmes informatiques rapidement.
               </p>
               <div className="flex items-center justify-end">
-                <a href="/contact" className="text-orange-600 font-medium group-hover:underline">
+                <a href="/contact" className="text-cyan-600 font-medium group-hover:underline">
                   En savoir plus →
                 </a>
               </div>
@@ -349,13 +349,13 @@ function App() {
             <div className="bg-white p-1.5 rounded-2xl shadow-xl inline-flex border-2 border-emerald-200">
               <button
                 onClick={() => setCustomerType('particulier')}
-                className={`px-10 py-4 rounded-xl font-bold transition-all duration-300 ${customerType === 'particulier' ? 'bg-gradient-to-r from-emerald-400 to-[#f97316] text-white shadow-lg' : 'text-[#1e293b] hover:text-[#f97316]'}`}
+                className={`px-10 py-4 rounded-xl font-bold transition-all duration-300 ${customerType === 'particulier' ? 'bg-gradient-to-r from-emerald-400 to-cyan-500 text-white shadow-lg' : 'text-[#1e293b] hover:text-cyan-600'}`}
               >
                 {t('pricing.customerType.individual')}
               </button>
               <button
                 onClick={() => setCustomerType('professionnel')}
-                className={`px-10 py-4 rounded-xl font-bold transition-all duration-300 ${customerType === 'professionnel' ? 'bg-gradient-to-r from-emerald-400 to-[#f97316] text-white shadow-lg' : 'text-[#1e293b] hover:text-[#f97316]'}`}
+                className={`px-10 py-4 rounded-xl font-bold transition-all duration-300 ${customerType === 'professionnel' ? 'bg-gradient-to-r from-emerald-400 to-cyan-500 text-white shadow-lg' : 'text-[#1e293b] hover:text-cyan-600'}`}
               >
                 {t('pricing.customerType.professional')}
               </button>
@@ -385,7 +385,7 @@ function App() {
                     </span>
                   </div>
                 </div>
-                <div className="p-4 text-center bg-gradient-to-br from-[#f97316] to-[#ea580c] text-white border-r border-[#ea580c] popular-glow relative hover:scale-[1.01] transition-all duration-200">
+                <div className="p-4 text-center bg-gradient-to-br from-cyan-500 to-cyan-600 text-white border-r border-cyan-600 popular-glow relative hover:scale-[1.01] transition-all duration-200">
                   <div className="flex flex-col items-center gap-1.5">
                     <Star className="w-7 h-7 text-white fill-white" />
                     <h3 className="text-xl font-bold">{(t('pricing.offers.m') as any).name}</h3>
@@ -412,7 +412,7 @@ function App() {
                       <ul className="flex flex-col gap-1 list-none p-0 m-0">
                         {feature.bullets.map((bullet: string, bulletIdx: number) => (
                           <li key={bulletIdx} className="flex items-center gap-1.5 text-[0.8rem] text-[#64748b] leading-snug">
-                            <span className="text-[#f97316] text-base leading-none">•</span>
+                            <span className="text-cyan-500 text-base leading-none">•</span>
                             <span>{bullet}</span>
                           </li>
                         ))}
@@ -470,7 +470,7 @@ function App() {
                     <span className="text-[10px] text-gray-400 mt-0.5">{t('pricing.from')} €19,98{t('pricing.perMonthShort')}</span>
                   </div>
                 </div>
-                <div className="p-4 text-center bg-gradient-to-br from-[#f97316] to-[#ea580c] text-white border-r border-[#ea580c] relative popular-glow hover:scale-[1.01] transition-all duration-200">
+                <div className="p-4 text-center bg-gradient-to-br from-cyan-500 to-cyan-600 text-white border-r border-cyan-600 relative popular-glow hover:scale-[1.01] transition-all duration-200">
                   <div className="flex flex-col items-center gap-1.5">
                     <Star className="w-7 h-7 text-white fill-white" />
                     <h3 className="text-xl font-bold">{(t('pricing.offers.m') as any).name}</h3>
@@ -496,7 +496,7 @@ function App() {
                   duration: t('pricing.tableRows.duration36'),
                   sublabel: t('pricing.inAdvancePlus24Free'),
                   badge: t('pricing.bestValue'),
-                  badgeColor: 'bg-[#f97316]',
+                  badgeColor: 'bg-cyan-500',
                   note: `(${t('pricing.onlyAfterFreeVerification')})`,
                   prices: ['€19,98', '€22,48', '€29,98'],
                   totals: [`60 ${t('pricing.monthsShort')} / €1199`, `60 ${t('pricing.monthsShort')} / €1349`, `60 ${t('pricing.monthsShort')} / €1799`]
@@ -505,7 +505,7 @@ function App() {
                   duration: t('pricing.tableRows.duration24'),
                   sublabel: t('pricing.inAdvancePlus12Free'),
                   badge: t('pricing.recommended'),
-                  badgeColor: 'bg-[#f97316]',
+                  badgeColor: 'bg-cyan-500',
                   prices: ['€26,36', '€31,92', '€34,69'],
                   totals: [`36 ${t('pricing.monthsShort')} / €949`, `36 ${t('pricing.monthsShort')} / €1149`, `36 ${t('pricing.monthsShort')} / €1249`]
                 },
@@ -578,7 +578,7 @@ function App() {
                 <div className="p-5 text-center bg-emerald-50/30 popular-glow">
                   <Link
                     to="/contact"
-                    className="inline-block w-full px-6 py-4 bg-gradient-to-r from-[#f97316] to-[#ea580c] text-white rounded-2xl font-bold text-lg hover:from-emerald-600 hover:to-emerald-700 hover:scale-110 active:scale-95 transition-all duration-200 shadow-xl hover:shadow-2xl ring-2 ring-emerald-200 hover:ring-emerald-300"
+                    className="inline-block w-full px-6 py-4 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white rounded-2xl font-bold text-lg hover:from-cyan-600 hover:to-cyan-700 hover:scale-110 active:scale-95 transition-all duration-200 shadow-xl hover:shadow-2xl ring-2 ring-cyan-200 hover:ring-cyan-300"
                   >
                     {t('pricing.choose')}
                   </Link>
@@ -599,7 +599,7 @@ function App() {
           <div className="bg-gradient-to-br from-white via-emerald-50/20 to-white rounded-3xl shadow-2xl border-2 border-emerald-200/50 p-10 mb-8 hover:shadow-3xl transition-all duration-300">
             <h3 className="text-2xl font-bold text-[#1e293b] mb-4 text-center">{t('pricing.installation.title')}</h3>
             <p className="text-[#1e293b] text-center leading-relaxed mb-6 max-w-3xl mx-auto">
-              {t('pricing.installation.description')} <strong className="text-[#f97316] bg-emerald-100 px-2 py-1 rounded-lg">{t('pricing.installation.priceAmount')}</strong>
+              {t('pricing.installation.description')} <strong className="text-cyan-600 bg-emerald-100 px-2 py-1 rounded-lg">{t('pricing.installation.priceAmount')}</strong>
             </p>
             <PaymentBadges variant="full" title={t('pricing.installation.paymentMethodsTitle')} />
           </div>
@@ -823,7 +823,7 @@ function App() {
             {/* Total Care Bundle Card */}
             <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 backdrop-blur-sm border-2 border-amber-500/50 rounded-3xl p-8 hover:border-amber-400 transition-all duration-300 relative overflow-hidden group">
               <div className="absolute top-4 right-4">
-                <span className="px-3 py-1 bg-[#f97316] text-white text-xs font-bold rounded-full">{t('addons.totalCare.badge')}</span>
+                <span className="px-3 py-1 bg-cyan-500 text-white text-xs font-bold rounded-full">{t('addons.totalCare.badge')}</span>
               </div>
 
               <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center mb-6">

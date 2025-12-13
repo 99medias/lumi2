@@ -13,7 +13,7 @@ interface PricingCardProps {
   name: string;
   tiers: PricingTier[];
   features: string[];
-  color: 'sky' | 'amber' | 'teal' | 'orange';
+  color: 'sky' | 'amber' | 'teal' | 'cyan';
   popular?: boolean;
   bestValue?: boolean;
 }
@@ -43,13 +43,13 @@ const colorClasses = {
     badge: 'bg-emerald-500',
     hover: 'hover:border-emerald-400'
   },
-  orange: {
-    gradient: 'from-emerald-500 to-red-600',
-    border: 'border-emerald-500/50',
-    bg: 'from-emerald-500/10 to-red-500/10',
-    text: 'text-emerald-400',
-    badge: 'bg-emerald-500',
-    hover: 'hover:border-emerald-400'
+  cyan: {
+    gradient: 'from-cyan-500 to-cyan-600',
+    border: 'border-cyan-500/50',
+    bg: 'from-cyan-500/10 to-cyan-500/10',
+    text: 'text-cyan-400',
+    badge: 'bg-cyan-500',
+    hover: 'hover:border-cyan-400'
   }
 };
 
@@ -69,7 +69,7 @@ function PricingCard({ name, tiers, features, color, popular = false, bestValue 
     <div className={`bg-gradient-to-br ${colors.bg} backdrop-blur-sm border-2 ${colors.border} rounded-3xl p-8 relative overflow-hidden transition-all duration-300 ${colors.hover} hover:shadow-2xl hover:shadow-${color}-500/20`}>
       {(popular || bestValue) && (
         <div className="absolute top-0 right-0">
-          <div className={`${popular ? 'bg-[#f97316]' : 'bg-purple-500'} text-white px-6 py-2 text-sm font-bold rounded-bl-2xl flex items-center gap-2`}>
+          <div className={`${popular ? 'bg-cyan-500' : 'bg-purple-500'} text-white px-6 py-2 text-sm font-bold rounded-bl-2xl flex items-center gap-2`}>
             {popular && <TrendingUp className="w-4 h-4" />}
             {popular ? 'PLUS POPULAIRE' : 'MEILLEURE VALEUR'}
           </div>
