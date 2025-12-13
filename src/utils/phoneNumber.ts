@@ -29,8 +29,8 @@ const phoneNumbers: Record<string, PhoneInfo> = {
     flag: '🇪🇸'
   },
   FR: {
-    number: '+33 1 89 71 28 66',
-    localNumber: '01 89 71 28 66',
+    number: '+32 16 18 60 98',
+    localNumber: '016 18 60 98',
     countryCode: 'FR',
     countryName: 'France',
     flag: '🇫🇷'
