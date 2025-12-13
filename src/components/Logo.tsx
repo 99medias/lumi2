@@ -7,47 +7,147 @@ interface LogoProps {
 function Logo({ className = '', variant = 'full' }: LogoProps) {
   if (variant === 'full' || variant === 'header') {
     return (
-      <img
-        src="https://i.ibb.co/BK61B43M/Green-Modern-Marketing-Logo.png"
-        alt="MaSécurité.be - Votre tranquillité digitale"
+      <svg
+        width="240"
+        height="55"
+        viewBox="0 0 350 80"
+        xmlns="http://www.w3.org/2000/svg"
         className={className}
-        style={{
-          height: variant === 'header' ? '55px' : '60px',
-          width: 'auto',
-          objectFit: 'contain'
-        }}
-      />
+      >
+        <text
+          x="0"
+          y="38"
+          fontFamily="Nunito, system-ui, -apple-system, sans-serif"
+          fontSize="32"
+          fontWeight="700"
+          fill="#2D3748"
+        >
+          masecurité.be
+        </text>
+
+        <g transform="translate(270, 2)">
+          <path
+            d="M5 5 L5 32 Q5 46 20 54 Q35 46 35 32 L35 5 Q20 5 5 5 Z"
+            stroke="#10B981"
+            strokeWidth="2.5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M20 12 L20 38 Q20 50 33 56 Q46 50 46 38 L46 12 Q33 12 20 12 Z"
+            stroke="#10B981"
+            strokeWidth="2.5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+
+        <text
+          x="45"
+          y="60"
+          fontFamily="Nunito, system-ui, -apple-system, sans-serif"
+          fontSize="13"
+          fill="#10B981"
+        >
+          votre tranquillité digitale
+        </text>
+      </svg>
     );
   }
 
   if (variant === 'footer') {
     return (
-      <img
-        src="https://i.ibb.co/BK61B43M/Green-Modern-Marketing-Logo.png"
-        alt="MaSécurité.be"
+      <svg
+        width="240"
+        height="60"
+        viewBox="0 0 350 80"
+        xmlns="http://www.w3.org/2000/svg"
         className={className}
-        style={{
-          height: '60px',
-          width: 'auto',
-          objectFit: 'contain',
-          filter: 'brightness(0) invert(1)'
-        }}
-      />
+      >
+        <text
+          x="0"
+          y="38"
+          fontFamily="Nunito, system-ui, -apple-system, sans-serif"
+          fontSize="32"
+          fontWeight="700"
+          fill="#FFFFFF"
+        >
+          masecurité.be
+        </text>
+
+        <g transform="translate(270, 2)">
+          <path
+            d="M5 5 L5 32 Q5 46 20 54 Q35 46 35 32 L35 5 Q20 5 5 5 Z"
+            stroke="#FFFFFF"
+            strokeWidth="2.5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M20 12 L20 38 Q20 50 33 56 Q46 50 46 38 L46 12 Q33 12 20 12 Z"
+            stroke="#FFFFFF"
+            strokeWidth="2.5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+
+        <text
+          x="45"
+          y="60"
+          fontFamily="Nunito, system-ui, -apple-system, sans-serif"
+          fontSize="13"
+          fill="#FFFFFF"
+        >
+          votre tranquillité digitale
+        </text>
+      </svg>
     );
   }
 
   if (variant === 'compact') {
     return (
-      <img
-        src="https://i.ibb.co/BK61B43M/Green-Modern-Marketing-Logo.png"
-        alt="MaSécurité.be"
+      <svg
+        width="180"
+        height="40"
+        viewBox="0 0 350 80"
+        xmlns="http://www.w3.org/2000/svg"
         className={className}
-        style={{
-          height: '40px',
-          width: 'auto',
-          objectFit: 'contain'
-        }}
-      />
+      >
+        <text
+          x="0"
+          y="38"
+          fontFamily="Nunito, system-ui, -apple-system, sans-serif"
+          fontSize="32"
+          fontWeight="700"
+          fill="#2D3748"
+        >
+          masecurité.be
+        </text>
+
+        <g transform="translate(270, 2)">
+          <path
+            d="M5 5 L5 32 Q5 46 20 54 Q35 46 35 32 L35 5 Q20 5 5 5 Z"
+            stroke="#10B981"
+            strokeWidth="2.5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M20 12 L20 38 Q20 50 33 56 Q46 50 46 38 L46 12 Q33 12 20 12 Z"
+            stroke="#10B981"
+            strokeWidth="2.5"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </g>
+      </svg>
     );
   }
 
