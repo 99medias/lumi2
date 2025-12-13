@@ -8,44 +8,51 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
   if (variant === 'full' || variant === 'header') {
     return (
       <svg
-        width="220"
+        width="280"
         height="50"
-        viewBox="0 0 280 60"
+        viewBox="0 0 300 55"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
       >
         <text
           x="0"
-          y="28"
-          fontFamily="Nunito, system-ui, sans-serif"
-          fontSize="24"
+          y="35"
+          fontFamily="Poppins, system-ui, sans-serif"
+          fontSize="30"
           fontWeight="700"
-          fill="#2D3748"
+          fill="#1a202c"
         >
-          masecurité.be
+          MaSécurité
         </text>
 
-        <g transform="translate(195, 0)">
+        <rect x="188" y="12" width="40" height="28" rx="6" fill="#10b981" />
+        <text
+          x="193"
+          y="32"
+          fontFamily="Poppins, system-ui, sans-serif"
+          fontSize="16"
+          fontWeight="700"
+          fill="white"
+        >
+          .be
+        </text>
+
+        <g transform="translate(240, 8)">
           <path
-            d="M3 4 L3 28 Q3 40 15 46 Q27 40 27 28 L27 4 Z"
-            stroke="#10B981"
-            strokeWidth="2"
-            fill="none"
-          />
-          <path
-            d="M15 10 L15 32 Q15 42 25 47 Q35 42 35 32 L35 10 Z"
-            stroke="#10B981"
-            strokeWidth="2"
+            d="M18 2 L4 7 L4 20 Q4 34 18 40 Q32 34 32 20 L32 7 Z"
+            stroke="#10b981"
+            strokeWidth="2.5"
             fill="none"
           />
         </g>
 
         <text
           x="0"
-          y="48"
-          fontFamily="Nunito, system-ui, sans-serif"
+          y="50"
+          fontFamily="Poppins, system-ui, sans-serif"
           fontSize="11"
-          fill="#10B981"
+          fontWeight="400"
+          fill="#10b981"
         >
           votre tranquillité digitale
         </text>
@@ -56,44 +63,51 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
   if (variant === 'footer') {
     return (
       <svg
-        width="220"
+        width="280"
         height="50"
-        viewBox="0 0 280 60"
+        viewBox="0 0 300 55"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
       >
         <text
           x="0"
-          y="28"
-          fontFamily="Nunito, system-ui, sans-serif"
-          fontSize="24"
+          y="35"
+          fontFamily="Poppins, system-ui, sans-serif"
+          fontSize="30"
           fontWeight="700"
-          fill="#FFFFFF"
+          fill="#ffffff"
         >
-          masecurité.be
+          MaSécurité
         </text>
 
-        <g transform="translate(195, 0)">
+        <rect x="188" y="12" width="40" height="28" rx="6" fill="#10b981" />
+        <text
+          x="193"
+          y="32"
+          fontFamily="Poppins, system-ui, sans-serif"
+          fontSize="16"
+          fontWeight="700"
+          fill="white"
+        >
+          .be
+        </text>
+
+        <g transform="translate(240, 8)">
           <path
-            d="M3 4 L3 28 Q3 40 15 46 Q27 40 27 28 L27 4 Z"
-            stroke="#FFFFFF"
-            strokeWidth="2"
-            fill="none"
-          />
-          <path
-            d="M15 10 L15 32 Q15 42 25 47 Q35 42 35 32 L35 10 Z"
-            stroke="#FFFFFF"
-            strokeWidth="2"
+            d="M18 2 L4 7 L4 20 Q4 34 18 40 Q32 34 32 20 L32 7 Z"
+            stroke="#10b981"
+            strokeWidth="2.5"
             fill="none"
           />
         </g>
 
         <text
           x="0"
-          y="48"
-          fontFamily="Nunito, system-ui, sans-serif"
+          y="50"
+          fontFamily="Poppins, system-ui, sans-serif"
           fontSize="11"
-          fill="#FFFFFF"
+          fontWeight="400"
+          fill="#9ca3af"
         >
           votre tranquillité digitale
         </text>
@@ -104,33 +118,39 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
   if (variant === 'compact') {
     return (
       <svg
-        width="180"
-        height="35"
-        viewBox="0 0 280 60"
+        width="260"
+        height="38"
+        viewBox="0 0 280 40"
         xmlns="http://www.w3.org/2000/svg"
         className={className}
       >
         <text
           x="0"
           y="28"
-          fontFamily="Nunito, system-ui, sans-serif"
-          fontSize="24"
+          fontFamily="Poppins, system-ui, sans-serif"
+          fontSize="26"
           fontWeight="700"
-          fill="#2D3748"
+          fill="#1a202c"
         >
-          masecurité.be
+          MaSécurité
         </text>
 
-        <g transform="translate(195, 0)">
+        <rect x="165" y="8" width="36" height="24" rx="5" fill="#10b981" />
+        <text
+          x="170"
+          y="26"
+          fontFamily="Poppins, system-ui, sans-serif"
+          fontSize="14"
+          fontWeight="700"
+          fill="white"
+        >
+          .be
+        </text>
+
+        <g transform="translate(212, 5)">
           <path
-            d="M3 4 L3 28 Q3 40 15 46 Q27 40 27 28 L27 4 Z"
-            stroke="#10B981"
-            strokeWidth="2"
-            fill="none"
-          />
-          <path
-            d="M15 10 L15 32 Q15 42 25 47 Q35 42 35 32 L35 10 Z"
-            stroke="#10B981"
+            d="M15 2 L4 6 L4 17 Q4 28 15 33 Q26 28 26 17 L26 6 Z"
+            stroke="#10b981"
             strokeWidth="2"
             fill="none"
           />
@@ -141,33 +161,24 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
 
   return (
     <svg
-      width={48}
-      height={48}
+      width="60"
+      height="60"
       viewBox="0 0 60 60"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <defs>
-        <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: '#10B981', stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: '#059669', stopOpacity: 1 }} />
-        </linearGradient>
-      </defs>
-      <path
-        d="M30 5 L30 5 C30 5 20 8 12 10 C9 11 7 13 7 16 L7 32 C7 42 16 50 30 55 C44 50 53 42 53 32 L53 16 C53 13 51 11 48 10 C40 8 30 5 30 5 Z"
-        stroke="url(#shieldGradient)"
-        strokeWidth="3"
-        fill="none"
-      />
-      <path
-        d="M20 28 L27 35 L40 22"
-        stroke="url(#shieldGradient)"
-        strokeWidth="3"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
-      />
+      <rect x="5" y="5" width="50" height="50" rx="12" fill="#10b981" />
+      <text
+        x="30"
+        y="42"
+        textAnchor="middle"
+        fontFamily="Poppins, system-ui, sans-serif"
+        fontSize="32"
+        fontWeight="800"
+        fill="white"
+      >
+        M
+      </text>
     </svg>
   );
 }
