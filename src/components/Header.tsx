@@ -61,10 +61,6 @@ function Header() {
                 <a href="/#pricing" className="block px-4 py-2 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors">
                   {t('nav.completeProtection')}
                 </a>
-                <hr className="my-2 border-gray-100" />
-                <Link to="/verification" className="block px-4 py-2 text-orange-600 hover:bg-orange-50 transition-colors">
-                  🔍 {t('nav.checkMyData')}
-                </Link>
               </div>
             </div>
 
@@ -79,20 +75,31 @@ function Header() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            {/* Vérifier mes données - Orange accent button */}
             <Link
               to="/verification"
-              className="hidden md:flex items-center gap-2 text-emerald-600 font-medium hover:underline"
+              className="hidden lg:flex items-center gap-2 px-4 py-2 text-orange-600 font-medium border border-orange-200 rounded-full hover:bg-orange-50 transition-colors"
             >
               <span>🔍</span>
-              <span>{t('nav.freeScan')}</span>
+              <span>{t('nav.checkMyData')}</span>
             </Link>
 
+            {/* Diagnostic Rapide - Green text button */}
+            <Link
+              to="/analyse-rapide"
+              className="hidden md:flex items-center gap-2 px-4 py-2 text-emerald-600 font-medium hover:bg-emerald-50 rounded-full transition-colors"
+            >
+              <span>⚡</span>
+              <span>{t('nav.quickScan')}</span>
+            </Link>
+
+            {/* Main CTA - Besoin d'aide */}
             <a
               href="https://masecu2025.getscreen.me/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-2.5 bg-emerald-500 text-white rounded-full font-semibold hover:bg-emerald-600 transition-colors"
+              className="px-5 py-2.5 bg-emerald-500 text-white rounded-full font-semibold hover:bg-emerald-600 transition-colors"
             >
               <span className="hidden sm:inline">{t('nav.needHelp')}</span>
               <span className="sm:hidden">🆘</span>
@@ -141,10 +148,6 @@ function Header() {
                     <a href="/#pricing" className="block px-3 py-2 text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                       {t('nav.completeProtection')}
                     </a>
-                    <hr className="my-1.5 border-gray-100" />
-                    <Link to="/verification" className="block px-3 py-2 text-orange-600 hover:bg-orange-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
-                      🔍 {t('nav.checkMyData')}
-                    </Link>
                   </div>
                 )}
               </div>
@@ -158,6 +161,17 @@ function Header() {
               <Link to="/contact" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
                 {t('nav.contact')}
               </Link>
+
+              {/* Mobile CTA Buttons */}
+              <div className="mt-4 pt-4 border-t border-gray-100 space-y-2">
+                <Link to="/verification" className="flex items-center gap-2 px-3 py-2 text-orange-600 font-medium bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  🔍 {t('nav.checkMyData')}
+                </Link>
+                <Link to="/analyse-rapide" className="flex items-center gap-2 px-3 py-2 text-emerald-600 font-medium bg-emerald-50 rounded-lg hover:bg-emerald-100 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  ⚡ {t('nav.quickScan')}
+                </Link>
+              </div>
+
               <div className="mt-4 pt-4 border-t border-gray-100">
                 <LanguageSelector />
               </div>
