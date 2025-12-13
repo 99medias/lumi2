@@ -15,7 +15,7 @@ const PageHeader = ({ showLanguageSelector = true }: PageHeaderProps) => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-6">
-        <nav className="flex justify-between items-center py-4">
+        <nav className="flex justify-between items-center py-5">
           <Link to="/" className="flex items-center transition-all duration-300 hover:scale-105">
             <Logo variant="header" />
           </Link>

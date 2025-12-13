@@ -12,11 +12,12 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
         alt="MaSécurité.be - Votre tranquillité digitale"
         className={`logo-image ${variant === 'header' ? 'navbar-logo' : 'logo-full'} ${className}`}
         style={{
-          height: variant === 'header' ? '48px' : '55px',
+          height: variant === 'header' ? '65px' : '70px',
           width: 'auto',
           objectFit: 'contain',
-          minHeight: variant === 'header' ? '42px' : '50px',
-          maxHeight: variant === 'header' ? '52px' : '60px'
+          minHeight: variant === 'header' ? '60px' : '65px',
+          maxHeight: variant === 'header' ? '70px' : '80px',
+          maxWidth: '280px'
         }}
       />
     );
