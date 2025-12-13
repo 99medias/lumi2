@@ -53,7 +53,7 @@ Deno.serve(async (req: Request) => {
         method: "GET",
         headers: {
           "hibp-api-key": Deno.env.get("HIBP_API_KEY") || "",
-          "user-agent": "MySafeSecurity-BreachChecker",
+          "user-agent": "MaSecurite-BreachChecker",
         },
       }
     );

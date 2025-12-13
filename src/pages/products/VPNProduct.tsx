@@ -191,8 +191,8 @@ const VPNProduct = () => {
               ]}
               features={[
                 'Espace Cloud 10GB',
-                'MSS Security Software',
-                'MSS Intelligard',
+                'MaSecuSecurity Software',
+                'MaSecuIntelligard',
                 '3h d\'assistance/mois',
                 'Retour sous 24h',
                 'Mises à jour annuelles',

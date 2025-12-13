@@ -37,7 +37,7 @@ Deno.serve(async (req: Request) => {
     const response = await fetch(`https://api.pwnedpasswords.com/range/${prefix}`, {
       method: "GET",
       headers: {
-        "user-agent": "MySafeSecurity-BreachChecker",
+        "user-agent": "MaSecurite-BreachChecker",
       },
     });
 

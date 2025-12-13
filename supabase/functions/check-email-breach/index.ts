@@ -60,7 +60,7 @@ Deno.serve(async (req: Request) => {
       method: "GET",
       headers: {
         "hibp-api-key": hibpApiKey,
-        "user-agent": "MSS-Expert-Security-Scanner",
+        "user-agent": "MaSecu-Expert-Security-Scanner",
       },
     });
 

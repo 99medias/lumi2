@@ -25,9 +25,9 @@ function TermsOfService() {
 
             <div className="bg-gradient-to-br from-emerald-50 to-emerald-50 border-2 border-emerald-200 rounded-2xl p-6 mb-8">
               <p className="text-lg text-slate-700 leading-relaxed mb-0">
-                {tos.intro.split('MySafeSecurity')[0]}
-                <strong>MySafeSecurity</strong>
-                {tos.intro.split('MySafeSecurity')[1]}
+                {tos.intro.split('MaSécurité')[0]}
+                <strong>MaSécurité</strong>
+                {tos.intro.split('MaSécurité')[1]}
               </p>
             </div>
 
@@ -98,9 +98,9 @@ function TermsOfService() {
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
               {tos.section4.para2.split(tos.contact.phoneValue)[0]}
               <strong>{tos.contact.phoneValue}</strong>
-              {tos.section4.para2.split(tos.contact.phoneValue)[1]?.split('contact@mysafesecurity.org')[0]}
-              <strong>contact@mysafesecurity.org</strong>
-              {tos.section4.para2.split('contact@mysafesecurity.org')[1]}
+              {tos.section4.para2.split(tos.contact.phoneValue)[1]?.split('info@masecurite.be')[0]}
+              <strong>info@masecurite.be</strong>
+              {tos.section4.para2.split('info@masecurite.be')[1]}
             </p>
             <div className="bg-amber-50 border-2 border-amber-200 rounded-xl p-6 mb-6">
               <p className="text-slate-700 mb-0">
@@ -160,9 +160,9 @@ function TermsOfService() {
               {tos.section8.para1.split(tos.section8.privacyPolicyLink)[1]}
             </p>
             <p className="text-lg text-slate-700 leading-relaxed mb-6">
-              {tos.section8.para2.split('dpo@mysafesecurity.fr')[0]}
-              <strong>dpo@mysafesecurity.fr</strong>
-              {tos.section8.para2.split('dpo@mysafesecurity.fr')[1]}
+              {tos.section8.para2.split('dpo@masecurite.be')[0]}
+              <strong>dpo@masecurite.be</strong>
+              {tos.section8.para2.split('dpo@masecurite.be')[1]}
             </p>
 
             <h2 className="text-3xl font-bold text-slate-800 mt-12 mb-6 flex items-center gap-3">
@@ -209,7 +209,7 @@ function TermsOfService() {
               <ul className="space-y-2 text-slate-700">
                 <li><strong>{tos.contact.company}:</strong> Digital Genesys Solutions LLC</li>
                 <li><strong>{tos.contact.phone}:</strong> {tos.contact.phoneValue}</li>
-                <li><strong>{tos.contact.email}:</strong> contact@mysafesecurity.org</li>
+                <li><strong>{tos.contact.email}:</strong> info@masecurite.be</li>
                 <li><strong>{tos.contact.address}:</strong> 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA</li>
               </ul>
             </div>

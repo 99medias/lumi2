@@ -153,9 +153,9 @@ const translations = {
       },
       security: {
         title: 'Suite Sécurité Intégrale',
-        description: 'Notre MSS Security Software vous protège contre tous les types de menaces informatiques et sécurise efficacement votre identité numérique sur internet.',
+        description: 'Notre MaSecuSecurity Software vous protège contre tous les types de menaces informatiques et sécurise efficacement votre identité numérique sur internet.',
         feature1: 'Protection antivirus avancée',
-        feature2: 'MSS Intelligard inclus',
+        feature2: 'MaSecuIntelligard inclus',
         feature3: 'Protection contre les cyberattaques',
         feature4: 'Blocage de la collecte de données'
       },
@@ -181,7 +181,7 @@ const translations = {
       }
     },
     features: {
-      title: 'Pourquoi Choisir MySafeSecurity ?',
+      title: 'Pourquoi Choisir MaSécurité ?',
       subtitle: 'L\'excellence au service de votre sérénité numérique',
       security: {
         title: 'Sécurité maximale',
@@ -202,11 +202,11 @@ const translations = {
       cards: {
         completeProtection: {
           title: 'Protection Complète',
-          description: 'MSS vous aide à lutter contre les attaques du quotidien avec une protection des utilisateurs, du réseau et des équipements.'
+          description: 'MaSecuvous aide à lutter contre les attaques du quotidien avec une protection des utilisateurs, du réseau et des équipements.'
         },
         preventiveMaintenance: {
           title: 'Maintenance Préventive',
-          description: 'MSS maintient la santé de vos systèmes informatiques en prévenant tout dysfonctionnement qui pourrait vous causer des problèmes.'
+          description: 'MaSecumaintient la santé de vos systèmes informatiques en prévenant tout dysfonctionnement qui pourrait vous causer des problèmes.'
         },
         performantConnections: {
           title: 'Connexions Performantes',
@@ -214,7 +214,7 @@ const translations = {
         },
         softwareApplications: {
           title: 'Logiciels & Applications',
-          description: 'MSS vous fournit les logiciels et les applications pour une meilleure gestion de votre réseau et de votre activité.'
+          description: 'MaSecuvous fournit les logiciels et les applications pour une meilleure gestion de votre réseau et de votre activité.'
         }
       }
     },
@@ -273,7 +273,7 @@ const translations = {
           storage: '10 GB de stockage',
           features: [
             'Espace Cloud 10GB',
-            'MSS Security Software',
+            'MaSecuSecurity Software',
             '3h d\'assistance/mois',
             'Retour sous 24h',
             'Mises à jour annuelles'
@@ -326,8 +326,8 @@ const translations = {
         { name: 'Aide et Support de professionnels certifiés', description: 'Nous aidons à réparer les problèmes sur votre ordinateur', values: ['3 heures\npar mois', '5 heures\npar mois', 'Illimité'] },
         { name: 'Temps de réponse', description: 'Notre réponse à vos problèmes informatiques', values: ['Sous 24 heures', 'Maximum\n3 heures', 'Immédiat'] },
         { name: 'Espace Cloud Sécurisé', description: 'Stockage cloud chiffré pour vos fichiers', values: ['10 GB', '30 GB', '120 GB'] },
-        { name: 'MSS Security Software', description: 'Protection antivirus et anti-malware avancée', values: ['✓', '✓', '✓'] },
-        { name: 'MSS AdBlocker', description: 'Protège votre navigation et bloque les publicités', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecuSecurity Software', description: 'Protection antivirus et anti-malware avancée', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecuAdBlocker', description: 'Protège votre navigation et bloque les publicités', values: ['✓', '✓', '✓'] },
         { name: 'Nettoyer', bullets: ['+15 Go récupérés en moyenne', 'Trackers & mouchards supprimés', 'Navigateur jusqu\'à 3x plus rapide', 'Données personnelles protégées'], values: ['✓', '✓', '✓'] },
         { name: 'Optimisation', bullets: ['Démarrage en moins de 30 sec', '100% de votre RAM disponible', 'Fini les ralentissements', 'Performances du 1er jour'], values: ['✓', '✓', '✓'] },
         { name: 'Souscription transférable', description: 'Transférez votre abonnement à un autre ordinateur', values: ['—', '✓', '✓'] },
@@ -342,7 +342,7 @@ const translations = {
       title: 'Services Autonomes',
       subtitle: 'Souscrire sans abonnement principal - parfait pour des besoins spécifiques',
       aiAssistant: {
-        name: 'MSS AI Assistant',
+        name: 'MaSecuAI Assistant',
         description: 'Assistant IA alimenté par OpenAI pour une aide instantanée 24/7 sur tous vos besoins informatiques.',
         price: '19.99€',
         period: '/mois',
@@ -356,7 +356,7 @@ const translations = {
         button: 'En savoir plus'
       },
       mobileSecurity: {
-        name: 'MSS Mobile Security',
+        name: 'MaSecuMobile Security',
         description: 'Protection Bitdefender Total Security pour vos mobiles et tablettes Android.',
         price: '9.99€',
         period: '/appareil',
@@ -376,7 +376,7 @@ const translations = {
       subtitle: 'Ajoutez des fonctionnalités premium à votre abonnement existant.',
       requirement: 'Nécessite un abonnement actif (Offre S, M ou L)',
       vpnPro: {
-        name: 'MSS VPN Pro',
+        name: 'MaSecuVPN Pro',
         price: '9.99€',
         period: '/mois',
         features: [
@@ -389,7 +389,7 @@ const translations = {
         button: 'En savoir plus'
       },
       adblock: {
-        name: 'MSS AdBlock Plus',
+        name: 'MaSecuAdBlock Plus',
         price: '9.99€',
         period: '/mois',
         features: [
@@ -402,7 +402,7 @@ const translations = {
         button: 'En savoir plus'
       },
       systemCleaner: {
-        name: 'MSS System Cleaner',
+        name: 'MaSecuSystem Cleaner',
         description: 'Optimisez les performances de votre PC. Supprimez les fichiers inutiles et accélérez votre système.',
         price: '9.99€',
         period: '/mois',
@@ -416,7 +416,7 @@ const translations = {
         button: 'En savoir plus'
       },
       totalCare: {
-        name: 'MSS Total Care',
+        name: 'MaSecuTotal Care',
         badge: 'ÉCONOMISEZ 17%',
         description: 'Le pack complet : VPN + AdBlock + Cleaner réunis. La protection ultime pour votre vie numérique.',
         price: '24.99€',
@@ -432,7 +432,7 @@ const translations = {
     },
     vpnProduct: {
       hero: {
-        title: 'MSS VPN Pro',
+        title: 'MaSecuVPN Pro',
         subtitle: 'Naviguez en toute confidentialité avec notre VPN ultra-rapide. Protégez vos données sur les réseaux Wi-Fi publics.',
         ctaPrimary: 'Commencer maintenant - 9.99€/mois',
         ctaSecondary: 'En savoir plus'
@@ -442,7 +442,7 @@ const translations = {
         subtitle: 'Voici ce que les sites web peuvent voir sur vous en ce moment même'
       },
       featuresSection: {
-        title: 'Pourquoi choisir MSS VPN Pro ?',
+        title: 'Pourquoi choisir MaSecuVPN Pro ?',
         subtitle: 'La protection la plus complète pour votre vie privée en ligne',
         features: [
           { title: 'Chiffrement militaire', description: 'Protection AES-256 bits pour sécuriser toutes vos données' },
@@ -468,7 +468,7 @@ const translations = {
         ]
       },
       comparisonSection: {
-        title: 'Sans VPN vs Avec MSS VPN Pro',
+        title: 'Sans VPN vs Avec MaSecuVPN Pro',
         without: {
           title: 'Sans VPN',
           items: [
@@ -480,7 +480,7 @@ const translations = {
           ]
         },
         with: {
-          title: 'Avec MSS VPN Pro',
+          title: 'Avec MaSecuVPN Pro',
           items: [
             'IP masquée et anonyme',
             'Localisation cachée',
@@ -501,7 +501,7 @@ const translations = {
         faqs: [
           {
             q: 'Puis-je utiliser le VPN sur plusieurs appareils ?',
-            a: 'Oui ! MSS VPN Pro fonctionne sur Windows, Mac, iOS, Android et Linux. Vous pouvez protéger jusqu\'à 5 appareils simultanément avec un seul abonnement.'
+            a: 'Oui ! MaSecuVPN Pro fonctionne sur Windows, Mac, iOS, Android et Linux. Vous pouvez protéger jusqu\'à 5 appareils simultanément avec un seul abonnement.'
           },
           {
             q: 'Le VPN ralentit-il ma connexion Internet ?',
@@ -519,7 +519,7 @@ const translations = {
       },
       ctaSection: {
         title: 'Prêt à protéger votre vie privée ?',
-        subtitle: 'Rejoignez des milliers d\'utilisateurs qui font confiance à MSS VPN Pro',
+        subtitle: 'Rejoignez des milliers d\'utilisateurs qui font confiance à MaSecuVPN Pro',
         button: 'Commencer maintenant'
       }
     },
@@ -559,14 +559,14 @@ const translations = {
     },
     adBlockProduct: {
       hero: {
-        title: 'MSS AdBlock Plus',
+        title: 'MaSecuAdBlock Plus',
         subtitle: 'Éliminez toutes les publicités intrusives et accélérez votre navigation jusqu\'à 40% plus vite.',
         ctaPrimary: 'Commencer maintenant - 9.99€/mois',
         ctaSecondary: 'Voir les fonctionnalités'
       },
       liveStats: {
         title: 'Protection en temps réel',
-        subtitle: 'Simulateur : ce que MSS AdBlock Plus bloque chaque jour',
+        subtitle: 'Simulateur : ce que MaSecuAdBlock Plus bloque chaque jour',
         adsBlocked: 'Publicités bloquées',
         trackersStopped: 'Trackers stoppés',
         timeSaved: 'Temps économisé',
@@ -627,7 +627,7 @@ const translations = {
           ]
         },
         with: {
-          title: 'Avec MSS AdBlock Plus',
+          title: 'Avec MaSecuAdBlock Plus',
           benefits: [
             'Navigation fluide',
             'Contenu pertinent uniquement',
@@ -640,10 +640,10 @@ const translations = {
         title: 'Naviguez sans interruption',
         subtitle: 'Bloquez les publicités et protégez votre vie privée',
         specialOffer: '🎉 Offre spéciale : Mois bonus sur tous les forfaits',
-        planTitle: 'MSS AdBlock Plus',
+        planTitle: 'MaSecuAdBlock Plus',
         price: '9.99€',
         perMonth: '/mois',
-        requirement: 'Nécessite un abonnement MySafeSecurity actif',
+        requirement: 'Nécessite un abonnement MaSécurité actif',
         featuresTitle: 'Fonctionnalités incluses :',
         featuresList: [
           'Blocage de toutes les publicités (bannières, vidéos, pop-ups)',
@@ -671,7 +671,7 @@ const translations = {
     },
     systemCleanerProduct: {
       hero: {
-        title: 'MSS System Cleaner',
+        title: 'MaSecuSystem Cleaner',
         subtitle: 'Redonnez vie à votre PC. Supprimez les fichiers inutiles et accélérez votre système instantanément.',
         ctaPrimary: 'Commencer maintenant - 9.99€/mois',
         ctaSecondary: 'Analyser mon système'
@@ -694,7 +694,7 @@ const translations = {
           diskSpaceDesc: 'Espace disque qui peut être libéré immédiatement',
           startupItems: 'Programmes au démarrage',
           startupItemsDesc: 'Applications qui ralentissent le démarrage de votre PC',
-          solution: 'MSS System Cleaner peut résoudre tous ces problèmes !',
+          solution: 'MaSecuSystem Cleaner peut résoudre tous ces problèmes !',
           solutionDesc: 'Nettoyez, optimisez et accélérez votre PC en un seul clic. Récupérez jusqu\'à {space} GB d\'espace et améliorez les performances jusqu\'à 40%.'
         }
       },
@@ -741,10 +741,10 @@ const translations = {
         title: 'Optimisez votre PC dès maintenant',
         subtitle: 'Plans flexibles pour tous vos besoins',
         specialOffer: '⚡ Obtenez jusqu\'à 3 mois gratuits avec un engagement long terme',
-        planTitle: 'MSS System Cleaner',
+        planTitle: 'MaSecuSystem Cleaner',
         price: '9.99€',
         perMonth: '/mois',
-        requirement: 'Nécessite un abonnement MySafeSecurity actif',
+        requirement: 'Nécessite un abonnement MaSécurité actif',
         featuresTitle: 'Fonctionnalités incluses :',
         featuresList: [
           'Nettoyage automatique planifié',
@@ -773,7 +773,7 @@ const translations = {
     totalCareProduct: {
       hero: {
         badge: 'ÉCONOMISEZ 17% - OFFRE SPÉCIALE',
-        title: 'MSS Total Care',
+        title: 'MaSecuTotal Care',
         subtitle: 'La protection ultime tout-en-un',
         description: 'VPN Pro + AdBlock Plus + System Cleaner réunis en un seul pack',
         priceCompare: {
@@ -790,7 +790,7 @@ const translations = {
         title: '3 produits premium en 1',
         subtitle: 'Tous les outils dont vous avez besoin pour une protection complète',
         vpn: {
-          name: 'MSS VPN Pro',
+          name: 'MaSecuVPN Pro',
           features: [
             '50+ serveurs dans 30 pays',
             'Chiffrement AES-256',
@@ -799,7 +799,7 @@ const translations = {
           ]
         },
         adblock: {
-          name: 'MSS AdBlock Plus',
+          name: 'MaSecuAdBlock Plus',
           features: [
             'Blocage publicités et pop-ups',
             'Anti-tracking avancé',
@@ -808,7 +808,7 @@ const translations = {
           ]
         },
         cleaner: {
-          name: 'MSS System Cleaner',
+          name: 'MaSecuSystem Cleaner',
           features: [
             'Nettoyage automatique',
             'Optimisation registre',
@@ -870,11 +870,11 @@ const translations = {
         subtitle: 'VPN Pro + AdBlock Plus + System Cleaner en un seul forfait',
         specialOffer: '🔥 Économisez jusqu\'à 40% avec le pack complet',
         badge: 'MEILLEURE VALEUR',
-        planTitle: 'MSS Total Care',
+        planTitle: 'MaSecuTotal Care',
         planSubtitle: 'Le pack complet pour une protection totale',
         price: '24.99€',
         perMonth: '/mois',
-        requirement: 'Nécessite un abonnement MySafeSecurity actif',
+        requirement: 'Nécessite un abonnement MaSécurité actif',
         featuresTitle: 'Inclus dans le pack :',
         featuresList: [
           '🛡️ VPN Pro - Protection complète avec 50+ serveurs',
@@ -914,7 +914,7 @@ const translations = {
     },
     aiAssistantProduct: {
       hero: {
-        title: 'MSS AI Assistant',
+        title: 'MaSecuAI Assistant',
         subtitle: 'Votre assistant personnel alimenté par une intelligence artificielle spécifique pour tous vos besoins informatiques',
         badges: {
           powered: 'IA Avancée',
@@ -947,7 +947,7 @@ const translations = {
         ]
       },
       useCases: {
-        title: 'Comment MSS AI Assistant Peut Vous Aider',
+        title: 'Comment MaSecuAI Assistant Peut Vous Aider',
         list: [
           'Aide à la configuration de vos appareils',
           'Résolution de problèmes techniques',
@@ -962,7 +962,7 @@ const translations = {
       pricing: {
         title: 'Choisissez Votre Formule',
         individual: 'Particulier',
-        name: 'MSS AI Assistant',
+        name: 'MaSecuAI Assistant',
         price: '19.99',
         period: '/mois',
         description: 'Assistant IA personnel pour tous vos besoins informatiques',
@@ -980,7 +980,7 @@ const translations = {
       },
       finalCta: {
         title: 'Prêt à Bénéficier de l\'Intelligence Artificielle ?',
-        subtitle: 'Rejoignez les utilisateurs qui simplifient leur vie numérique avec MSS AI Assistant',
+        subtitle: 'Rejoignez les utilisateurs qui simplifient leur vie numérique avec MaSecuAI Assistant',
         button: 'Commencer Maintenant'
       }
     },
@@ -1007,7 +1007,7 @@ const translations = {
       guaranteeTitle: 'Garantie de sécurité à 100%',
       guaranteeDesc: 'Vos données sont protégées par les technologies de chiffrement les plus avancées',
       protectionActive: 'Protection Active',
-      certificationText: 'MySafeSecurity est certifié et audité régulièrement pour garantir les plus hauts standards de sécurité.',
+      certificationText: 'MaSécurité est certifié et audité régulièrement pour garantir les plus hauts standards de sécurité.',
       privacyText: 'Vos données personnelles sont traitées conformément au RGPD et ne sont jamais partagées avec des tiers.'
     },
     footer: {
@@ -1056,7 +1056,7 @@ const translations = {
     products: {
       common: { individual: 'Particulier', ctaText: 'Choisir cette offre', startNow: 'Commencer Maintenant' },
       mobileSecurity: {
-        title: 'MSS Mobile Security',
+        title: 'MaSecuMobile Security',
         subtitle: 'Protection complète Bitdefender pour vos mobiles et tablettes Android',
         badges: { powered: 'Powered by Bitdefender', platform: 'Android & Tablets', price: '9.99€ par appareil' },
         features: [
@@ -1076,7 +1076,7 @@ const translations = {
         browsersTitle: 'Navigation Protégée',
         browsersSubtitle: 'La Protection Web fonctionne avec tous les navigateurs Android populaires :',
         pricingTitle: 'Tarification Simple',
-        packageName: 'MSS Mobile Security',
+        packageName: 'MaSecuMobile Security',
         price: '9.99',
         period: '/mois par appareil',
         description: 'Protection Bitdefender Total Security pour mobiles et tablettes',
@@ -1100,7 +1100,7 @@ const translations = {
       story: {
         title: 'Notre Histoire',
         subtitle: 'Une aventure humaine au service de votre sérénité numérique',
-        paragraph1: 'MySafeSecurity est née d\'une conviction simple : la technologie doit être au service de tous, peu importe l\'âge ou les connaissances techniques. Nous sommes une entreprise européenne spécialisée dans la cybersécurité et le support informatique, particulièrement attentive aux besoins des seniors en France et en Belgique.',
+        paragraph1: 'MaSécurité est née d\'une conviction simple : la technologie doit être au service de tous, peu importe l\'âge ou les connaissances techniques. Nous sommes une entreprise européenne spécialisée dans la cybersécurité et le support informatique, particulièrement attentive aux besoins des seniors en France et en Belgique.',
         paragraph2: 'Nous croyons que chacun mérite de profiter sereinement de la technologie pour rester en contact avec ses proches, préserver ses souvenirs et gérer ses affaires personnelles en toute sécurité. C\'est pourquoi nous avons créé des solutions simples, accompagnées d\'un support humain francophone disponible 24h/24 et 7j/7.',
         paragraph3: 'Notre équipe de techniciens certifiés est formée pour prendre le temps nécessaire avec chaque client. Nous expliquons chaque étape avec patience, nous adaptons à votre rythme, et nous assurons que vous vous sentiez en confiance avec votre ordinateur, tablette ou smartphone.',
         paragraph4: 'Basés en Europe avec des centres d\'assistance en France et en Belgique, nous sommes fiers de servir plus de 150 000 clients européens qui nous font confiance pour protéger leurs appareils et leurs données les plus précieuses.'
@@ -1138,7 +1138,7 @@ const translations = {
       },
       cta: {
         title: 'Prêt à Protéger Votre Vie Numérique ?',
-        subtitle: 'Rejoignez les milliers de clients européens qui profitent sereinement de la technologie grâce à MySafeSecurity',
+        subtitle: 'Rejoignez les milliers de clients européens qui profitent sereinement de la technologie grâce à MaSécurité',
         button: 'Contactez-nous',
         description: 'Protéger les clients européens avec bienveillance et expertise depuis 2018.'
       },
@@ -1185,7 +1185,7 @@ const translations = {
         },
         email: {
           title: 'Courriel',
-          value: 'contact@mysafesecurity.org',
+          value: 'info@masecurite.be',
           responseTime: 'Réponse sous 24 heures'
         },
         address: {
@@ -1497,7 +1497,7 @@ const translations = {
       common: {
         lastUpdated: 'Derniere mise a jour : Janvier 2025',
         company: 'Digital Genesys Solutions LLC',
-        companyName: 'Digital Genesys Solutions LLC (MySafeSecurity)',
+        companyName: 'Digital Genesys Solutions LLC (MaSécurité)',
         legalForm: 'Limited Liability Company (LLC)',
         registrationNumber: 'Numéro d\'enregistrement',
         registrationNum: '3003074',
@@ -1514,19 +1514,19 @@ const translations = {
         phone: 'Téléphone',
         phoneValue: '01 89 71 28 66',
         email: 'Email',
-        emailValue: 'contact@mysafesecurity.org',
+        emailValue: 'info@masecurite.be',
         contactTitle: 'Besoin de Plus d\'Informations ?',
         contactText: 'Pour toute question concernant ces mentions légales, contactez-nous :',
         society: 'Société'
       },
       legalNotice: {
         title: 'Mentions Légales',
-        intro: 'Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l\'économie numérique, voici les mentions légales du site MySafeSecurity.'
+        intro: 'Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l\'économie numérique, voici les mentions légales du site MaSécurité.'
       },
       privacyPolicy: {
         title: 'Politique de Confidentialité',
         lastUpdate: 'Dernière mise à jour : Janvier 2025',
-        intro: 'Chez MySafeSecurity, nous prenons très au sérieux la protection de vos données personnelles. Cette politique explique comment nous collectons, utilisons et protégeons vos informations conformément au Règlement Général sur la Protection des Données (RGPD).',
+        intro: 'Chez MaSécurité, nous prenons très au sérieux la protection de vos données personnelles. Cette politique explique comment nous collectons, utilisons et protégeons vos informations conformément au Règlement Général sur la Protection des Données (RGPD).',
         section1: {
           title: '1. Responsable du Traitement',
           description: 'Le responsable du traitement de vos données personnelles est :'
@@ -1611,7 +1611,7 @@ const translations = {
           howToExercise: {
             title: 'Comment exercer vos droits ?',
             intro: 'Pour exercer l\'un de ces droits, contactez-nous :',
-            dpo: 'dpo@mysafesecurity.fr',
+            dpo: 'dpo@masecurite.be',
             responseTime: 'Nous répondrons à votre demande dans un délai d\'un mois maximum. Une pièce d\'identité pourra être demandée pour vérifier votre identité.'
           }
         },
@@ -1646,7 +1646,7 @@ const translations = {
       cookiePolicy: {
         title: 'Politique des cookies',
         lastUpdate: 'Dernière mise à jour : Janvier 2025',
-        intro: 'Cette politique explique comment MySafeSecurity utilise les cookies et technologies similaires sur notre site web pour améliorer votre expérience de navigation.',
+        intro: 'Cette politique explique comment MaSécurité utilise les cookies et technologies similaires sur notre site web pour améliorer votre expérience de navigation.',
         section1: {
           title: '1. Qu\'est-ce qu\'un Cookie ?',
           description: 'Un cookie est un petit fichier texte déposé sur votre appareil (ordinateur, tablette, smartphone) lorsque vous visitez un site web. Les cookies permettent au site de :',
@@ -1746,7 +1746,7 @@ const translations = {
       refundPolicy: {
         title: 'Politique de remboursement',
         lastUpdate: 'Dernière mise à jour : Janvier 2025',
-        intro: 'Chez MySafeSecurity, votre satisfaction est notre priorité. Cette politique explique les conditions de remboursement de nos services.',
+        intro: 'Chez MaSécurité, votre satisfaction est notre priorité. Cette politique explique les conditions de remboursement de nos services.',
         section1: {
           title: '1. Droit de Rétractation de 30 Jours',
           para1: 'Conformément à la législation européenne sur la protection des consommateurs, vous disposez d\'un délai de 30 jours calendaires à compter de la date de souscription pour exercer votre droit de rétractation sans avoir à justifier de motifs.',
@@ -1755,7 +1755,7 @@ const translations = {
         section2: {
           title: '2. Comment Demander un Remboursement',
           intro: 'Pour exercer votre droit de rétractation et demander un remboursement, vous pouvez :',
-          items: ['Remplir le formulaire en ligne disponible dans votre espace client', 'Nous appeler au 01 89 71 28 66 (disponible 24h/24, 7j/7)', 'Nous envoyer un email à contact@mysafesecurity.org avec votre numéro de commande', 'Nous écrire par courrier postal à : Digital Genesys Solutions LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
+          items: ['Remplir le formulaire en ligne disponible dans votre espace client', 'Nous appeler au 01 89 71 28 66 (disponible 24h/24, 7j/7)', 'Nous envoyer un email à info@masecurite.be avec votre numéro de commande', 'Nous écrire par courrier postal à : Digital Genesys Solutions LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
           advice: 'Conseil : Pour un traitement plus rapide, utilisez le formulaire en ligne ou contactez-nous par téléphone.'
         },
         section3: {
@@ -1810,10 +1810,10 @@ const translations = {
       termsOfService: {
         title: 'Conditions générales de service',
         lastUpdate: 'Dernière mise à jour : Janvier 2025',
-        intro: 'Les présentes conditions générales de service régissent l\'utilisation des services proposés par MySafeSecurity, exploité par notre société. En utilisant nos services, vous acceptez ces conditions dans leur intégralité.',
+        intro: 'Les présentes conditions générales de service régissent l\'utilisation des services proposés par MaSécurité, exploité par notre société. En utilisant nos services, vous acceptez ces conditions dans leur intégralité.',
         section1: {
           title: '1. Objet du Contrat',
-          intro: 'MySafeSecurity propose des services de cybersécurité, de support technique et de maintenance informatique comprenant :',
+          intro: 'MaSécurité propose des services de cybersécurité, de support technique et de maintenance informatique comprenant :',
           items: [
             'Installation et configuration de logiciels de sécurité',
             'Protection en temps réel contre les menaces informatiques',
@@ -1840,7 +1840,7 @@ const translations = {
         section4: {
           title: '4. Droit de Rétractation',
           para1: 'Conformément au droit européen, vous disposez d\'un délai de 30 jours à compter de la souscription pour exercer votre droit de rétractation sans avoir à justifier de motifs.',
-          para2: 'Pour exercer ce droit, contactez notre service client par téléphone au 01 89 71 28 66 ou par email à contact@mysafesecurity.org.',
+          para2: 'Pour exercer ce droit, contactez notre service client par téléphone au 01 89 71 28 66 ou par email à info@masecurite.be.',
           important: 'Important : Si vous avez bénéficié de nos services durant cette période, un montant proportionnel au service utilisé sera retenu du remboursement.'
         },
         section5: {
@@ -1851,12 +1851,12 @@ const translations = {
             'Maintenir vos identifiants de connexion confidentiels',
             'Utiliser les services de manière conforme à la législation en vigueur',
             'Ne pas partager votre abonnement avec des tiers',
-            'Informer rapidement MySafeSecurity de tout problème ou incident',
+            'Informer rapidement MaSécurité de tout problème ou incident',
             'Permettre l\'accès à distance à vos appareils pour le support technique'
           ]
         },
         section6: {
-          title: '6. Obligations de MySafeSecurity',
+          title: '6. Obligations de MaSécurité',
           intro: 'Nous nous engageons à :',
           items: [
             'Fournir un service de qualité conforme aux standards de l\'industrie',
@@ -1869,7 +1869,7 @@ const translations = {
         },
         section7: {
           title: '7. Limitation de Responsabilité',
-          intro: 'MySafeSecurity met tout en œuvre pour assurer la sécurité de vos appareils. Cependant, notre responsabilité est limitée dans les cas suivants :',
+          intro: 'MaSécurité met tout en œuvre pour assurer la sécurité de vos appareils. Cependant, notre responsabilité est limitée dans les cas suivants :',
           items: [
             'Problèmes matériels nécessitant une réparation physique',
             'Perte de données résultant d\'une action du client',
@@ -1881,17 +1881,17 @@ const translations = {
         section8: {
           title: '8. Protection des Données',
           para1: 'Vos données personnelles sont collectées et traitées conformément à notre Politique de Confidentialité et au Règlement Général sur la Protection des Données (RGPD).',
-          para2: 'Vous disposez d\'un droit d\'accès, de rectification, de suppression et de portabilité de vos données personnelles. Pour exercer ces droits, contactez-nous à dpo@mysafesecurity.fr.',
+          para2: 'Vous disposez d\'un droit d\'accès, de rectification, de suppression et de portabilité de vos données personnelles. Pour exercer ces droits, contactez-nous à dpo@masecurite.be.',
           privacyPolicyLink: 'Politique de Confidentialité'
         },
         section9: {
           title: '9. Résiliation',
           para1: 'Vous pouvez résilier votre abonnement à tout moment en respectant un préavis de 30 jours. La résiliation prend effet à la fin de la période d\'abonnement en cours.',
-          para2: 'MySafeSecurity se réserve le droit de résilier votre abonnement en cas de non-paiement, d\'utilisation frauduleuse ou de violation des présentes conditions, après notification préalable.'
+          para2: 'MaSécurité se réserve le droit de résilier votre abonnement en cas de non-paiement, d\'utilisation frauduleuse ou de violation des présentes conditions, après notification préalable.'
         },
         section10: {
           title: '10. Modification des Conditions',
-          para1: 'MySafeSecurity se réserve le droit de modifier les présentes conditions générales. Vous serez informé de toute modification substantielle par email au moins 30 jours avant leur entrée en vigueur.',
+          para1: 'MaSécurité se réserve le droit de modifier les présentes conditions générales. Vous serez informé de toute modification substantielle par email au moins 30 jours avant leur entrée en vigueur.',
           para2: 'La poursuite de l\'utilisation de nos services après l\'entrée en vigueur des nouvelles conditions vaut acceptation de celles-ci.'
         },
         section11: {
@@ -1972,9 +1972,9 @@ const translations = {
       },
       security: {
         title: 'Complete Security Suite',
-        description: 'Our MSS Security Software protects you against all types of IT threats and effectively secures your digital identity online.',
+        description: 'Our MaSecuSecurity Software protects you against all types of IT threats and effectively secures your digital identity online.',
         feature1: 'Advanced antivirus protection',
-        feature2: 'MSS Intelligard included',
+        feature2: 'MaSecuIntelligard included',
         feature3: 'Protection against cyberattacks',
         feature4: 'Data collection blocking'
       },
@@ -2000,7 +2000,7 @@ const translations = {
       }
     },
     features: {
-      title: 'Why Choose MySafeSecurity?',
+      title: 'Why Choose MaSécurité?',
       subtitle: 'Excellence in service of your digital peace of mind',
       security: {
         title: 'Maximum security',
@@ -2021,11 +2021,11 @@ const translations = {
       cards: {
         completeProtection: {
           title: 'Complete Protection',
-          description: 'MSS helps you fight against everyday attacks with user, network, and equipment protection.'
+          description: 'MaSecuhelps you fight against everyday attacks with user, network, and equipment protection.'
         },
         preventiveMaintenance: {
           title: 'Preventive Maintenance',
-          description: 'MSS maintains the health of your IT systems by preventing any malfunction that could cause you problems.'
+          description: 'MaSecumaintains the health of your IT systems by preventing any malfunction that could cause you problems.'
         },
         performantConnections: {
           title: 'High-Performance Connections',
@@ -2033,7 +2033,7 @@ const translations = {
         },
         softwareApplications: {
           title: 'Software & Applications',
-          description: 'MSS provides you with software and applications for better management of your network and your activity.'
+          description: 'MaSecuprovides you with software and applications for better management of your network and your activity.'
         }
       }
     },
@@ -2092,7 +2092,7 @@ const translations = {
           storage: '10 GB storage',
           features: [
             'Cloud Space 10GB',
-            'MSS Security Software',
+            'MaSecuSecurity Software',
             '3h support/month',
             'Response within 24h',
             'Annual updates'
@@ -2145,8 +2145,8 @@ const translations = {
         { name: 'Help and Support from certified professionals', description: 'We help fix problems on your computer', values: ['3 hours\nper month', '5 hours\nper month', 'Unlimited'] },
         { name: 'Response Time', description: 'Our response to your IT problems', values: ['Within 24 hours', 'Maximum\n3 hours', 'Immediate'] },
         { name: 'Secure Cloud Space', description: 'Encrypted cloud storage for your files', values: ['10 GB', '30 GB', '120 GB'] },
-        { name: 'MSS Security Software', description: 'Advanced antivirus and anti-malware protection', values: ['✓', '✓', '✓'] },
-        { name: 'MSS AdBlocker', description: 'Protects your browsing and blocks ads', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecuSecurity Software', description: 'Advanced antivirus and anti-malware protection', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecuAdBlocker', description: 'Protects your browsing and blocks ads', values: ['✓', '✓', '✓'] },
         { name: 'Deep Clean', bullets: ['+15 GB recovered on average', 'Trackers & spyware removed', 'Browser up to 3x faster', 'Personal data protected'], values: ['✓', '✓', '✓'] },
         { name: 'Optimization', bullets: ['Startup under 30 seconds', '100% of your RAM available', 'No more sudden slowdowns', 'Day-one performance restored'], values: ['✓', '✓', '✓'] },
         { name: 'Transferable Subscription', description: 'Transfer your subscription to another computer', values: ['—', '✓', '✓'] },
@@ -2161,7 +2161,7 @@ const translations = {
       title: 'Standalone Services',
       subtitle: 'Subscribe without main subscription - perfect for specific needs',
       aiAssistant: {
-        name: 'MSS AI Assistant',
+        name: 'MaSecuAI Assistant',
         description: 'AI assistant powered by OpenAI for instant 24/7 help with all your IT needs.',
         price: '€19.99',
         period: '/month',
@@ -2175,7 +2175,7 @@ const translations = {
         button: 'Learn more'
       },
       mobileSecurity: {
-        name: 'MSS Mobile Security',
+        name: 'MaSecuMobile Security',
         description: 'Bitdefender Total Security protection for your Android mobiles and tablets.',
         price: '€9.99',
         period: '/device',
@@ -2195,7 +2195,7 @@ const translations = {
       subtitle: 'Add premium features to your existing subscription.',
       requirement: 'Requires an active subscription (Plan S, M or L)',
       vpnPro: {
-        name: 'MSS VPN Pro',
+        name: 'MaSecuVPN Pro',
         price: '€9.99',
         period: '/month',
         features: [
@@ -2208,7 +2208,7 @@ const translations = {
         button: 'Learn more'
       },
       adblock: {
-        name: 'MSS AdBlock Plus',
+        name: 'MaSecuAdBlock Plus',
         price: '€9.99',
         period: '/month',
         features: [
@@ -2221,7 +2221,7 @@ const translations = {
         button: 'Learn more'
       },
       systemCleaner: {
-        name: 'MSS System Cleaner',
+        name: 'MaSecuSystem Cleaner',
         description: 'Optimize your PC performance. Remove unnecessary files and speed up your system.',
         price: '€9.99',
         period: '/month',
@@ -2235,7 +2235,7 @@ const translations = {
         button: 'Learn more'
       },
       totalCare: {
-        name: 'MSS Total Care',
+        name: 'MaSecuTotal Care',
         badge: 'SAVE 17%',
         description: 'The complete package: VPN + AdBlock + Cleaner combined. Ultimate protection for your digital life.',
         price: '€24.99',
@@ -2251,7 +2251,7 @@ const translations = {
     },
     vpnProduct: {
       hero: {
-        title: 'MSS VPN Pro',
+        title: 'MaSecuVPN Pro',
         subtitle: 'Browse with complete privacy using our ultra-fast VPN. Protect your data on public Wi-Fi networks.',
         ctaPrimary: 'Start now - €9.99/month',
         ctaSecondary: 'Learn more'
@@ -2261,7 +2261,7 @@ const translations = {
         subtitle: 'Here\'s what websites can see about you right now'
       },
       featuresSection: {
-        title: 'Why Choose MSS VPN Pro?',
+        title: 'Why Choose MaSecuVPN Pro?',
         subtitle: 'The most complete protection for your online privacy',
         features: [
           { title: 'Military-grade encryption', description: 'AES-256 bit protection to secure all your data' },
@@ -2287,7 +2287,7 @@ const translations = {
         ]
       },
       comparisonSection: {
-        title: 'Without VPN vs With MSS VPN Pro',
+        title: 'Without VPN vs With MaSecuVPN Pro',
         without: {
           title: 'Without VPN',
           items: [
@@ -2299,7 +2299,7 @@ const translations = {
           ]
         },
         with: {
-          title: 'With MSS VPN Pro',
+          title: 'With MaSecuVPN Pro',
           items: [
             'Masked and anonymous IP',
             'Hidden location',
@@ -2320,7 +2320,7 @@ const translations = {
         faqs: [
           {
             q: 'Can I use the VPN on multiple devices?',
-            a: 'Yes! MSS VPN Pro works on Windows, Mac, iOS, Android and Linux. You can protect up to 5 devices simultaneously with a single subscription.'
+            a: 'Yes! MaSecuVPN Pro works on Windows, Mac, iOS, Android and Linux. You can protect up to 5 devices simultaneously with a single subscription.'
           },
           {
             q: 'Does the VPN slow down my internet connection?',
@@ -2338,7 +2338,7 @@ const translations = {
       },
       ctaSection: {
         title: 'Ready to Protect Your Privacy?',
-        subtitle: 'Join thousands of users who trust MSS VPN Pro',
+        subtitle: 'Join thousands of users who trust MaSecuVPN Pro',
         button: 'Start now'
       }
     },
@@ -2378,14 +2378,14 @@ const translations = {
     },
     adBlockProduct: {
       hero: {
-        title: 'MSS AdBlock Plus',
+        title: 'MaSecuAdBlock Plus',
         subtitle: 'Eliminate all intrusive ads and speed up your browsing by up to 40%.',
         ctaPrimary: 'Start now - 9.99€/month',
         ctaSecondary: 'View features'
       },
       liveStats: {
         title: 'Real-time Protection',
-        subtitle: 'Simulator: What MSS AdBlock Plus blocks every day',
+        subtitle: 'Simulator: What MaSecuAdBlock Plus blocks every day',
         adsBlocked: 'Ads Blocked',
         trackersStopped: 'Trackers Stopped',
         timeSaved: 'Time Saved',
@@ -2446,7 +2446,7 @@ const translations = {
           ]
         },
         with: {
-          title: 'With MSS AdBlock Plus',
+          title: 'With MaSecuAdBlock Plus',
           benefits: [
             'Smooth browsing',
             'Relevant content only',
@@ -2459,10 +2459,10 @@ const translations = {
         title: 'Browse Without Interruption',
         subtitle: 'Block ads and protect your privacy',
         specialOffer: '🎉 Special Offer: Bonus month on all plans',
-        planTitle: 'MSS AdBlock Plus',
+        planTitle: 'MaSecuAdBlock Plus',
         price: '9.99€',
         perMonth: '/month',
-        requirement: 'Requires an active MySafeSecurity subscription',
+        requirement: 'Requires an active MaSécurité subscription',
         featuresTitle: 'Included Features:',
         featuresList: [
           'Blocking of all ads (banners, videos, pop-ups)',
@@ -2490,7 +2490,7 @@ const translations = {
     },
     systemCleanerProduct: {
       hero: {
-        title: 'MSS System Cleaner',
+        title: 'MaSecuSystem Cleaner',
         subtitle: 'Bring your PC back to life. Remove unnecessary files and speed up your system instantly.',
         ctaPrimary: 'Start now - 9.99€/month',
         ctaSecondary: 'Scan my system'
@@ -2513,7 +2513,7 @@ const translations = {
           diskSpaceDesc: 'Disk space that can be freed immediately',
           startupItems: 'Startup Programs',
           startupItemsDesc: 'Applications slowing down your PC startup',
-          solution: 'MSS System Cleaner can solve all these problems!',
+          solution: 'MaSecuSystem Cleaner can solve all these problems!',
           solutionDesc: 'Clean, optimize and speed up your PC with one click. Recover up to {space} GB of space and improve performance by up to 40%.'
         }
       },
@@ -2560,10 +2560,10 @@ const translations = {
         title: 'Optimize Your PC Now',
         subtitle: 'Flexible plans for all your needs',
         specialOffer: '⚡ Get up to 3 months free with long-term commitment',
-        planTitle: 'MSS System Cleaner',
+        planTitle: 'MaSecuSystem Cleaner',
         price: '9.99€',
         perMonth: '/month',
-        requirement: 'Requires an active MySafeSecurity subscription',
+        requirement: 'Requires an active MaSécurité subscription',
         featuresTitle: 'Included Features:',
         featuresList: [
           'Scheduled automatic cleaning',
@@ -2592,7 +2592,7 @@ const translations = {
     totalCareProduct: {
       hero: {
         badge: 'SAVE 17% - SPECIAL OFFER',
-        title: 'MSS Total Care',
+        title: 'MaSecuTotal Care',
         subtitle: 'The ultimate all-in-one protection',
         description: 'VPN Pro + AdBlock Plus + System Cleaner combined in one pack',
         priceCompare: {
@@ -2609,7 +2609,7 @@ const translations = {
         title: '3 premium products in 1',
         subtitle: 'All the tools you need for complete protection',
         vpn: {
-          name: 'MSS VPN Pro',
+          name: 'MaSecuVPN Pro',
           features: [
             '50+ servers in 30 countries',
             'AES-256 encryption',
@@ -2618,7 +2618,7 @@ const translations = {
           ]
         },
         adblock: {
-          name: 'MSS AdBlock Plus',
+          name: 'MaSecuAdBlock Plus',
           features: [
             'Ad and pop-up blocking',
             'Advanced anti-tracking',
@@ -2627,7 +2627,7 @@ const translations = {
           ]
         },
         cleaner: {
-          name: 'MSS System Cleaner',
+          name: 'MaSecuSystem Cleaner',
           features: [
             'Automatic cleaning',
             'Registry optimization',
@@ -2689,11 +2689,11 @@ const translations = {
         subtitle: 'VPN Pro + AdBlock Plus + System Cleaner in one package',
         specialOffer: '🔥 Save up to 40% with the complete pack',
         badge: 'BEST VALUE',
-        planTitle: 'MSS Total Care',
+        planTitle: 'MaSecuTotal Care',
         planSubtitle: 'The complete pack for total protection',
         price: '24.99€',
         perMonth: '/month',
-        requirement: 'Requires an active MySafeSecurity subscription',
+        requirement: 'Requires an active MaSécurité subscription',
         featuresTitle: 'Included in the pack:',
         featuresList: [
           '🛡️ VPN Pro - Complete protection with 50+ servers',
@@ -2733,7 +2733,7 @@ const translations = {
     },
     aiAssistantProduct: {
       hero: {
-        title: 'MSS AI Assistant',
+        title: 'MaSecuAI Assistant',
         subtitle: 'Your personal assistant powered by advanced artificial intelligence for all your IT needs',
         badges: {
           powered: 'Advanced AI',
@@ -2766,7 +2766,7 @@ const translations = {
         ]
       },
       useCases: {
-        title: 'How MSS AI Assistant Can Help You',
+        title: 'How MaSecuAI Assistant Can Help You',
         list: [
           'Help setting up your devices',
           'Technical problem resolution',
@@ -2781,7 +2781,7 @@ const translations = {
       pricing: {
         title: 'Choose Your Plan',
         individual: 'Individual',
-        name: 'MSS AI Assistant',
+        name: 'MaSecuAI Assistant',
         price: '19.99',
         period: '/month',
         description: 'Personal AI assistant for all your IT needs',
@@ -2799,7 +2799,7 @@ const translations = {
       },
       finalCta: {
         title: 'Ready to Benefit from Artificial Intelligence?',
-        subtitle: 'Join users who are simplifying their digital life with MSS AI Assistant',
+        subtitle: 'Join users who are simplifying their digital life with MaSecuAI Assistant',
         button: 'Start Now'
       }
     },
@@ -2826,7 +2826,7 @@ const translations = {
       guaranteeTitle: '100% Security Guarantee',
       guaranteeDesc: 'Your data is protected by the most advanced encryption technologies',
       protectionActive: 'Active Protection',
-      certificationText: 'MySafeSecurity is regularly certified and audited to guarantee the highest security standards.',
+      certificationText: 'MaSécurité is regularly certified and audited to guarantee the highest security standards.',
       privacyText: 'Your personal data is processed in accordance with GDPR and is never shared with third parties.'
     },
     footer: {
@@ -2875,7 +2875,7 @@ const translations = {
     products: {
       common: { individual: 'Individual', ctaText: 'Choose this plan', startNow: 'Start Now' },
       mobileSecurity: {
-        title: 'MSS Mobile Security',
+        title: 'MaSecuMobile Security',
         subtitle: 'Complete Bitdefender protection for your Android mobiles and tablets',
         badges: { powered: 'Powered by Bitdefender', platform: 'Android & Tablets', price: '€9.99 per device' },
         features: [
@@ -2895,7 +2895,7 @@ const translations = {
         browsersTitle: 'Protected Browsing',
         browsersSubtitle: 'Web Protection works with all popular Android browsers:',
         pricingTitle: 'Simple Pricing',
-        packageName: 'MSS Mobile Security',
+        packageName: 'MaSecuMobile Security',
         price: '9.99',
         period: '/month per device',
         description: 'Bitdefender Total Security protection for mobiles and tablets',
@@ -2919,7 +2919,7 @@ const translations = {
       story: {
         title: 'Our Story',
         subtitle: 'A human adventure serving your digital serenity',
-        paragraph1: 'MySafeSecurity was born from a simple conviction: technology should serve everyone, regardless of age or technical knowledge. We are a European company specializing in cybersecurity and IT support, particularly attentive to the needs of seniors in France and Belgium.',
+        paragraph1: 'MaSécurité was born from a simple conviction: technology should serve everyone, regardless of age or technical knowledge. We are a European company specializing in cybersecurity and IT support, particularly attentive to the needs of seniors in France and Belgium.',
         paragraph2: 'We believe that everyone deserves to enjoy technology peacefully to stay in touch with loved ones, preserve memories and manage personal affairs securely. That\'s why we created simple solutions, accompanied by French-speaking human support available 24/7.',
         paragraph3: 'Our team of certified technicians is trained to take the necessary time with each client. We explain each step patiently, adapt to your pace, and ensure you feel confident with your computer, tablet or smartphone.',
         paragraph4: 'Based in Europe with support centers in France and Belgium, we are proud to serve over 150,000 European customers who trust us to protect their devices and most precious data.'
@@ -2957,7 +2957,7 @@ const translations = {
       },
       cta: {
         title: 'Ready to Protect Your Digital Life?',
-        subtitle: 'Join thousands of European customers who enjoy technology peacefully thanks to MySafeSecurity',
+        subtitle: 'Join thousands of European customers who enjoy technology peacefully thanks to MaSécurité',
         button: 'Contact Us',
         description: 'Protecting European customers with care and expertise since 2018.'
       },
@@ -3004,7 +3004,7 @@ const translations = {
         },
         email: {
           title: 'Email',
-          value: 'contact@mysafesecurity.org',
+          value: 'info@masecurite.be',
           responseTime: 'Response within 24h'
         },
         address: {
@@ -3316,7 +3316,7 @@ const translations = {
       common: {
         lastUpdated: 'Last updated: January 2025',
         company: 'Digital Genesys Solutions LLC',
-        companyName: 'Digital Genesys Solutions LLC (MySafeSecurity)',
+        companyName: 'Digital Genesys Solutions LLC (MaSécurité)',
         legalForm: 'Limited Liability Company (LLC)',
         registrationNumber: 'Registration number',
         registrationNum: '3003074',
@@ -3333,19 +3333,19 @@ const translations = {
         phone: 'Phone',
         phoneValue: '01 89 71 28 66',
         email: 'Email',
-        emailValue: 'contact@mysafesecurity.org',
+        emailValue: 'info@masecurite.be',
         contactTitle: 'Need More Information?',
         contactText: 'For any questions regarding this legal notice, contact us:',
         society: 'Company'
       },
       legalNotice: {
         title: 'Legal Notice',
-        intro: 'In accordance with the provisions of Law No. 2004-575 of June 21, 2004 on confidence in the digital economy, here is the legal information for the MySafeSecurity website.'
+        intro: 'In accordance with the provisions of Law No. 2004-575 of June 21, 2004 on confidence in the digital economy, here is the legal information for the MaSécurité website.'
       },
       privacyPolicy: {
         title: 'Privacy Policy',
         lastUpdate: 'Last updated: January 2025',
-        intro: 'At MySafeSecurity, we take the protection of your personal data very seriously. This policy explains how we collect, use and protect your information in accordance with the General Data Protection Regulation (GDPR).',
+        intro: 'At MaSécurité, we take the protection of your personal data very seriously. This policy explains how we collect, use and protect your information in accordance with the General Data Protection Regulation (GDPR).',
         section1: {
           title: '1. Data Controller',
           description: 'The data controller for your personal data is:'
@@ -3430,7 +3430,7 @@ const translations = {
           howToExercise: {
             title: 'How to exercise your rights?',
             intro: 'To exercise any of these rights, contact us:',
-            dpo: 'dpo@mysafesecurity.fr',
+            dpo: 'dpo@masecurite.be',
             responseTime: 'We will respond to your request within a maximum of one month. Proof of identity may be requested to verify your identity.'
           }
         },
@@ -3465,7 +3465,7 @@ const translations = {
       cookiePolicy: {
         title: 'Cookie Policy',
         lastUpdate: 'Last updated: January 2025',
-        intro: 'This policy explains how MySafeSecurity uses cookies and similar technologies on our website to improve your browsing experience.',
+        intro: 'This policy explains how MaSécurité uses cookies and similar technologies on our website to improve your browsing experience.',
         section1: {
           title: '1. What is a Cookie?',
           description: 'A cookie is a small text file placed on your device (computer, tablet, smartphone) when you visit a website. Cookies allow the site to:',
@@ -3565,7 +3565,7 @@ const translations = {
       refundPolicy: {
         title: 'Refund Policy',
         lastUpdate: 'Last updated: January 2025',
-        intro: 'At MySafeSecurity, your satisfaction is our priority. This policy explains the conditions for refunding our services.',
+        intro: 'At MaSécurité, your satisfaction is our priority. This policy explains the conditions for refunding our services.',
         section1: {
           title: '1. 30-Day Right of Withdrawal',
           para1: 'In accordance with European consumer protection legislation, you have a period of 30 calendar days from the date of subscription to exercise your right of withdrawal without having to justify your reasons.',
@@ -3574,7 +3574,7 @@ const translations = {
         section2: {
           title: '2. How to Request a Refund',
           intro: 'To exercise your right of withdrawal and request a refund, you can:',
-          items: ['Fill out the online form available in your customer area', 'Call us at 01 89 71 28 66 (available 24/7)', 'Email us at contact@mysafesecurity.org with your order number', 'Write to us by postal mail at: Digital Genesys Solutions LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
+          items: ['Fill out the online form available in your customer area', 'Call us at 01 89 71 28 66 (available 24/7)', 'Email us at info@masecurite.be with your order number', 'Write to us by postal mail at: Digital Genesys Solutions LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
           advice: 'Tip: For faster processing, use the online form or contact us by phone.'
         },
         section3: {
@@ -3629,10 +3629,10 @@ const translations = {
       termsOfService: {
         title: 'Terms of Service',
         lastUpdate: 'Last updated: January 2025',
-        intro: 'These Terms of Service govern the use of services offered by MySafeSecurity, operated by our company. By using our services, you accept these terms in their entirety.',
+        intro: 'These Terms of Service govern the use of services offered by MaSécurité, operated by our company. By using our services, you accept these terms in their entirety.',
         section1: {
           title: '1. Contract Purpose',
-          intro: 'MySafeSecurity offers cybersecurity services, technical support and computer maintenance including:',
+          intro: 'MaSécurité offers cybersecurity services, technical support and computer maintenance including:',
           items: [
             'Installation and configuration of security software',
             'Real-time protection against computer threats',
@@ -3659,7 +3659,7 @@ const translations = {
         section4: {
           title: '4. Right of Withdrawal',
           para1: 'In accordance with European law, you have a period of 30 days from the subscription to exercise your right of withdrawal without having to justify reasons.',
-          para2: 'To exercise this right, contact our customer service by phone at 01 89 71 28 66 or by email at contact@mysafesecurity.org.',
+          para2: 'To exercise this right, contact our customer service by phone at 01 89 71 28 66 or by email at info@masecurite.be.',
           important: 'Important: If you have benefited from our services during this period, an amount proportional to the service used will be deducted from the refund.'
         },
         section5: {
@@ -3670,12 +3670,12 @@ const translations = {
             'Keep your login credentials confidential',
             'Use the services in accordance with current legislation',
             'Not share your subscription with third parties',
-            'Promptly inform MySafeSecurity of any problem or incident',
+            'Promptly inform MaSécurité of any problem or incident',
             'Allow remote access to your devices for technical support'
           ]
         },
         section6: {
-          title: '6. MySafeSecurity Obligations',
+          title: '6. MaSécurité Obligations',
           intro: 'We are committed to:',
           items: [
             'Provide a quality service compliant with industry standards',
@@ -3688,7 +3688,7 @@ const translations = {
         },
         section7: {
           title: '7. Limitation of Liability',
-          intro: 'MySafeSecurity makes every effort to ensure the security of your devices. However, our liability is limited in the following cases:',
+          intro: 'MaSécurité makes every effort to ensure the security of your devices. However, our liability is limited in the following cases:',
           items: [
             'Hardware problems requiring physical repair',
             'Data loss resulting from customer action',
@@ -3700,17 +3700,17 @@ const translations = {
         section8: {
           title: '8. Data Protection',
           para1: 'Your personal data is collected and processed in accordance with our Privacy Policy and the General Data Protection Regulation (GDPR).',
-          para2: 'You have a right of access, rectification, deletion and portability of your personal data. To exercise these rights, contact us at dpo@mysafesecurity.fr.',
+          para2: 'You have a right of access, rectification, deletion and portability of your personal data. To exercise these rights, contact us at dpo@masecurite.be.',
           privacyPolicyLink: 'Privacy Policy'
         },
         section9: {
           title: '9. Termination',
           para1: 'You can terminate your subscription at any time with 30 days notice. Termination takes effect at the end of the current subscription period.',
-          para2: 'MySafeSecurity reserves the right to terminate your subscription in case of non-payment, fraudulent use or violation of these terms, after prior notification.'
+          para2: 'MaSécurité reserves the right to terminate your subscription in case of non-payment, fraudulent use or violation of these terms, after prior notification.'
         },
         section10: {
           title: '10. Modification of Terms',
-          para1: 'MySafeSecurity reserves the right to modify these general terms. You will be informed of any substantial modification by email at least 30 days before they come into effect.',
+          para1: 'MaSécurité reserves the right to modify these general terms. You will be informed of any substantial modification by email at least 30 days before they come into effect.',
           para2: 'Continued use of our services after the new terms come into effect constitutes acceptance thereof.'
         },
         section11: {
@@ -3791,9 +3791,9 @@ const translations = {
       },
       security: {
         title: 'Suite de Seguridad Integral',
-        description: 'Nuestro MSS Security Software le protege contra todo tipo de amenazas informáticas y protege eficazmente su identidad digital en internet.',
+        description: 'Nuestro MaSecuSecurity Software le protege contra todo tipo de amenazas informáticas y protege eficazmente su identidad digital en internet.',
         feature1: 'Protección antivirus avanzada',
-        feature2: 'MSS Intelligard incluido',
+        feature2: 'MaSecuIntelligard incluido',
         feature3: 'Protección contra ciberataques',
         feature4: 'Bloqueo de recogida de datos'
       },
@@ -3819,7 +3819,7 @@ const translations = {
       }
     },
     features: {
-      title: '¿Por qué elegir MySafeSecurity?',
+      title: '¿Por qué elegir MaSécurité?',
       subtitle: 'La excelencia al servicio de su serenidad digital',
       security: {
         title: 'Seguridad máxima',
@@ -3840,11 +3840,11 @@ const translations = {
       cards: {
         completeProtection: {
           title: 'Protección Completa',
-          description: 'MSS le ayuda a luchar contra los ataques diarios con protección de usuarios, red y equipos.'
+          description: 'MaSecule ayuda a luchar contra los ataques diarios con protección de usuarios, red y equipos.'
         },
         preventiveMaintenance: {
           title: 'Mantenimiento Preventivo',
-          description: 'MSS mantiene la salud de sus sistemas informáticos previniendo cualquier mal funcionamiento que pueda causarle problemas.'
+          description: 'MaSecumantiene la salud de sus sistemas informáticos previniendo cualquier mal funcionamiento que pueda causarle problemas.'
         },
         performantConnections: {
           title: 'Conexiones de Alto Rendimiento',
@@ -3852,7 +3852,7 @@ const translations = {
         },
         softwareApplications: {
           title: 'Software y Aplicaciones',
-          description: 'MSS le proporciona el software y las aplicaciones para una mejor gestión de su red y su actividad.'
+          description: 'MaSecule proporciona el software y las aplicaciones para una mejor gestión de su red y su actividad.'
         }
       }
     },
@@ -3911,7 +3911,7 @@ const translations = {
           storage: '10 GB de almacenamiento',
           features: [
             'Espacio Cloud 10 GB',
-            'MSS Security Software',
+            'MaSecuSecurity Software',
             '3 horas de asistencia/mes',
             'Respuesta en 24 horas',
             'Actualizaciones anuales'
@@ -3964,8 +3964,8 @@ const translations = {
         { name: 'Ayuda y asistencia de profesionales certificados', description: 'Le ayudamos a resolver los problemas de su ordenador', values: ['3 horas\nal mes', '5 horas\nal mes', 'Ilimitado'] },
         { name: 'Tiempo de respuesta', description: 'Nuestra respuesta a sus problemas informáticos', values: ['En 24 horas', 'Máximo\n3 horas', 'Inmediato'] },
         { name: 'Espacio Cloud Seguro', description: 'Almacenamiento cloud cifrado para sus archivos', values: ['10 GB', '30 GB', '120 GB'] },
-        { name: 'MSS Security Software', description: 'Protección antivirus y antimalware avanzada', values: ['✓', '✓', '✓'] },
-        { name: 'MSS SafeBrowse', description: 'Protege su navegación y bloquea anuncios', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecuSecurity Software', description: 'Protección antivirus y antimalware avanzada', values: ['✓', '✓', '✓'] },
+        { name: 'MaSecuSafeBrowse', description: 'Protege su navegación y bloquea anuncios', values: ['✓', '✓', '✓'] },
         { name: 'Limpieza', bullets: ['+15 GB recuperados en promedio', 'Trackers y espías eliminados', 'Navegador hasta 3x más rápido', 'Datos personales protegidos'], values: ['✓', '✓', '✓'] },
         { name: 'Optimización', bullets: ['Inicio en menos de 30 seg', '100% de tu RAM disponible', 'Adiós a los bloqueos', 'Rendimiento del primer día'], values: ['✓', '✓', '✓'] },
         { name: 'Suscripción transferible', description: 'Transfiera su suscripción a otro ordenador', values: ['—', '✓', '✓'] },
@@ -3979,7 +3979,7 @@ const translations = {
       title: 'Servicios Autónomos',
       subtitle: 'Contrate sin suscripción principal - perfecto para necesidades específicas',
       aiAssistant: {
-        name: 'MSS AI Assistant',
+        name: 'MaSecuAI Assistant',
         description: 'Asistente IA alimentado por OpenAI para ayuda instantánea 24/7 en todas sus necesidades informáticas.',
         price: '19,99 €',
         period: '/mes',
@@ -3993,7 +3993,7 @@ const translations = {
         button: 'Más información'
       },
       mobileSecurity: {
-        name: 'MSS Mobile Security',
+        name: 'MaSecuMobile Security',
         description: 'Protección Bitdefender Total Security para sus móviles y tabletas Android.',
         price: '9,99 €',
         period: '/dispositivo',
@@ -4013,7 +4013,7 @@ const translations = {
       subtitle: 'Añada prestaciones premium a su suscripción existente.',
       requirement: 'Requiere una suscripción activa (Oferta S, M o L)',
       vpnPro: {
-        name: 'MSS VPN Pro',
+        name: 'MaSecuVPN Pro',
         price: '9,99 €',
         period: '/mes',
         features: [
@@ -4026,7 +4026,7 @@ const translations = {
         button: 'Más información'
       },
       adblock: {
-        name: 'MSS AdBlock Plus',
+        name: 'MaSecuAdBlock Plus',
         price: '9,99 €',
         period: '/mes',
         features: [
@@ -4039,7 +4039,7 @@ const translations = {
         button: 'Más información'
       },
       systemCleaner: {
-        name: 'MSS System Cleaner',
+        name: 'MaSecuSystem Cleaner',
         description: 'Optimice el rendimiento de su ordenador. Elimine archivos innecesarios y acelere su sistema.',
         price: '9,99 €',
         period: '/mes',
@@ -4053,7 +4053,7 @@ const translations = {
         button: 'Más información'
       },
       totalCare: {
-        name: 'MSS Total Care',
+        name: 'MaSecuTotal Care',
         badge: 'AHORRE UN 17%',
         description: 'El paquete completo: VPN + AdBlock + Cleaner reunidos. La protección definitiva para su vida digital.',
         price: '24,99 €',
@@ -4069,7 +4069,7 @@ const translations = {
     },
     vpnProduct: {
       hero: {
-        title: 'MSS VPN Pro',
+        title: 'MaSecuVPN Pro',
         subtitle: 'Navegue con total privacidad con nuestra VPN ultrarrápida. Proteja sus datos en redes Wi-Fi públicas.',
         ctaPrimary: 'Empezar ahora - 9,99 €/mes',
         ctaSecondary: 'Más información'
@@ -4079,7 +4079,7 @@ const translations = {
         subtitle: 'Esto es lo que los sitios web pueden ver sobre usted en este momento'
       },
       featuresSection: {
-        title: '¿Por Qué Elegir MSS VPN Pro?',
+        title: '¿Por Qué Elegir MaSecuVPN Pro?',
         subtitle: 'La protección más completa para su privacidad en línea',
         features: [
           { title: 'Cifrado militar', description: 'Protección AES-256 bits para asegurar todos sus datos' },
@@ -4105,7 +4105,7 @@ const translations = {
         ]
       },
       comparisonSection: {
-        title: 'Sin VPN vs Con MSS VPN Pro',
+        title: 'Sin VPN vs Con MaSecuVPN Pro',
         without: {
           title: 'Sin VPN',
           items: [
@@ -4117,7 +4117,7 @@ const translations = {
           ]
         },
         with: {
-          title: 'Con MSS VPN Pro',
+          title: 'Con MaSecuVPN Pro',
           items: [
             'IP enmascarada y anónima',
             'Ubicación oculta',
@@ -4138,7 +4138,7 @@ const translations = {
         faqs: [
           {
             q: '¿Puedo usar la VPN en varios dispositivos?',
-            a: '¡Sí! MSS VPN Pro funciona en Windows, Mac, iOS, Android y Linux. Puede proteger hasta 5 dispositivos simultáneamente con una sola suscripción.'
+            a: '¡Sí! MaSecuVPN Pro funciona en Windows, Mac, iOS, Android y Linux. Puede proteger hasta 5 dispositivos simultáneamente con una sola suscripción.'
           },
           {
             q: '¿La VPN ralentiza mi conexión a Internet?',
@@ -4156,7 +4156,7 @@ const translations = {
       },
       ctaSection: {
         title: '¿Listo Para Proteger Su Privacidad?',
-        subtitle: 'Únase a miles de usuarios que confían en MSS VPN Pro',
+        subtitle: 'Únase a miles de usuarios que confían en MaSecuVPN Pro',
         button: 'Comenzar ahora'
       }
     },
@@ -4196,14 +4196,14 @@ const translations = {
     },
     adBlockProduct: {
       hero: {
-        title: 'MSS AdBlock Plus',
+        title: 'MaSecuAdBlock Plus',
         subtitle: 'Elimine todos los anuncios intrusivos y acelere su navegación hasta un 40% más.',
         ctaPrimary: 'Empezar ahora - 9,99 €/mes',
         ctaSecondary: 'Ver prestaciones'
       },
       liveStats: {
         title: 'Protección en Tiempo Real',
-        subtitle: 'Simulador: Lo que MSS AdBlock Plus bloquea cada día',
+        subtitle: 'Simulador: Lo que MaSecuAdBlock Plus bloquea cada día',
         adsBlocked: 'Anuncios Bloqueados',
         trackersStopped: 'Rastreadores Detenidos',
         timeSaved: 'Tiempo Ahorrado',
@@ -4264,7 +4264,7 @@ const translations = {
           ]
         },
         with: {
-          title: 'Con MSS AdBlock Plus',
+          title: 'Con MaSecuAdBlock Plus',
           benefits: [
             'Navegación fluida',
             'Solo contenido relevante',
@@ -4277,10 +4277,10 @@ const translations = {
         title: 'Navegue sin interrupciones',
         subtitle: 'Bloquee anuncios y proteja su privacidad',
         specialOffer: '🎉 Oferta especial: mes adicional en todos los planes',
-        planTitle: 'MSS AdBlock Plus',
+        planTitle: 'MaSecuAdBlock Plus',
         price: '9,99 €',
         perMonth: '/mes',
-        requirement: 'Requiere una suscripción activa de MySafeSecurity',
+        requirement: 'Requiere una suscripción activa de MaSécurité',
         featuresTitle: 'Prestaciones incluidas:',
         featuresList: [
           'Bloqueo de todos los anuncios (banners, vídeos, ventanas emergentes)',
@@ -4308,7 +4308,7 @@ const translations = {
     },
     systemCleanerProduct: {
       hero: {
-        title: 'MSS System Cleaner',
+        title: 'MaSecuSystem Cleaner',
         subtitle: 'Devuelva la vida a su ordenador. Elimine archivos innecesarios y acelere su sistema al instante.',
         ctaPrimary: 'Empezar ahora - 9,99 €/mes',
         ctaSecondary: 'Analizar mi sistema'
@@ -4331,7 +4331,7 @@ const translations = {
           diskSpaceDesc: 'Espacio en disco que se puede liberar inmediatamente',
           startupItems: 'Programas de Inicio',
           startupItemsDesc: 'Aplicaciones que ralentizan el inicio de su PC',
-          solution: '¡MSS System Cleaner puede resolver todos estos problemas!',
+          solution: '¡MaSecuSystem Cleaner puede resolver todos estos problemas!',
           solutionDesc: 'Limpie, optimice y acelere su PC con un solo clic. Recupere hasta {space} GB de espacio y mejore el rendimiento hasta un 40%.'
         }
       },
@@ -4378,10 +4378,10 @@ const translations = {
         title: 'Optimice su ordenador ahora',
         subtitle: 'Planes flexibles para todas sus necesidades',
         specialOffer: '⚡ Obtenga hasta 3 meses gratuitos con compromiso a largo plazo',
-        planTitle: 'MSS System Cleaner',
+        planTitle: 'MaSecuSystem Cleaner',
         price: '9,99 €',
         perMonth: '/mes',
-        requirement: 'Requiere una suscripción activa de MySafeSecurity',
+        requirement: 'Requiere una suscripción activa de MaSécurité',
         featuresTitle: 'Prestaciones incluidas:',
         featuresList: [
           'Limpieza automática programada',
@@ -4410,7 +4410,7 @@ const translations = {
     totalCareProduct: {
       hero: {
         badge: 'AHORRE UN 17% - OFERTA ESPECIAL',
-        title: 'MSS Total Care',
+        title: 'MaSecuTotal Care',
         subtitle: 'La protección definitiva todo en uno',
         description: 'VPN Pro + AdBlock Plus + System Cleaner reunidos en un solo paquete',
         priceCompare: {
@@ -4427,7 +4427,7 @@ const translations = {
         title: '3 productos premium en 1',
         subtitle: 'Todas las herramientas que necesita para una protección completa',
         vpn: {
-          name: 'MSS VPN Pro',
+          name: 'MaSecuVPN Pro',
           features: [
             '50+ servidores en 30 países',
             'Cifrado AES-256',
@@ -4436,7 +4436,7 @@ const translations = {
           ]
         },
         adblock: {
-          name: 'MSS AdBlock Plus',
+          name: 'MaSecuAdBlock Plus',
           features: [
             'Bloqueo de anuncios y ventanas emergentes',
             'Anti-rastreo avanzado',
@@ -4445,7 +4445,7 @@ const translations = {
           ]
         },
         cleaner: {
-          name: 'MSS System Cleaner',
+          name: 'MaSecuSystem Cleaner',
           features: [
             'Limpieza automática',
             'Optimización de registro',
@@ -4507,11 +4507,11 @@ const translations = {
         subtitle: 'VPN Pro + AdBlock Plus + System Cleaner en un solo paquete',
         specialOffer: '🔥 Ahorre hasta un 40% con el pack completo',
         badge: 'MEJOR RELACIÓN CALIDAD-PRECIO',
-        planTitle: 'MSS Total Care',
+        planTitle: 'MaSecuTotal Care',
         planSubtitle: 'El pack completo para una protección total',
         price: '24,99 €',
         perMonth: '/mes',
-        requirement: 'Requiere una suscripción activa de MySafeSecurity',
+        requirement: 'Requiere una suscripción activa de MaSécurité',
         featuresTitle: 'Incluido en el pack:',
         featuresList: [
           '🛡️ VPN Pro - Protección completa con más de 50 servidores',
@@ -4551,7 +4551,7 @@ const translations = {
     },
     aiAssistantProduct: {
       hero: {
-        title: 'MSS AI Assistant',
+        title: 'MaSecuAI Assistant',
         subtitle: 'Su asistente personal alimentado por una inteligencia artificial específica para todas sus necesidades informáticas',
         badges: {
           powered: 'IA Avanzada',
@@ -4584,7 +4584,7 @@ const translations = {
         ]
       },
       useCases: {
-        title: 'Cómo MSS AI Assistant Puede Ayudarle',
+        title: 'Cómo MaSecuAI Assistant Puede Ayudarle',
         list: [
           'Ayuda para configurar sus dispositivos',
           'Resolución de problemas técnicos',
@@ -4599,7 +4599,7 @@ const translations = {
       pricing: {
         title: 'Elija su plan',
         individual: 'Particular',
-        name: 'MSS AI Assistant',
+        name: 'MaSecuAI Assistant',
         price: '19,99',
         period: '/mes',
         description: 'Asistente IA personal para todas sus necesidades informáticas',
@@ -4617,7 +4617,7 @@ const translations = {
       },
       finalCta: {
         title: '¿Listo para Beneficiarse de la Inteligencia Artificial?',
-        subtitle: 'Únase a los usuarios que simplifican su vida digital con MSS AI Assistant',
+        subtitle: 'Únase a los usuarios que simplifican su vida digital con MaSecuAI Assistant',
         button: 'Comenzar Ahora'
       }
     },
@@ -4644,7 +4644,7 @@ const translations = {
       guaranteeTitle: 'Garantía de seguridad al 100%',
       guaranteeDesc: 'Sus datos están protegidos por las tecnologías de cifrado más avanzadas',
       protectionActive: 'Protección Activa',
-      certificationText: 'MySafeSecurity está certificado y auditado regularmente para garantizar los más altos estándares de seguridad.',
+      certificationText: 'MaSécurité está certificado y auditado regularmente para garantizar los más altos estándares de seguridad.',
       privacyText: 'Sus datos personales se procesan de acuerdo con el RGPD y nunca se comparten con terceros.'
     },
     footer: {
@@ -4693,7 +4693,7 @@ const translations = {
     products: {
       common: { individual: 'Particular', ctaText: 'Elegir esta oferta', startNow: 'Empezar Ahora' },
       mobileSecurity: {
-        title: 'MSS Mobile Security',
+        title: 'MaSecuMobile Security',
         subtitle: 'Protección completa de Bitdefender para sus móviles y tabletas Android',
         badges: { powered: 'Tecnología Bitdefender', platform: 'Android y tabletas', price: '9,99 € por dispositivo' },
         features: [
@@ -4713,7 +4713,7 @@ const translations = {
         browsersTitle: 'Navegación protegida',
         browsersSubtitle: 'La protección web funciona con todos los navegadores Android populares:',
         pricingTitle: 'Tarifas sencillas',
-        packageName: 'MSS Mobile Security',
+        packageName: 'MaSecuMobile Security',
         price: '9,99',
         period: '/mes por dispositivo',
         description: 'Protección Bitdefender Total Security para móviles y tabletas',
@@ -4737,7 +4737,7 @@ const translations = {
       story: {
         title: 'Nuestra Historia',
         subtitle: 'Una aventura humana al servicio de su serenidad digital',
-        paragraph1: 'MySafeSecurity nació de una convicción simple: la tecnología debe estar al servicio de todos, sin importar la edad o los conocimientos técnicos. Somos una empresa europea especializada en ciberseguridad y soporte informático, particularmente atenta a las necesidades de las personas mayores en Francia y Bélgica.',
+        paragraph1: 'MaSécurité nació de una convicción simple: la tecnología debe estar al servicio de todos, sin importar la edad o los conocimientos técnicos. Somos una empresa europea especializada en ciberseguridad y soporte informático, particularmente atenta a las necesidades de las personas mayores en Francia y Bélgica.',
         paragraph2: 'Creemos que todos merecen disfrutar de la tecnología con tranquilidad para mantenerse en contacto con sus seres queridos, preservar sus recuerdos y gestionar sus asuntos personales con seguridad. Por eso hemos creado soluciones simples, acompañadas de soporte humano en francés disponible 24/7.',
         paragraph3: 'Nuestro equipo de técnicos certificados está capacitado para tomar el tiempo necesario con cada cliente. Explicamos cada paso con paciencia, nos adaptamos a su ritmo y nos aseguramos de que se sienta seguro con su ordenador, tableta o smartphone.',
         paragraph4: 'Con sede en Europa y centros de asistencia en Francia y Bélgica, estamos orgullosos de servir a más de 150,000 clientes europeos que confían en nosotros para proteger sus dispositivos y datos más preciados.'
@@ -4775,7 +4775,7 @@ const translations = {
       },
       cta: {
         title: '¿Listo para Proteger Su Vida Digital?',
-        subtitle: 'Únase a miles de clientes europeos que disfrutan de la tecnología con tranquilidad gracias a MySafeSecurity',
+        subtitle: 'Únase a miles de clientes europeos que disfrutan de la tecnología con tranquilidad gracias a MaSécurité',
         button: 'Contáctenos',
         description: 'Protegiendo a clientes europeos con cuidado y experiencia desde 2018.'
       },
@@ -4822,7 +4822,7 @@ const translations = {
         },
         email: {
           title: 'Correo electrónico',
-          value: 'contact@mysafesecurity.org',
+          value: 'info@masecurite.be',
           responseTime: 'Respuesta en 24 horas'
         },
         address: {
@@ -5134,7 +5134,7 @@ const translations = {
       common: {
         lastUpdated: 'Ultima actualizacion: Enero 2025',
         company: 'Digital Genesys Solutions LLC',
-        companyName: 'Digital Genesys Solutions LLC (MySafeSecurity)',
+        companyName: 'Digital Genesys Solutions LLC (MaSécurité)',
         legalForm: 'Limited Liability Company (LLC)',
         registrationNumber: 'Número de registro',
         registrationNum: '3003074',
@@ -5151,19 +5151,19 @@ const translations = {
         phone: 'Teléfono',
         phoneValue: '900 423 288',
         email: 'Email',
-        emailValue: 'contact@mysafesecurity.org',
+        emailValue: 'info@masecurite.be',
         contactTitle: '¿Necesita Más Información?',
         contactText: 'Para cualquier pregunta sobre este aviso legal, contáctenos:',
         society: 'Empresa'
       },
       legalNotice: {
         title: 'Aviso Legal',
-        intro: 'De conformidad con las disposiciones de la Ley N° 2004-575 del 21 de junio de 2004 sobre la confianza en la economía digital, aquí está la información legal del sitio web MySafeSecurity.'
+        intro: 'De conformidad con las disposiciones de la Ley N° 2004-575 del 21 de junio de 2004 sobre la confianza en la economía digital, aquí está la información legal del sitio web MaSécurité.'
       },
       privacyPolicy: {
         title: 'Política de Privacidad',
         lastUpdate: 'Última actualización: Enero 2025',
-        intro: 'En MySafeSecurity, nos tomamos muy en serio la protección de sus datos personales. Esta política explica cómo recopilamos, utilizamos y protegemos su información de acuerdo con el Reglamento General de Protección de Datos (RGPD).',
+        intro: 'En MaSécurité, nos tomamos muy en serio la protección de sus datos personales. Esta política explica cómo recopilamos, utilizamos y protegemos su información de acuerdo con el Reglamento General de Protección de Datos (RGPD).',
         section1: {
           title: '1. Responsable del Tratamiento',
           description: 'El responsable del tratamiento de sus datos personales es:'
@@ -5248,7 +5248,7 @@ const translations = {
           howToExercise: {
             title: '¿Cómo ejercer sus derechos?',
             intro: 'Para ejercer cualquiera de estos derechos, contáctenos:',
-            dpo: 'dpo@mysafesecurity.fr',
+            dpo: 'dpo@masecurite.be',
             responseTime: 'Responderemos a su solicitud en un máximo de un mes. Se puede solicitar prueba de identidad para verificar su identidad.'
           }
         },
@@ -5283,7 +5283,7 @@ const translations = {
       cookiePolicy: {
         title: 'Política de Cookies',
         lastUpdate: 'Última actualización: Enero 2025',
-        intro: 'Esta política explica cómo MySafeSecurity utiliza las cookies y tecnologías similares en nuestro sitio web para mejorar su experiencia de navegación.',
+        intro: 'Esta política explica cómo MaSécurité utiliza las cookies y tecnologías similares en nuestro sitio web para mejorar su experiencia de navegación.',
         section1: {
           title: '1. ¿Qué es una Cookie?',
           description: 'Una cookie es un pequeño archivo de texto colocado en su dispositivo (computadora, tableta, teléfono inteligente) cuando visita un sitio web. Las cookies permiten al sitio:',
@@ -5383,7 +5383,7 @@ const translations = {
       refundPolicy: {
         title: 'Política de Reembolso',
         lastUpdate: 'Última actualización: Enero 2025',
-        intro: 'En MySafeSecurity, su satisfacción es nuestra prioridad. Esta política explica las condiciones para reembolsar nuestros servicios.',
+        intro: 'En MaSécurité, su satisfacción es nuestra prioridad. Esta política explica las condiciones para reembolsar nuestros servicios.',
         section1: {
           title: '1. Derecho de Desistimiento de 30 Días',
           para1: 'De acuerdo con la legislación europea de protección del consumidor, tiene un período de 30 días calendario desde la fecha de suscripción para ejercer su derecho de desistimiento sin tener que justificar sus razones.',
@@ -5392,7 +5392,7 @@ const translations = {
         section2: {
           title: '2. Cómo Solicitar un Reembolso',
           intro: 'Para ejercer su derecho de desistimiento y solicitar un reembolso, puede:',
-          items: ['Complete el formulario en línea disponible en su área de cliente', 'Llámenos al 900 423 288 (disponible 24/7)', 'Envíenos un correo electrónico a contact@mysafesecurity.org con su número de pedido', 'Escríbanos por correo postal a: Digital Genesys Solutions LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
+          items: ['Complete el formulario en línea disponible en su área de cliente', 'Llámenos al 900 423 288 (disponible 24/7)', 'Envíenos un correo electrónico a info@masecurite.be con su número de pedido', 'Escríbanos por correo postal a: Digital Genesys Solutions LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
           advice: 'Consejo: Para un procesamiento más rápido, use el formulario en línea o contáctenos por teléfono.'
         },
         section3: {
@@ -5447,10 +5447,10 @@ const translations = {
       termsOfService: {
         title: 'Condiciones Generales de Servicio',
         lastUpdate: 'Última actualización: Enero 2025',
-        intro: 'Las presentes Condiciones Generales de Servicio rigen el uso de los servicios ofrecidos por MySafeSecurity, operado por nuestra empresa. Al utilizar nuestros servicios, usted acepta estas condiciones en su totalidad.',
+        intro: 'Las presentes Condiciones Generales de Servicio rigen el uso de los servicios ofrecidos por MaSécurité, operado por nuestra empresa. Al utilizar nuestros servicios, usted acepta estas condiciones en su totalidad.',
         section1: {
           title: '1. Objeto del Contrato',
-          intro: 'MySafeSecurity ofrece servicios de ciberseguridad, soporte técnico y mantenimiento informático que incluyen:',
+          intro: 'MaSécurité ofrece servicios de ciberseguridad, soporte técnico y mantenimiento informático que incluyen:',
           items: [
             'Instalación y configuración de software de seguridad',
             'Protección en tiempo real contra amenazas informáticas',
@@ -5477,7 +5477,7 @@ const translations = {
         section4: {
           title: '4. Derecho de Desistimiento',
           para1: 'De conformidad con la ley europea, usted dispone de un plazo de 30 días desde la suscripción para ejercer su derecho de desistimiento sin tener que justificar motivos.',
-          para2: 'Para ejercer este derecho, contacte a nuestro servicio al cliente por teléfono al 900 423 288 o por correo electrónico a contact@mysafesecurity.org.',
+          para2: 'Para ejercer este derecho, contacte a nuestro servicio al cliente por teléfono al 900 423 288 o por correo electrónico a info@masecurite.be.',
           important: 'Importante: Si ha utilizado nuestros servicios durante este período, se deducirá del reembolso un importe proporcional al servicio utilizado.'
         },
         section5: {
@@ -5488,12 +5488,12 @@ const translations = {
             'Mantener sus credenciales de acceso confidenciales',
             'Utilizar los servicios de acuerdo con la legislación vigente',
             'No compartir su suscripción con terceros',
-            'Informar rápidamente a MySafeSecurity de cualquier problema o incidente',
+            'Informar rápidamente a MaSécurité de cualquier problema o incidente',
             'Permitir el acceso remoto a sus dispositivos para el soporte técnico'
           ]
         },
         section6: {
-          title: '6. Obligaciones de MySafeSecurity',
+          title: '6. Obligaciones de MaSécurité',
           intro: 'Nos comprometemos a:',
           items: [
             'Proporcionar un servicio de calidad conforme a los estándares de la industria',
@@ -5506,7 +5506,7 @@ const translations = {
         },
         section7: {
           title: '7. Limitación de Responsabilidad',
-          intro: 'MySafeSecurity hace todo lo posible para garantizar la seguridad de sus dispositivos. Sin embargo, nuestra responsabilidad es limitada en los siguientes casos:',
+          intro: 'MaSécurité hace todo lo posible para garantizar la seguridad de sus dispositivos. Sin embargo, nuestra responsabilidad es limitada en los siguientes casos:',
           items: [
             'Problemas de hardware que requieren reparación física',
             'Pérdida de datos resultante de una acción del cliente',
@@ -5518,17 +5518,17 @@ const translations = {
         section8: {
           title: '8. Protección de Datos',
           para1: 'Sus datos personales se recopilan y procesan de acuerdo con nuestra Política de Privacidad y el Reglamento General de Protección de Datos (RGPD).',
-          para2: 'Usted tiene derecho de acceso, rectificación, supresión y portabilidad de sus datos personales. Para ejercer estos derechos, contáctenos en dpo@mysafesecurity.fr.',
+          para2: 'Usted tiene derecho de acceso, rectificación, supresión y portabilidad de sus datos personales. Para ejercer estos derechos, contáctenos en dpo@masecurite.be.',
           privacyPolicyLink: 'Política de Privacidad'
         },
         section9: {
           title: '9. Terminación',
           para1: 'Puede cancelar su suscripción en cualquier momento con un aviso previo de 30 días. La cancelación surte efecto al final del período de suscripción actual.',
-          para2: 'MySafeSecurity se reserva el derecho de cancelar su suscripción en caso de impago, uso fraudulento o violación de estos términos, previa notificación.'
+          para2: 'MaSécurité se reserva el derecho de cancelar su suscripción en caso de impago, uso fraudulento o violación de estos términos, previa notificación.'
         },
         section10: {
           title: '10. Modificación de las Condiciones',
-          para1: 'MySafeSecurity se reserva el derecho de modificar estos términos generales. Se le informará de cualquier modificación sustancial por correo electrónico al menos 30 días antes de su entrada en vigor.',
+          para1: 'MaSécurité se reserva el derecho de modificar estos términos generales. Se le informará de cualquier modificación sustancial por correo electrónico al menos 30 días antes de su entrada en vigor.',
           para2: 'El uso continuado de nuestros servicios después de la entrada en vigor de los nuevos términos constituye su aceptación.'
         },
         section11: {

@@ -117,7 +117,7 @@ function Contact() {
       title: t('contact.info.email.title'),
       subtitle: t('contact.info.email.responseTime'),
       value: t('contact.info.email.value'),
-      link: 'mailto:contact@mysafesecurity.org',
+      link: 'mailto:info@masecurite.be',
       color: 'from-emerald-400 to-emerald-500',
       bgColor: 'from-emerald-50 to-emerald-50'
     },
@@ -379,7 +379,7 @@ function Contact() {
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <Logo size={48} />
-                <span className="text-2xl font-bold">MySafeSecurity</span>
+                <span className="text-2xl font-bold">MaSécurité</span>
               </div>
               <p className="text-slate-400 leading-relaxed">Solutions Cloud sécurisées pour particuliers et professionnels</p>
             </div>
@@ -412,7 +412,7 @@ function Contact() {
             </div>
           </div>
           <div className="border-t border-slate-800 pt-8 text-center">
-            <p className="text-slate-400">© 2025 MySafeSecurity. {t('footer.rights')}</p>
+            <p className="text-slate-400">© 2025 MaSécurité. {t('footer.rights')}</p>
           </div>
         </div>
       </footer>

@@ -142,7 +142,7 @@ function About() {
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-white to-emerald-50 rounded-3xl p-12 shadow-2xl border-2 border-emerald-100">
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
-                <strong className="text-emerald-600">MySafeSecurity</strong> {aboutData.story.paragraph1.replace('MySafeSecurity est née', 'est née').replace('MySafeSecurity was born', 'was born').replace('MySafeSecurity nació', 'nació')}
+                <strong className="text-emerald-600">MaSécurité</strong> {aboutData.story.paragraph1.replace('MaSécurité est née', 'est née').replace('MaSécurité was born', 'was born').replace('MaSécurité nació', 'nació')}
               </p>
               <p className="text-xl text-slate-700 leading-relaxed mb-6">
                 {aboutData.story.paragraph2.split('chacun mérite')[0]}<strong className="text-emerald-600">{aboutData.story.paragraph2.match(/chacun mérite[^.]+\./)?.[0] || aboutData.story.paragraph2.match(/everyone deserves[^.]+\./)?.[0] || aboutData.story.paragraph2.match(/todos merecen[^.]+\./)?.[0]}</strong>{aboutData.story.paragraph2.split(/\. C'est|That's why|Por eso/)[1] ? '. ' + aboutData.story.paragraph2.split(/\. C'est|That's why|Por eso/)[1] : ''}
@@ -286,7 +286,7 @@ function About() {
             </div>
           </div>
           <div className="border-t border-slate-700 pt-8 text-center">
-            <p className="text-slate-400">© 2025 MySafeSecurity. {t('footer.rights')}</p>
+            <p className="text-slate-400">© 2025 MaSécurité. {t('footer.rights')}</p>
           </div>
         </div>
       </footer>

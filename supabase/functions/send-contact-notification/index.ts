@@ -175,7 +175,7 @@ Deno.serve(async (req: Request) => {
           <!-- Footer -->
           <tr>
             <td style="background-color: #f8fafc; padding: 30px; text-align: center; border-radius: 0 0 16px 16px; border-top: 1px solid #e2e8f0;">
-              <p style="margin: 0 0 8px 0; color: #64748b; font-size: 14px;">MySafeSecurity</p>
+              <p style="margin: 0 0 8px 0; color: #64748b; font-size: 14px;">MaSécurité</p>
               <p style="margin: 0; color: #94a3b8; font-size: 12px;">Solutions Cloud sécurisées pour particuliers et professionnels</p>
             </td>
           </tr>
@@ -188,7 +188,7 @@ Deno.serve(async (req: Request) => {
     `;
 
     const plainTextContent = `
-Nouveau Message de Contact - MySafeSecurity
+Nouveau Message de Contact - MaSécurité
 ==========================================
 
 Reçu le: ${timestamp}
@@ -202,15 +202,15 @@ MESSAGE:
 ${formData.message}
 
 --
-MySafeSecurity
+MaSécurité
 Solutions Cloud sécurisées pour particuliers et professionnels
     `;
 
     const { data, error } = await resend.emails.send({
-      from: "MySafeSecurity <noreply@mysafesecurity.org>",
+      from: "MaSécurité <noreply@masecurite.be>",
       to: [
         "customer-requests-aaaaop3vtssop7wgzcc5dfunyi@barqsecure.slack.com",
-        "contact@mysafesecurity.org"
+        "info@masecurite.be"
       ],
       replyTo: formData.email,
       subject: `Nouveau Contact - ${subjectLabel}`,

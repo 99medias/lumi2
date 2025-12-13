@@ -29,7 +29,7 @@ const PageHeader = ({ showLanguageSelector = true }: PageHeaderProps) => {
               <li><Link to="/analyse-rapide" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('nav.quickAnalysis')}</Link></li>
               <li><Link to="/about" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('nav.about')}</Link></li>
               <li><Link to="/contact" className="text-slate-700 hover:text-emerald-500 font-semibold transition-all duration-300 hover:scale-105 whitespace-nowrap">{t('nav.contact')}</Link></li>
-              <li><a href="https://mss2025.getscreen.me/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white rounded-full font-bold hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl transform whitespace-nowrap">{t('nav.quickSupport')}</a></li>
+              <li><a href="https://masecu2025.getscreen.me/" target="_blank" rel="noopener noreferrer" className="px-6 py-3 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white rounded-full font-bold hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl transform whitespace-nowrap">{t('nav.quickSupport')}</a></li>
             </ul>
 
             {showLanguageSelector && (
