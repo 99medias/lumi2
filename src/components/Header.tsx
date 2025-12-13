@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { usePhoneByLocation } from '../hooks/usePhoneByLocation';
 import LanguageSelector from './LanguageSelector';
@@ -7,6 +8,7 @@ import Logo from './Logo';
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const { t } = useLanguage();
   const { phoneInfo, loading } = usePhoneByLocation();
 
@@ -40,9 +42,40 @@ function Header() {
             <Link to="/" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
               {t('nav.home')}
             </Link>
-            <a href="/#services" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
-              {t('nav.ourServices')}
-            </a>
+
+            {/* Services Dropdown */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 font-medium transition-colors">
+                {t('nav.ourServices')}
+                <ChevronDown className="w-4 h-4" />
+              </button>
+
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="p-2">
+                  <a href="/#pricing" className="block px-4 py-3 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-emerald-600 transition-colors">
+                    <div className="font-medium">{t('nav.essentialProtection')}</div>
+                    <div className="text-sm text-gray-500">{t('nav.essentialProtectionDesc')}</div>
+                  </a>
+                  <a href="/#pricing" className="block px-4 py-3 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-emerald-600 transition-colors">
+                    <div className="font-medium">{t('nav.familyProtection')}</div>
+                    <div className="text-sm text-gray-500">{t('nav.familyProtectionDesc')}</div>
+                  </a>
+                  <a href="/#pricing" className="block px-4 py-3 rounded-lg hover:bg-emerald-50 text-gray-700 hover:text-emerald-600 transition-colors">
+                    <div className="font-medium">{t('nav.completeProtection')}</div>
+                    <div className="text-sm text-gray-500">{t('nav.completeProtectionDesc')}</div>
+                  </a>
+                  <hr className="my-2 border-gray-100" />
+                  <Link to="/verification" className="block px-4 py-3 rounded-lg hover:bg-orange-50 text-gray-700 hover:text-orange-600 transition-colors">
+                    <div className="font-medium flex items-center gap-2">
+                      <span>🔍</span> {t('nav.checkMyData')}
+                    </div>
+                    <div className="text-sm text-gray-500">{t('nav.checkMyDataDesc')}</div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
             <a href="/#pricing" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
               {t('nav.pricing')}
             </a>
@@ -95,17 +128,40 @@ function Header() {
               <Link to="/" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
                 {t('nav.home')}
               </Link>
-              <a href="/#services" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
-                {t('nav.ourServices')}
-              </a>
+
+              {/* Mobile Services Dropdown */}
+              <div>
+                <button
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium"
+                >
+                  {t('nav.ourServices')}
+                  <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {servicesOpen && (
+                  <div className="ml-4 mt-2 space-y-1">
+                    <a href="/#pricing" className="block px-3 py-2 rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm" onClick={() => setMobileMenuOpen(false)}>
+                      {t('nav.essentialProtection')}
+                    </a>
+                    <a href="/#pricing" className="block px-3 py-2 rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm" onClick={() => setMobileMenuOpen(false)}>
+                      {t('nav.familyProtection')}
+                    </a>
+                    <a href="/#pricing" className="block px-3 py-2 rounded-lg text-gray-600 hover:bg-emerald-50 hover:text-emerald-600 transition-colors text-sm" onClick={() => setMobileMenuOpen(false)}>
+                      {t('nav.completeProtection')}
+                    </a>
+                    <hr className="my-2 border-gray-100" />
+                    <Link to="/verification" className="block px-3 py-2 rounded-lg text-orange-600 hover:bg-orange-50 transition-colors text-sm font-medium" onClick={() => setMobileMenuOpen(false)}>
+                      🔍 {t('nav.checkMyData')}
+                    </Link>
+                  </div>
+                )}
+              </div>
+
               <a href="/#pricing" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
                 {t('nav.pricing')}
               </a>
               <Link to="/about" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
                 {t('nav.whoAreWe')}
-              </Link>
-              <Link to="/verification" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
-                🔍 {t('nav.freeScan')}
               </Link>
               <Link to="/contact" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium" onClick={() => setMobileMenuOpen(false)}>
                 {t('nav.contact')}

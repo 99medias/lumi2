@@ -113,7 +113,15 @@ const translations = {
       belgianCompany: 'Entreprise belge',
       frenchSupport: 'Support en français',
       businessHours: 'Lun-Ven: 9h-18h',
-      emergency247: 'Urgences: 24h/24'
+      emergency247: 'Urgences: 24h/24',
+      essentialProtection: 'Protection Essentielle',
+      essentialProtectionDesc: 'Pour un appareil',
+      familyProtection: 'Protection Famille',
+      familyProtectionDesc: 'Jusqu\'à 5 appareils',
+      completeProtection: 'Protection Complète',
+      completeProtectionDesc: 'Appareils illimités',
+      checkMyData: 'Vérifier mes données',
+      checkMyDataDesc: 'Gratuit - Vos données sont-elles piratées?'
     },
     trustBadges: {
       ssl: {
@@ -1953,7 +1961,15 @@ const translations = {
       belgianCompany: 'Belgian company',
       frenchSupport: 'Support in French',
       businessHours: 'Mon-Fri: 9am-6pm',
-      emergency247: 'Emergency: 24/7'
+      emergency247: 'Emergency: 24/7',
+      essentialProtection: 'Essential Protection',
+      essentialProtectionDesc: 'For one device',
+      familyProtection: 'Family Protection',
+      familyProtectionDesc: 'Up to 5 devices',
+      completeProtection: 'Complete Protection',
+      completeProtectionDesc: 'Unlimited devices',
+      checkMyData: 'Check my data',
+      checkMyDataDesc: 'Free - Has your data been hacked?'
     },
     trustBadges: {
       ssl: {
@@ -3793,7 +3809,15 @@ const translations = {
       belgianCompany: 'Empresa belga',
       frenchSupport: 'Soporte en francés',
       businessHours: 'Lun-Vie: 9h-18h',
-      emergency247: 'Urgencias: 24/7'
+      emergency247: 'Urgencias: 24/7',
+      essentialProtection: 'Protección Esencial',
+      essentialProtectionDesc: 'Para un dispositivo',
+      familyProtection: 'Protección Familiar',
+      familyProtectionDesc: 'Hasta 5 dispositivos',
+      completeProtection: 'Protección Completa',
+      completeProtectionDesc: 'Dispositivos ilimitados',
+      checkMyData: 'Verificar mis datos',
+      checkMyDataDesc: 'Gratis - ¿Han sido hackeados tus datos?'
     },
     trustBadges: {
       ssl: {
