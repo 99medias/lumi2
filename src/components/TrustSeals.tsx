@@ -20,7 +20,7 @@ const TrustSeals = ({ variant = 'default', showTitle = true }: TrustSealsProps) 
       icon: ShieldCheck,
       name: t('trustSeals.rgpd'),
       description: t('trustSeals.rgpdDesc'),
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-emerald-500 to-emerald-600'
     },
     {
       icon: Lock,
@@ -32,19 +32,19 @@ const TrustSeals = ({ variant = 'default', showTitle = true }: TrustSealsProps) 
       icon: Award,
       name: t('trustSeals.soc2'),
       description: t('trustSeals.soc2Desc'),
-      color: 'from-amber-500 to-orange-600'
+      color: 'from-amber-500 to-emerald-600'
     },
     {
       icon: CheckCircle,
       name: t('trustSeals.pciDss'),
       description: t('trustSeals.pciDssDesc'),
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-emerald-500 to-emerald-600'
     },
     {
       icon: Globe,
       name: t('trustSeals.protection247'),
       description: t('trustSeals.protection247Desc'),
-      color: 'from-orange-500 to-orange-600'
+      color: 'from-emerald-500 to-emerald-600'
     }
   ];
 
@@ -84,8 +84,8 @@ const TrustSeals = ({ variant = 'default', showTitle = true }: TrustSealsProps) 
   return (
     <section className="py-16 bg-slate-900 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-orange-500 rounded-full filter blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -104,7 +104,7 @@ const TrustSeals = ({ variant = 'default', showTitle = true }: TrustSealsProps) 
           {seals.map((seal, index) => (
             <div
               key={index}
-              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-6 hover:border-orange-500/50 transition-all duration-300 group"
+              className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-6 hover:border-emerald-500/50 transition-all duration-300 group"
             >
               <div className="flex items-center gap-4">
                 <div
@@ -121,7 +121,7 @@ const TrustSeals = ({ variant = 'default', showTitle = true }: TrustSealsProps) 
           ))}
         </div>
 
-        <div className="mt-12 bg-gradient-to-r from-orange-500/10 to-orange-500/10 border border-orange-500/30 rounded-2xl p-8">
+        <div className="mt-12 bg-gradient-to-r from-emerald-500/10 to-emerald-500/10 border border-emerald-500/30 rounded-2xl p-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center gap-4">
               <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-xl">

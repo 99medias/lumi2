@@ -31,16 +31,16 @@ function ModernPricingCard({
   const defaultTier = tiers.find(t => t.isDefault) || tiers[0];
   const [selectedTier, setSelectedTier] = useState(defaultTier);
 
-  const borderColor = popular ? 'border-orange-500' : 'border-slate-300';
-  const bgColor = popular ? 'bg-gradient-to-br from-orange-50 to-white' : 'bg-white';
+  const borderColor = popular ? 'border-emerald-500' : 'border-slate-300';
+  const bgColor = popular ? 'bg-gradient-to-br from-emerald-50 to-white' : 'bg-white';
 
   return (
     <div className={`relative rounded-2xl border-2 ${borderColor} shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden`}>
-      <div className={`flex flex-col items-center py-6 ${popular ? 'bg-orange-500 text-white' : 'bg-white text-slate-800'}`}>
+      <div className={`flex flex-col items-center py-6 ${popular ? 'bg-emerald-500 text-white' : 'bg-white text-slate-800'}`}>
         <h3 className="text-xl font-bold">{title}</h3>
-        <span className={`text-sm ${popular ? 'text-orange-100' : 'text-gray-500'}`}>{subtitle}</span>
+        <span className={`text-sm ${popular ? 'text-emerald-100' : 'text-gray-500'}`}>{subtitle}</span>
         {popular && (
-          <span className="mt-2 px-3 py-1 bg-white text-orange-500 rounded-full text-xs font-medium">
+          <span className="mt-2 px-3 py-1 bg-white text-emerald-500 rounded-full text-xs font-medium">
             {t('pricingCard.popular')}
           </span>
         )}
@@ -53,7 +53,7 @@ function ModernPricingCard({
 
       <div className="mb-6">
         <div className="text-center mb-4">
-          <div className="text-4xl font-bold text-orange-600">
+          <div className="text-4xl font-bold text-emerald-600">
             {selectedTier.totalPrice}€
             <span className="text-lg text-slate-600"> {t('pricingCard.priceLabel')}</span>
           </div>
@@ -62,7 +62,7 @@ function ModernPricingCard({
         <select
           value={tiers.indexOf(selectedTier)}
           onChange={(e) => setSelectedTier(tiers[parseInt(e.target.value)])}
-          className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl bg-white text-slate-700 font-medium focus:outline-none focus:border-orange-500 cursor-pointer"
+          className="w-full px-4 py-3 border-2 border-slate-300 rounded-xl bg-white text-slate-700 font-medium focus:outline-none focus:border-emerald-500 cursor-pointer"
         >
           {tiers.map((tier, index) => (
             <option key={index} value={index}>
@@ -74,7 +74,7 @@ function ModernPricingCard({
         <div className="mt-4 p-4 bg-slate-50 rounded-xl border border-slate-200">
           <div className="text-sm text-slate-600 text-center mb-1">{t('pricingCard.monthlyPrice')}</div>
           <div className="flex items-baseline justify-center gap-1">
-            <span className="text-2xl font-bold text-orange-500">{selectedTier.monthlyPrice}€</span>
+            <span className="text-2xl font-bold text-emerald-500">{selectedTier.monthlyPrice}€</span>
             <span className="text-sm text-gray-500">/mois</span>
           </div>
         </div>
@@ -93,8 +93,8 @@ function ModernPricingCard({
           to="/contact"
           className={`block w-full text-center py-3 rounded-xl font-semibold transition-all duration-300 ${
             popular
-              ? 'bg-orange-500 text-white hover:bg-orange-600 shadow-md hover:shadow-lg'
-              : 'bg-white text-orange-600 border-2 border-orange-500 hover:bg-orange-50'
+              ? 'bg-emerald-500 text-white hover:bg-emerald-600 shadow-md hover:shadow-lg'
+              : 'bg-white text-emerald-600 border-2 border-emerald-500 hover:bg-emerald-50'
           }`}
         >
           {t('pricingCard.ctaButton')}

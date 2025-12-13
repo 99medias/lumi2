@@ -23,7 +23,7 @@ export default function BreachResults({ breaches }: BreachResultsProps) {
     <div className="mb-8">
       <div className="flex items-center gap-2 mb-6">
         <h3 className="text-2xl font-bold text-slate-900">📋 Détail des fuites de données</h3>
-        <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold">
+        <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-semibold">
           {breaches.length} services compromis
         </span>
       </div>
@@ -43,7 +43,7 @@ export default function BreachResults({ breaches }: BreachResultsProps) {
 
             <div className="mb-4 p-3 bg-slate-50 rounded-lg">
               <div className="text-sm text-slate-600 mb-1">Comptes affectés</div>
-              <div className="text-2xl font-bold text-orange-600">{formatNumber(breach.PwnCount)}</div>
+              <div className="text-2xl font-bold text-emerald-600">{formatNumber(breach.PwnCount)}</div>
             </div>
 
             <div>
@@ -53,7 +53,7 @@ export default function BreachResults({ breaches }: BreachResultsProps) {
                   const severity = getDataClassSeverity(dataClass);
                   const severityClasses = {
                     critical: 'bg-red-100 text-red-700 border-red-200',
-                    high: 'bg-orange-100 text-orange-700 border-orange-200',
+                    high: 'bg-emerald-100 text-emerald-700 border-emerald-200',
                     medium: 'bg-amber-100 text-amber-700 border-amber-200',
                   };
 

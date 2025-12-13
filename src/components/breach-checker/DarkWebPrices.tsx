@@ -12,7 +12,7 @@ export default function DarkWebPrices({ estimatedValue }: DarkWebPricesProps) {
   ];
 
   return (
-    <section className="my-12 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200 rounded-2xl p-8">
+    <section className="my-12 bg-gradient-to-r from-red-50 to-emerald-50 border-2 border-red-200 rounded-2xl p-8">
       <h3 className="text-2xl font-bold text-slate-900 mb-8 text-center">
         💰 Valeur de vos données sur le Dark Web
       </h3>

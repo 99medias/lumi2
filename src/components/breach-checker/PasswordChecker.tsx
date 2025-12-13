@@ -46,7 +46,7 @@ export default function PasswordChecker({ onCheck, loading }: PasswordCheckerPro
               placeholder="Entrez un mot de passe à vérifier"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full pl-14 pr-12 py-4 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+              className="w-full pl-14 pr-12 py-4 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all"
             />
             <button
               onClick={() => setShowPassword(!showPassword)}
@@ -60,7 +60,7 @@ export default function PasswordChecker({ onCheck, loading }: PasswordCheckerPro
         <button
           onClick={handleCheck}
           disabled={loading}
-          className="w-full py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold hover:from-orange-600 hover:to-orange-700 disabled:opacity-50 transition-all"
+          className="w-full py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-bold hover:from-emerald-600 hover:to-emerald-700 disabled:opacity-50 transition-all"
         >
           {loading ? '⏳ Vérification...' : 'Vérifier ce mot de passe'}
         </button>

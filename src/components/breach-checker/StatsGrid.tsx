@@ -10,7 +10,7 @@ function StatCard({ icon, value, label, severity = 'neutral', warning }: StatCar
   const severityClasses = {
     critical: 'border-red-300 bg-red-50',
     danger: 'border-red-200 bg-red-50',
-    high: 'border-orange-200 bg-orange-50',
+    high: 'border-emerald-200 bg-emerald-50',
     safe: 'border-green-200 bg-green-50',
     neutral: 'border-slate-200 bg-white',
   };

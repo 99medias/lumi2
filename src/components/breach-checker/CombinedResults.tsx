@@ -172,7 +172,7 @@ export default function CombinedResults({
 
       {/* Main Alert */}
       {(hibpCount > 0 || leakCheckCount > 0) && (
-        <div className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-8 text-white flex gap-6">
+        <div className="bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-2xl p-8 text-white flex gap-6">
           <div className="text-3xl flex-shrink-0 bg-white/20 w-16 h-16 rounded-xl flex items-center justify-center">
             ⚠️
           </div>
@@ -231,7 +231,7 @@ export default function CombinedResults({
                 {Array.from(new Set(leakCheckData.entries.flatMap(e => e.fields || []))).map((field, i) => (
                   <span key={i} className={`text-xs font-semibold px-3 py-1 rounded-full
                     ${getFieldSeverity(field) === 'critical' ? 'bg-red-100 text-red-700' : ''}
-                    ${getFieldSeverity(field) === 'high' ? 'bg-orange-100 text-orange-700' : ''}
+                    ${getFieldSeverity(field) === 'high' ? 'bg-emerald-100 text-emerald-700' : ''}
                     ${getFieldSeverity(field) === 'medium' ? 'bg-amber-100 text-amber-700' : ''}
                     ${getFieldSeverity(field) === 'low' ? 'bg-slate-200 text-slate-700' : ''}
                   `}>
@@ -251,7 +251,7 @@ export default function CombinedResults({
                   <div
                     key={idx}
                     className={`border rounded-lg overflow-hidden ${
-                      entry.password ? 'border-red-200 bg-red-50' : 'border-orange-200 bg-orange-50'
+                      entry.password ? 'border-red-200 bg-red-50' : 'border-emerald-200 bg-emerald-50'
                     }`}
                   >
                     <button
@@ -266,7 +266,7 @@ export default function CombinedResults({
                       </div>
                       <div className="flex items-center gap-2 ml-2">
                         <span className={`text-xs font-bold px-2 py-1 rounded ${
-                          entry.password ? 'bg-red-600 text-white' : 'bg-orange-600 text-white'
+                          entry.password ? 'bg-red-600 text-white' : 'bg-emerald-600 text-white'
                         }`}>
                           {entry.password ? 'CRITIQUE' : 'EXPOSÉ'}
                         </span>
@@ -354,7 +354,7 @@ export default function CombinedResults({
               <span className="text-2xl">📋</span>
               <h3 className="text-xl font-bold text-slate-900">Détail des fuites</h3>
             </div>
-            <span className="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm font-semibold inline-block">
+            <span className="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-sm font-semibold inline-block">
               {hibpCount} services compromis
             </span>
           </div>
@@ -383,7 +383,7 @@ export default function CombinedResults({
 
                   <div className="mb-3 bg-slate-50 rounded p-2 text-sm">
                     <div className="text-slate-600 text-xs">Comptes affectés</div>
-                    <div className="font-bold text-orange-600">{formatNumber(breach.PwnCount)}</div>
+                    <div className="font-bold text-emerald-600">{formatNumber(breach.PwnCount)}</div>
                   </div>
 
                   <div>
@@ -396,7 +396,7 @@ export default function CombinedResults({
                             key={i}
                             className={`text-xs font-medium px-2 py-1 rounded ${
                               severity === 'critical' ? 'bg-red-100 text-red-700' : ''
-                            }${severity === 'high' ? 'bg-orange-100 text-orange-700' : ''}${
+                            }${severity === 'high' ? 'bg-emerald-100 text-emerald-700' : ''}${
                               severity === 'medium' ? 'bg-amber-100 text-amber-700' : ''
                             }${severity === 'low' ? 'bg-slate-200 text-slate-700' : ''}`}
                           >

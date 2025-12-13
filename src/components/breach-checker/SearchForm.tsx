@@ -62,7 +62,7 @@ export default function SearchForm({
           }}
           className={`flex-1 py-6 px-4 font-bold text-center transition-all ${
             activeTab === 'email'
-              ? 'bg-orange-50 text-orange-700 border-b-4 border-orange-600'
+              ? 'bg-emerald-50 text-emerald-700 border-b-4 border-emerald-600'
               : 'text-slate-600 hover:bg-slate-50'
           }`}
         >
@@ -77,7 +77,7 @@ export default function SearchForm({
           }}
           className={`flex-1 py-6 px-4 font-bold text-center transition-all ${
             activeTab === 'password'
-              ? 'bg-orange-50 text-orange-700 border-b-4 border-orange-600'
+              ? 'bg-emerald-50 text-emerald-700 border-b-4 border-emerald-600'
               : 'text-slate-600 hover:bg-slate-50'
           }`}
         >
@@ -100,7 +100,7 @@ export default function SearchForm({
                   placeholder={t('breachChecker.search.emailPlaceholder')}
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full pl-14 pr-4 py-4 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-200 transition-all"
+                  className="w-full pl-14 pr-4 py-4 border-2 border-slate-300 rounded-xl focus:outline-none focus:border-emerald-500 focus:ring-2 focus:ring-emerald-200 transition-all"
                 />
               </div>
             </div>
@@ -108,7 +108,7 @@ export default function SearchForm({
             <button
               onClick={handleEmailSearch}
               disabled={loading}
-              className="w-full py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold hover:from-orange-600 hover:to-orange-700 disabled:opacity-50 transition-all text-lg"
+              className="w-full py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-bold hover:from-emerald-600 hover:to-emerald-700 disabled:opacity-50 transition-all text-lg"
             >
               {loading ? '⏳ ' + (t('breachChecker.search.searching') || 'Recherche en cours...') : t('breachChecker.search.emailButton')}
             </button>

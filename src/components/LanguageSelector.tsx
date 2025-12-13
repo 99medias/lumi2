@@ -39,7 +39,7 @@ const LanguageSelector = () => {
                   setIsOpen(false);
                 }}
                 className={`w-full px-4 py-2 text-left hover:bg-slate-100 transition-colors flex items-center gap-3 ${
-                  language === lang.code ? 'bg-orange-50 text-orange-600' : 'text-slate-700'
+                  language === lang.code ? 'bg-emerald-50 text-emerald-600' : 'text-slate-700'
                 }`}
               >
                 <span className="text-lg">{lang.flag}</span>

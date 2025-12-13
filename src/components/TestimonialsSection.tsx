@@ -61,13 +61,13 @@ const TestimonialsSection = () => {
 
   const getAvatarColor = (name: string) => {
     const colors = [
-      'from-orange-400 to-orange-600',
-      'from-orange-400 to-orange-600',
-      'from-orange-400 to-orange-600',
+      'from-emerald-400 to-emerald-600',
+      'from-emerald-400 to-emerald-600',
+      'from-emerald-400 to-emerald-600',
       'from-amber-400 to-amber-600',
       'from-purple-400 to-purple-600',
       'from-pink-400 to-pink-600',
-      'from-orange-400 to-orange-600',
+      'from-emerald-400 to-emerald-600',
       'from-green-400 to-green-600'
     ];
     const index = name.charCodeAt(0) % colors.length;
@@ -76,7 +76,7 @@ const TestimonialsSection = () => {
 
   if (loading) {
     return (
-      <section className="py-24 bg-gradient-to-b from-white to-orange-50 relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-white to-emerald-50 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
@@ -92,17 +92,17 @@ const TestimonialsSection = () => {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-orange-50 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-white to-emerald-50 relative overflow-hidden">
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 right-20 w-72 h-72 bg-orange-200 rounded-full filter blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 left-20 w-72 h-72 bg-orange-200 rounded-full filter blur-3xl animate-float-delayed"></div>
+        <div className="absolute top-20 right-20 w-72 h-72 bg-emerald-200 rounded-full filter blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 left-20 w-72 h-72 bg-emerald-200 rounded-full filter blur-3xl animate-float-delayed"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-block px-6 py-2 bg-orange-100 rounded-full text-orange-700 font-semibold mb-6">
+          <div className="inline-block px-6 py-2 bg-emerald-100 rounded-full text-emerald-700 font-semibold mb-6">
             <span className="flex items-center gap-2">
-              <Star className="w-4 h-4 fill-orange-600" />
+              <Star className="w-4 h-4 fill-emerald-600" />
               {t('testimonials.badge')}
             </span>
           </div>
@@ -137,7 +137,7 @@ const TestimonialsSection = () => {
               key={testimonial.id}
               className="bg-white rounded-2xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-slate-100 relative"
             >
-              <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-2xl flex items-center justify-center shadow-lg">
+              <div className="absolute -top-4 -left-4 w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg">
                 <Quote className="w-6 h-6 text-white" />
               </div>
 
@@ -206,7 +206,7 @@ const TestimonialsSection = () => {
         <div className="text-center mt-12">
           <a
             href="#contact"
-            className="inline-block px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl font-bold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
+            className="inline-block px-8 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl font-bold hover:from-emerald-600 hover:to-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
           >
             {t('testimonials.joinButton')}
           </a>

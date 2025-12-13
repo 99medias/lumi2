@@ -26,42 +26,42 @@ const colorClasses = {
   emerald: {
     gradient: 'from-emerald-500 to-emerald-600',
     border: 'border-emerald-500/50',
-    bg: 'from-emerald-500/10 to-orange-500/10',
+    bg: 'from-emerald-500/10 to-emerald-500/10',
     text: 'text-emerald-400',
     hover: 'hover:border-emerald-400',
     button: 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-emerald-500/50'
   },
   sky: {
-    gradient: 'from-orange-500 to-orange-600',
-    border: 'border-orange-500/50',
-    bg: 'from-orange-500/10 to-orange-500/10',
-    text: 'text-orange-400',
-    hover: 'hover:border-orange-400',
-    button: 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 shadow-orange-500/50'
+    gradient: 'from-emerald-500 to-emerald-600',
+    border: 'border-emerald-500/50',
+    bg: 'from-emerald-500/10 to-emerald-500/10',
+    text: 'text-emerald-400',
+    hover: 'hover:border-emerald-400',
+    button: 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-emerald-500/50'
   },
   amber: {
     gradient: 'from-amber-500 to-amber-600',
     border: 'border-amber-500/50',
-    bg: 'from-amber-500/10 to-orange-500/10',
+    bg: 'from-amber-500/10 to-emerald-500/10',
     text: 'text-amber-400',
     hover: 'hover:border-amber-400',
     button: 'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 shadow-amber-500/50'
   },
   teal: {
-    gradient: 'from-orange-500 to-orange-600',
-    border: 'border-orange-500/50',
-    bg: 'from-orange-500/10 to-orange-500/10',
-    text: 'text-orange-400',
-    hover: 'hover:border-orange-400',
-    button: 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 shadow-orange-500/50'
+    gradient: 'from-emerald-500 to-emerald-600',
+    border: 'border-emerald-500/50',
+    bg: 'from-emerald-500/10 to-emerald-500/10',
+    text: 'text-emerald-400',
+    hover: 'hover:border-emerald-400',
+    button: 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-emerald-500/50'
   },
   orange: {
-    gradient: 'from-orange-500 to-orange-600',
-    border: 'border-orange-500/50',
-    bg: 'from-orange-500/10 to-red-500/10',
-    text: 'text-orange-400',
-    hover: 'hover:border-orange-400',
-    button: 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 shadow-orange-500/50'
+    gradient: 'from-emerald-500 to-emerald-600',
+    border: 'border-emerald-500/50',
+    bg: 'from-emerald-500/10 to-red-500/10',
+    text: 'text-emerald-400',
+    hover: 'hover:border-emerald-400',
+    button: 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-emerald-500/50'
   }
 };
 
@@ -94,7 +94,7 @@ const SimplePricingCard = ({
         <p className="text-slate-300 text-sm mb-6">{description}</p>
 
         <div className="mb-6 flex items-baseline justify-center gap-1">
-          <span className="text-2xl font-bold text-orange-500">{price}€</span>
+          <span className="text-2xl font-bold text-emerald-500">{price}€</span>
           <span className="text-sm text-gray-500">{period}</span>
         </div>
       </div>

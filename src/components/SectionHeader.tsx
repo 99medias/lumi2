@@ -40,12 +40,12 @@ const SectionHeader = ({ title, subtitle, centered = true }: SectionHeaderProps)
       className={`mb-20 ${centered ? 'text-center' : ''} ${isVisible ? 'animate-in' : 'opacity-0'}`}
     >
       <div className="inline-block relative">
-        <div className="absolute -inset-4 bg-gradient-to-r from-orange-400/20 via-orange-500/20 to-orange-400/20 blur-2xl rounded-full animate-pulse-slow"></div>
+        <div className="absolute -inset-4 bg-gradient-to-r from-emerald-400/20 via-emerald-500/20 to-emerald-400/20 blur-2xl rounded-full animate-pulse-slow"></div>
         <h2 className="relative text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6">
-          <span className="bg-gradient-to-r from-orange-600 via-orange-600 to-orange-600 bg-clip-text text-transparent animate-gradient">
+          <span className="bg-gradient-to-r from-emerald-600 via-emerald-600 to-emerald-600 bg-clip-text text-transparent animate-gradient">
             {title}
           </span>
-          <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 via-orange-500 to-orange-400 rounded-full transform scale-x-0 animate-scale-in"></div>
+          <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-emerald-400 via-emerald-500 to-emerald-400 rounded-full transform scale-x-0 animate-scale-in"></div>
         </h2>
       </div>
       {subtitle && (

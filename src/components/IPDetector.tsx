@@ -34,7 +34,7 @@ const IPDetector = () => {
 
   if (loading) {
     return (
-      <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border-2 border-red-500/30 rounded-3xl p-8 backdrop-blur-sm">
+      <div className="bg-gradient-to-br from-red-500/10 to-emerald-500/10 border-2 border-red-500/30 rounded-3xl p-8 backdrop-blur-sm">
         <div className="flex items-center justify-center gap-3 mb-6">
           <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center animate-pulse">
             <Shield className="w-6 h-6 text-white" />
@@ -51,7 +51,7 @@ const IPDetector = () => {
 
   if (error || !ipData) {
     return (
-      <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border-2 border-red-500/30 rounded-3xl p-8 backdrop-blur-sm">
+      <div className="bg-gradient-to-br from-red-500/10 to-emerald-500/10 border-2 border-red-500/30 rounded-3xl p-8 backdrop-blur-sm">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
             <Shield className="w-6 h-6 text-white" />
@@ -66,7 +66,7 @@ const IPDetector = () => {
   }
 
   return (
-    <div className="bg-gradient-to-br from-red-500/10 to-orange-500/10 border-2 border-red-500/30 rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden">
+    <div className="bg-gradient-to-br from-red-500/10 to-emerald-500/10 border-2 border-red-500/30 rounded-3xl p-8 backdrop-blur-sm relative overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 bg-red-500/10 rounded-full blur-3xl"></div>
 
       <div className="relative">

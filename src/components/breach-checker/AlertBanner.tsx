@@ -21,7 +21,7 @@ export default function AlertBanner({
       emoji: '🚨',
     },
     high: {
-      bg: 'bg-gradient-to-r from-orange-500 to-orange-600',
+      bg: 'bg-gradient-to-r from-emerald-500 to-emerald-600',
       emoji: '⚠️',
     },
     medium: {

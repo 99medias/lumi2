@@ -20,36 +20,36 @@ interface PricingCardProps {
 
 const colorClasses = {
   sky: {
-    gradient: 'from-orange-500 to-orange-600',
-    border: 'border-orange-500/50',
-    bg: 'from-orange-500/10 to-orange-500/10',
-    text: 'text-orange-400',
-    badge: 'bg-orange-500',
-    hover: 'hover:border-orange-400'
+    gradient: 'from-emerald-500 to-emerald-600',
+    border: 'border-emerald-500/50',
+    bg: 'from-emerald-500/10 to-emerald-500/10',
+    text: 'text-emerald-400',
+    badge: 'bg-emerald-500',
+    hover: 'hover:border-emerald-400'
   },
   amber: {
     gradient: 'from-amber-500 to-amber-600',
     border: 'border-amber-500/50',
-    bg: 'from-amber-500/10 to-orange-500/10',
+    bg: 'from-amber-500/10 to-emerald-500/10',
     text: 'text-amber-400',
     badge: 'bg-amber-500',
     hover: 'hover:border-amber-400'
   },
   teal: {
-    gradient: 'from-orange-500 to-orange-600',
-    border: 'border-orange-500/50',
-    bg: 'from-orange-500/10 to-orange-500/10',
-    text: 'text-orange-400',
-    badge: 'bg-orange-500',
-    hover: 'hover:border-orange-400'
+    gradient: 'from-emerald-500 to-emerald-600',
+    border: 'border-emerald-500/50',
+    bg: 'from-emerald-500/10 to-emerald-500/10',
+    text: 'text-emerald-400',
+    badge: 'bg-emerald-500',
+    hover: 'hover:border-emerald-400'
   },
   orange: {
-    gradient: 'from-orange-500 to-red-600',
-    border: 'border-orange-500/50',
-    bg: 'from-orange-500/10 to-red-500/10',
-    text: 'text-orange-400',
-    badge: 'bg-orange-500',
-    hover: 'hover:border-orange-400'
+    gradient: 'from-emerald-500 to-red-600',
+    border: 'border-emerald-500/50',
+    bg: 'from-emerald-500/10 to-red-500/10',
+    text: 'text-emerald-400',
+    badge: 'bg-emerald-500',
+    hover: 'hover:border-emerald-400'
   }
 };
 
@@ -79,9 +79,9 @@ function PricingCard({ name, tiers, features, color, popular = false, bestValue 
       <div className="text-center mb-8">
         <h3 className="text-3xl font-bold text-white mb-2">{name}</h3>
         {bestTier.savings && (
-          <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/50 px-4 py-2 rounded-full mb-4">
-            <Zap className="w-4 h-4 text-orange-400" />
-            <span className="text-orange-400 font-bold text-sm">
+          <div className="inline-flex items-center gap-2 bg-emerald-500/20 border border-emerald-500/50 px-4 py-2 rounded-full mb-4">
+            <Zap className="w-4 h-4 text-emerald-400" />
+            <span className="text-emerald-400 font-bold text-sm">
               ÉCONOMISEZ JUSQU'À {bestTier.savings}€
             </span>
           </div>
@@ -108,7 +108,7 @@ function PricingCard({ name, tiers, features, color, popular = false, bestValue 
               <div className="flex items-center justify-between mb-3">
                 <div>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-bold text-orange-500">{tier.monthlyPrice.toFixed(2)}€</span>
+                    <span className="text-2xl font-bold text-emerald-500">{tier.monthlyPrice.toFixed(2)}€</span>
                     <span className="text-sm text-gray-500">/mois</span>
                   </div>
                   <div className="text-base text-slate-200 mt-2 font-semibold">
@@ -125,9 +125,9 @@ function PricingCard({ name, tiers, features, color, popular = false, bestValue 
               </div>
 
               {tier.bonusMonths && tier.bonusMonths > 0 && (
-                <div className="bg-orange-500/20 border border-orange-500/50 rounded-lg px-3 py-2 flex items-center gap-2 mt-3">
-                  <Gift className="w-4 h-4 text-orange-400" />
-                  <span className="text-orange-400 font-bold text-sm">
+                <div className="bg-emerald-500/20 border border-emerald-500/50 rounded-lg px-3 py-2 flex items-center gap-2 mt-3">
+                  <Gift className="w-4 h-4 text-emerald-400" />
+                  <span className="text-emerald-400 font-bold text-sm">
                     + {tier.bonusMonths} mois offerts
                   </span>
                 </div>
