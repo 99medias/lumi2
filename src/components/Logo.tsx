@@ -10,19 +10,19 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 140" width="250" height="70" className={className}>
         <defs>
           <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#FF6B35', stopOpacity: 1 }} />
-            <stop offset="50%" style={{ stopColor: '#FF8C42', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#F4A261', stopOpacity: 1 }} />
+            <stop offset="0%" style={{ stopColor: '#10B981', stopOpacity: 1 }} />
+            <stop offset="50%" style={{ stopColor: '#059669', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#047857', stopOpacity: 1 }} />
           </linearGradient>
 
           <linearGradient id="deepBlueGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#E76F51', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#D35400', stopOpacity: 1 }} />
+            <stop offset="0%" style={{ stopColor: '#10B981', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#047857', stopOpacity: 1 }} />
           </linearGradient>
 
           <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#FFD4B3', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#FFE5CC', stopOpacity: 1 }} />
+            <stop offset="0%" style={{ stopColor: '#A7F3D0', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#D1FAE5', stopOpacity: 1 }} />
           </linearGradient>
 
           <linearGradient id="shieldInner" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -31,12 +31,12 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
           </linearGradient>
 
           <linearGradient id="circuitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style={{ stopColor: '#FF6B35', stopOpacity: 0.6 }} />
-            <stop offset="100%" style={{ stopColor: '#FF8C42', stopOpacity: 1 }} />
+            <stop offset="0%" style={{ stopColor: '#10B981', stopOpacity: 0.6 }} />
+            <stop offset="100%" style={{ stopColor: '#059669', stopOpacity: 1 }} />
           </linearGradient>
 
           <filter id="dropShadow" x="-30%" y="-30%" width="160%" height="160%">
-            <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#F4A261" floodOpacity="0.35"/>
+            <feDropShadow dx="0" dy="4" stdDeviation="8" floodColor="#10B981" floodOpacity="0.35"/>
           </filter>
 
           <filter id="outerGlow" x="-50%" y="-50%" width="200%" height="200%">
@@ -47,7 +47,7 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
           <filter id="innerGlow">
             <feGaussianBlur stdDeviation="2" result="blur"/>
             <feComposite in="blur" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1"/>
-            <feFlood floodColor="#FF6B35" floodOpacity="0.5"/>
+            <feFlood floodColor="#10B981" floodOpacity="0.5"/>
             <feComposite in2="blur" operator="in"/>
             <feMerge>
               <feMergeNode/>
@@ -99,7 +99,7 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
             <path d="M60 5 L60 -5"/>
           </g>
 
-          <g fill="#FF8C42">
+          <g fill="#10B981">
             <circle cx="-5" cy="45" r="3"/>
             <circle cx="-10" cy="70" r="3"/>
             <circle cx="5" cy="85" r="3"/>
@@ -109,7 +109,7 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
             <circle cx="60" cy="-5" r="3"/>
           </g>
 
-          <g fill="#FF6B35" opacity="0.8">
+          <g fill="#10B981" opacity="0.8">
             <circle cx="0" cy="50" r="1.5">
               <animate attributeName="opacity" values="0.3;1;0.3" dur="2s" repeatCount="indefinite"/>
             </circle>
@@ -129,9 +129,9 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
                 fontSize="36"
                 fontWeight="700"
                 letterSpacing="-0.5">
-            <tspan fill="#1A3D5C">My</tspan>
-            <tspan fill="#FF6B35">Safe</tspan>
-            <tspan fill="#1A3D5C">Security</tspan>
+            <tspan fill="#1A3D5C">Ma</tspan>
+            <tspan fill="#10B981">Sécurité</tspan>
+            <tspan fill="#1A3D5C">.be</tspan>
           </text>
 
           <text x="2" y="92"
@@ -140,7 +140,7 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
                 fontWeight="400"
                 fill="#5A7A94"
                 letterSpacing="2">
-            CLOUD SECURITY SOLUTIONS
+            VOTRE TRANQUILLITÉ DIGITALE
           </text>
 
           <rect x="2" y="100" width="60" height="2" rx="1" fill="url(#primaryGradient)"/>
@@ -154,9 +154,9 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 45" width="180" height="29" className={className}>
         <defs>
           <linearGradient id="primaryGradientFooter" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#FF6B35', stopOpacity: 1 }} />
-            <stop offset="50%" style={{ stopColor: '#FF8C42', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#F4A261', stopOpacity: 1 }} />
+            <stop offset="0%" style={{ stopColor: '#10B981', stopOpacity: 1 }} />
+            <stop offset="50%" style={{ stopColor: '#059669', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#047857', stopOpacity: 1 }} />
           </linearGradient>
 
           <linearGradient id="shieldInnerFooter" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -165,7 +165,7 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
           </linearGradient>
 
           <filter id="dropShadowFooter" x="-30%" y="-30%" width="160%" height="160%">
-            <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#F4A261" floodOpacity="0.25"/>
+            <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#10B981" floodOpacity="0.25"/>
           </filter>
         </defs>
 
@@ -194,7 +194,7 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
             <circle cx="5" cy="7" r="1.2" fill="#FFFFFF"/>
           </g>
 
-          <g fill="#FF8C42" opacity="0.7">
+          <g fill="#10B981" opacity="0.7">
             <circle cx="1" cy="16" r="1.5"/>
             <circle cx="39" cy="16" r="1.5"/>
             <circle cx="20" cy="0" r="1"/>
@@ -206,9 +206,9 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
               fontSize="22"
               fontWeight="600"
               letterSpacing="-0.3">
-          <tspan fill="#FFFFFF">My</tspan>
-          <tspan fill="#FF6B35">Safe</tspan>
-          <tspan fill="#FFFFFF">Security</tspan>
+          <tspan fill="#FFFFFF">Ma</tspan>
+          <tspan fill="#10B981">Sécurité</tspan>
+          <tspan fill="#FFFFFF">.be</tspan>
         </text>
       </svg>
     );
@@ -219,9 +219,9 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 45" width="210" height="34" className={className}>
         <defs>
           <linearGradient id="primaryGradientHeader" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" style={{ stopColor: '#FF6B35', stopOpacity: 1 }} />
-            <stop offset="50%" style={{ stopColor: '#FF8C42', stopOpacity: 1 }} />
-            <stop offset="100%" style={{ stopColor: '#F4A261', stopOpacity: 1 }} />
+            <stop offset="0%" style={{ stopColor: '#10B981', stopOpacity: 1 }} />
+            <stop offset="50%" style={{ stopColor: '#059669', stopOpacity: 1 }} />
+            <stop offset="100%" style={{ stopColor: '#047857', stopOpacity: 1 }} />
           </linearGradient>
 
           <linearGradient id="shieldInnerHeader" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -230,7 +230,7 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
           </linearGradient>
 
           <filter id="dropShadowHeader" x="-30%" y="-30%" width="160%" height="160%">
-            <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#F4A261" floodOpacity="0.25"/>
+            <feDropShadow dx="0" dy="1" stdDeviation="2" floodColor="#10B981" floodOpacity="0.25"/>
           </filter>
         </defs>
 
@@ -260,7 +260,7 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
             <circle cx="5" cy="7" r="1.2" fill="#FFFFFF"/>
           </g>
 
-          <g fill="#FF8C42" opacity="0.7">
+          <g fill="#10B981" opacity="0.7">
             <circle cx="1" cy="16" r="1.5"/>
             <circle cx="39" cy="16" r="1.5"/>
             <circle cx="20" cy="0" r="1"/>
@@ -273,9 +273,9 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
               fontSize="22"
               fontWeight="600"
               letterSpacing="-0.3">
-          <tspan fill="#1A3D5C">My</tspan>
-          <tspan fill="#FF6B35">Safe</tspan>
-          <tspan fill="#1A3D5C">Security</tspan>
+          <tspan fill="#1A3D5C">Ma</tspan>
+          <tspan fill="#10B981">Sécurité</tspan>
+          <tspan fill="#1A3D5C">.be</tspan>
         </text>
       </svg>
     );
@@ -292,9 +292,9 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
     >
       <defs>
         <linearGradient id="primaryGradientIcon" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" style={{ stopColor: '#FF6B35', stopOpacity: 1 }} />
-          <stop offset="50%" style={{ stopColor: '#FF8C42', stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: '#F4A261', stopOpacity: 1 }} />
+          <stop offset="0%" style={{ stopColor: '#10B981', stopOpacity: 1 }} />
+          <stop offset="50%" style={{ stopColor: '#059669', stopOpacity: 1 }} />
+          <stop offset="100%" style={{ stopColor: '#047857', stopOpacity: 1 }} />
         </linearGradient>
 
         <linearGradient id="shieldInnerIcon" x1="0%" y1="0%" x2="0%" y2="100%">
@@ -303,12 +303,12 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
         </linearGradient>
 
         <linearGradient id="circuitGradientIcon" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style={{ stopColor: '#FF6B35', stopOpacity: 0.6 }} />
-          <stop offset="100%" style={{ stopColor: '#FF8C42', stopOpacity: 1 }} />
+          <stop offset="0%" style={{ stopColor: '#10B981', stopOpacity: 0.6 }} />
+          <stop offset="100%" style={{ stopColor: '#059669', stopOpacity: 1 }} />
         </linearGradient>
 
         <filter id="dropShadowIcon" x="-30%" y="-30%" width="160%" height="160%">
-          <feDropShadow dx="0" dy="3" stdDeviation="5" floodColor="#F4A261" floodOpacity="0.35"/>
+          <feDropShadow dx="0" dy="3" stdDeviation="5" floodColor="#10B981" floodOpacity="0.35"/>
         </filter>
       </defs>
 
@@ -345,7 +345,7 @@ function Logo({ className = '', size = 48, variant = 'icon' }: LogoProps) {
           <rect x="9.5" y="16" width="3" height="4.5" rx="1" fill="#FFFFFF"/>
         </g>
 
-        <g fill="#FF8C42">
+        <g fill="#10B981">
           <circle cx="0" cy="40" r="3"/>
           <circle cx="5" cy="80" r="2.5"/>
           <circle cx="100" cy="40" r="3"/>

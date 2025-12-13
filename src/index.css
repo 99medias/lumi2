@@ -58,5 +58,5 @@ a[href*="bolt.new"] {
 }
 
 .popular-glow {
-  box-shadow: 0 0 30px rgba(249, 115, 22, 0.2), inset 0 0 20px rgba(249, 115, 22, 0.05);
+  box-shadow: 0 0 30px rgba(16, 185, 129, 0.2), inset 0 0 20px rgba(16, 185, 129, 0.05);
 }
