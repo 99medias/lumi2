@@ -277,8 +277,8 @@ const translations = {
       },
       offers: {
         s: {
-          badge: 'Starter',
-          name: 'Offre S',
+          badge: 'Pour débuter',
+          name: 'Protection Essentielle',
           storage: '10 GB de stockage',
           features: [
             'Espace Cloud 10GB',
@@ -289,11 +289,11 @@ const translations = {
           ]
         },
         m: {
-          badge: 'Medium',
-          name: 'Offre M',
+          badge: 'Pour la famille',
+          name: 'Protection Famille',
           storage: '30 GB de stockage',
           features: [
-            'Tout de l\'offre S',
+            'Tout de Protection Essentielle',
             'Espace Cloud 30GB',
             '5h d\'assistance/mois',
             'Suivi personnalisé',
@@ -301,11 +301,11 @@ const translations = {
           ]
         },
         l: {
-          badge: 'Performance',
-          name: 'Offre L',
+          badge: 'Protection maximale',
+          name: 'Protection Complète',
           storage: '120 GB de stockage',
           features: [
-            'Tout de l\'offre M',
+            'Tout de Protection Famille',
             'Espace Cloud 120GB',
             'Assistance illimitée',
             'Retour illimité',
@@ -383,7 +383,7 @@ const translations = {
       badge: 'Options Premium',
       title: 'Boostez votre protection',
       subtitle: 'Ajoutez des fonctionnalités premium à votre abonnement existant.',
-      requirement: 'Nécessite un abonnement actif (Offre S, M ou L)',
+      requirement: 'Nécessite un abonnement actif (Protection Essentielle, Famille ou Complète)',
       vpnPro: {
         name: 'MaSecuVPN Pro',
         price: '9.99€',
@@ -2105,8 +2105,8 @@ const translations = {
       },
       offers: {
         s: {
-          badge: 'Starter',
-          name: 'Plan S',
+          badge: 'To get started',
+          name: 'Essential Protection',
           storage: '10 GB storage',
           features: [
             'Cloud Space 10GB',
@@ -2117,11 +2117,11 @@ const translations = {
           ]
         },
         m: {
-          badge: 'Medium',
-          name: 'Plan M',
+          badge: 'For the family',
+          name: 'Family Protection',
           storage: '30 GB storage',
           features: [
-            'All Plan S features',
+            'All Essential Protection features',
             'Cloud Space 30GB',
             '5h support/month',
             'Personalized follow-up',
@@ -2129,11 +2129,11 @@ const translations = {
           ]
         },
         l: {
-          badge: 'Performance',
-          name: 'Plan L',
+          badge: 'Maximum protection',
+          name: 'Complete Protection',
           storage: '120 GB storage',
           features: [
-            'All Plan M features',
+            'All Family Protection features',
             'Cloud Space 120GB',
             'Unlimited support',
             'Unlimited returns',
@@ -2211,7 +2211,7 @@ const translations = {
       badge: 'Premium Options',
       title: 'Boost Your Protection',
       subtitle: 'Add premium features to your existing subscription.',
-      requirement: 'Requires an active subscription (Plan S, M or L)',
+      requirement: 'Requires an active subscription (Essential, Family or Complete Protection)',
       vpnPro: {
         name: 'MaSecuVPN Pro',
         price: '€9.99',
@@ -3933,8 +3933,8 @@ const translations = {
       },
       offers: {
         s: {
-          badge: 'Inicial',
-          name: 'Oferta S',
+          badge: 'Para empezar',
+          name: 'Protección Esencial',
           storage: '10 GB de almacenamiento',
           features: [
             'Espacio Cloud 10 GB',
@@ -3945,11 +3945,11 @@ const translations = {
           ]
         },
         m: {
-          badge: 'Media',
-          name: 'Oferta M',
+          badge: 'Para la familia',
+          name: 'Protección Familiar',
           storage: '30 GB de almacenamiento',
           features: [
-            'Todo lo de la Oferta S',
+            'Todo lo de Protección Esencial',
             'Espacio Cloud 30 GB',
             '5 horas de asistencia/mes',
             'Seguimiento personalizado',
@@ -3957,11 +3957,11 @@ const translations = {
           ]
         },
         l: {
-          badge: 'Rendimiento',
-          name: 'Oferta L',
+          badge: 'Protección máxima',
+          name: 'Protección Completa',
           storage: '120 GB de almacenamiento',
           features: [
-            'Todo lo de la Oferta M',
+            'Todo lo de Protección Familiar',
             'Espacio Cloud 120 GB',
             'Asistencia ilimitada',
             'Respuestas ilimitadas',
@@ -4038,7 +4038,7 @@ const translations = {
       badge: 'Opciones Premium',
       title: 'Potencie su protección',
       subtitle: 'Añada prestaciones premium a su suscripción existente.',
-      requirement: 'Requiere una suscripción activa (Oferta S, M o L)',
+      requirement: 'Requiere una suscripción activa (Protección Esencial, Familiar o Completa)',
       vpnPro: {
         name: 'MaSecuVPN Pro',
         price: '9,99 €',

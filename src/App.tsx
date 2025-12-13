@@ -182,12 +182,9 @@ function App() {
               <p className="text-gray-600 mb-6">
                 Antivirus professionnel, pare-feu intelligent et mises à jour automatiques pour une protection complète.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-emerald-600 font-semibold">À partir de €9,99/mois</span>
-                <a href="/#pricing" className="text-emerald-600 font-medium group-hover:underline">
-                  En savoir plus →
-                </a>
-              </div>
+              <a href="/#pricing" className="text-emerald-600 font-medium hover:underline inline-flex items-center gap-1">
+                En savoir plus →
+              </a>
             </div>
 
             <div className="group p-8 bg-gradient-to-br from-blue-50 to-white rounded-3xl border border-blue-100 hover:shadow-xl transition-all">
@@ -198,28 +195,22 @@ function App() {
               <p className="text-gray-600 mb-6">
                 Protégez jusqu'à 5 appareils. Contrôle parental inclus pour une navigation sécurisée pour vos enfants.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-blue-600 font-semibold">€19,99/mois</span>
-                <a href="/#pricing" className="text-blue-600 font-medium group-hover:underline">
-                  En savoir plus →
-                </a>
-              </div>
+              <a href="/#pricing" className="text-blue-600 font-medium hover:underline inline-flex items-center gap-1">
+                En savoir plus →
+              </a>
             </div>
 
             <div className="group p-8 bg-gradient-to-br from-orange-50 to-white rounded-3xl border border-orange-100 hover:shadow-xl transition-all">
               <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mb-6">
-                <span className="text-3xl">🔧</span>
+                <span className="text-3xl">🔍</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Dépannage à domicile</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Vérification de sécurité</h3>
               <p className="text-gray-600 mb-6">
-                Un technicien se déplace chez vous pour résoudre vos problèmes informatiques rapidement.
+                Analysez gratuitement si vos données personnelles ont été compromises sur le dark web.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-orange-600 font-semibold">€49 / intervention</span>
-                <a href="/contact" className="text-orange-600 font-medium group-hover:underline">
-                  En savoir plus →
-                </a>
-              </div>
+              <a href="/verification" className="text-orange-600 font-medium hover:underline inline-flex items-center gap-1">
+                Vérifier maintenant →
+              </a>
             </div>
 
             <div className="group p-8 bg-gradient-to-br from-purple-50 to-white rounded-3xl border border-purple-100 hover:shadow-xl transition-all">
@@ -230,12 +221,9 @@ function App() {
               <p className="text-gray-600 mb-6">
                 Victime d'un virus ou d'une arnaque? Notre équipe intervient rapidement pour vous aider.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-purple-600 font-semibold">Disponible 24h/24</span>
-                <a href="https://masecu2025.getscreen.me/" target="_blank" rel="noopener noreferrer" className="text-purple-600 font-medium group-hover:underline">
-                  Appeler maintenant →
-                </a>
-              </div>
+              <a href="https://masecu2025.getscreen.me/" target="_blank" rel="noopener noreferrer" className="text-purple-600 font-medium hover:underline inline-flex items-center gap-1">
+                Appeler maintenant →
+              </a>
             </div>
 
           </div>
@@ -294,29 +282,46 @@ function App() {
         </div>
       </section>
 
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-10 w-64 h-64 bg-emerald-300 rounded-full filter blur-3xl animate-float"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-24">
-            <div className="relative">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-emerald-200 to-emerald-200 rounded-3xl opacity-50 blur-2xl"></div>
-                <img
-                  src="https://images.pexels.com/photos/7640412/pexels-photo-7640412.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Senior woman video calling with family"
-                  className="relative rounded-3xl shadow-2xl w-full h-auto transform hover:scale-105 transition-all duration-500"
-                />
-              </div>
-            </div>
-            <div>
-              <h3 className="text-4xl md:text-5xl font-bold text-emerald-700 mb-6">{t('services.family.title')}</h3>
-              <p className="text-xl text-slate-600 leading-relaxed">
-                {t('services.family.description')}
-              </p>
-            </div>
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
+
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
+              Simple comme bonjour
+            </span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Comment ça marche?
+            </h2>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-emerald-600">
+                1
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Choisissez votre formule</h3>
+              <p className="text-gray-600">Sélectionnez la protection adaptée à vos besoins</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-emerald-600">
+                2
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Installation en 5 minutes</h3>
+              <p className="text-gray-600">On vous guide pas à pas, c'est très simple</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold text-emerald-600">
+                3
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Vous êtes protégé!</h3>
+              <p className="text-gray-600">Notre équipe veille sur votre sécurité 24/7</p>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
