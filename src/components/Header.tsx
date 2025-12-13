@@ -34,11 +34,11 @@ function Header() {
 
       <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex-shrink-0">
+          <Link to="/" className="flex-shrink-0 mr-8">
             <Logo variant="header" />
           </Link>
 
-          <div className="hidden lg:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-6">
             <Link to="/" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors whitespace-nowrap">
               {t('nav.home')}
             </Link>
@@ -58,7 +58,7 @@ function Header() {
             </Link>
           </div>
 
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex items-center gap-4 ml-8 flex-shrink-0">
             {/* Vérifier mes données - Orange accent button */}
             <Link
               to="/verification"
