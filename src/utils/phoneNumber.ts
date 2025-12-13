@@ -8,8 +8,8 @@ export interface PhoneInfo {
 
 const phoneNumbers: Record<string, PhoneInfo> = {
   BE: {
-    number: '+32 2 808 94 47',
-    localNumber: '02 808 94 47',
+    number: '+32 16 18 60 98',
+    localNumber: '016 18 60 98',
     countryCode: 'BE',
     countryName: 'Belgium',
     flag: '🇧🇪'
@@ -40,11 +40,11 @@ const phoneNumbers: Record<string, PhoneInfo> = {
 export const getPhoneInfoByCountry = (countryCode: string | null): PhoneInfo => {
   if (!countryCode || !phoneNumbers[countryCode]) {
     return {
-      number: '+33 1 89 71 28 66',
-      localNumber: '01 89 71 28 66',
-      countryCode: 'FR',
-      countryName: 'France',
-      flag: '🇫🇷'
+      number: '+32 16 18 60 98',
+      localNumber: '016 18 60 98',
+      countryCode: 'BE',
+      countryName: 'Belgium',
+      flag: '🇧🇪'
     };
   }
   return phoneNumbers[countryCode];

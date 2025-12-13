@@ -6,7 +6,6 @@ import Header from './components/Header';
 import SectionHeader from './components/SectionHeader';
 import TestimonialsSection from './components/TestimonialsSection';
 import TrustSeals from './components/TrustSeals';
-import TrustBadges from './components/TrustBadges';
 import PaymentBadges from './components/PaymentBadges';
 import Footer from './components/Footer';
 import './index.css';
@@ -90,162 +89,208 @@ function App() {
 
       <Header />
 
-      <section id="accueil" className="pt-32 pb-20 bg-gradient-to-br from-emerald-100 via-emerald-50 to-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-emerald-300 rounded-full filter blur-3xl animate-float"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-emerald-300 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-          <div className="absolute top-1/2 left-1/3 w-64 h-64 bg-emerald-200 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '4s' }}></div>
-        </div>
+      <section id="accueil" className="hero-new bg-gradient-to-b from-emerald-50 to-white py-20">
+        <div className="max-w-6xl mx-auto px-4 text-center">
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="mb-8 flex justify-center lg:justify-start">
-            <TrustBadges />
+          <div className="flex justify-center gap-4 mb-8 flex-wrap">
+            <span className="inline-flex items-center gap-1 px-3 py-1 bg-white rounded-full text-sm text-gray-600 shadow-sm">
+              🇧🇪 {t('nav.belgianCompany')}
+            </span>
+            <span className="inline-flex items-center gap-1 px-3 py-1 bg-white rounded-full text-sm text-gray-600 shadow-sm">
+              ⭐ 4.9/5
+            </span>
+            <span className="inline-flex items-center gap-1 px-3 py-1 bg-white rounded-full text-sm text-gray-600 shadow-sm">
+              🛡️ +10 000 clients
+            </span>
           </div>
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-fade-in-up">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight bg-gradient-to-r from-emerald-600 via-emerald-600 to-emerald-700 bg-clip-text text-transparent">
-                {t('hero.title')} <br /> {t('hero.subtitle')}
-              </h1>
-              <p className="text-xl md:text-2xl text-slate-700 mb-8 leading-relaxed">
-                {t('hero.description')}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                <a href="#pricing" className="px-10 py-4 bg-gradient-to-r from-emerald-400 to-emerald-500 text-white rounded-full text-lg font-bold hover:from-emerald-500 hover:to-emerald-600 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl transform text-center">
-                  {t('hero.cta')}
-                </a>
-                <a href="#services" className="px-10 py-4 bg-white border-3 border-emerald-400 text-emerald-600 rounded-full text-lg font-bold hover:bg-emerald-50 transition-all duration-300 hover:shadow-xl text-center">
-                  {t('hero.ctaSecondary')}
-                </a>
+
+          <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+            {t('hero.title')}<br />
+            <span className="text-emerald-500">{t('hero.subtitle')}</span>
+          </h1>
+
+          <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
+            {t('hero.description')}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <a
+              href="#services"
+              className="px-8 py-4 bg-emerald-500 text-white rounded-full font-semibold text-lg hover:bg-emerald-600 transition-all shadow-lg shadow-emerald-500/30"
+            >
+              {t('hero.ctaSecondary')}
+            </a>
+            <a
+              href="tel:+3216186098"
+              className="px-8 py-4 bg-white text-gray-700 rounded-full font-semibold text-lg border-2 border-gray-200 hover:border-emerald-500 hover:text-emerald-600 transition-all flex items-center justify-center gap-2"
+            >
+              <span>📞</span> 016 18 60 98
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <span className="text-2xl">🔒</span>
               </div>
-              <div className="flex flex-wrap gap-6 text-slate-700">
-                <div className="flex items-center gap-2 text-lg font-semibold">
-                  <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center">
-                    <span className="text-emerald-600">✓</span>
-                  </div>
-                  {t('hero.simpleToUse')}
-                </div>
-                <div className="flex items-center gap-2 text-lg font-semibold">
-                  <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center">
-                    <span className="text-emerald-600">✓</span>
-                  </div>
-                  {t('hero.secure')}
-                </div>
-                <div className="flex items-center gap-2 text-lg font-semibold">
-                  <div className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center">
-                    <span className="text-emerald-600">✓</span>
-                  </div>
-                  {t('hero.support247')}
-                </div>
-              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('hero.secure')}</h3>
+              <p className="text-gray-600 text-sm">Antivirus, pare-feu et surveillance 24/7</p>
             </div>
 
-            <div className="relative animate-slide-in-right">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-emerald-200 to-emerald-200 rounded-3xl opacity-50 blur-2xl"></div>
-                <img
-                  src="https://images.pexels.com/photos/3823488/pexels-photo-3823488.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="Senior customer using computer with satisfaction"
-                  className="relative rounded-3xl shadow-2xl w-full h-auto transform hover:scale-105 transition-all duration-500"
-                />
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <span className="text-2xl">🏠</span>
               </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Intervention à domicile</h3>
+              <p className="text-gray-600 text-sm">Un technicien se déplace chez vous</p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+              <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 mx-auto">
+                <span className="text-2xl">💬</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">{t('nav.frenchSupport')}</h3>
+              <p className="text-gray-600 text-sm">Équipe belge disponible 7j/7</p>
             </div>
           </div>
+
         </div>
       </section>
 
-      <section id="services" className="py-24 bg-gradient-to-b from-white to-emerald-50 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-emerald-200 rounded-full filter blur-3xl animate-float"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-emerald-200 rounded-full filter blur-3xl animate-float-delayed"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <SectionHeader
-            title={t('services.title')}
-            subtitle={t('services.subtitle')}
-          />
-          <div className="grid md:grid-cols-2 gap-10">
-            <div className="relative bg-white p-10 rounded-3xl shadow-xl border-2 border-emerald-100 hover:shadow-2xl hover:-translate-y-3 hover:border-emerald-400 transition-all duration-500 group overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/0 via-emerald-50/0 to-emerald-100/0 group-hover:to-emerald-100/50 transition-all duration-500"></div>
-              <div className="relative w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-                <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M18 10H22L12 2L2 10H6M18 10V20C18 20.5304 17.7893 21.0391 17.4142 21.4142C17.0391 21.7893 16.5304 22 16 22H8C7.46957 22 6.96086 21.7893 6.58579 21.4142C6.21071 21.0391 6 20.5304 6 20V10M18 10H6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M9 22V12H15V22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h3 className="relative text-2xl font-bold text-emerald-700 mb-4 group-hover:text-emerald-600 transition-colors">{t('services.cloudServer.title')}</h3>
-              <p className="relative text-slate-600 mb-6 leading-relaxed text-lg">
-                {t('services.cloudServer.description')}
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.cloudServer.feature1')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.cloudServer.feature2')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.cloudServer.feature3')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.cloudServer.feature4')}</li>
-              </ul>
-            </div>
+      <section id="services" className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-4">
 
-            <div className="relative bg-white p-10 rounded-3xl shadow-xl border-2 border-emerald-100 hover:shadow-2xl hover:-translate-y-3 hover:border-emerald-400 transition-all duration-500 group overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/0 via-emerald-50/0 to-emerald-100/0 group-hover:to-emerald-100/50 transition-all duration-500"></div>
-              <div className="relative w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-                <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 8V12L15 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h3 className="relative text-2xl font-bold text-emerald-700 mb-4 group-hover:text-emerald-600 transition-colors">{t('services.security.title')}</h3>
-              <p className="relative text-slate-600 mb-6 leading-relaxed text-lg">
-                {t('services.security.description')}
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.security.feature1')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.security.feature2')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.security.feature3')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.security.feature4')}</li>
-              </ul>
-            </div>
-
-            <div className="relative bg-white p-10 rounded-3xl shadow-xl border-2 border-emerald-100 hover:shadow-2xl hover:-translate-y-3 hover:border-emerald-400 transition-all duration-500 group overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/0 via-emerald-50/0 to-emerald-100/0 group-hover:to-emerald-100/50 transition-all duration-500"></div>
-              <div className="relative w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-                <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.27099 2.11999 4.18C2.09501 3.90347 2.12788 3.62476 2.2165 3.36162C2.30513 3.09849 2.44757 2.85669 2.63477 2.65162C2.82196 2.44655 3.04981 2.28271 3.30379 2.17052C3.55778 2.05833 3.83234 2.00026 4.10999 2H7.10999C7.5953 1.99522 8.06579 2.16708 8.43376 2.48353C8.80173 2.79999 9.04207 3.23945 9.10999 3.72C9.23662 4.68007 9.47144 5.62273 9.80999 6.53C9.94454 6.88792 9.97366 7.27691 9.8939 7.65088C9.81415 8.02485 9.62886 8.36811 9.35999 8.64L8.08999 9.91C9.51355 12.4135 11.5864 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9751 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0555 17.47 14.19C18.3773 14.5286 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <h3 className="relative text-2xl font-bold text-emerald-700 mb-4 group-hover:text-emerald-600 transition-colors">{t('services.phone.title')}</h3>
-              <p className="relative text-slate-600 mb-6 leading-relaxed text-lg">
-                {t('services.phone.description')}
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.phone.feature1')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.phone.feature2')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.phone.feature3')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.phone.feature4')}</li>
-              </ul>
-            </div>
-
-            <div className="relative bg-white p-10 rounded-3xl shadow-xl border-2 border-emerald-100 hover:shadow-2xl hover:-translate-y-3 hover:border-emerald-400 transition-all duration-500 group overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-50/0 via-emerald-50/0 to-emerald-100/0 group-hover:to-emerald-100/50 transition-all duration-500"></div>
-              <div className="relative w-16 h-16 bg-gradient-to-br from-emerald-400 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
-                <svg className="w-8 h-8 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M12 8C12.5304 8 13.0391 8.21071 13.4142 8.58579C13.7893 8.96086 14 9.46957 14 10C14 10.39 13.85 10.75 13.62 11.03L12 13.5L10.38 11.03C10.15 10.75 10 10.39 10 10C10 9.46957 10.2107 8.96086 10.5858 8.58579C10.9609 8.21071 11.4696 8 12 8Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <ellipse cx="12" cy="16" rx="2" ry="1" fill="currentColor"/>
-                  <ellipse cx="10" cy="14.5" rx="1.5" ry="0.8" fill="currentColor"/>
-                  <ellipse cx="14" cy="14.5" rx="1.5" ry="0.8" fill="currentColor"/>
-                </svg>
-              </div>
-              <h3 className="relative text-2xl font-bold text-emerald-700 mb-4 group-hover:text-emerald-600 transition-colors">{t('services.identityProtection.title')}</h3>
-              <p className="relative text-slate-600 mb-6 leading-relaxed text-lg">
-                {t('services.identityProtection.description')}
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.identityProtection.feature1')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.identityProtection.feature2')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.identityProtection.feature3')}</li>
-                <li className="flex items-start gap-3 text-slate-700 text-lg"><span className="text-emerald-500 font-bold text-xl">✓</span> {t('services.identityProtection.feature4')}</li>
-              </ul>
-            </div>
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
+              {t('services.title')}
+            </span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Comment pouvons-nous vous aider?
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              {t('services.subtitle')}
+            </p>
           </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            <div className="group p-8 bg-gradient-to-br from-emerald-50 to-white rounded-3xl border border-emerald-100 hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-emerald-500 rounded-2xl flex items-center justify-center mb-6">
+                <span className="text-3xl">💻</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Protection PC & Mac</h3>
+              <p className="text-gray-600 mb-6">
+                Antivirus professionnel, pare-feu intelligent et mises à jour automatiques pour une protection complète.
+              </p>
+              <div className="flex items-center justify-between">
+                <span className="text-emerald-600 font-semibold">À partir de €9,99/mois</span>
+                <a href="/#pricing" className="text-emerald-600 font-medium group-hover:underline">
+                  En savoir plus →
+                </a>
+              </div>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-blue-50 to-white rounded-3xl border border-blue-100 hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-blue-500 rounded-2xl flex items-center justify-center mb-6">
+                <span className="text-3xl">👨‍👩‍👧‍👦</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Pack Famille</h3>
+              <p className="text-gray-600 mb-6">
+                Protégez jusqu'à 5 appareils. Contrôle parental inclus pour une navigation sécurisée pour vos enfants.
+              </p>
+              <div className="flex items-center justify-between">
+                <span className="text-blue-600 font-semibold">€19,99/mois</span>
+                <a href="/#pricing" className="text-blue-600 font-medium group-hover:underline">
+                  En savoir plus →
+                </a>
+              </div>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-orange-50 to-white rounded-3xl border border-orange-100 hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-orange-500 rounded-2xl flex items-center justify-center mb-6">
+                <span className="text-3xl">🔧</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Dépannage à domicile</h3>
+              <p className="text-gray-600 mb-6">
+                Un technicien se déplace chez vous pour résoudre vos problèmes informatiques rapidement.
+              </p>
+              <div className="flex items-center justify-between">
+                <span className="text-orange-600 font-semibold">€49 / intervention</span>
+                <a href="/contact" className="text-orange-600 font-medium group-hover:underline">
+                  En savoir plus →
+                </a>
+              </div>
+            </div>
+
+            <div className="group p-8 bg-gradient-to-br from-purple-50 to-white rounded-3xl border border-purple-100 hover:shadow-xl transition-all">
+              <div className="w-16 h-16 bg-purple-500 rounded-2xl flex items-center justify-center mb-6">
+                <span className="text-3xl">🆘</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Assistance d'urgence</h3>
+              <p className="text-gray-600 mb-6">
+                Victime d'un virus ou d'une arnaque? Notre équipe intervient rapidement pour vous aider.
+              </p>
+              <div className="flex items-center justify-between">
+                <span className="text-purple-600 font-semibold">Disponible 24h/24</span>
+                <a href="https://masecu2025.getscreen.me/" target="_blank" rel="noopener noreferrer" className="text-purple-600 font-medium group-hover:underline">
+                  Appeler maintenant →
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4">
+
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium mb-4">
+              Pourquoi nous?
+            </span>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Ce qui nous rend différents
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl font-bold">
+                1
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">100% Belge</h3>
+              <p className="text-gray-600">Équipe locale basée en Belgique</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl font-bold">
+                2
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Sans jargon</h3>
+              <p className="text-gray-600">On vous explique tout simplement</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl font-bold">
+                3
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Prix honnêtes</h3>
+              <p className="text-gray-600">Pas de frais cachés, jamais</p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-20 h-20 bg-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-3xl font-bold">
+                4
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Toujours là</h3>
+              <p className="text-gray-600">Support disponible 7j/7</p>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
@@ -904,18 +949,31 @@ function App() {
 
       <TrustSeals />
 
-      <section id="contact" className="py-20 bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-500 text-white text-center relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-5xl font-extrabold mb-4">{t('cta.title')}</h2>
-          <p className="text-xl text-white/90 mb-10">
-            {t('cta.subtitle')}
+      <section id="contact" className="py-20 bg-emerald-600">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Prêt à sécuriser votre vie numérique?
+          </h2>
+          <p className="text-emerald-100 text-xl mb-10">
+            Commencez par un scan gratuit. C'est rapide et sans engagement.
           </p>
-          <a href="#pricing" className="inline-block px-10 py-4 bg-white text-emerald-600 rounded-full text-lg font-bold hover:bg-slate-50 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl transform">
-            {t('cta.button')}
-          </a>
-          <p className="mt-8 text-white/80">
-            {t('faq.helpText')}
-          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="/verification"
+              className="px-8 py-4 bg-white text-emerald-600 rounded-full font-bold text-lg hover:bg-emerald-50 transition-all"
+            >
+              🔍 Lancer le scan gratuit
+            </a>
+            <a
+              href="tel:+3216186098"
+              className="px-8 py-4 bg-emerald-700 text-white rounded-full font-bold text-lg hover:bg-emerald-800 transition-all flex items-center justify-center gap-2"
+            >
+              📞 016 18 60 98
+            </a>
+          </div>
+
         </div>
       </section>
 

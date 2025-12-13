@@ -12,73 +12,65 @@ function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm">
-      <div className="bg-emerald-50 py-2 px-4 hidden md:block">
+      <div className="bg-emerald-600 text-white py-2 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <span className="flex items-center gap-1 text-gray-600">
-              <span>🇧🇪</span> {t('nav.belgianCompany')}
+            <span className="flex items-center gap-2">
+              <span>🇧🇪</span>
+              <span className="hidden sm:inline">{t('nav.belgianCompany')}</span>
             </span>
-            <a href={`tel:${phoneInfo?.number.replace(/\s+/g, '') || ''}`} className="flex items-center gap-1 text-gray-600 hover:text-emerald-600 transition-colors">
-              <span>📞</span> {phoneInfo?.number || '+32 2 808 94 47'}
+            <a href={`tel:${phoneInfo?.number.replace(/\s+/g, '') || ''}`} className="flex items-center gap-2 hover:underline">
+              <span>📞</span> {phoneInfo?.localNumber || '016 18 60 98'}
             </a>
-            <span className="flex items-center gap-1 text-gray-600">
-              <span>💬</span> {t('nav.frenchSupport')}
-            </span>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-emerald-600 font-medium">{t('nav.businessHours')}</span>
-            <span className="text-gray-400">|</span>
-            <span className="text-emerald-600 font-medium">{t('nav.emergency247')}</span>
+          <div className="hidden md:flex items-center gap-4">
+            <span>{t('nav.businessHours')}</span>
+            <span className="font-semibold">{t('nav.emergency247')}</span>
           </div>
         </div>
       </div>
 
       <nav className="max-w-7xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center">
+          <Link to="/" className="flex-shrink-0">
             <Logo variant="header" />
           </Link>
 
-          <div className="hidden lg:flex items-center gap-1">
-            <Link to="/" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium">
+          <div className="hidden lg:flex items-center gap-8">
+            <Link to="/" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
               {t('nav.home')}
             </Link>
-            <a href="/#services" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium">
+            <a href="/#services" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
               {t('nav.ourServices')}
             </a>
-            <a href="/#pricing" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium">
+            <a href="/#pricing" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
               {t('nav.pricing')}
             </a>
-            <Link to="/about" className="px-3 py-2 rounded-lg text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 transition-colors font-medium">
+            <Link to="/about" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
               {t('nav.whoAreWe')}
+            </Link>
+            <Link to="/contact" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors">
+              {t('nav.contact')}
             </Link>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-4">
             <Link
               to="/verification"
-              className="hidden md:flex items-center gap-2 px-4 py-2 bg-emerald-50 text-emerald-700 rounded-lg hover:bg-emerald-100 transition-colors font-medium border border-emerald-200"
+              className="hidden md:flex items-center gap-2 text-emerald-600 font-medium hover:underline"
             >
               <span>🔍</span>
               <span>{t('nav.freeScan')}</span>
-            </Link>
-
-            <Link
-              to="/contact"
-              className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-700 hover:text-emerald-600 transition-colors font-medium"
-            >
-              {t('nav.contact')}
             </Link>
 
             <a
               href="https://masecu2025.getscreen.me/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 bg-emerald-500 text-white rounded-full hover:bg-emerald-600 transition-all duration-300 font-semibold shadow-lg shadow-emerald-500/25 hover:-translate-y-0.5"
+              className="px-6 py-2.5 bg-emerald-500 text-white rounded-full font-semibold hover:bg-emerald-600 transition-colors"
             >
-              <span>🆘</span>
               <span className="hidden sm:inline">{t('nav.needHelp')}</span>
-              <span className="sm:hidden">{t('nav.help')}</span>
+              <span className="sm:hidden">🆘</span>
             </a>
 
             <div className="hidden lg:block">
