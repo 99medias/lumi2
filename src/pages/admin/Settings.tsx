@@ -33,10 +33,27 @@ export default function Settings() {
       const { data, error } = await supabase
         .from('ai_settings')
         .select('*')
-        .single();
+        .maybeSingle();
 
       if (error) throw error;
-      setSettings(data);
+
+      if (data) {
+        setSettings(data);
+      } else {
+        const { data: newSettings, error: createError } = await supabase
+          .from('ai_settings')
+          .insert({
+            openai_model: 'gpt-4o-mini',
+            auto_post_enabled: false,
+            auto_post_min_relevance: 0.85,
+            auto_post_max_per_day: 2
+          })
+          .select()
+          .single();
+
+        if (createError) throw createError;
+        setSettings(newSettings);
+      }
     } catch (error) {
       console.error('Error loading settings:', error);
     } finally {

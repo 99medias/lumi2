@@ -80,16 +80,32 @@ export default function Dashboard() {
 
   const loadRecentPosts = async () => {
     try {
-      const { data, error } = await supabase
+      const { data: items, error } = await supabase
         .from('source_items')
-        .select('*, content_sources(name), blog_posts(slug, title)')
+        .select('id, title, relevance_score, updated_at, generated_post_id, content_sources(name)')
         .eq('status', 'published')
         .not('generated_post_id', 'is', null)
         .order('updated_at', { ascending: false })
         .limit(5);
 
       if (error) throw error;
-      setRecentPosts(data || []);
+
+      if (items && items.length > 0) {
+        const postIds = items.map(item => item.generated_post_id).filter(Boolean);
+        const { data: posts } = await supabase
+          .from('blog_posts')
+          .select('id, slug, title')
+          .in('id', postIds);
+
+        const itemsWithPosts = items.map(item => ({
+          ...item,
+          blog_post: posts?.find(p => p.id === item.generated_post_id)
+        }));
+
+        setRecentPosts(itemsWithPosts);
+      } else {
+        setRecentPosts([]);
+      }
     } catch (error) {
       console.error('Error loading recent posts:', error);
     }
@@ -247,7 +263,7 @@ export default function Dashboard() {
                   <div key={post.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                     <div className="flex-1">
                       <h3 className="font-semibold text-gray-900 mb-1">
-                        {post.blog_posts?.[0]?.title || post.title}
+                        {post.blog_post?.title || post.title}
                       </h3>
                       <p className="text-sm text-gray-600">
                         Source: {post.content_sources?.name}
@@ -258,9 +274,9 @@ export default function Dashboard() {
                         )}
                       </p>
                     </div>
-                    {post.blog_posts?.[0]?.slug && (
+                    {post.blog_post?.slug && (
                       <Link
-                        to={`/blog/${post.blog_posts[0].slug}`}
+                        to={`/blog/${post.blog_post.slug}`}
                         className="ml-4 px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors whitespace-nowrap"
                       >
                         Voir l'article
