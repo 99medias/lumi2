@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { BarChart3, TrendingUp, DollarSign, FileText, Zap, Clock } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { supabase } from '../../lib/supabase';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -123,12 +125,14 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="pt-32">
-      <PageHeader
-        title="Tableau de Bord AI"
-        subtitle="Vue d'ensemble du système de génération automatique de contenu"
-        icon={BarChart3}
-      />
+    <>
+      <Header />
+      <div className="pt-32">
+        <PageHeader
+          title="Tableau de Bord AI"
+          subtitle="Vue d'ensemble du système de génération automatique de contenu"
+          icon={BarChart3}
+        />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50/30 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -344,6 +348,8 @@ export default function Dashboard() {
           )}
         </div>
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

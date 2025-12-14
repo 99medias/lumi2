@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Settings as SettingsIcon, Check, AlertCircle, Loader } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { supabase } from '../../lib/supabase';
 
 interface AISettings {
@@ -143,11 +145,13 @@ export default function Settings() {
   }
 
   return (
-    <div className="pt-32">
-      <PageHeader
-        title="Paramètres AI"
-        subtitle="Configuration du système de génération automatique de contenu"
-        icon={SettingsIcon}
+    <>
+      <Header />
+      <div className="pt-32">
+        <PageHeader
+          title="Paramètres AI"
+          subtitle="Configuration du système de génération automatique de contenu"
+          icon={SettingsIcon}
       />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50/30 py-12">
@@ -327,6 +331,8 @@ export default function Settings() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Rss, Plus, Trash2, RefreshCw, Eye, EyeOff, Loader } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { supabase } from '../../lib/supabase';
 
 interface ContentSource {
@@ -167,11 +169,13 @@ export default function SourceManager() {
   }
 
   return (
-    <div className="pt-32">
-      <PageHeader
-        title="Gestion des Sources"
-        subtitle="Configurez les sources de contenu pour la génération automatique"
-        icon={Rss}
+    <>
+      <Header />
+      <div className="pt-32">
+        <PageHeader
+          title="Gestion des Sources"
+          subtitle="Configurez les sources de contenu pour la génération automatique"
+          icon={Rss}
       />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50/30 py-12">
@@ -358,6 +362,8 @@ export default function SourceManager() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

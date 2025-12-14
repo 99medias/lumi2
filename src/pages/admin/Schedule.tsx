@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Calendar, Clock, AlertCircle, CheckCircle, Loader } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { supabase } from '../../lib/supabase';
 
 interface ScheduleSettings {
@@ -177,12 +179,14 @@ export default function AdminSchedule() {
   }
 
   return (
-    <div className="pt-32">
-      <PageHeader
-        title="Planification Automatique"
-        subtitle="Configuration de la génération automatique de contenu"
-        icon={Calendar}
-      />
+    <>
+      <Header />
+      <div className="pt-32">
+        <PageHeader
+          title="Planification Automatique"
+          subtitle="Configuration de la génération automatique de contenu"
+          icon={Calendar}
+        />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50/30 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
@@ -435,6 +439,8 @@ export default function AdminSchedule() {
           </button>
         </div>
       </div>
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }

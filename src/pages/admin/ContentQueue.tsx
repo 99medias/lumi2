@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { FileText, TrendingUp, Eye, Trash2, Sparkles, X, Loader, CheckCircle, AlertCircle, ExternalLink } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { supabase } from '../../lib/supabase';
 import { Link } from 'react-router-dom';
 
@@ -194,11 +196,13 @@ export default function ContentQueue() {
   }
 
   return (
-    <div className="pt-32">
-      <PageHeader
-        title="File d'Attente de Contenu"
-        subtitle="Gérez les articles détectés et générez du contenu automatiquement"
-        icon={FileText}
+    <>
+      <Header />
+      <div className="pt-32">
+        <PageHeader
+          title="File d'Attente de Contenu"
+          subtitle="Gérez les articles détectés et générez du contenu automatiquement"
+          icon={FileText}
       />
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-green-50/30 py-12">
@@ -440,6 +444,8 @@ export default function ContentQueue() {
           </div>
         </div>
       )}
-    </div>
+      </div>
+      <Footer />
+    </>
   );
 }
