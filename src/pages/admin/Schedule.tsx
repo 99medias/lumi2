@@ -444,6 +444,33 @@ export default function AdminSchedule() {
     return emailRegex.test(email);
   };
 
+  const toLocalDateTimeString = (isoString: string | null): string => {
+    if (!isoString) return '';
+    const date = new Date(isoString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  };
+
+  const fromLocalDateTimeString = (localString: string): string | null => {
+    if (!localString) return null;
+    const date = new Date(localString);
+    return date.toISOString();
+  };
+
+  const getCurrentLocalDateTimeString = (): string => {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
+  };
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -587,14 +614,36 @@ export default function AdminSchedule() {
                   Date de début
                   <span className="text-xs text-gray-500 font-normal ml-2">(Optionnel)</span>
                 </label>
-                <input
-                  type="datetime-local"
-                  value={schedule.start_date ? new Date(schedule.start_date).toISOString().slice(0, 16) : ''}
-                  onChange={(e) => setSchedule({...schedule, start_date: e.target.value ? new Date(e.target.value).toISOString() : null})}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="Aujourd'hui par défaut"
-                />
-                <p className="text-xs text-gray-500 mt-1">Quand la génération doit commencer</p>
+                <div className="flex gap-2">
+                  <input
+                    type="datetime-local"
+                    value={toLocalDateTimeString(schedule.start_date)}
+                    onChange={(e) => setSchedule({...schedule, start_date: fromLocalDateTimeString(e.target.value)})}
+                    min={getCurrentLocalDateTimeString()}
+                    className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setSchedule({...schedule, start_date: new Date().toISOString()})}
+                    className="px-3 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors text-sm font-semibold whitespace-nowrap"
+                    title="Définir à maintenant"
+                  >
+                    Maintenant
+                  </button>
+                  {schedule.start_date && (
+                    <button
+                      type="button"
+                      onClick={() => setSchedule({...schedule, start_date: null})}
+                      className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-semibold"
+                      title="Effacer"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
+                <p className="text-xs text-gray-500 mt-1">
+                  {schedule.start_date ? 'La génération commencera à cette date' : 'Par défaut: maintenant'}
+                </p>
               </div>
 
               <div>
@@ -602,14 +651,28 @@ export default function AdminSchedule() {
                   Date de fin
                   <span className="text-xs text-gray-500 font-normal ml-2">(Optionnel)</span>
                 </label>
-                <input
-                  type="datetime-local"
-                  value={schedule.end_date ? new Date(schedule.end_date).toISOString().slice(0, 16) : ''}
-                  onChange={(e) => setSchedule({...schedule, end_date: e.target.value ? new Date(e.target.value).toISOString() : null})}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                  placeholder="Illimitée par défaut"
-                />
-                <p className="text-xs text-gray-500 mt-1">Quand la génération doit s'arrêter</p>
+                <div className="flex gap-2">
+                  <input
+                    type="datetime-local"
+                    value={toLocalDateTimeString(schedule.end_date)}
+                    onChange={(e) => setSchedule({...schedule, end_date: fromLocalDateTimeString(e.target.value)})}
+                    min={schedule.start_date ? toLocalDateTimeString(schedule.start_date) : getCurrentLocalDateTimeString()}
+                    className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  />
+                  {schedule.end_date && (
+                    <button
+                      type="button"
+                      onClick={() => setSchedule({...schedule, end_date: null})}
+                      className="px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm font-semibold"
+                      title="Effacer"
+                    >
+                      ✕
+                    </button>
+                  )}
+                </div>
+                <p className="text-xs text-gray-500 mt-1">
+                  {schedule.end_date ? 'La génération s\'arrêtera à cette date' : 'Par défaut: illimitée'}
+                </p>
               </div>
             </div>
 
