@@ -516,6 +516,33 @@ export default function AdminSchedule() {
     return `${year}-${month}-${day}T${hours}:${minutes}`;
   };
 
+  const roundToNextFiveMinutes = (date: Date): string => {
+    const minutes = date.getMinutes();
+    const roundedMinutes = Math.ceil((minutes + 2) / 5) * 5;
+
+    if (roundedMinutes >= 60) {
+      date.setHours(date.getHours() + 1);
+      date.setMinutes(roundedMinutes - 60);
+    } else {
+      date.setMinutes(roundedMinutes);
+    }
+
+    const hours = String(date.getHours()).padStart(2, '0');
+    const mins = String(date.getMinutes()).padStart(2, '0');
+    return `${hours}:${mins}`;
+  };
+
+  const setToNow = () => {
+    const now = new Date();
+    const roundedTime = roundToNextFiveMinutes(new Date(now));
+
+    setSchedule({
+      ...schedule,
+      start_date: now.toISOString(),
+      generate_time: roundedTime
+    });
+  };
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen">
@@ -640,21 +667,61 @@ export default function AdminSchedule() {
                    schedule.generate_frequency === 'daily' || schedule.generate_frequency === 'weekly' ? 'Heure' :
                    'Première exécution'}
                 </label>
-                <input
-                  type="time"
-                  value={schedule.generate_time}
-                  onChange={(e) => setSchedule({...schedule, generate_time: e.target.value})}
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
-                />
-                <p className="text-xs text-gray-500 mt-1">
-                  {schedule.generate_frequency === 'hourly' ? 'Génération toutes les heures à partir de cette heure' :
-                   schedule.generate_frequency === 'twice_daily' ? 'Génération à cette heure et 6h plus tard' :
-                   schedule.generate_frequency === 'three_times_daily' ? 'Génération à cette heure, puis +4h et +8h' :
-                   schedule.generate_frequency === 'four_times_daily' ? 'Génération à cette heure, puis +3h, +6h, +9h' :
-                   schedule.generate_frequency === 'five_times_daily' ? 'Génération à cette heure, puis +2h, +4h, +6h, +8h' :
-                   schedule.generate_frequency === 'weekly' ? 'Génération une fois par semaine aux jours sélectionnés' :
-                   'Génération quotidienne à cette heure'}
-                </p>
+                <div className="flex gap-2">
+                  <input
+                    type="time"
+                    value={schedule.generate_time}
+                    onChange={(e) => setSchedule({...schedule, generate_time: e.target.value})}
+                    className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const now = new Date();
+                      const roundedTime = roundToNextFiveMinutes(new Date(now));
+                      setSchedule({...schedule, generate_time: roundedTime});
+                    }}
+                    className="px-3 py-2 bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors text-sm font-semibold whitespace-nowrap"
+                    title="Définir à l'heure actuelle (arrondie)"
+                  >
+                    <Clock className="w-4 h-4" />
+                  </button>
+                </div>
+                {(() => {
+                  const now = new Date();
+                  const startDate = schedule.start_date ? new Date(schedule.start_date) : null;
+                  const isToday = startDate &&
+                    startDate.getDate() === now.getDate() &&
+                    startDate.getMonth() === now.getMonth() &&
+                    startDate.getFullYear() === now.getFullYear();
+
+                  if (isToday) {
+                    const [scheduleHours, scheduleMinutes] = schedule.generate_time.split(':').map(Number);
+                    const scheduledTime = new Date(now);
+                    scheduledTime.setHours(scheduleHours, scheduleMinutes, 0, 0);
+
+                    if (scheduledTime <= now) {
+                      return (
+                        <p className="text-xs text-amber-600 mt-1 flex items-start gap-1">
+                          <AlertCircle className="w-3 h-3 mt-0.5 flex-shrink-0" />
+                          <span>L'heure planifiée ({schedule.generate_time}) est déjà passée aujourd'hui. Cliquez sur l'icône horloge pour ajuster à l'heure actuelle.</span>
+                        </p>
+                      );
+                    }
+                  }
+
+                  return (
+                    <p className="text-xs text-gray-500 mt-1">
+                      {schedule.generate_frequency === 'hourly' ? 'Génération toutes les heures à partir de cette heure' :
+                       schedule.generate_frequency === 'twice_daily' ? 'Génération à cette heure et 6h plus tard' :
+                       schedule.generate_frequency === 'three_times_daily' ? 'Génération à cette heure, puis +4h et +8h' :
+                       schedule.generate_frequency === 'four_times_daily' ? 'Génération à cette heure, puis +3h, +6h, +9h' :
+                       schedule.generate_frequency === 'five_times_daily' ? 'Génération à cette heure, puis +2h, +4h, +6h, +8h' :
+                       schedule.generate_frequency === 'weekly' ? 'Génération une fois par semaine aux jours sélectionnés' :
+                       'Génération quotidienne à cette heure'}
+                    </p>
+                  );
+                })()}
               </div>
             </div>
 
@@ -674,7 +741,7 @@ export default function AdminSchedule() {
                   />
                   <button
                     type="button"
-                    onClick={() => setSchedule({...schedule, start_date: new Date().toISOString()})}
+                    onClick={setToNow}
                     className="px-3 py-2 bg-blue-100 text-blue-700 rounded-lg hover:bg-blue-200 transition-colors text-sm font-semibold whitespace-nowrap"
                     title="Définir à maintenant"
                   >
