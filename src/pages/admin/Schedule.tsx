@@ -143,7 +143,7 @@ export default function AdminSchedule() {
     setRunNowMessage(null);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/auto-post-scheduler`, {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/run-scheduled-generation`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
@@ -156,12 +156,32 @@ export default function AdminSchedule() {
       }
 
       const result = await response.json();
-      setRunNowMessage({
-        type: 'success',
-        text: `Exécution terminée! ${result.articlesGenerated || 0} article(s) généré(s) à partir de ${result.newItems || 0} nouvel(s) élément(s)`
-      });
 
-      loadRecentRuns();
+      if (result.success) {
+        if (result.articlesGenerated > 0) {
+          setRunNowMessage({
+            type: 'success',
+            text: `✅ ${result.articlesGenerated} article(s) généré(s) à partir de ${result.totalItems} élément(s) trouvé(s)!`
+          });
+        } else {
+          setRunNowMessage({
+            type: 'success',
+            text: 'Aucun nouvel article à générer'
+          });
+        }
+
+        if (result.errors && result.errors.length > 0) {
+          console.error('Generation errors:', result.errors);
+          setRunNowMessage({
+            type: 'error',
+            text: `⚠️ ${result.articlesGenerated} article(s) généré(s), mais ${result.errors.length} erreur(s) rencontrée(s). Voir la console pour détails.`
+          });
+        }
+
+        loadRecentRuns();
+      } else {
+        setRunNowMessage({ type: 'error', text: 'Erreur: ' + result.error });
+      }
     } catch (error: any) {
       setRunNowMessage({ type: 'error', text: 'Erreur: ' + error.message });
     } finally {
