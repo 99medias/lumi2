@@ -275,14 +275,16 @@ export default function AdminSchedule() {
       for (let dayOffset = 0; dayOffset < 8 && allUpcoming.length < 5; dayOffset++) {
         const checkDate = new Date(currentDate);
         checkDate.setDate(checkDate.getDate() + dayOffset);
+        checkDate.setHours(0, 0, 0, 0);
 
         console.log(`Checking dayOffset=${dayOffset}, checkDate=${checkDate.toISOString()}`);
 
         try {
           const validDate = findNextValidDay(checkDate, schedule.generate_days);
+          validDate.setHours(0, 0, 0, 0);
           console.log(`  validDate=${validDate.toISOString()}, checkDate=${checkDate.toISOString()}`);
 
-          if (dayOffset === 0 || validDate.toDateString() === checkDate.toDateString()) {
+          if (validDate.getTime() === checkDate.getTime()) {
             for (const time of executionTimes) {
               const [hours, minutes] = time.split(':').map(Number);
               const execTime = new Date(validDate);
@@ -304,9 +306,9 @@ export default function AdminSchedule() {
               }
             }
           } else if (validDate > checkDate) {
-            console.log(`  validDate > checkDate, adjusting`);
-            checkDate.setTime(validDate.getTime());
-            dayOffset--;
+            console.log(`  validDate > checkDate, adjusting dayOffset from ${dayOffset}`);
+            const daysSkipped = Math.floor((validDate.getTime() - checkDate.getTime()) / (24 * 60 * 60 * 1000));
+            dayOffset += daysSkipped - 1;
           }
         } catch (error) {
           break;
