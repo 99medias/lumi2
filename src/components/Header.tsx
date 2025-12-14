@@ -50,6 +50,9 @@ function Header() {
             <a href="/#pricing" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors whitespace-nowrap">
               {t('nav.pricing')}
             </a>
+            <Link to="/blog" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors whitespace-nowrap">
+              Blog
+            </Link>
             <Link to="/about" className="text-gray-600 hover:text-emerald-600 font-medium transition-colors whitespace-nowrap">
               {t('nav.whoAreWe')}
             </Link>

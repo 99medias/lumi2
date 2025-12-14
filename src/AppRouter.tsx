@@ -4,6 +4,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import AnalyseRapide from './pages/AnalyseRapide';
 import BreachCheckerPage from './pages/BreachCheckerPage';
+import Blog from './pages/Blog';
+import BlogArticle from './pages/BlogArticle';
 import TermsOfService from './pages/legal/TermsOfService';
 import PrivacyPolicy from './pages/legal/PrivacyPolicy';
 import RefundPolicy from './pages/legal/RefundPolicy';
@@ -27,6 +29,8 @@ function AppRouter() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/analyse-rapide" element={<AnalyseRapide />} />
         <Route path="/verification" element={<BreachCheckerPage />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<BlogArticle />} />
         <Route path="/products/vpn" element={<VPNProduct />} />
         <Route path="/products/adblock" element={<AdBlockProduct />} />
         <Route path="/products/system-cleaner" element={<SystemCleanerProduct />} />
