@@ -15,7 +15,7 @@ interface BlogSidebarProps {
 export default function BlogSidebar({ popularArticles = [] }: BlogSidebarProps) {
   const { t } = useLanguage();
 
-  const formatViews = (views: number) => {
+  const formatViews = (views: number = 0) => {
     return views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   };
 

@@ -94,7 +94,14 @@ export default function Blog() {
         .limit(5);
 
       if (error) throw error;
-      setPopularPosts(data || []);
+
+      const mappedData = (data || []).map(post => ({
+        slug: post.slug,
+        title: post.title,
+        viewCount: post.view_count || 0
+      }));
+
+      setPopularPosts(mappedData);
     } catch (error) {
       console.error('Error fetching popular posts:', error);
     }
