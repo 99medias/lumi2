@@ -124,7 +124,7 @@ function App() {
               href="tel:+3216186098"
               className="px-8 py-4 bg-white text-gray-700 rounded-full font-semibold text-lg border-2 border-gray-200 hover:border-emerald-500 hover:text-emerald-600 transition-all flex items-center justify-center gap-2"
             >
-              <span>📞</span> 016 18 60 98
+              <span>📞</span> 01 618 60 98
             </a>
           </div>
 
@@ -964,7 +964,7 @@ function App() {
               href="tel:+3216186098"
               className="px-8 py-4 bg-emerald-700 text-white rounded-full font-bold text-lg hover:bg-emerald-800 transition-all flex items-center justify-center gap-2"
             >
-              📞 016 18 60 98
+              📞 01 618 60 98
             </a>
           </div>
 

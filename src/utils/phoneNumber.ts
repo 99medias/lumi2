@@ -8,8 +8,8 @@ export interface PhoneInfo {
 
 const phoneNumbers: Record<string, PhoneInfo> = {
   BE: {
-    number: '+32 16 18 60 98',
-    localNumber: '016 18 60 98',
+    number: '+32 1 618 60 98',
+    localNumber: '01 618 60 98',
     countryCode: 'BE',
     countryName: 'Belgium',
     flag: '🇧🇪'
@@ -29,8 +29,8 @@ const phoneNumbers: Record<string, PhoneInfo> = {
     flag: '🇪🇸'
   },
   FR: {
-    number: '+32 16 18 60 98',
-    localNumber: '016 18 60 98',
+    number: '+32 1 618 60 98',
+    localNumber: '01 618 60 98',
     countryCode: 'FR',
     countryName: 'France',
     flag: '🇫🇷'
@@ -40,8 +40,8 @@ const phoneNumbers: Record<string, PhoneInfo> = {
 export const getPhoneInfoByCountry = (countryCode: string | null): PhoneInfo => {
   if (!countryCode || !phoneNumbers[countryCode]) {
     return {
-      number: '+32 16 18 60 98',
-      localNumber: '016 18 60 98',
+      number: '+32 1 618 60 98',
+      localNumber: '01 618 60 98',
       countryCode: 'BE',
       countryName: 'Belgium',
       flag: '🇧🇪'

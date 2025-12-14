@@ -22,7 +22,7 @@ function Header() {
               <span className="hidden sm:inline">{t('nav.belgianCompany')}</span>
             </span>
             <a href={`tel:${phoneInfo?.number.replace(/\s+/g, '') || ''}`} className="flex items-center gap-2 hover:underline">
-              <span>📞</span> {phoneInfo?.localNumber || '016 18 60 98'}
+              <span>📞</span> {phoneInfo?.localNumber || '01 618 60 98'}
             </a>
           </div>
           <div className="hidden md:flex items-center gap-4">
