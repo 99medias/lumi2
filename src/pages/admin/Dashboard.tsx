@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { BarChart3, TrendingUp, DollarSign, FileText, Zap, Clock } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
 import { supabase } from '../../lib/supabase';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface Stats {
   total_sources: number;
@@ -18,6 +18,7 @@ interface Stats {
 }
 
 export default function Dashboard() {
+  const navigate = useNavigate();
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState(true);
   const [recentPosts, setRecentPosts] = useState<any[]>([]);
@@ -133,7 +134,10 @@ export default function Dashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div className="bg-white rounded-xl shadow-sm p-6">
+            <div
+              onClick={() => navigate('/admin/sources')}
+              className="bg-white rounded-xl shadow-sm p-6 cursor-pointer hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
+            >
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-sm font-semibold text-gray-600">Sources Actives</h3>
                 <Zap className="w-5 h-5 text-green-600" />
@@ -142,7 +146,10 @@ export default function Dashboard() {
               <p className="text-xs text-gray-500 mt-1">sur {stats?.total_sources} sources totales</p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-sm p-6">
+            <div
+              onClick={() => navigate('/admin/content-queue')}
+              className="bg-white rounded-xl shadow-sm p-6 cursor-pointer hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
+            >
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-sm font-semibold text-gray-600">En Attente</h3>
                 <Clock className="w-5 h-5 text-blue-600" />
@@ -151,7 +158,10 @@ export default function Dashboard() {
               <p className="text-xs text-gray-500 mt-1">{stats?.total_items} éléments au total</p>
             </div>
 
-            <div className="bg-white rounded-xl shadow-sm p-6">
+            <div
+              onClick={() => navigate('/admin/content-queue')}
+              className="bg-white rounded-xl shadow-sm p-6 cursor-pointer hover:shadow-lg transition-all duration-200 hover:-translate-y-1"
+            >
               <div className="flex items-center justify-between mb-2">
                 <h3 className="text-sm font-semibold text-gray-600">Publiés</h3>
                 <FileText className="w-5 h-5 text-green-600" />
@@ -229,6 +239,12 @@ export default function Dashboard() {
                 >
                   Paramètres
                 </Link>
+                <Link
+                  to="/admin/schedule"
+                  className="block w-full px-4 py-3 bg-purple-600 text-white rounded-lg font-semibold hover:bg-purple-700 transition-colors text-center flex items-center justify-center gap-2"
+                >
+                  <span>📅</span> Planification
+                </Link>
 
                 <button
                   onClick={async () => {
@@ -290,7 +306,13 @@ export default function Dashboard() {
 
               <div className="space-y-3">
                 {recentPosts.map((post) => (
-                  <div key={post.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                  <div
+                    key={post.id}
+                    onClick={() => post.blog_post?.slug && navigate(`/blog/${post.blog_post.slug}`)}
+                    className={`flex items-center justify-between p-4 bg-gray-50 rounded-lg transition-all duration-200 ${
+                      post.blog_post?.slug ? 'cursor-pointer hover:bg-gray-100 hover:shadow-md' : ''
+                    }`}
+                  >
                     <div className="flex-1">
                       <h3 className="font-semibold text-gray-900 mb-1">
                         {post.blog_post?.title || post.title}
@@ -305,12 +327,15 @@ export default function Dashboard() {
                       </p>
                     </div>
                     {post.blog_post?.slug && (
-                      <Link
-                        to={`/blog/${post.blog_post.slug}`}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(`/blog/${post.blog_post.slug}`, '_blank');
+                        }}
                         className="ml-4 px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors whitespace-nowrap"
                       >
                         Voir l'article
-                      </Link>
+                      </button>
                     )}
                   </div>
                 ))}
