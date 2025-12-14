@@ -225,6 +225,9 @@ export default function AdminSchedule() {
                 >
                   <option value="hourly">Toutes les heures</option>
                   <option value="twice_daily">2 fois par jour</option>
+                  <option value="three_times_daily">3 fois par jour</option>
+                  <option value="four_times_daily">4 fois par jour</option>
+                  <option value="five_times_daily">5 fois par jour</option>
                   <option value="daily">Une fois par jour</option>
                   <option value="weekly">Une fois par semaine</option>
                 </select>
