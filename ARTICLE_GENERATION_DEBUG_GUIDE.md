@@ -1,5 +1,7 @@
 # Article Generation Debug Guide
 
+> **Note:** If you're experiencing RSS fetching issues or database errors, see [ARTICLE_GENERATION_FIX.md](./ARTICLE_GENERATION_FIX.md) for comprehensive troubleshooting.
+
 ## What Was Fixed
 
 The schedule page now has better debugging and a reset function to handle items that were already processed.

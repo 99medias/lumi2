@@ -3,6 +3,7 @@ import { supabase } from '../../lib/supabase';
 import { toast } from '../../utils/toast';
 import { useNavigate } from 'react-router-dom';
 import ToastComponent from '../../components/Toast';
+import { fetchRSSFeed } from '../../utils/rssFetcher';
 
 export default function AdminSchedule() {
   const navigate = useNavigate();
@@ -129,51 +130,66 @@ export default function AdminSchedule() {
           if (source.type !== 'rss') continue;
 
           try {
-            const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.url)}`;
-            console.log('Fetching:', rssUrl);
+            console.log('Processing source:', source.name, source.url);
+            const items = await fetchRSSFeed(source.url);
 
-            const rssResponse = await fetch(rssUrl);
-            const rssData = await rssResponse.json();
+            if (items.length === 0) {
+              console.log('No items fetched from:', source.name);
+              await supabase
+                .from('content_sources')
+                .update({ last_checked_at: new Date().toISOString() })
+                .eq('id', source.id);
+              continue;
+            }
 
-            console.log('RSS response:', rssData.status, rssData.items?.length || 0, 'items');
+            console.log(`Got ${items.length} items from ${source.name}`);
 
-            if (rssData.status === 'ok' && rssData.items) {
-              for (const item of rssData.items.slice(0, 10)) {
-                const { data: existing } = await supabase
-                  .from('source_items')
-                  .select('id, status')
-                  .eq('original_url', item.link)
-                  .maybeSingle();
+            for (const item of items.slice(0, 10)) {
+              if (!item.link) {
+                console.log('Skipping item without link:', item.title);
+                continue;
+              }
 
-                if (!existing) {
-                  const content = (item.title + ' ' + (item.description || '')).toLowerCase();
-                  let score = 0.5;
+              const { data: existing } = await supabase
+                .from('source_items')
+                .select('id, status')
+                .eq('original_url', item.link)
+                .maybeSingle();
 
-                  ['belgique', 'belge', 'bruxelles', 'wallonie', 'belfius', 'kbc', 'ing', 'bpost', 'itsme', 'proximus'].forEach(kw => {
-                    if (content.includes(kw)) score += 0.1;
-                  });
+              if (existing) {
+                continue;
+              }
 
-                  ['phishing', 'arnaque', 'fraude', 'sécurité', 'piratage', 'virus', 'malware', 'hacker', 'faille', 'attaque'].forEach(kw => {
-                    if (content.includes(kw)) score += 0.05;
-                  });
+              const content = ((item.title || '') + ' ' + (item.description || '')).toLowerCase();
+              let score = 0.5;
 
-                  score = Math.min(score, 0.95);
+              ['belgique', 'belge', 'bruxelles', 'wallonie', 'belfius', 'kbc', 'ing', 'bpost', 'itsme', 'proximus'].forEach(kw => {
+                if (content.includes(kw)) score += 0.1;
+              });
 
-                  console.log('New item:', item.title.substring(0, 50), 'Score:', score);
+              ['phishing', 'arnaque', 'fraude', 'sécurité', 'piratage', 'virus', 'malware', 'hacker', 'faille', 'attaque'].forEach(kw => {
+                if (content.includes(kw)) score += 0.05;
+              });
 
-                  await supabase.from('source_items').insert({
-                    source_id: source.id,
-                    title: item.title,
-                    original_url: item.link,
-                    original_content: item.description || item.content || '',
-                    summary: (item.description || '').substring(0, 500),
-                    status: 'new',
-                    relevance_score: score,
-                    detected_at: new Date().toISOString()
-                  });
+              score = Math.min(score, 0.95);
 
-                  newItemsCount++;
-                }
+              console.log('New item:', item.title.substring(0, 50), 'Score:', score);
+
+              const { error: insertError } = await supabase.from('source_items').insert({
+                source_id: source.id,
+                title: item.title || 'Sans titre',
+                original_url: item.link,
+                original_content: item.description || '',
+                summary: (item.description || '').substring(0, 500),
+                status: 'new',
+                relevance_score: score,
+                detected_at: new Date().toISOString()
+              });
+
+              if (insertError) {
+                console.error('Insert error:', insertError);
+              } else {
+                newItemsCount++;
               }
             }
 
@@ -184,6 +200,7 @@ export default function AdminSchedule() {
 
           } catch (e) {
             console.error('RSS error for', source.name, e);
+            toast.error(`Erreur source ${source.name}`);
           }
         }
       }
@@ -213,8 +230,29 @@ export default function AdminSchedule() {
           .limit(10);
 
         console.log('All recent items:', allItems);
+        console.log('Search criteria: status=new, relevance>=', minRelevance);
 
-        toast.info('Aucun article à générer. Essayez de baisser la pertinence minimum ou cliquez "Réinitialiser"');
+        const statusCounts = await supabase
+          .from('source_items')
+          .select('status');
+
+        const counts: Record<string, number> = {};
+        statusCounts.data?.forEach(item => {
+          counts[item.status] = (counts[item.status] || 0) + 1;
+        });
+
+        console.log('Status counts:', counts);
+
+        let message = 'Aucun article à générer. ';
+        if (counts.published > 0 && counts.new === 0) {
+          message += 'Tous les articles sont déjà publiés. Cliquez "Réinitialiser & Exécuter" pour régénérer.';
+        } else if (counts.failed > 0) {
+          message += `${counts.failed} articles en échec. Cliquez "Réinitialiser & Exécuter".`;
+        } else {
+          message += 'Essayez de baisser la pertinence minimum.';
+        }
+
+        toast.info(message);
 
         await supabase
           .from('ai_settings')
@@ -264,21 +302,34 @@ RETOURNE UNIQUEMENT CE JSON:
             })
           });
 
+          if (!openaiResponse.ok) {
+            throw new Error(`OpenAI API error: ${openaiResponse.status}`);
+          }
+
           const openaiData = await openaiResponse.json();
 
           if (openaiData.error) {
-            console.error('OpenAI error:', openaiData.error);
-            toast.error('OpenAI: ' + openaiData.error.message);
-            await supabase.from('source_items').update({ status: 'failed' }).eq('id', item.id);
-            continue;
+            throw new Error(openaiData.error.message);
+          }
+
+          if (!openaiData.choices?.[0]?.message?.content) {
+            throw new Error('OpenAI response missing content');
           }
 
           let article;
           try {
-            article = JSON.parse(openaiData.choices[0].message.content);
-          } catch {
-            console.error('JSON parse error');
-            article = { title: item.title, content: '<p>Erreur</p>' };
+            const content = openaiData.choices[0].message.content;
+            const jsonMatch = content.match(/\{[\s\S]*\}/);
+            article = jsonMatch ? JSON.parse(jsonMatch[0]) : { title: item.title, content: `<p>${content}</p>` };
+          } catch (parseErr) {
+            console.error('JSON parse error:', parseErr);
+            article = {
+              title: item.title,
+              content: `<p>${openaiData.choices[0].message.content}</p>`,
+              excerpt: item.summary || item.title,
+              category: 'actualite',
+              tags: ['cybersécurité']
+            };
           }
 
           const title = article.title || item.title;
@@ -312,9 +363,11 @@ RETOURNE UNIQUEMENT CE JSON:
             .single();
 
           if (postError) {
-            console.error('DB error:', postError);
-            await supabase.from('source_items').update({ status: 'failed' }).eq('id', item.id);
-            continue;
+            throw new Error(`Database error: ${postError.message}`);
+          }
+
+          if (!post) {
+            throw new Error('Post creation returned no data');
           }
 
           await supabase
@@ -326,7 +379,8 @@ RETOURNE UNIQUEMENT CE JSON:
           toast.success(`✅ Publié: ${title.substring(0, 40)}...`);
 
         } catch (err: any) {
-          console.error('Error:', err);
+          console.error('Generation error for', item.title, ':', err);
+          toast.error(`Échec: ${item.title.substring(0, 30)}... - ${err.message}`);
           await supabase.from('source_items').update({ status: 'failed' }).eq('id', item.id);
         }
       }
@@ -340,11 +394,13 @@ RETOURNE UNIQUEMENT CE JSON:
       loadStats();
 
       if (generated > 0) {
-        toast.success(`🎉 ${generated} article(s) généré(s)!`);
+        toast.success(`🎉 ${generated}/${items.length} article(s) généré(s)!`);
+      } else if (items.length > 0) {
+        toast.error(`❌ Échec de génération pour ${items.length} article(s)`);
       }
 
     } catch (err: any) {
-      console.error(err);
+      console.error('runNow error:', err);
       toast.error('Erreur: ' + err.message);
     } finally {
       setIsRunning(false);
