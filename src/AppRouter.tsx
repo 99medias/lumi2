@@ -17,6 +17,10 @@ import SystemCleanerProduct from './pages/products/SystemCleanerProduct';
 import TotalCareProduct from './pages/products/TotalCareProduct';
 import AIAssistantProduct from './pages/products/AIAssistantProduct';
 import MobileSecurityProduct from './pages/products/MobileSecurityProduct';
+import Settings from './pages/admin/Settings';
+import SourceManager from './pages/admin/SourceManager';
+import ContentQueue from './pages/admin/ContentQueue';
+import Dashboard from './pages/admin/Dashboard';
 import ScrollToTop from './components/ScrollToTop';
 
 function AppRouter() {
@@ -42,6 +46,10 @@ function AppRouter() {
         <Route path="/legal/refund-policy" element={<RefundPolicy />} />
         <Route path="/legal/legal-notice" element={<LegalNotice />} />
         <Route path="/legal/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/admin" element={<Dashboard />} />
+        <Route path="/admin/settings" element={<Settings />} />
+        <Route path="/admin/sources" element={<SourceManager />} />
+        <Route path="/admin/content-queue" element={<ContentQueue />} />
       </Routes>
     </Router>
   );
