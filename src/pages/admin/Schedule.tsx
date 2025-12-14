@@ -20,6 +20,8 @@ interface ScheduleSettings {
   notify_on_error: boolean;
   start_date: string | null;
   end_date: string | null;
+  last_executed_at: string | null;
+  is_executing: boolean;
 }
 
 interface ScheduleLog {
@@ -30,6 +32,8 @@ interface ScheduleLog {
   articles_generated: number;
   errors: string[];
   created_at: string;
+  triggered_by?: string;
+  execution_time?: number;
 }
 
 export default function AdminSchedule() {
@@ -47,7 +51,9 @@ export default function AdminSchedule() {
     notify_on_publish: true,
     notify_on_error: true,
     start_date: null,
-    end_date: null
+    end_date: null,
+    last_executed_at: null,
+    is_executing: false
   });
 
   const [isLoading, setIsLoading] = useState(true);
@@ -71,8 +77,14 @@ export default function AdminSchedule() {
       setMinDateTime(getCurrentLocalDateTimeString());
     }, 60000);
 
+    const refreshInterval = setInterval(() => {
+      loadSchedule();
+      loadRecentRuns();
+    }, 10000);
+
     return () => {
       clearInterval(minDateInterval);
+      clearInterval(refreshInterval);
     };
   }, []);
 
@@ -126,7 +138,9 @@ export default function AdminSchedule() {
           notify_on_publish: data.notify_on_publish ?? true,
           notify_on_error: data.notify_on_error ?? true,
           start_date: data.schedule_start_date || null,
-          end_date: data.schedule_end_date || null
+          end_date: data.schedule_end_date || null,
+          last_executed_at: data.last_executed_at || null,
+          is_executing: data.is_executing || false
         });
       }
     } catch (error: unknown) {
@@ -200,6 +214,8 @@ export default function AdminSchedule() {
   const findNextValidDay = (date: Date, validDays: string[]): Date => {
     const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     const result = new Date(date);
+    result.setHours(0, 0, 0, 0);
+
     let attempts = 0;
     const maxAttempts = 7;
 
@@ -271,45 +287,45 @@ export default function AdminSchedule() {
       let nextExecution: Date | null = null;
 
       const currentDate = new Date(Math.max(now.getTime(), startDate.getTime()));
+      currentDate.setHours(0, 0, 0, 0);
 
-      for (let dayOffset = 0; dayOffset < 8 && allUpcoming.length < 5; dayOffset++) {
-        const checkDate = new Date(currentDate);
-        checkDate.setDate(checkDate.getDate() + dayOffset);
-        checkDate.setHours(0, 0, 0, 0);
+      let searchDate = new Date(currentDate);
+      let daysChecked = 0;
+      const maxDaysToCheck = 14;
 
-        console.log(`Checking dayOffset=${dayOffset}, checkDate=${checkDate.toISOString()}`);
+      while (allUpcoming.length < 5 && daysChecked < maxDaysToCheck) {
+        console.log(`Checking date: ${searchDate.toISOString()}, daysChecked=${daysChecked}`);
 
         try {
-          const validDate = findNextValidDay(checkDate, schedule.generate_days);
-          validDate.setHours(0, 0, 0, 0);
-          console.log(`  validDate=${validDate.toISOString()}, checkDate=${checkDate.toISOString()}`);
+          const validDate = findNextValidDay(searchDate, schedule.generate_days);
+          console.log(`  Valid date found: ${validDate.toISOString()}`);
 
-          if (validDate.getTime() === checkDate.getTime()) {
-            for (const time of executionTimes) {
-              const [hours, minutes] = time.split(':').map(Number);
-              const execTime = new Date(validDate);
-              execTime.setHours(hours, minutes, 0, 0);
+          for (const time of executionTimes) {
+            const [hours, minutes] = time.split(':').map(Number);
+            const execTime = new Date(validDate);
+            execTime.setHours(hours, minutes, 0, 0);
 
-              console.log(`    Checking time ${time}: execTime=${execTime.toISOString()}, now=${now.toISOString()}, execTime > now = ${execTime > now}`);
+            console.log(`    Checking time ${time}: execTime=${execTime.toISOString()}, now=${now.toISOString()}, execTime > now = ${execTime > now}`);
 
-              if (schedule.end_date && execTime > new Date(schedule.end_date)) {
-                continue;
-              }
+            if (schedule.end_date && execTime > new Date(schedule.end_date)) {
+              continue;
+            }
 
-              if (execTime > now) {
-                allUpcoming.push(execTime);
+            if (execTime > now) {
+              allUpcoming.push(execTime);
 
-                if (!foundNext) {
-                  nextExecution = execTime;
-                  foundNext = true;
-                }
+              if (!foundNext) {
+                nextExecution = execTime;
+                foundNext = true;
               }
             }
-          } else if (validDate > checkDate) {
-            console.log(`  validDate > checkDate, adjusting dayOffset from ${dayOffset}`);
-            const daysSkipped = Math.floor((validDate.getTime() - checkDate.getTime()) / (24 * 60 * 60 * 1000));
-            dayOffset += daysSkipped - 1;
           }
+
+          searchDate = new Date(validDate);
+          searchDate.setDate(searchDate.getDate() + 1);
+          searchDate.setHours(0, 0, 0, 0);
+
+          daysChecked++;
         } catch (error) {
           break;
         }
@@ -366,10 +382,15 @@ export default function AdminSchedule() {
     }
   };
 
-  const runNow = async () => {
+  const runNow = async (triggeredBy: string = 'manual') => {
     setIsRunningNow(true);
     setRunNowMessage(null);
     setRunStatus('Vérification des sources...');
+
+    await supabase
+      .from('ai_settings')
+      .update({ is_executing: true })
+      .eq('id', 'default');
 
     try {
       const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/run-scheduled-generation`, {
@@ -377,7 +398,8 @@ export default function AdminSchedule() {
         headers: {
           'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           'Content-Type': 'application/json',
-        }
+        },
+        body: JSON.stringify({ triggered_by: triggeredBy })
       });
 
       if (!response.ok) {
@@ -428,7 +450,14 @@ export default function AdminSchedule() {
       setRunNowMessage({ type: 'error', text: 'Erreur: ' + errorMessage });
       setRunStatus('Erreur');
     } finally {
+      await supabase
+        .from('ai_settings')
+        .update({ is_executing: false, last_executed_at: new Date().toISOString() })
+        .eq('id', 'default');
+
       setIsRunningNow(false);
+      await loadSchedule();
+      calculateNextRun();
       setTimeout(() => setRunNowMessage(null), 10000);
     }
   };
@@ -476,7 +505,20 @@ export default function AdminSchedule() {
         .eq('id', 'default');
 
       if (error) throw error;
-      setSaveMessage({ type: 'success', text: 'Planification sauvegardée avec succès!' });
+
+      const shouldExecuteImmediately = await checkIfShouldExecuteImmediately();
+
+      if (shouldExecuteImmediately) {
+        setSaveMessage({ type: 'success', text: 'Planification sauvegardée et exécution immédiate déclenchée!' });
+        setTimeout(() => {
+          runNow('save-auto');
+        }, 500);
+      } else {
+        setSaveMessage({ type: 'success', text: 'Planification sauvegardée avec succès!' });
+      }
+
+      await loadSchedule();
+      calculateNextRun();
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
       setSaveMessage({ type: 'error', text: 'Erreur: ' + errorMessage });
@@ -484,6 +526,61 @@ export default function AdminSchedule() {
       setIsSaving(false);
       setTimeout(() => setSaveMessage(null), 5000);
     }
+  };
+
+  const checkIfShouldExecuteImmediately = async (): Promise<boolean> => {
+    if (!schedule.enabled) return false;
+
+    const now = new Date();
+
+    if (schedule.start_date && new Date(schedule.start_date) > now) {
+      return false;
+    }
+
+    if (schedule.end_date && new Date(schedule.end_date) < now) {
+      return false;
+    }
+
+    const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const currentDay = dayNames[now.getDay()];
+
+    if (!schedule.generate_days.includes(currentDay)) {
+      return false;
+    }
+
+    const executionTimes = getExecutionTimesForFrequency(
+      schedule.generate_frequency,
+      schedule.generate_time
+    );
+
+    const currentHours = now.getHours();
+    const currentMinutes = now.getMinutes();
+    const currentTimeInMinutes = currentHours * 60 + currentMinutes;
+
+    let shouldExecute = false;
+
+    for (const time of executionTimes) {
+      const [schedHours, schedMinutes] = time.split(':').map(Number);
+      const schedTimeInMinutes = schedHours * 60 + schedMinutes;
+
+      if (currentTimeInMinutes >= schedTimeInMinutes) {
+        shouldExecute = true;
+        break;
+      }
+    }
+
+    if (!shouldExecute) return false;
+
+    if (schedule.last_executed_at) {
+      const lastExec = new Date(schedule.last_executed_at);
+      const timeSinceLastExec = (now.getTime() - lastExec.getTime()) / 1000 / 60;
+
+      if (timeSinceLastExec < 30) {
+        return false;
+      }
+    }
+
+    return true;
   };
 
   const isValidEmail = (email: string): boolean => {
@@ -587,6 +684,23 @@ export default function AdminSchedule() {
                 <p className="text-gray-600 mt-1">
                   Prochaine exécution: <strong>{nextRun}</strong>
                 </p>
+                {schedule.last_executed_at && (
+                  <p className="text-sm text-gray-500 mt-1">
+                    Dernière exécution: {new Date(schedule.last_executed_at).toLocaleString('fr-BE', {
+                      weekday: 'short',
+                      day: 'numeric',
+                      month: 'short',
+                      hour: '2-digit',
+                      minute: '2-digit'
+                    })}
+                  </p>
+                )}
+                {schedule.is_executing && (
+                  <div className="mt-2 flex items-center gap-2 text-blue-600 font-medium text-sm">
+                    <Loader className="w-4 h-4 animate-spin" />
+                    <span>Exécution en cours via cron...</span>
+                  </div>
+                )}
                 {upcomingRuns.length > 0 && (
                   <div className="mt-2 text-sm text-gray-500">
                     <p className="font-semibold">Prochaines exécutions:</p>
@@ -942,19 +1056,33 @@ export default function AdminSchedule() {
 
               <div className="space-y-2">
                 {recentRuns.map((run) => (
-                  <div key={run.id} className="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
-                    <div className="flex items-center gap-2">
-                      {run.status === 'success' ? (
-                        <CheckCircle className="w-4 h-4 text-green-600" />
-                      ) : (
-                        <AlertCircle className="w-4 h-4 text-red-600" />
-                      )}
-                      <span className="text-sm font-medium text-gray-900">
-                        {new Date(run.created_at).toLocaleString('fr-BE')}
-                      </span>
+                  <div key={run.id} className="p-3 bg-gray-50 rounded-lg space-y-1">
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-2">
+                        {run.status === 'success' ? (
+                          <CheckCircle className="w-4 h-4 text-green-600" />
+                        ) : (
+                          <AlertCircle className="w-4 h-4 text-red-600" />
+                        )}
+                        <span className="text-sm font-medium text-gray-900">
+                          {new Date(run.created_at).toLocaleString('fr-BE')}
+                        </span>
+                      </div>
+                      <div className="text-sm text-gray-600">
+                        {run.articles_generated} articles • {run.sources_checked} sources
+                      </div>
                     </div>
-                    <div className="text-sm text-gray-600">
-                      {run.articles_generated} articles • {run.sources_checked} sources
+                    <div className="flex items-center gap-3 text-xs text-gray-500 ml-6">
+                      {run.triggered_by && (
+                        <span className="px-2 py-0.5 bg-white rounded border border-gray-200">
+                          {run.triggered_by === 'cron' ? '⏰ Automatique' :
+                           run.triggered_by === 'save-auto' ? '💾 Sauvegarde' :
+                           '▶️ Manuel'}
+                        </span>
+                      )}
+                      {run.execution_time && (
+                        <span>{run.execution_time}s</span>
+                      )}
                     </div>
                   </div>
                 ))}

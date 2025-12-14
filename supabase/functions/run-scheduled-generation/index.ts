@@ -15,7 +15,12 @@ Deno.serve(async (req: Request) => {
     });
   }
 
+  const startTime = Date.now();
+
   try {
+    const body = await req.json().catch(() => ({}));
+    const triggeredBy = body.triggered_by || 'manual';
+
     const supabase = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
@@ -154,11 +159,15 @@ Deno.serve(async (req: Request) => {
     }
 
     if (!items || items.length === 0) {
+      const executionTime = Math.round((Date.now() - startTime) / 1000);
+
       await supabase.from('schedule_logs').insert({
         status: 'success',
         sources_checked: sources?.length || 0,
         items_detected: newItemsDetected,
-        articles_generated: 0
+        articles_generated: 0,
+        triggered_by: triggeredBy,
+        execution_time: executionTime
       });
 
       return new Response(
@@ -215,12 +224,16 @@ Deno.serve(async (req: Request) => {
       }
     }
 
+    const executionTime = Math.round((Date.now() - startTime) / 1000);
+
     await supabase.from('schedule_logs').insert({
       status: errors.length === 0 ? 'success' : 'partial',
       sources_checked: sources?.length || 0,
       items_detected: newItemsDetected,
       articles_generated: generated,
-      errors: errors.length > 0 ? errors : null
+      errors: errors.length > 0 ? errors : null,
+      triggered_by: triggeredBy,
+      execution_time: executionTime
     });
 
     return new Response(
