@@ -59,10 +59,18 @@ export default function AdminSchedule() {
   const [recentRuns, setRecentRuns] = useState<ScheduleLog[]>([]);
   const [saveMessage, setSaveMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
   const [runNowMessage, setRunNowMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+  const [minDateTime, setMinDateTime] = useState<string>('');
 
   useEffect(() => {
     loadSchedule();
     loadRecentRuns();
+    setMinDateTime(getCurrentLocalDateTimeString());
+
+    const interval = setInterval(() => {
+      setMinDateTime(getCurrentLocalDateTimeString());
+    }, 60000);
+
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
@@ -619,7 +627,7 @@ export default function AdminSchedule() {
                     type="datetime-local"
                     value={toLocalDateTimeString(schedule.start_date)}
                     onChange={(e) => setSchedule({...schedule, start_date: fromLocalDateTimeString(e.target.value)})}
-                    min={getCurrentLocalDateTimeString()}
+                    min={minDateTime}
                     className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   />
                   <button
@@ -656,7 +664,7 @@ export default function AdminSchedule() {
                     type="datetime-local"
                     value={toLocalDateTimeString(schedule.end_date)}
                     onChange={(e) => setSchedule({...schedule, end_date: fromLocalDateTimeString(e.target.value)})}
-                    min={schedule.start_date ? toLocalDateTimeString(schedule.start_date) : getCurrentLocalDateTimeString()}
+                    min={schedule.start_date ? toLocalDateTimeString(schedule.start_date) : minDateTime}
                     className="flex-1 border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   />
                   {schedule.end_date && (
