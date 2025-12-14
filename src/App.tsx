@@ -607,266 +607,246 @@ function App() {
       </section>
 
       {/* Standalone Products Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-violet-500 rounded-full filter blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/3 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl animate-float-delayed"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-6">
-            <span className="inline-block px-6 py-2 bg-slate-800/50 border border-slate-700 rounded-full text-slate-300 text-sm font-medium mb-8">
-              {t('standaloneProducts.badge')}
+      <section className="py-20 bg-gradient-to-b from-emerald-900 to-gray-900 relative overflow-hidden" id="services-autonomes">
+        <div className="max-w-6xl mx-auto px-4">
+
+          <div className="text-center mb-12">
+            <span className="inline-block px-4 py-2 bg-emerald-500/20 text-emerald-400 rounded-full text-sm font-medium mb-4 border border-emerald-500/30">
+              Solutions Indépendantes
             </span>
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Services Autonomes
+            </h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Pas besoin d'abonnement. Choisissez uniquement ce dont vous avez besoin.
+            </p>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-white mb-6">
-            {t('standaloneProducts.title')}
-          </h2>
-          <p className="text-center text-slate-400 text-xl mb-16 max-w-3xl mx-auto">
-            {t('standaloneProducts.subtitle')}
-          </p>
 
-          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* AI Assistant Card */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 hover:border-violet-500/50 transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-violet-400 to-violet-600 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 3l9 4.5v5.25c0 5.25-3.75 9.75-9 11.25-5.25-1.5-9-6-9-11.25V7.5L12 3z" stroke="currentColor" strokeWidth="2"/>
-                  <circle cx="12" cy="12" r="3" fill="currentColor"/>
-                  <path d="M12 9v6M9 12h6" stroke="#1e293b" strokeWidth="1.5" strokeLinecap="round"/>
-                </svg>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            {/* Card 1 - MaSecu AI Assistant */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:border-emerald-500/50 transition-all group">
+              <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-emerald-500/20">
+                <span className="text-2xl">🤖</span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">{t('standaloneProducts.aiAssistant.name')}</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">{t('standaloneProducts.aiAssistant.description')}</p>
-
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">{t('standaloneProducts.aiAssistant.price')}</span>
-                <span className="text-slate-400">{t('standaloneProducts.aiAssistant.period')}</span>
+              <h3 className="text-2xl font-bold text-white mb-2">MaSecu Assistant IA</h3>
+              <p className="text-gray-400 mb-6">
+                Assistant intelligent disponible 24/7 pour répondre à toutes vos questions de sécurité.
+              </p>
+              <div className="flex items-baseline gap-1 mb-6">
+                <span className="text-4xl font-bold text-white">19,99€</span>
+                <span className="text-gray-400">/mois</span>
               </div>
-
               <ul className="space-y-3 mb-8">
-                {(t('standaloneProducts.aiAssistant.features') as string[]).map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-slate-300 text-sm">
-                    <svg className="w-5 h-5 text-violet-400 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
+                <li className="flex items-center gap-3 text-gray-300">
+                  <span className="text-emerald-400">✓</span> Réponses instantanées
+                </li>
+                <li className="flex items-center gap-3 text-gray-300">
+                  <span className="text-emerald-400">✓</span> Support 24/7
+                </li>
+                <li className="flex items-center gap-3 text-gray-300">
+                  <span className="text-emerald-400">✓</span> Conseils personnalisés
+                </li>
+                <li className="flex items-center gap-3 text-gray-300">
+                  <span className="text-emerald-400">✓</span> Multilingue
+                </li>
               </ul>
-
-              <Link to="/products/ai-assistant" className="block w-full text-center py-3.5 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 text-white rounded-xl font-semibold transition-all duration-300">
-                {t('standaloneProducts.aiAssistant.button')}
+              <Link to="/products/ai-assistant" className="block w-full py-3 text-center bg-emerald-500 text-white rounded-xl font-semibold hover:bg-emerald-600 transition-colors">
+                En savoir plus
               </Link>
             </div>
 
-            {/* Mobile Security Card */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 hover:border-emerald-500/50 transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none">
-                  <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M12 18h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
+            {/* Card 2 - MaSecu Mobile */}
+            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 hover:border-blue-500/50 transition-all group">
+              <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20">
+                <span className="text-2xl">📱</span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">{t('standaloneProducts.mobileSecurity.name')}</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">{t('standaloneProducts.mobileSecurity.description')}</p>
-
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">{t('standaloneProducts.mobileSecurity.price')}</span>
-                <span className="text-slate-400">{t('standaloneProducts.mobileSecurity.period')}</span>
+              <h3 className="text-2xl font-bold text-white mb-2">MaSecu Mobile</h3>
+              <p className="text-gray-400 mb-6">
+                Protection complète pour vos smartphones et tablettes Android & iOS.
+              </p>
+              <div className="flex items-baseline gap-1 mb-6">
+                <span className="text-4xl font-bold text-white">9,99€</span>
+                <span className="text-gray-400">/appareil</span>
               </div>
-
               <ul className="space-y-3 mb-8">
-                {(t('standaloneProducts.mobileSecurity.features') as string[]).map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-slate-300 text-sm">
-                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
+                <li className="flex items-center gap-3 text-gray-300">
+                  <span className="text-blue-400">✓</span> Scanner malware auto
+                </li>
+                <li className="flex items-center gap-3 text-gray-300">
+                  <span className="text-blue-400">✓</span> Protection web
+                </li>
+                <li className="flex items-center gap-3 text-gray-300">
+                  <span className="text-blue-400">✓</span> Alerte arnaque SMS
+                </li>
+                <li className="flex items-center gap-3 text-gray-300">
+                  <span className="text-blue-400">✓</span> VPN & Anti-vol
+                </li>
               </ul>
-
-              <Link to="/products/mobile-security" className="block w-full text-center py-3.5 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 text-white rounded-xl font-semibold transition-all duration-300">
-                {t('standaloneProducts.mobileSecurity.button')}
+              <Link to="/products/mobile-security" className="block w-full py-3 text-center bg-blue-500 text-white rounded-xl font-semibold hover:bg-blue-600 transition-colors">
+                En savoir plus
               </Link>
             </div>
+
           </div>
+
         </div>
       </section>
 
       {/* Addons Section */}
-      <section className="py-24 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500 rounded-full filter blur-3xl animate-float-delayed"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-6">
-            <span className="inline-block px-6 py-2 bg-slate-800/50 border border-slate-700 rounded-full text-slate-300 text-sm font-medium mb-8">
-              {t('pricing.addons.title')}
+      <section className="py-20 bg-gray-900" id="addons">
+        <div className="max-w-6xl mx-auto px-4">
+
+          {/* Notice Banner */}
+          <div className="flex items-center justify-center gap-2 mb-12">
+            <span className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-500/10 text-emerald-400 rounded-full text-sm font-medium border border-emerald-500/20">
+              <span>✓</span>
+              Nécessite un abonnement actif (Protection Essentielle, Famille ou Complète)
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-center text-white mb-6">
-            {t('addons.title')}
-          </h2>
-          <p className="text-center text-slate-400 text-xl mb-12 max-w-3xl mx-auto">
-            {t('addons.subtitle')}
-          </p>
 
-          <div className="flex justify-center mb-16">
-            <div className="inline-flex items-center gap-2 px-6 py-3 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-400">
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-              <span className="font-semibold">{t('addons.requirement')}</span>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-white mb-4">
+              Boostez votre protection
+            </h2>
+            <p className="text-gray-400">
+              Ajoutez ces options à votre abonnement pour une sécurité renforcée.
+            </p>
           </div>
 
-          <div className="grid lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {/* VPN Pro Card */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 hover:border-blue-500/50 transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2"/>
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3">{t('addons.vpnPro.name')}</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">{t('pricing.addons.vpn.description')}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">{t('addons.vpnPro.price')}</span>
-                <span className="text-slate-400">{t('addons.vpnPro.period')}</span>
+            {/* VPN Pro */}
+            <div className="bg-gradient-to-b from-blue-500/10 to-transparent rounded-3xl p-6 border border-blue-500/20 hover:border-blue-500/50 transition-all">
+              <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-blue-500/30">
+                <span className="text-xl">🌐</span>
               </div>
-
-              <ul className="space-y-3 mb-8">
-                {(t('addons.vpnPro.features') as string[]).map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-slate-300 text-sm">
-                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
+              <h3 className="text-xl font-bold text-white mb-2">MaSecu VPN Pro</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Naviguez anonymement dans 30+ pays
+              </p>
+              <div className="flex items-baseline gap-1 mb-4">
+                <span className="text-2xl font-bold text-white">9,99€</span>
+                <span className="text-gray-500 text-sm">/mois</span>
+              </div>
+              <ul className="space-y-2 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-gray-400">
+                  <span className="text-blue-400">✓</span> 50+ serveurs
+                </li>
+                <li className="flex items-center gap-2 text-gray-400">
+                  <span className="text-blue-400">✓</span> Bande passante illimitée
+                </li>
+                <li className="flex items-center gap-2 text-gray-400">
+                  <span className="text-blue-400">✓</span> Chiffrement AES-256
+                </li>
               </ul>
-
-              <Link to="/products/vpn" className="block w-full text-center py-3.5 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 text-white rounded-xl font-semibold transition-all duration-300">
-                {t('addons.vpnPro.button')}
+              <Link to="/products/vpn" className="block w-full py-2.5 text-center bg-blue-500/20 text-blue-400 rounded-lg font-medium hover:bg-blue-500 hover:text-white transition-all">
+                Ajouter
               </Link>
             </div>
 
-            {/* AdBlock Plus Card */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 hover:border-purple-500/50 transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
+            {/* AdBlock Plus */}
+            <div className="bg-gradient-to-b from-red-500/10 to-transparent rounded-3xl p-6 border border-red-500/20 hover:border-red-500/50 transition-all">
+              <div className="w-12 h-12 bg-red-500 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-red-500/30">
+                <span className="text-xl">🛑</span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">{t('addons.adblock.name')}</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">{t('pricing.addons.scam.description')}</p>
-
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">{t('addons.adblock.price')}</span>
-                <span className="text-slate-400">{t('addons.adblock.period')}</span>
+              <h3 className="text-xl font-bold text-white mb-2">MaSecu AdBlock</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Bloquez pubs, trackers et phishing
+              </p>
+              <div className="flex items-baseline gap-1 mb-4">
+                <span className="text-2xl font-bold text-white">9,99€</span>
+                <span className="text-gray-500 text-sm">/mois</span>
               </div>
-
-              <ul className="space-y-3 mb-8">
-                {(t('addons.adblock.features') as string[]).map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-slate-300 text-sm">
-                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
+              <ul className="space-y-2 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-gray-400">
+                  <span className="text-red-400">✓</span> Blocage pubs & pop-ups
+                </li>
+                <li className="flex items-center gap-2 text-gray-400">
+                  <span className="text-red-400">✓</span> Anti-trackers avancé
+                </li>
+                <li className="flex items-center gap-2 text-gray-400">
+                  <span className="text-red-400">✓</span> Navigation 40% plus rapide
+                </li>
               </ul>
-
-              <Link to="/products/adblock" className="block w-full text-center py-3.5 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 text-white rounded-xl font-semibold transition-all duration-300">
-                {t('addons.adblock.button')}
+              <Link to="/products/adblock" className="block w-full py-2.5 text-center bg-red-500/20 text-red-400 rounded-lg font-medium hover:bg-red-500 hover:text-white transition-all">
+                Ajouter
               </Link>
             </div>
 
-            {/* System Cleaner Card */}
-            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-3xl p-8 hover:border-emerald-500/50 transition-all duration-300 group">
-              <div className="w-14 h-14 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none">
-                  <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M9 9h6M9 13h6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
+            {/* System Cleaner */}
+            <div className="bg-gradient-to-b from-amber-500/10 to-transparent rounded-3xl p-6 border border-amber-500/20 hover:border-amber-500/50 transition-all">
+              <div className="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center mb-4 shadow-lg shadow-amber-500/30">
+                <span className="text-xl">🧹</span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">{t('addons.systemCleaner.name')}</h3>
-              <p className="text-slate-400 text-sm mb-6 leading-relaxed">{t('addons.systemCleaner.description')}</p>
-
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">{t('addons.systemCleaner.price')}</span>
-                <span className="text-slate-400">{t('addons.systemCleaner.period')}</span>
+              <h3 className="text-xl font-bold text-white mb-2">MaSecu Cleaner</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Optimisez les performances de votre PC
+              </p>
+              <div className="flex items-baseline gap-1 mb-4">
+                <span className="text-2xl font-bold text-white">9,99€</span>
+                <span className="text-gray-500 text-sm">/mois</span>
               </div>
-
-              <ul className="space-y-3 mb-8">
-                {(t('addons.systemCleaner.features') as string[]).map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-slate-300 text-sm">
-                    <svg className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
+              <ul className="space-y-2 mb-6 text-sm">
+                <li className="flex items-center gap-2 text-gray-400">
+                  <span className="text-amber-400">✓</span> Nettoyage fichiers temp
+                </li>
+                <li className="flex items-center gap-2 text-gray-400">
+                  <span className="text-amber-400">✓</span> Optimisation registre
+                </li>
+                <li className="flex items-center gap-2 text-gray-400">
+                  <span className="text-amber-400">✓</span> Défragmentation auto
+                </li>
               </ul>
-
-              <Link to="/products/system-cleaner" className="block w-full text-center py-3.5 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 text-white rounded-xl font-semibold transition-all duration-300">
-                {t('addons.systemCleaner.button')}
+              <Link to="/products/system-cleaner" className="block w-full py-2.5 text-center bg-amber-500/20 text-amber-400 rounded-lg font-medium hover:bg-amber-500 hover:text-white transition-all">
+                Ajouter
               </Link>
             </div>
 
-            {/* Total Care Bundle Card */}
-            <div className="bg-gradient-to-br from-amber-500/10 to-amber-600/10 backdrop-blur-sm border-2 border-amber-500/50 rounded-3xl p-8 hover:border-amber-400 transition-all duration-300 relative overflow-hidden group">
-              <div className="absolute top-4 right-4">
-                <span className="px-3 py-1 bg-cyan-500 text-white text-xs font-bold rounded-full">{t('addons.totalCare.badge')}</span>
+            {/* Total Care - HIGHLIGHTED */}
+            <div className="bg-gradient-to-b from-emerald-500/20 to-emerald-500/5 rounded-3xl p-6 border-2 border-emerald-500/50 relative">
+              {/* Badge */}
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                <span className="bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  ÉCONOMISEZ 17%
+                </span>
               </div>
 
-              <div className="w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-600 rounded-2xl flex items-center justify-center mb-6">
-                <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="none">
-                  <path d="M12 2l2 7h7l-5.5 4.5L17 21l-5-4-5 4 1.5-7.5L3 9h7z" stroke="currentColor" strokeWidth="2" fill="currentColor"/>
-                </svg>
+              <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center mb-4 mt-2 shadow-lg shadow-emerald-500/30">
+                <span className="text-xl">⭐</span>
               </div>
-              <h3 className="text-2xl font-bold text-white mb-3">{t('addons.totalCare.name')}</h3>
-              <p className="text-slate-300 text-sm mb-6 leading-relaxed">{t('addons.totalCare.description')}</p>
-
-              <div className="mb-6">
-                <span className="text-4xl font-extrabold text-white">{t('addons.totalCare.price')}</span>
-                <span className="text-slate-400">{t('addons.totalCare.period')}</span>
-                <div className="text-slate-500 text-sm line-through mt-1">{t('addons.totalCare.oldPrice')}</div>
+              <h3 className="text-xl font-bold text-white mb-2">MaSecu Total Care</h3>
+              <p className="text-gray-400 text-sm mb-4">
+                Le pack complet : VPN + AdBlock + Cleaner
+              </p>
+              <div className="flex items-baseline gap-2 mb-1">
+                <span className="text-2xl font-bold text-white">24,99€</span>
+                <span className="text-gray-500 text-sm">/mois</span>
               </div>
+              <p className="text-emerald-400 text-xs mb-4">au lieu de 29,97€</p>
 
-              <div className="space-y-3 mb-6">
-                {(t('addons.totalCare.includes') as string[]).map((service, idx) => {
-                  const icons = [
-                    <path key="vpn" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2"/>,
-                    <><circle key="adblock1" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/><path key="adblock2" d="M15 9l-6 6M9 9l6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></>,
-                    <rect key="cleaner" x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" strokeWidth="2"/>
-                  ];
-                  const colors = ['from-emerald-400 to-emerald-600', 'from-emerald-400 to-emerald-600', 'from-emerald-400 to-emerald-600'];
-
-                  return (
-                    <div key={idx} className="flex items-center gap-3 bg-slate-800/50 rounded-xl p-3 border border-slate-700">
-                      <div className={`w-10 h-10 bg-gradient-to-br ${colors[idx]} rounded-lg flex items-center justify-center`}>
-                        <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none">
-                          {icons[idx]}
-                        </svg>
-                      </div>
-                      <span className="text-white font-medium text-sm">{service}</span>
-                    </div>
-                  );
-                })}
+              <div className="space-y-2 mb-6">
+                <div className="flex items-center gap-2 text-gray-300 text-sm">
+                  <span className="w-6 h-6 bg-blue-500/20 rounded-md flex items-center justify-center text-xs">🌐</span>
+                  VPN Pro
+                </div>
+                <div className="flex items-center gap-2 text-gray-300 text-sm">
+                  <span className="w-6 h-6 bg-red-500/20 rounded-md flex items-center justify-center text-xs">🛑</span>
+                  AdBlock Plus
+                </div>
+                <div className="flex items-center gap-2 text-gray-300 text-sm">
+                  <span className="w-6 h-6 bg-amber-500/20 rounded-md flex items-center justify-center text-xs">🧹</span>
+                  System Cleaner
+                </div>
               </div>
 
-              <Link to="/products/total-care" className="block w-full text-center py-4 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white rounded-xl font-bold transition-all duration-300 shadow-lg shadow-amber-500/50 hover:shadow-xl hover:shadow-amber-500/60">
-                {t('addons.totalCare.button')}
+              <Link to="/products/total-care" className="block w-full py-2.5 text-center bg-emerald-500 text-white rounded-lg font-semibold hover:bg-emerald-600 transition-all">
+                Choisir le pack
               </Link>
             </div>
+
           </div>
+
         </div>
       </section>
 
