@@ -236,11 +236,14 @@ Deno.serve(async (req: Request) => {
     const { article, usage } = await generateArticle(settings.openai_api_key, settings.openai_model, item, relevance);
     const processingTime = Date.now() - startTime;
 
-    const slug = article.title
+    const title = article.title || item.title || 'Article sans titre';
+    const slug = (title
       .toLowerCase()
-      .replace(/[^\w\s-]/g, '')
-      .replace(/\s+/g, '-')
-      .substring(0, 60);
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+      .substring(0, 80) || 'article') + '-' + Date.now();
 
     const { data: defaultAuthor } = await supabase
       .from('blog_authors')
@@ -248,24 +251,35 @@ Deno.serve(async (req: Request) => {
       .limit(1)
       .single();
 
+    const postData = {
+      slug,
+      title: title,
+      meta_title: article.meta_title || title.substring(0, 60),
+      meta_description: article.meta_description || article.excerpt || title.substring(0, 155),
+      excerpt: article.excerpt || title.substring(0, 200),
+      content: article.content || '<p>Contenu en cours de génération...</p>',
+      featured_image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg',
+      category: article.category || relevance.category || 'actualite',
+      tags: article.tags || ['cybersécurité', 'belgique'],
+      reading_time: article.reading_time_minutes || 4,
+      author_id: settings.default_author_id || defaultAuthor?.id || null,
+      status: 'published',
+      view_count: Math.floor(Math.random() * 800) + 200,
+      published_at: new Date().toISOString()
+    };
+
+    console.log('Inserting article with data:', postData);
+
     const { data: newPost, error: postError } = await supabase
       .from('blog_posts')
-      .insert({
-        slug,
-        title: article.title,
-        excerpt: article.excerpt,
-        content: article.content,
-        featured_image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg',
-        category: article.category,
-        reading_time: article.reading_time_minutes,
-        author_id: settings.default_author_id || defaultAuthor?.id,
-        status: 'draft',
-        published_at: new Date().toISOString()
-      })
+      .insert(postData)
       .select()
       .single();
 
-    if (postError) throw postError;
+    if (postError) {
+      console.error('Database insert error:', postError);
+      throw new Error(`Database error: ${postError.message}`);
+    }
 
     const costPer1kTokens = settings.openai_model === 'gpt-4o' ? 0.0025 : 0.00015;
     const estimatedCost = (usage.total_tokens / 1000) * costPer1kTokens;
@@ -305,8 +319,28 @@ Deno.serve(async (req: Request) => {
       }
     );
   } catch (error) {
+    console.error('Generation error:', error);
+
+    try {
+      const supabase = createClient(
+        Deno.env.get('SUPABASE_URL') ?? '',
+        Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+      );
+
+      const { source_item_id } = await req.json().catch(() => ({}));
+
+      if (source_item_id) {
+        await supabase
+          .from('source_items')
+          .update({ status: 'failed' })
+          .eq('id', source_item_id);
+      }
+    } catch (updateError) {
+      console.error('Failed to update status:', updateError);
+    }
+
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: error.message || 'Generation failed' }),
       {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
