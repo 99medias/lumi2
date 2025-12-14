@@ -3,6 +3,7 @@ import { Rss, Plus, Trash2, RefreshCw, Eye, EyeOff, Loader } from 'lucide-react'
 import PageHeader from '../../components/PageHeader';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Toast from '../../components/Toast';
 import { supabase } from '../../lib/supabase';
 
 interface ContentSource {
@@ -22,6 +23,7 @@ export default function SourceManager() {
   const [sources, setSources] = useState<ContentSource[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAddForm, setShowAddForm] = useState(false);
+  const [toast, setToast] = useState<{ type: 'success' | 'error' | 'info'; message: string } | null>(null);
   const [newSource, setNewSource] = useState<Partial<ContentSource>>({
     type: 'rss',
     priority: 'medium',
@@ -44,8 +46,9 @@ export default function SourceManager() {
 
       if (error) throw error;
       setSources(data || []);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error loading sources:', error);
+      setToast({ type: 'error', message: 'Erreur lors du chargement des sources' });
     } finally {
       setLoading(false);
     }
@@ -60,8 +63,9 @@ export default function SourceManager() {
 
       if (error) throw error;
       loadSources();
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error toggling source:', error);
+      setToast({ type: 'error', message: 'Erreur lors de la modification de la source' });
     }
   };
 
@@ -75,9 +79,11 @@ export default function SourceManager() {
         .eq('id', id);
 
       if (error) throw error;
+      setToast({ type: 'success', message: 'Source supprimée avec succès' });
       loadSources();
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error deleting source:', error);
+      setToast({ type: 'error', message: 'Erreur lors de la suppression' });
     }
   };
 
@@ -94,17 +100,18 @@ export default function SourceManager() {
 
       if (!response.ok) throw new Error('Failed to check source');
 
-      alert('Vérification lancée');
+      setToast({ type: 'success', message: 'Vérification lancée avec succès!' });
       setTimeout(loadSources, 2000);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error checking source:', error);
-      alert('Erreur lors de la vérification');
+      const errorMessage = error instanceof Error ? error.message : 'Erreur lors de la vérification';
+      setToast({ type: 'error', message: errorMessage });
     }
   };
 
   const handleAddSource = async () => {
     if (!newSource.name || !newSource.url) {
-      alert('Veuillez remplir tous les champs obligatoires');
+      setToast({ type: 'error', message: 'Veuillez remplir tous les champs obligatoires' });
       return;
     }
 
@@ -123,10 +130,12 @@ export default function SourceManager() {
         is_active: true,
         check_frequency_minutes: 30
       });
+      setToast({ type: 'success', message: 'Source ajoutée avec succès!' });
       loadSources();
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error adding source:', error);
-      alert('Erreur lors de l\'ajout');
+      const errorMessage = error instanceof Error ? error.message : 'Erreur lors de l\'ajout';
+      setToast({ type: 'error', message: errorMessage });
     }
   };
 
@@ -235,7 +244,7 @@ export default function SourceManager() {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Priorité</label>
                   <select
                     value={newSource.priority}
-                    onChange={(e) => setNewSource({ ...newSource, priority: e.target.value as any })}
+                    onChange={(e) => setNewSource({ ...newSource, priority: e.target.value as ContentSource['priority'] })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   >
                     <option value="high">Haute</option>
@@ -248,7 +257,7 @@ export default function SourceManager() {
                   <label className="block text-sm font-semibold text-gray-700 mb-2">Catégorie par défaut</label>
                   <select
                     value={newSource.default_category}
-                    onChange={(e) => setNewSource({ ...newSource, default_category: e.target.value as any })}
+                    onChange={(e) => setNewSource({ ...newSource, default_category: e.target.value as ContentSource['default_category'] })}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                   >
                     <option value="alerte">Alerte</option>
@@ -362,6 +371,13 @@ export default function SourceManager() {
           </div>
         </div>
       </div>
+      {toast && (
+        <Toast
+          type={toast.type}
+          message={toast.message}
+          onClose={() => setToast(null)}
+        />
+      )}
       </div>
       <Footer />
     </>

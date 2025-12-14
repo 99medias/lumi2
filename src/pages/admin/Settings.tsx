@@ -3,6 +3,7 @@ import { Settings as SettingsIcon, Check, AlertCircle, Loader } from 'lucide-rea
 import PageHeader from '../../components/PageHeader';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Toast from '../../components/Toast';
 import { supabase } from '../../lib/supabase';
 
 interface AISettings {
@@ -17,13 +18,19 @@ interface AISettings {
   notification_email: string | null;
 }
 
+interface Author {
+  id: string;
+  name: string;
+}
+
 export default function Settings() {
   const [settings, setSettings] = useState<AISettings | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [testing, setTesting] = useState(false);
   const [testResult, setTestResult] = useState<{ success: boolean; message: string } | null>(null);
-  const [authors, setAuthors] = useState<any[]>([]);
+  const [authors, setAuthors] = useState<Author[]>([]);
+  const [toast, setToast] = useState<{ type: 'success' | 'error' | 'info'; message: string } | null>(null);
 
   useEffect(() => {
     loadSettings();
@@ -58,7 +65,7 @@ export default function Settings() {
         if (createError) throw createError;
         setSettings(newSettings);
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error loading settings:', error);
     } finally {
       setLoading(false);
@@ -74,7 +81,7 @@ export default function Settings() {
 
       if (error) throw error;
       setAuthors(data || []);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error loading authors:', error);
     }
   };
@@ -90,10 +97,11 @@ export default function Settings() {
         .eq('id', settings.id);
 
       if (error) throw error;
-      alert('Paramètres sauvegardés avec succès');
-    } catch (error) {
+      setToast({ type: 'success', message: 'Paramètres sauvegardés avec succès!' });
+    } catch (error: unknown) {
       console.error('Error saving settings:', error);
-      alert('Erreur lors de la sauvegarde');
+      const errorMessage = error instanceof Error ? error.message : 'Erreur lors de la sauvegarde';
+      setToast({ type: 'error', message: errorMessage });
     } finally {
       setSaving(false);
     }
@@ -123,8 +131,9 @@ export default function Settings() {
 
       const result = await response.json();
       setTestResult(result);
-    } catch (error) {
-      setTestResult({ success: false, message: 'Erreur de connexion' });
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Erreur de connexion';
+      setTestResult({ success: false, message: errorMessage });
     } finally {
       setTesting(false);
     }
@@ -334,6 +343,13 @@ export default function Settings() {
         </div>
       </div>
       </div>
+      {toast && (
+        <Toast
+          type={toast.type}
+          message={toast.message}
+          onClose={() => setToast(null)}
+        />
+      )}
       <Footer />
     </>
   );

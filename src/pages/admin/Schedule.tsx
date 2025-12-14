@@ -18,6 +18,8 @@ interface ScheduleSettings {
   notify_email: string;
   notify_on_publish: boolean;
   notify_on_error: boolean;
+  start_date: string | null;
+  end_date: string | null;
 }
 
 interface ScheduleLog {
@@ -43,7 +45,9 @@ export default function AdminSchedule() {
     sources_priority: 'high',
     notify_email: '',
     notify_on_publish: true,
-    notify_on_error: true
+    notify_on_error: true,
+    start_date: null,
+    end_date: null
   });
 
   const [isLoading, setIsLoading] = useState(true);
@@ -84,10 +88,12 @@ export default function AdminSchedule() {
           sources_priority: data.schedule_sources_priority || 'high',
           notify_email: data.notification_email || '',
           notify_on_publish: data.notify_on_publish ?? true,
-          notify_on_error: data.notify_on_error ?? true
+          notify_on_error: data.notify_on_error ?? true,
+          start_date: data.schedule_start_date || null,
+          end_date: data.schedule_end_date || null
         });
       }
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error loading schedule:', error);
     } finally {
       setIsLoading(false);
@@ -103,7 +109,7 @@ export default function AdminSchedule() {
         .limit(10);
 
       setRecentRuns(data || []);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error loading recent runs:', error);
     }
   };
@@ -115,9 +121,30 @@ export default function AdminSchedule() {
     }
 
     const now = new Date();
-    const [hours, minutes] = schedule.generate_time.split(':').map(Number);
+    const startDate = schedule.start_date ? new Date(schedule.start_date) : now;
 
-    let next = new Date();
+    if (startDate > now) {
+      setNextRun(`Démarrage prévu le ${startDate.toLocaleString('fr-BE', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      })}`);
+      return;
+    }
+
+    if (schedule.end_date) {
+      const endDate = new Date(schedule.end_date);
+      if (now > endDate) {
+        setNextRun('Planification terminée (date de fin dépassée)');
+        return;
+      }
+    }
+
+    const [hours, minutes] = schedule.generate_time.split(':').map(Number);
+    let next = new Date(Math.max(now.getTime(), startDate.getTime()));
     next.setHours(hours, minutes, 0, 0);
 
     if (next <= now) {
@@ -127,6 +154,11 @@ export default function AdminSchedule() {
     const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     while (!schedule.generate_days.includes(dayNames[next.getDay()])) {
       next.setDate(next.getDate() + 1);
+    }
+
+    if (schedule.end_date && next > new Date(schedule.end_date)) {
+      setNextRun('Aucune exécution prévue (date de fin atteinte)');
+      return;
     }
 
     setNextRun(next.toLocaleString('fr-BE', {
@@ -182,8 +214,9 @@ export default function AdminSchedule() {
       } else {
         setRunNowMessage({ type: 'error', text: 'Erreur: ' + result.error });
       }
-    } catch (error: any) {
-      setRunNowMessage({ type: 'error', text: 'Erreur: ' + error.message });
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
+      setRunNowMessage({ type: 'error', text: 'Erreur: ' + errorMessage });
     } finally {
       setIsRunningNow(false);
       setTimeout(() => setRunNowMessage(null), 10000);
@@ -193,6 +226,22 @@ export default function AdminSchedule() {
   const saveSchedule = async () => {
     setIsSaving(true);
     setSaveMessage(null);
+
+    if (schedule.notify_email && !isValidEmail(schedule.notify_email)) {
+      setSaveMessage({ type: 'error', text: 'Veuillez entrer une adresse email valide' });
+      setIsSaving(false);
+      return;
+    }
+
+    if (schedule.start_date && schedule.end_date) {
+      const start = new Date(schedule.start_date);
+      const end = new Date(schedule.end_date);
+      if (end <= start) {
+        setSaveMessage({ type: 'error', text: 'La date de fin doit être après la date de début' });
+        setIsSaving(false);
+        return;
+      }
+    }
 
     try {
       const { error } = await supabase
@@ -210,18 +259,26 @@ export default function AdminSchedule() {
           notification_email: schedule.notify_email,
           notify_on_publish: schedule.notify_on_publish,
           notify_on_error: schedule.notify_on_error,
+          schedule_start_date: schedule.start_date,
+          schedule_end_date: schedule.end_date,
           updated_at: new Date().toISOString()
         })
         .eq('id', 'default');
 
       if (error) throw error;
       setSaveMessage({ type: 'success', text: 'Planification sauvegardée avec succès!' });
-    } catch (error: any) {
-      setSaveMessage({ type: 'error', text: 'Erreur: ' + error.message });
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
+      setSaveMessage({ type: 'error', text: 'Erreur: ' + errorMessage });
     } finally {
       setIsSaving(false);
       setTimeout(() => setSaveMessage(null), 5000);
     }
+  };
+
+  const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
   };
 
   if (isLoading) {
@@ -330,6 +387,38 @@ export default function AdminSchedule() {
                   onChange={(e) => setSchedule({...schedule, generate_time: e.target.value})}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Date de début
+                  <span className="text-xs text-gray-500 font-normal ml-2">(Optionnel)</span>
+                </label>
+                <input
+                  type="datetime-local"
+                  value={schedule.start_date ? new Date(schedule.start_date).toISOString().slice(0, 16) : ''}
+                  onChange={(e) => setSchedule({...schedule, start_date: e.target.value ? new Date(e.target.value).toISOString() : null})}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="Aujourd'hui par défaut"
+                />
+                <p className="text-xs text-gray-500 mt-1">Quand la génération doit commencer</p>
+              </div>
+
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Date de fin
+                  <span className="text-xs text-gray-500 font-normal ml-2">(Optionnel)</span>
+                </label>
+                <input
+                  type="datetime-local"
+                  value={schedule.end_date ? new Date(schedule.end_date).toISOString().slice(0, 16) : ''}
+                  onChange={(e) => setSchedule({...schedule, end_date: e.target.value ? new Date(e.target.value).toISOString() : null})}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder="Illimitée par défaut"
+                />
+                <p className="text-xs text-gray-500 mt-1">Quand la génération doit s'arrêter</p>
               </div>
             </div>
 

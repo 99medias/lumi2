@@ -3,6 +3,7 @@ import { FileText, TrendingUp, Eye, Trash2, Sparkles, X, Loader, CheckCircle, Al
 import PageHeader from '../../components/PageHeader';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import Toast from '../../components/Toast';
 import { supabase } from '../../lib/supabase';
 import { Link } from 'react-router-dom';
 
@@ -37,6 +38,7 @@ export default function ContentQueue() {
   const [activeTab, setActiveTab] = useState<StatusFilter>('new');
   const [selectedItem, setSelectedItem] = useState<SourceItem | null>(null);
   const [processing, setProcessing] = useState<string | null>(null);
+  const [toast, setToast] = useState<{ type: 'success' | 'error' | 'info'; message: string } | null>(null);
 
   useEffect(() => {
     loadItems();
@@ -63,8 +65,9 @@ export default function ContentQueue() {
 
       if (error) throw error;
       setItems(data || []);
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error loading items:', error);
+      setToast({ type: 'error', message: 'Erreur lors du chargement des éléments' });
     } finally {
       setLoading(false);
     }
@@ -88,15 +91,19 @@ export default function ContentQueue() {
       if (!response.ok) {
         const errorMsg = result.error || 'Generation failed';
         console.error('Generation error:', result);
-        alert(`Erreur: ${errorMsg}`);
+        setToast({ type: 'error', message: `Erreur: ${errorMsg}` });
         throw new Error(errorMsg);
       }
 
-      alert(`Article généré avec succès!\n\nTitre: ${result.slug}\nTokens: ${result.tokens_used}\nCoût: $${result.estimated_cost.toFixed(4)}`);
+      setToast({
+        type: 'success',
+        message: `Article généré avec succès! Titre: ${result.slug} - Tokens: ${result.tokens_used} - Coût: $${result.estimated_cost.toFixed(4)}`
+      });
       loadItems();
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error generating article:', error);
-      alert(`Erreur lors de la génération: ${error.message}`);
+      const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
+      setToast({ type: 'error', message: `Erreur lors de la génération: ${errorMessage}` });
     } finally {
       setProcessing(null);
     }
@@ -111,8 +118,9 @@ export default function ContentQueue() {
 
       if (error) throw error;
       loadItems();
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error ignoring item:', error);
+      setToast({ type: 'error', message: 'Erreur lors de l\'action' });
     }
   };
 
@@ -126,9 +134,11 @@ export default function ContentQueue() {
         .eq('id', itemId);
 
       if (error) throw error;
+      setToast({ type: 'success', message: 'Élément supprimé avec succès' });
       loadItems();
-    } catch (error) {
+    } catch (error: unknown) {
       console.error('Error deleting item:', error);
+      setToast({ type: 'error', message: 'Erreur lors de la suppression' });
     }
   };
 
@@ -443,6 +453,13 @@ export default function ContentQueue() {
             </div>
           </div>
         </div>
+      )}
+      {toast && (
+        <Toast
+          type={toast.type}
+          message={toast.message}
+          onClose={() => setToast(null)}
+        />
       )}
       </div>
       <Footer />
