@@ -35,6 +35,7 @@ export default function Settings() {
       const { data, error } = await supabase
         .from('ai_settings')
         .select('*')
+        .eq('id', 'default')
         .maybeSingle();
 
       if (error) throw error;
@@ -45,6 +46,7 @@ export default function Settings() {
         const { data: newSettings, error: createError } = await supabase
           .from('ai_settings')
           .insert({
+            id: 'default',
             openai_model: 'gpt-4o-mini',
             auto_post_enabled: false,
             auto_post_min_relevance: 0.85,
