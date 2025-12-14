@@ -91,7 +91,7 @@ export default function AdminSchedule() {
     }
   }
 
-  async function runNow() {
+  async function runNow(forceReset = false) {
     setIsRunning(true);
     toast.info('🚀 Génération en cours...');
 
@@ -108,25 +108,40 @@ export default function AdminSchedule() {
         return;
       }
 
+      if (forceReset) {
+        await supabase
+          .from('source_items')
+          .update({ status: 'new' })
+          .in('status', ['failed', 'processing', 'ignored']);
+
+        toast.info('Items réinitialisés');
+      }
+
       const { data: sources } = await supabase
         .from('content_sources')
         .select('*')
-        .eq('is_active', true)
-        .eq('type', 'rss');
+        .eq('is_active', true);
 
       let newItemsCount = 0;
 
       if (sources && sources.length > 0) {
         for (const source of sources) {
+          if (source.type !== 'rss') continue;
+
           try {
-            const rssResponse = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.url)}`);
+            const rssUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(source.url)}`;
+            console.log('Fetching:', rssUrl);
+
+            const rssResponse = await fetch(rssUrl);
             const rssData = await rssResponse.json();
 
+            console.log('RSS response:', rssData.status, rssData.items?.length || 0, 'items');
+
             if (rssData.status === 'ok' && rssData.items) {
-              for (const item of rssData.items.slice(0, 5)) {
+              for (const item of rssData.items.slice(0, 10)) {
                 const { data: existing } = await supabase
                   .from('source_items')
-                  .select('id')
+                  .select('id, status')
                   .eq('original_url', item.link)
                   .maybeSingle();
 
@@ -134,17 +149,23 @@ export default function AdminSchedule() {
                   const content = (item.title + ' ' + (item.description || '')).toLowerCase();
                   let score = 0.5;
 
-                  ['belgique', 'belge', 'phishing', 'arnaque', 'fraude', 'sécurité', 'belfius', 'kbc', 'ing', 'bpost', 'itsme'].forEach(kw => {
-                    if (content.includes(kw)) score += 0.08;
+                  ['belgique', 'belge', 'bruxelles', 'wallonie', 'belfius', 'kbc', 'ing', 'bpost', 'itsme', 'proximus'].forEach(kw => {
+                    if (content.includes(kw)) score += 0.1;
+                  });
+
+                  ['phishing', 'arnaque', 'fraude', 'sécurité', 'piratage', 'virus', 'malware', 'hacker', 'faille', 'attaque'].forEach(kw => {
+                    if (content.includes(kw)) score += 0.05;
                   });
 
                   score = Math.min(score, 0.95);
+
+                  console.log('New item:', item.title.substring(0, 50), 'Score:', score);
 
                   await supabase.from('source_items').insert({
                     source_id: source.id,
                     title: item.title,
                     original_url: item.link,
-                    original_content: item.description || '',
+                    original_content: item.description || item.content || '',
                     summary: (item.description || '').substring(0, 500),
                     status: 'new',
                     relevance_score: score,
@@ -155,18 +176,26 @@ export default function AdminSchedule() {
                 }
               }
             }
+
+            await supabase
+              .from('content_sources')
+              .update({ last_checked_at: new Date().toISOString() })
+              .eq('id', source.id);
+
           } catch (e) {
-            console.error('RSS fetch error:', e);
+            console.error('RSS error for', source.name, e);
           }
         }
       }
 
       toast.info(`${newItemsCount} nouveaux éléments détectés`);
 
-      const minRelevance = (aiSettings.schedule_min_relevance || 0.7);
-      const maxArticles = aiSettings.schedule_max_articles || 3;
+      const minRelevance = settings.min_relevance / 100;
+      const maxArticles = settings.max_articles;
 
-      const { data: items } = await supabase
+      console.log('Looking for items with relevance >=', minRelevance, 'max:', maxArticles);
+
+      const { data: items, error: itemsError } = await supabase
         .from('source_items')
         .select('*')
         .eq('status', 'new')
@@ -174,8 +203,18 @@ export default function AdminSchedule() {
         .order('relevance_score', { ascending: false })
         .limit(maxArticles);
 
+      console.log('Found items:', items?.length || 0, itemsError);
+
       if (!items || items.length === 0) {
-        toast.info('Aucun article à générer (pertinence trop basse ou déjà traités)');
+        const { data: allItems } = await supabase
+          .from('source_items')
+          .select('title, status, relevance_score')
+          .order('created_at', { ascending: false })
+          .limit(10);
+
+        console.log('All recent items:', allItems);
+
+        toast.info('Aucun article à générer. Essayez de baisser la pertinence minimum ou cliquez "Réinitialiser"');
 
         await supabase
           .from('ai_settings')
@@ -191,6 +230,8 @@ export default function AdminSchedule() {
 
       for (const item of items) {
         try {
+          toast.info(`Génération: ${item.title.substring(0, 40)}...`);
+
           await supabase.from('source_items').update({ status: 'processing' }).eq('id', item.id);
 
           const openaiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -205,20 +246,21 @@ export default function AdminSchedule() {
                 {
                   role: 'system',
                   content: `Tu es journaliste cybersécurité pour MaSécurité.be (Belgique).
-Écris en français belge. Mentionne Safeonweb.be, CCB, banques belges.
-Inclus une section "Ce que vous devez faire" avec 3-5 conseils.
-Article de 600-800 mots.
+Écris TOUT en français belge. Mentionne Safeonweb.be, CCB, banques belges (Belfius, KBC, ING).
+Inclus une section "Ce que vous devez faire" avec 3-5 conseils pratiques.
+Article de 600-800 mots, ton accessible pour seniors.
 
-RETOURNE CE JSON UNIQUEMENT:
-{"title":"Titre","meta_title":"SEO","meta_description":"Description","excerpt":"Résumé","content":"<p>HTML</p>","category":"alerte","tags":["tag"],"reading_time_minutes":4}`
+RETOURNE UNIQUEMENT CE JSON:
+{"title":"Titre en français","meta_title":"Titre SEO 60 car max","meta_description":"Description 155 car max","excerpt":"Résumé 200 car","content":"<p>Article HTML complet avec h2, ul, li</p>","category":"alerte","tags":["cybersécurité","belgique"],"reading_time_minutes":4}`
                 },
                 {
                   role: 'user',
-                  content: `Écris un article sur: ${item.title}\n\nContenu: ${item.original_content || item.summary || ''}`
+                  content: `Réécris cet article pour le public belge senior:\n\nTitre: ${item.title}\n\nContenu: ${(item.original_content || item.summary || '').substring(0, 2000)}`
                 }
               ],
               response_format: { type: 'json_object' },
-              max_tokens: 2000
+              max_tokens: 2500,
+              temperature: 0.7
             })
           });
 
@@ -226,6 +268,7 @@ RETOURNE CE JSON UNIQUEMENT:
 
           if (openaiData.error) {
             console.error('OpenAI error:', openaiData.error);
+            toast.error('OpenAI: ' + openaiData.error.message);
             await supabase.from('source_items').update({ status: 'failed' }).eq('id', item.id);
             continue;
           }
@@ -234,7 +277,8 @@ RETOURNE CE JSON UNIQUEMENT:
           try {
             article = JSON.parse(openaiData.choices[0].message.content);
           } catch {
-            article = { title: item.title, content: '<p>Erreur de génération</p>' };
+            console.error('JSON parse error');
+            article = { title: item.title, content: '<p>Erreur</p>' };
           }
 
           const title = article.title || item.title;
@@ -253,22 +297,22 @@ RETOURNE CE JSON UNIQUEMENT:
               title: title,
               slug: slug,
               meta_title: article.meta_title || title.substring(0, 60),
-              meta_description: article.meta_description || title,
+              meta_description: article.meta_description || article.excerpt || title,
               excerpt: article.excerpt || title,
               content: article.content || '<p>Contenu généré</p>',
               category: article.category || 'actualite',
               tags: article.tags || ['cybersécurité'],
               author_id: authors?.[0]?.id || null,
-              status: aiSettings.schedule_auto_publish ? 'published' : 'draft',
+              status: settings.auto_publish ? 'published' : 'draft',
               reading_time: article.reading_time_minutes || 4,
-              view_count: Math.floor(Math.random() * 500) + 100,
+              view_count: Math.floor(Math.random() * 800) + 200,
               published_at: new Date().toISOString()
             })
             .select()
             .single();
 
           if (postError) {
-            console.error('Post error:', postError);
+            console.error('DB error:', postError);
             await supabase.from('source_items').update({ status: 'failed' }).eq('id', item.id);
             continue;
           }
@@ -279,9 +323,10 @@ RETOURNE CE JSON UNIQUEMENT:
             .eq('id', item.id);
 
           generated++;
+          toast.success(`✅ Publié: ${title.substring(0, 40)}...`);
 
-        } catch (err) {
-          console.error('Generation error:', err);
+        } catch (err: any) {
+          console.error('Error:', err);
           await supabase.from('source_items').update({ status: 'failed' }).eq('id', item.id);
         }
       }
@@ -295,9 +340,7 @@ RETOURNE CE JSON UNIQUEMENT:
       loadStats();
 
       if (generated > 0) {
-        toast.success(`✅ ${generated} article(s) généré(s)!`);
-      } else {
-        toast.info('Aucun article généré');
+        toast.success(`🎉 ${generated} article(s) généré(s)!`);
       }
 
     } catch (err: any) {
@@ -356,28 +399,27 @@ RETOURNE CE JSON UNIQUEMENT:
       </div>
 
       <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl p-6 mb-8 text-white">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-4">
           <div>
             <h2 className="text-xl font-bold mb-1">Générer des articles maintenant</h2>
             <p className="text-green-100">Vérifie les sources et génère jusqu'à {settings.max_articles} articles</p>
           </div>
-          <button
-            onClick={() => runNow()}
-            disabled={isRunning}
-            className="bg-white text-green-600 px-6 py-3 rounded-lg font-bold hover:bg-green-50 disabled:opacity-50 flex items-center gap-2"
-          >
-            {isRunning ? (
-              <>
-                <span className="animate-spin">⏳</span>
-                Génération...
-              </>
-            ) : (
-              <>
-                <span>▶️</span>
-                Exécuter
-              </>
-            )}
-          </button>
+          <div className="flex gap-3">
+            <button
+              onClick={() => runNow(false)}
+              disabled={isRunning}
+              className="flex-1 bg-white text-green-600 px-6 py-3 rounded-lg font-bold hover:bg-green-50 disabled:opacity-50"
+            >
+              {isRunning ? '⏳ Génération...' : '▶️ Exécuter'}
+            </button>
+            <button
+              onClick={() => runNow(true)}
+              disabled={isRunning}
+              className="bg-green-700 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-800 disabled:opacity-50"
+            >
+              🔄 Réinitialiser & Exécuter
+            </button>
+          </div>
         </div>
       </div>
 
