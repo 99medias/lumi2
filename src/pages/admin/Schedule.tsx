@@ -60,21 +60,47 @@ export default function AdminSchedule() {
   const [saveMessage, setSaveMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
   const [runNowMessage, setRunNowMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
   const [minDateTime, setMinDateTime] = useState<string>('');
+  const [currentTime, setCurrentTime] = useState<string>('');
 
   useEffect(() => {
     loadSchedule();
     loadRecentRuns();
     setMinDateTime(getCurrentLocalDateTimeString());
 
-    const interval = setInterval(() => {
+    const minDateInterval = setInterval(() => {
       setMinDateTime(getCurrentLocalDateTimeString());
     }, 60000);
 
-    return () => clearInterval(interval);
+    return () => {
+      clearInterval(minDateInterval);
+    };
   }, []);
 
   useEffect(() => {
+    const updateCurrentTime = () => {
+      const now = new Date();
+      const tzOffset = -now.getTimezoneOffset() / 60;
+      const tzString = `GMT${tzOffset >= 0 ? '+' : ''}${tzOffset}`;
+      setCurrentTime(now.toLocaleString('fr-BE', {
+        weekday: 'long',
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      }) + ` (${tzString})`);
+    };
+
+    updateCurrentTime();
     calculateNextRun();
+
+    const nextRunInterval = setInterval(() => {
+      updateCurrentTime();
+      calculateNextRun();
+    }, 60000);
+
+    return () => clearInterval(nextRunInterval);
   }, [schedule]);
 
   const loadSchedule = async () => {
@@ -506,6 +532,11 @@ export default function AdminSchedule() {
                 <h2 className="text-lg font-bold text-gray-900">
                   {schedule.enabled ? '✅ Planification active' : '⏸️ Planification désactivée'}
                 </h2>
+                {currentTime && (
+                  <p className="text-sm text-gray-500 mt-1">
+                    Heure actuelle: {currentTime}
+                  </p>
+                )}
                 <p className="text-gray-600 mt-1">
                   Prochaine exécution: <strong>{nextRun}</strong>
                 </p>
