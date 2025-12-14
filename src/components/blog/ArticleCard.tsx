@@ -49,10 +49,11 @@ export default function ArticleCard({
   };
 
   const formatViews = (views: number) => {
-    if (views >= 1000) {
-      return `${(views / 1000).toFixed(1)}k`;
+    const viewsNum = views || 0;
+    if (viewsNum >= 1000) {
+      return `${(viewsNum / 1000).toFixed(1)}k`;
     }
-    return views.toString();
+    return viewsNum.toString();
   };
 
   return (

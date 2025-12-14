@@ -18,7 +18,7 @@ interface BlogPost {
   view_count: number;
   published_at: string;
   is_featured: boolean;
-  author: {
+  blog_authors?: {
     name: string;
   };
 }
@@ -60,7 +60,7 @@ export default function Blog() {
           view_count,
           published_at,
           is_featured,
-          author:blog_authors(name)
+          blog_authors!inner(name)
         `)
         .eq('status', 'published')
         .lte('published_at', new Date().toISOString())
@@ -183,7 +183,7 @@ export default function Blog() {
                       </h2>
                       <ArticleCard
                         {...featuredPost}
-                        authorName={featuredPost.author?.name || 'Équipe MaSécurité'}
+                        authorName={featuredPost.blog_authors?.name || 'Équipe MaSécurité'}
                         isFeatured
                       />
                     </div>
@@ -194,7 +194,7 @@ export default function Blog() {
                       <ArticleCard
                         key={post.id}
                         {...post}
-                        authorName={post.author?.name || 'Équipe MaSécurité'}
+                        authorName={post.blog_authors?.name || 'Équipe MaSécurité'}
                       />
                     ))}
                   </div>
