@@ -1,0 +1,50 @@
+{
+  "name": "MaSécurité.be - Cybersécurité Belgique",
+  "short_name": "MaSécurité",
+  "description": "Protection complète pour votre famille et votre vie numérique",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#10b981",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["security", "utilities"],
+  "lang": "fr-BE",
+  "dir": "ltr",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "Vérifier mes données",
+      "short_name": "Vérification",
+      "description": "Vérifier si vos données ont été compromises",
+      "url": "/verification",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "Analyse Rapide",
+      "short_name": "Scan",
+      "description": "Scanner votre appareil rapidement",
+      "url": "/analyse-rapide",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "any",
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}
