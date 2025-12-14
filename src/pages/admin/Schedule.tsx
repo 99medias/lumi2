@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Calendar, Clock, AlertCircle, CheckCircle, Loader } from 'lucide-react';
+import { Calendar, Clock, AlertCircle, CheckCircle, Loader, Play } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -48,9 +48,11 @@ export default function AdminSchedule() {
 
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
+  const [isRunningNow, setIsRunningNow] = useState(false);
   const [nextRun, setNextRun] = useState<string>('');
   const [recentRuns, setRecentRuns] = useState<ScheduleLog[]>([]);
   const [saveMessage, setSaveMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+  const [runNowMessage, setRunNowMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
   useEffect(() => {
     loadSchedule();
@@ -136,6 +138,38 @@ export default function AdminSchedule() {
     }));
   };
 
+  const runNow = async () => {
+    setIsRunningNow(true);
+    setRunNowMessage(null);
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/auto-post-scheduler`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+        }
+      });
+
+      if (!response.ok) {
+        throw new Error('Échec de l\'exécution');
+      }
+
+      const result = await response.json();
+      setRunNowMessage({
+        type: 'success',
+        text: `Exécution terminée! ${result.articlesGenerated || 0} article(s) généré(s) à partir de ${result.newItems || 0} nouvel(s) élément(s)`
+      });
+
+      loadRecentRuns();
+    } catch (error: any) {
+      setRunNowMessage({ type: 'error', text: 'Erreur: ' + error.message });
+    } finally {
+      setIsRunningNow(false);
+      setTimeout(() => setRunNowMessage(null), 10000);
+    }
+  };
+
   const saveSchedule = async () => {
     setIsSaving(true);
     setSaveMessage(null);
@@ -201,16 +235,47 @@ export default function AdminSchedule() {
                   Prochaine exécution: <strong>{nextRun}</strong>
                 </p>
               </div>
-              <label className="relative inline-flex items-center cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={schedule.enabled}
-                  onChange={(e) => setSchedule({...schedule, enabled: e.target.checked})}
-                  className="sr-only peer"
-                />
-                <div className="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-green-500"></div>
-              </label>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={runNow}
+                  disabled={isRunningNow}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                >
+                  {isRunningNow ? (
+                    <>
+                      <Loader className="w-4 h-4 animate-spin" />
+                      Exécution...
+                    </>
+                  ) : (
+                    <>
+                      <Play className="w-4 h-4" />
+                      Exécuter maintenant
+                    </>
+                  )}
+                </button>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={schedule.enabled}
+                    onChange={(e) => setSchedule({...schedule, enabled: e.target.checked})}
+                    className="sr-only peer"
+                  />
+                  <div className="w-14 h-7 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[4px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all peer-checked:bg-green-500"></div>
+                </label>
+              </div>
             </div>
+            {runNowMessage && (
+              <div className={`mt-4 p-3 rounded-lg flex items-start gap-2 ${
+                runNowMessage.type === 'success' ? 'bg-green-100 border border-green-300 text-green-800' : 'bg-red-100 border border-red-300 text-red-800'
+              }`}>
+                {runNowMessage.type === 'success' ? (
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                ) : (
+                  <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                )}
+                <span className="text-sm font-medium">{runNowMessage.text}</span>
+              </div>
+            )}
           </div>
 
           <div className="bg-white rounded-xl shadow-sm p-6">
