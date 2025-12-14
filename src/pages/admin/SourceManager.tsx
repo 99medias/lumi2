@@ -167,7 +167,7 @@ export default function SourceManager() {
   }
 
   return (
-    <>
+    <div className="pt-32">
       <PageHeader
         title="Gestion des Sources"
         subtitle="Configurez les sources de contenu pour la génération automatique"
@@ -358,6 +358,6 @@ export default function SourceManager() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

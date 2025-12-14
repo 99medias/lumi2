@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
-import { FileText, TrendingUp, Eye, Trash2, Sparkles, X, Loader, CheckCircle, AlertCircle } from 'lucide-react';
+import { FileText, TrendingUp, Eye, Trash2, Sparkles, X, Loader, CheckCircle, AlertCircle, ExternalLink } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
 import { supabase } from '../../lib/supabase';
+import { Link } from 'react-router-dom';
 
 interface SourceItem {
   id: string;
@@ -15,8 +16,14 @@ interface SourceItem {
   relevance_reason: string | null;
   suggested_angle: string | null;
   suggested_category: string | null;
+  generated_post_id: string | null;
   content_sources: {
     name: string;
+  };
+  blog_posts?: {
+    id: string;
+    slug: string;
+    title: string;
   };
 }
 
@@ -40,7 +47,8 @@ export default function ContentQueue() {
         .from('source_items')
         .select(`
           *,
-          content_sources!inner(name)
+          content_sources!inner(name),
+          blog_posts(id, slug, title)
         `)
         .order('detected_at', { ascending: false })
         .limit(50);
@@ -75,13 +83,18 @@ export default function ContentQueue() {
 
       const result = await response.json();
 
-      if (!response.ok) throw new Error(result.error || 'Generation failed');
+      if (!response.ok) {
+        const errorMsg = result.error || 'Generation failed';
+        console.error('Generation error:', result);
+        alert(`Erreur: ${errorMsg}`);
+        throw new Error(errorMsg);
+      }
 
-      alert('Article généré avec succès');
+      alert(`Article généré avec succès!\n\nTitre: ${result.slug}\nTokens: ${result.tokens_used}\nCoût: $${result.estimated_cost.toFixed(4)}`);
       loadItems();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error generating article:', error);
-      alert('Erreur lors de la génération');
+      alert(`Erreur lors de la génération: ${error.message}`);
     } finally {
       setProcessing(null);
     }
@@ -181,7 +194,7 @@ export default function ContentQueue() {
   }
 
   return (
-    <>
+    <div className="pt-32">
       <PageHeader
         title="File d'Attente de Contenu"
         subtitle="Gérez les articles détectés et générez du contenu automatiquement"
@@ -302,6 +315,37 @@ export default function ContentQueue() {
                             </>
                           )}
 
+                          {item.status === 'published' && item.blog_posts?.slug && (
+                            <Link
+                              to={`/blog/${item.blog_posts.slug}`}
+                              target="_blank"
+                              className="px-4 py-2 bg-green-50 text-green-600 rounded-lg font-semibold hover:bg-green-100 transition-colors flex items-center gap-2 whitespace-nowrap"
+                            >
+                              <ExternalLink className="w-4 h-4" />
+                              Voir Article
+                            </Link>
+                          )}
+
+                          {item.status === 'failed' && (
+                            <button
+                              onClick={() => handleGenerateArticle(item.id)}
+                              disabled={processing === item.id}
+                              className="px-4 py-2 bg-orange-600 text-white rounded-lg font-semibold hover:bg-orange-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 whitespace-nowrap"
+                            >
+                              {processing === item.id ? (
+                                <>
+                                  <Loader className="w-4 h-4 animate-spin" />
+                                  Réessaye...
+                                </>
+                              ) : (
+                                <>
+                                  <Sparkles className="w-4 h-4" />
+                                  Réessayer
+                                </>
+                              )}
+                            </button>
+                          )}
+
                           <button
                             onClick={() => setSelectedItem(item)}
                             className="px-4 py-2 bg-blue-50 text-blue-600 rounded-lg font-semibold hover:bg-blue-100 transition-colors flex items-center gap-2"
@@ -396,6 +440,6 @@ export default function ContentQueue() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

@@ -122,7 +122,7 @@ export default function Dashboard() {
   }
 
   return (
-    <>
+    <div className="pt-32">
       <PageHeader
         title="Tableau de Bord AI"
         subtitle="Vue d'ensemble du système de génération automatique de contenu"
@@ -319,6 +319,6 @@ export default function Dashboard() {
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }

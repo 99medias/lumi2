@@ -143,7 +143,7 @@ export default function Settings() {
   }
 
   return (
-    <>
+    <div className="pt-32">
       <PageHeader
         title="Paramètres AI"
         subtitle="Configuration du système de génération automatique de contenu"
@@ -327,6 +327,6 @@ export default function Settings() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
