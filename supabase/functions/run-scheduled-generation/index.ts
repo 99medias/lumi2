@@ -48,14 +48,100 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    // Get pending source items with high relevance
+    // STEP 1: Check all active sources and fetch new items
+    const { data: sources } = await supabase
+      .from('content_sources')
+      .select('*')
+      .eq('is_active', true);
+
+    let newItemsDetected = 0;
+
+    if (sources && sources.length > 0) {
+      for (const source of sources) {
+        if (source.type === 'rss') {
+          try {
+            const rssResponse = await fetch(source.url);
+            const rssText = await rssResponse.text();
+
+            const items = [];
+            const itemMatches = rssText.matchAll(/<item>([\s\S]*?)<\/item>/g);
+
+            for (const match of itemMatches) {
+              const itemXml = match[1];
+              const title = itemXml.match(/<title>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/title>/)?.[1] || '';
+              const link = itemXml.match(/<link>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/link>/)?.[1] || '';
+              const description = itemXml.match(/<description>(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?<\/description>/s)?.[1] || '';
+
+              if (title && link) {
+                items.push({
+                  title: title.replace(/<[^>]*>/g, '').trim(),
+                  link: link.trim(),
+                  description: description.replace(/<[^>]*>/g, '').substring(0, 1000).trim()
+                });
+              }
+            }
+
+            for (const item of items.slice(0, 10)) {
+              const { data: existing } = await supabase
+                .from('source_items')
+                .select('id')
+                .eq('original_url', item.link)
+                .maybeSingle();
+
+              if (!existing) {
+                const content = (item.title + ' ' + item.description).toLowerCase();
+                let score = 0.5;
+
+                const belgianKeywords = ['belgique', 'belge', 'bruxelles', 'wallonie', 'flandre', 'belfius', 'kbc', 'ing', 'proximus', 'bpost', 'itsme', 'safeonweb'];
+                const securityKeywords = ['phishing', 'arnaque', 'fraude', 'sécurité', 'piratage', 'virus', 'malware', 'escroquerie', 'hacker', 'cyberattaque', 'faille', 'vulnérabilité'];
+
+                belgianKeywords.forEach(kw => {
+                  if (content.includes(kw)) score += 0.1;
+                });
+                securityKeywords.forEach(kw => {
+                  if (content.includes(kw)) score += 0.05;
+                });
+
+                score = Math.min(score, 0.95);
+
+                await supabase.from('source_items').insert({
+                  source_id: source.id,
+                  title: item.title,
+                  original_url: item.link,
+                  original_content: item.description,
+                  summary: item.description.substring(0, 500),
+                  status: 'new',
+                  relevance_score: score,
+                  detected_at: new Date().toISOString()
+                });
+
+                newItemsDetected++;
+              }
+            }
+
+            await supabase
+              .from('content_sources')
+              .update({ last_checked_at: new Date().toISOString() })
+              .eq('id', source.id);
+
+          } catch (err) {
+            console.error(`Error fetching ${source.name}:`, err);
+          }
+        }
+      }
+    }
+
+    // STEP 2: Get items to generate
+    const minRelevance = settings.schedule_min_relevance || 0.7;
+    const maxArticles = settings.schedule_max_articles || 3;
+
     const { data: items, error: itemsError } = await supabase
       .from('source_items')
       .select('*, content_sources(name, priority)')
       .eq('status', 'new')
-      .gte('relevance_score', settings.schedule_min_relevance || 0.7)
+      .gte('relevance_score', minRelevance)
       .order('relevance_score', { ascending: false })
-      .limit(settings.schedule_max_articles || 3);
+      .limit(maxArticles);
 
     if (itemsError) {
       return new Response(
@@ -68,11 +154,22 @@ Deno.serve(async (req: Request) => {
     }
 
     if (!items || items.length === 0) {
+      await supabase.from('schedule_logs').insert({
+        status: 'success',
+        sources_checked: sources?.length || 0,
+        items_detected: newItemsDetected,
+        articles_generated: 0
+      });
+
       return new Response(
-        JSON.stringify({ 
-          success: true, 
+        JSON.stringify({
+          success: true,
+          sourcesChecked: sources?.length || 0,
+          newItemsDetected,
           articlesGenerated: 0,
-          message: 'Aucun article à générer' 
+          message: newItemsDetected > 0
+            ? `${newItemsDetected} nouveaux éléments détectés mais pertinence < ${minRelevance * 100}%`
+            : 'Aucun nouvel article trouvé dans les sources'
         }),
         {
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -80,14 +177,13 @@ Deno.serve(async (req: Request) => {
       );
     }
 
+    // STEP 3: Generate articles
     let generated = 0;
     const errors: string[] = [];
     const results = [];
 
-    // Process each item
     for (const item of items) {
       try {
-        // Call the generate-article function
         const generateUrl = `${Deno.env.get('SUPABASE_URL')}/functions/v1/generate-article`;
         const genResponse = await fetch(generateUrl, {
           method: 'POST',
@@ -119,17 +215,19 @@ Deno.serve(async (req: Request) => {
       }
     }
 
-    // Log the run
     await supabase.from('schedule_logs').insert({
       status: errors.length === 0 ? 'success' : 'partial',
-      sources_checked: items.length,
+      sources_checked: sources?.length || 0,
+      items_detected: newItemsDetected,
       articles_generated: generated,
       errors: errors.length > 0 ? errors : null
     });
 
     return new Response(
-      JSON.stringify({ 
-        success: true, 
+      JSON.stringify({
+        success: true,
+        sourcesChecked: sources?.length || 0,
+        newItemsDetected,
         articlesGenerated: generated,
         totalItems: items.length,
         results,
@@ -143,9 +241,9 @@ Deno.serve(async (req: Request) => {
   } catch (error: any) {
     console.error('Scheduled generation error:', error);
     return new Response(
-      JSON.stringify({ 
-        success: false, 
-        error: error.message 
+      JSON.stringify({
+        success: false,
+        error: error.message
       }),
       {
         status: 500,

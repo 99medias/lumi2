@@ -53,6 +53,7 @@ export default function AdminSchedule() {
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [isRunningNow, setIsRunningNow] = useState(false);
+  const [runStatus, setRunStatus] = useState<string>('');
   const [nextRun, setNextRun] = useState<string>('');
   const [recentRuns, setRecentRuns] = useState<ScheduleLog[]>([]);
   const [saveMessage, setSaveMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
@@ -173,6 +174,7 @@ export default function AdminSchedule() {
   const runNow = async () => {
     setIsRunningNow(true);
     setRunNowMessage(null);
+    setRunStatus('Vérification des sources...');
 
     try {
       const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/run-scheduled-generation`, {
@@ -190,33 +192,46 @@ export default function AdminSchedule() {
       const result = await response.json();
 
       if (result.success) {
+        const messages = [];
+
+        if (result.sourcesChecked > 0) {
+          messages.push(`${result.sourcesChecked} sources vérifiées`);
+        }
+        if (result.newItemsDetected > 0) {
+          messages.push(`${result.newItemsDetected} nouveaux éléments détectés`);
+        }
         if (result.articlesGenerated > 0) {
+          messages.push(`${result.articlesGenerated} article(s) généré(s)`);
           setRunNowMessage({
             type: 'success',
-            text: `✅ ${result.articlesGenerated} article(s) généré(s) à partir de ${result.totalItems} élément(s) trouvé(s)!`
+            text: `✅ ${result.articlesGenerated} article(s) généré(s)!`
           });
         } else {
           setRunNowMessage({
             type: 'success',
-            text: 'Aucun nouvel article à générer'
+            text: result.message || 'Aucun article généré'
           });
         }
+
+        setRunStatus(messages.join(' • ') || 'Terminé');
 
         if (result.errors && result.errors.length > 0) {
           console.error('Generation errors:', result.errors);
           setRunNowMessage({
             type: 'error',
-            text: `⚠️ ${result.articlesGenerated} article(s) généré(s), mais ${result.errors.length} erreur(s) rencontrée(s). Voir la console pour détails.`
+            text: `⚠️ ${result.articlesGenerated} article(s) généré(s), mais ${result.errors.length} erreur(s). Voir la console.`
           });
         }
 
         loadRecentRuns();
       } else {
         setRunNowMessage({ type: 'error', text: 'Erreur: ' + result.error });
+        setRunStatus('Erreur: ' + result.error);
       }
     } catch (error: unknown) {
       const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
       setRunNowMessage({ type: 'error', text: 'Erreur: ' + errorMessage });
+      setRunStatus('Erreur');
     } finally {
       setIsRunningNow(false);
       setTimeout(() => setRunNowMessage(null), 10000);
@@ -311,6 +326,11 @@ export default function AdminSchedule() {
                 <p className="text-gray-600 mt-1">
                   Prochaine exécution: <strong>{nextRun}</strong>
                 </p>
+                {runStatus && (
+                  <p className="text-sm text-blue-600 font-medium mt-2">
+                    {runStatus}
+                  </p>
+                )}
               </div>
               <div className="flex items-center gap-3">
                 <button
