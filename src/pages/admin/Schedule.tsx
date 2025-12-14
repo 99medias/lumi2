@@ -55,6 +55,7 @@ export default function AdminSchedule() {
   const [isRunningNow, setIsRunningNow] = useState(false);
   const [runStatus, setRunStatus] = useState<string>('');
   const [nextRun, setNextRun] = useState<string>('');
+  const [upcomingRuns, setUpcomingRuns] = useState<string[]>([]);
   const [recentRuns, setRecentRuns] = useState<ScheduleLog[]>([]);
   const [saveMessage, setSaveMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
   const [runNowMessage, setRunNowMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
@@ -115,9 +116,81 @@ export default function AdminSchedule() {
     }
   };
 
+  const getExecutionTimesForFrequency = (frequency: string, baseTime: string): string[] => {
+    const [baseHours, baseMinutes] = baseTime.split(':').map(Number);
+
+    switch (frequency) {
+      case 'hourly':
+        return Array.from({ length: 24 }, (_, i) => {
+          const hour = i.toString().padStart(2, '0');
+          return `${hour}:${baseMinutes.toString().padStart(2, '0')}`;
+        });
+
+      case 'twice_daily':
+        return [
+          baseTime,
+          `${(baseHours + 6).toString().padStart(2, '0')}:${baseMinutes.toString().padStart(2, '0')}`
+        ];
+
+      case 'three_times_daily':
+        return [
+          baseTime,
+          `${(baseHours + 4).toString().padStart(2, '0')}:${baseMinutes.toString().padStart(2, '0')}`,
+          `${(baseHours + 8).toString().padStart(2, '0')}:${baseMinutes.toString().padStart(2, '0')}`
+        ];
+
+      case 'four_times_daily':
+        return [
+          baseTime,
+          `${(baseHours + 3).toString().padStart(2, '0')}:${baseMinutes.toString().padStart(2, '0')}`,
+          `${(baseHours + 6).toString().padStart(2, '0')}:${baseMinutes.toString().padStart(2, '0')}`,
+          `${(baseHours + 9).toString().padStart(2, '0')}:${baseMinutes.toString().padStart(2, '0')}`
+        ];
+
+      case 'five_times_daily':
+        return [
+          baseTime,
+          `${(baseHours + 2).toString().padStart(2, '0')}:${baseMinutes.toString().padStart(2, '0')}`,
+          `${(baseHours + 4).toString().padStart(2, '0')}:${baseMinutes.toString().padStart(2, '0')}`,
+          `${(baseHours + 6).toString().padStart(2, '0')}:${baseMinutes.toString().padStart(2, '0')}`,
+          `${(baseHours + 8).toString().padStart(2, '0')}:${baseMinutes.toString().padStart(2, '0')}`
+        ];
+
+      case 'daily':
+      case 'weekly':
+      default:
+        return [baseTime];
+    }
+  };
+
+  const findNextValidDay = (date: Date, validDays: string[]): Date => {
+    const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+    const result = new Date(date);
+    let attempts = 0;
+    const maxAttempts = 7;
+
+    while (!validDays.includes(dayNames[result.getDay()]) && attempts < maxAttempts) {
+      result.setDate(result.getDate() + 1);
+      attempts++;
+    }
+
+    if (attempts >= maxAttempts) {
+      throw new Error('Aucun jour valide sélectionné');
+    }
+
+    return result;
+  };
+
   const calculateNextRun = () => {
     if (!schedule.enabled) {
       setNextRun('Planification désactivée');
+      setUpcomingRuns([]);
+      return;
+    }
+
+    if (schedule.generate_days.length === 0) {
+      setNextRun('Aucun jour sélectionné');
+      setUpcomingRuns([]);
       return;
     }
 
@@ -125,6 +198,8 @@ export default function AdminSchedule() {
     const startDate = schedule.start_date ? new Date(schedule.start_date) : now;
 
     if (startDate > now) {
+      const tzOffset = -now.getTimezoneOffset() / 60;
+      const tzString = `GMT${tzOffset >= 0 ? '+' : ''}${tzOffset}`;
       setNextRun(`Démarrage prévu le ${startDate.toLocaleString('fr-BE', {
         weekday: 'long',
         day: 'numeric',
@@ -132,7 +207,8 @@ export default function AdminSchedule() {
         year: 'numeric',
         hour: '2-digit',
         minute: '2-digit'
-      })}`);
+      })} (${tzString})`);
+      setUpcomingRuns([]);
       return;
     }
 
@@ -140,35 +216,107 @@ export default function AdminSchedule() {
       const endDate = new Date(schedule.end_date);
       if (now > endDate) {
         setNextRun('Planification terminée (date de fin dépassée)');
+        setUpcomingRuns([]);
         return;
       }
     }
 
-    const [hours, minutes] = schedule.generate_time.split(':').map(Number);
-    let next = new Date(Math.max(now.getTime(), startDate.getTime()));
-    next.setHours(hours, minutes, 0, 0);
+    try {
+      const executionTimes = getExecutionTimesForFrequency(
+        schedule.generate_frequency,
+        schedule.generate_time
+      );
 
-    if (next <= now) {
-      next.setDate(next.getDate() + 1);
+      const allUpcoming: Date[] = [];
+      let foundNext = false;
+      let nextExecution: Date | null = null;
+
+      const currentDate = new Date(Math.max(now.getTime(), startDate.getTime()));
+
+      for (let dayOffset = 0; dayOffset < 8 && allUpcoming.length < 5; dayOffset++) {
+        const checkDate = new Date(currentDate);
+        checkDate.setDate(checkDate.getDate() + dayOffset);
+
+        try {
+          const validDate = findNextValidDay(checkDate, schedule.generate_days);
+
+          if (dayOffset === 0 || validDate.toDateString() === checkDate.toDateString()) {
+            for (const time of executionTimes) {
+              const [hours, minutes] = time.split(':').map(Number);
+              const execTime = new Date(validDate);
+              execTime.setHours(hours, minutes, 0, 0);
+
+              if (schedule.end_date && execTime > new Date(schedule.end_date)) {
+                continue;
+              }
+
+              if (execTime > now) {
+                allUpcoming.push(execTime);
+
+                if (!foundNext) {
+                  nextExecution = execTime;
+                  foundNext = true;
+                }
+              }
+            }
+          } else if (validDate > checkDate) {
+            checkDate.setTime(validDate.getTime());
+            dayOffset--;
+          }
+        } catch (error) {
+          break;
+        }
+      }
+
+      if (!nextExecution) {
+        setNextRun('Aucune exécution prévue (date de fin atteinte)');
+        setUpcomingRuns([]);
+        return;
+      }
+
+      const tzOffset = -now.getTimezoneOffset() / 60;
+      const tzString = `GMT${tzOffset >= 0 ? '+' : ''}${tzOffset}`;
+
+      const formatDate = (date: Date, includeYear: boolean = false) => {
+        const opts: Intl.DateTimeFormatOptions = {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+          hour: '2-digit',
+          minute: '2-digit'
+        };
+        if (includeYear) opts.year = 'numeric';
+        return date.toLocaleString('fr-BE', opts);
+      };
+
+      const timeDiff = nextExecution.getTime() - now.getTime();
+      const minutesUntil = Math.floor(timeDiff / 1000 / 60);
+      const hoursUntil = Math.floor(minutesUntil / 60);
+
+      let nextRunText = formatDate(nextExecution);
+
+      if (minutesUntil < 60) {
+        nextRunText += ` (dans ${minutesUntil} minute${minutesUntil > 1 ? 's' : ''})`;
+      } else if (hoursUntil < 24) {
+        nextRunText += ` (dans ${hoursUntil} heure${hoursUntil > 1 ? 's' : ''})`;
+      }
+
+      nextRunText += ` - ${tzString}`;
+
+      setNextRun(nextRunText);
+
+      if (allUpcoming.length > 1) {
+        const upcoming = allUpcoming.slice(1, 4).map(date => formatDate(date));
+        setUpcomingRuns(upcoming);
+      } else {
+        setUpcomingRuns([]);
+      }
+
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Erreur de configuration';
+      setNextRun(errorMessage);
+      setUpcomingRuns([]);
     }
-
-    const dayNames = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-    while (!schedule.generate_days.includes(dayNames[next.getDay()])) {
-      next.setDate(next.getDate() + 1);
-    }
-
-    if (schedule.end_date && next > new Date(schedule.end_date)) {
-      setNextRun('Aucune exécution prévue (date de fin atteinte)');
-      return;
-    }
-
-    setNextRun(next.toLocaleString('fr-BE', {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      hour: '2-digit',
-      minute: '2-digit'
-    }));
   };
 
   const runNow = async () => {
@@ -319,13 +467,23 @@ export default function AdminSchedule() {
 
           <div className={`rounded-xl p-6 border-2 ${schedule.enabled ? 'bg-green-50 border-green-200' : 'bg-gray-50 border-gray-200'}`}>
             <div className="flex justify-between items-center">
-              <div>
+              <div className="flex-1">
                 <h2 className="text-lg font-bold text-gray-900">
                   {schedule.enabled ? '✅ Planification active' : '⏸️ Planification désactivée'}
                 </h2>
                 <p className="text-gray-600 mt-1">
                   Prochaine exécution: <strong>{nextRun}</strong>
                 </p>
+                {upcomingRuns.length > 0 && (
+                  <div className="mt-2 text-sm text-gray-500">
+                    <p className="font-semibold">Prochaines exécutions:</p>
+                    <ul className="list-disc list-inside ml-2 space-y-1 mt-1">
+                      {upcomingRuns.map((run, index) => (
+                        <li key={index}>{run}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
                 {runStatus && (
                   <p className="text-sm text-blue-600 font-medium mt-2">
                     {runStatus}
@@ -400,13 +558,26 @@ export default function AdminSchedule() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Heure</label>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  {schedule.generate_frequency === 'hourly' ? 'Heure de début' :
+                   schedule.generate_frequency === 'daily' || schedule.generate_frequency === 'weekly' ? 'Heure' :
+                   'Première exécution'}
+                </label>
                 <input
                   type="time"
                   value={schedule.generate_time}
                   onChange={(e) => setSchedule({...schedule, generate_time: e.target.value})}
                   className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-green-500 focus:border-transparent"
                 />
+                <p className="text-xs text-gray-500 mt-1">
+                  {schedule.generate_frequency === 'hourly' ? 'Génération toutes les heures à partir de cette heure' :
+                   schedule.generate_frequency === 'twice_daily' ? 'Génération à cette heure et 6h plus tard' :
+                   schedule.generate_frequency === 'three_times_daily' ? 'Génération à cette heure, puis +4h et +8h' :
+                   schedule.generate_frequency === 'four_times_daily' ? 'Génération à cette heure, puis +3h, +6h, +9h' :
+                   schedule.generate_frequency === 'five_times_daily' ? 'Génération à cette heure, puis +2h, +4h, +6h, +8h' :
+                   schedule.generate_frequency === 'weekly' ? 'Génération une fois par semaine aux jours sélectionnés' :
+                   'Génération quotidienne à cette heure'}
+                </p>
               </div>
             </div>
 
