@@ -231,6 +231,11 @@ export default function AdminSchedule() {
     const now = new Date();
     const startDate = schedule.start_date ? new Date(schedule.start_date) : now;
 
+    console.log('Current time:', now.toISOString());
+    console.log('Start date:', startDate.toISOString());
+    console.log('Valid days:', schedule.generate_days);
+    console.log('Time:', schedule.generate_time);
+
     if (startDate > now) {
       const tzOffset = -now.getTimezoneOffset() / 60;
       const tzString = `GMT${tzOffset >= 0 ? '+' : ''}${tzOffset}`;
@@ -271,14 +276,19 @@ export default function AdminSchedule() {
         const checkDate = new Date(currentDate);
         checkDate.setDate(checkDate.getDate() + dayOffset);
 
+        console.log(`Checking dayOffset=${dayOffset}, checkDate=${checkDate.toISOString()}`);
+
         try {
           const validDate = findNextValidDay(checkDate, schedule.generate_days);
+          console.log(`  validDate=${validDate.toISOString()}, checkDate=${checkDate.toISOString()}`);
 
           if (dayOffset === 0 || validDate.toDateString() === checkDate.toDateString()) {
             for (const time of executionTimes) {
               const [hours, minutes] = time.split(':').map(Number);
               const execTime = new Date(validDate);
               execTime.setHours(hours, minutes, 0, 0);
+
+              console.log(`    Checking time ${time}: execTime=${execTime.toISOString()}, now=${now.toISOString()}, execTime > now = ${execTime > now}`);
 
               if (schedule.end_date && execTime > new Date(schedule.end_date)) {
                 continue;
@@ -294,6 +304,7 @@ export default function AdminSchedule() {
               }
             }
           } else if (validDate > checkDate) {
+            console.log(`  validDate > checkDate, adjusting`);
             checkDate.setTime(validDate.getTime());
             dayOffset--;
           }
