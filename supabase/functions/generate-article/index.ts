@@ -55,6 +55,14 @@ async function generateArticle(openaiKey: string, model: string, item: any, rele
   const prompt = `You are a Belgian cybersecurity journalist writing for MaSécurité.be.
 Your audience is French-speaking Belgian consumers (not technical experts).
 
+IMPORTANT: Write the ENTIRE article in French (Belgian French).
+- Translate all content to French
+- Use Belgian French terminology (GSM, not portable)
+- Reference Belgian institutions: Safeonweb.be, CCB, CERT.be
+- If mentioning banks, use: Belfius, KBC, ING, BNP Paribas Fortis
+- The title, meta description, excerpt, content - EVERYTHING must be in French
+- Never output English text
+
 SOURCE MATERIAL:
 Title: ${item.title}
 Content: ${item.original_content || item.summary || ''}
@@ -77,29 +85,29 @@ WRITING GUIDELINES:
 10. Tone: Professional but accessible, slightly urgent for alerts
 
 STRUCTURE:
-- Compelling headline (max 60 characters)
-- Opening paragraph that summarizes the threat/news
-- Context section (what is this, why it matters)
+- Compelling headline in French (max 60 characters)
+- Opening paragraph that summarizes the threat/news in French
+- Context section (what is this, why it matters) in French
 - Belgian-specific impact
-- "Ce que vous devez faire" action items
-- Closing with reassurance or next steps
+- "Ce que vous devez faire" action items in French
+- Closing with reassurance or next steps in French
 
 SEO REQUIREMENTS:
-- Meta title (max 60 chars, include "Belgique" if relevant)
-- Meta description (max 155 chars, include call-to-action)
-- 5 relevant tags
-- 3 SEO keywords
+- Meta title in French (max 60 chars, include "Belgique" if relevant)
+- Meta description in French (max 155 chars, include call-to-action)
+- 5 relevant tags in French
+- 3 SEO keywords in French
 
 OUTPUT FORMAT (JSON):
 {
-  "title": "...",
-  "meta_title": "...",
-  "meta_description": "...",
-  "excerpt": "...(max 200 chars)...",
-  "content": "...(full HTML article with <p>, <h2>, <ul>, <strong> tags)...",
+  "title": "...(French title)...",
+  "meta_title": "...(French meta title)...",
+  "meta_description": "...(French meta description)...",
+  "excerpt": "...(French excerpt, max 200 chars)...",
+  "content": "...(full HTML article in French with <p>, <h2>, <ul>, <strong> tags)...",
   "category": "${relevance.category}",
-  "tags": ["tag1", "tag2", ...],
-  "seo_keywords": ["keyword1", "keyword2", "keyword3"],
+  "tags": ["tag1 (French)", "tag2 (French)", ...],
+  "seo_keywords": ["keyword1 (French)", "keyword2 (French)", "keyword3 (French)"],
   "reading_time_minutes": 4
 }`;
 
@@ -112,7 +120,7 @@ OUTPUT FORMAT (JSON):
     body: JSON.stringify({
       model,
       messages: [
-        { role: 'system', content: 'You are a professional Belgian cybersecurity journalist. Always respond with valid JSON.' },
+        { role: 'system', content: 'You are a professional Belgian cybersecurity journalist writing in French. Always respond with valid JSON. Write ALL content in French (Belgian French), never in English.' },
         { role: 'user', content: prompt }
       ],
       response_format: { type: 'json_object' },
