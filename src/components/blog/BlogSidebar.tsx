@@ -15,6 +15,10 @@ interface BlogSidebarProps {
 export default function BlogSidebar({ popularArticles = [] }: BlogSidebarProps) {
   const { t } = useLanguage();
 
+  const formatViews = (views: number) => {
+    return views.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  };
+
   const officialResources = [
     { name: 'Safeonweb.be', url: 'https://safeonweb.be', description: 'Signaler une menace' },
     { name: 'CERT.be', url: 'https://cert.be', description: 'Alertes de sécurité' },
@@ -45,7 +49,7 @@ export default function BlogSidebar({ popularArticles = [] }: BlogSidebarProps) 
                     <h4 className="font-semibold text-sm group-hover:text-green-600 transition-colors line-clamp-2">
                       {article.title}
                     </h4>
-                    <p className="text-xs text-gray-500 mt-1">{article.viewCount} lectures</p>
+                    <p className="text-xs text-gray-500 mt-1">{formatViews(article.viewCount)} lectures</p>
                   </div>
                 </div>
               </Link>

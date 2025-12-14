@@ -10,6 +10,7 @@ interface ArticleCardProps {
   readingTime: number;
   viewCount: number;
   publishedAt: string;
+  updatedAt?: string;
   authorName: string;
   isFeatured?: boolean;
 }
@@ -37,29 +38,43 @@ export default function ArticleCard({
   readingTime,
   viewCount,
   publishedAt,
+  updatedAt,
   authorName,
   isFeatured = false,
 }: ArticleCardProps) {
   const formatDate = (date: string) => {
-    return new Date(date).toLocaleDateString('fr-BE', {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric',
-    });
+    const now = new Date();
+    const published = new Date(date);
+    const diffTime = Math.abs(now.getTime() - published.getTime());
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 0) {
+      return "Aujourd'hui";
+    } else if (diffDays === 1) {
+      return 'Hier';
+    } else if (diffDays < 7) {
+      return `Il y a ${diffDays} jours`;
+    } else {
+      return published.toLocaleDateString('fr-BE', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric',
+      }).replace('.', '');
+    }
   };
 
   const formatViews = (views: number) => {
     const viewsNum = views || 0;
-    if (viewsNum >= 1000) {
-      return `${(viewsNum / 1000).toFixed(1)}k`;
-    }
-    return viewsNum.toString();
+    return viewsNum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
   };
+
+  const isUpdated = updatedAt && updatedAt !== publishedAt;
+  const displayDate = isUpdated ? updatedAt : publishedAt;
 
   return (
     <Link
       to={`/blog/${slug}`}
-      className={`group block bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden ${
+      className={`group block bg-white rounded-xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden ${
         isFeatured ? 'md:col-span-2 lg:col-span-3' : ''
       }`}
     >
@@ -91,24 +106,34 @@ export default function ArticleCard({
             {title}
           </h3>
 
-          <p className={`text-gray-600 line-clamp-3 mb-4 ${isFeatured ? 'text-lg' : ''}`}>
+          <p className={`text-gray-600 line-clamp-2 mb-4 ${isFeatured ? 'text-lg' : ''}`}>
             {excerpt}
           </p>
 
-          <div className="flex items-center justify-between text-sm text-gray-500 pt-4 border-t border-gray-100">
-            <div className="flex items-center gap-4">
-              <span className="flex items-center gap-1">
-                👤 {authorName}
-              </span>
-              <span className="flex items-center gap-1">
-                <Calendar className="w-4 h-4" />
-                {formatDate(publishedAt)}
-              </span>
+          <div className="space-y-2 pt-4 border-t border-gray-100">
+            <div className="flex items-center justify-between text-sm text-gray-500">
+              <div className="flex items-center gap-4">
+                <span className="flex items-center gap-1">
+                  👤 {authorName}
+                </span>
+                <span className="flex items-center gap-1">
+                  <Eye className="w-4 h-4" />
+                  {formatViews(viewCount)} lectures
+                </span>
+              </div>
             </div>
-            <span className="flex items-center gap-1">
-              <Eye className="w-4 h-4" />
-              {formatViews(viewCount)} lectures
-            </span>
+            <div className="text-xs text-gray-400">
+              {isUpdated ? (
+                <span>
+                  Publié le {formatDate(publishedAt)} • <span className="text-green-600 font-medium">Mis à jour le {formatDate(displayDate)}</span>
+                </span>
+              ) : (
+                <span className="flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  {formatDate(publishedAt)}
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>

@@ -17,6 +17,7 @@ interface BlogPost {
   reading_time: number;
   view_count: number;
   published_at: string;
+  updated_at?: string;
   is_featured: boolean;
   blog_authors?: {
     name: string;
@@ -59,6 +60,7 @@ export default function Blog() {
           reading_time,
           view_count,
           published_at,
+          updated_at,
           is_featured,
           blog_authors!inner(name)
         `)
@@ -144,12 +146,12 @@ export default function Blog() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2">
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
               {categories.map((category) => (
                 <button
                   key={category.value}
                   onClick={() => setActiveCategory(category.value)}
-                  className={`px-4 py-2 rounded-full font-semibold transition-all ${
+                  className={`px-4 py-2 rounded-full font-semibold transition-all whitespace-nowrap ${
                     activeCategory === category.value
                       ? 'bg-green-600 text-white shadow-lg'
                       : 'bg-white text-gray-700 hover:bg-green-50 shadow-sm'
@@ -162,7 +164,7 @@ export default function Blog() {
           </div>
 
           <div className="grid lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-3 order-2 lg:order-1">
               {loading ? (
                 <div className="text-center py-12">
                   <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-green-600 mx-auto"></div>
@@ -182,18 +184,34 @@ export default function Blog() {
                         <span className="text-green-600">⭐</span> Article à la une
                       </h2>
                       <ArticleCard
-                        {...featuredPost}
+                        slug={featuredPost.slug}
+                        title={featuredPost.title}
+                        excerpt={featuredPost.excerpt}
+                        featuredImage={featuredPost.featured_image}
+                        category={featuredPost.category}
+                        readingTime={featuredPost.reading_time}
+                        viewCount={featuredPost.view_count}
+                        publishedAt={featuredPost.published_at}
+                        updatedAt={featuredPost.updated_at}
                         authorName={featuredPost.blog_authors?.name || 'Équipe MaSécurité'}
                         isFeatured
                       />
                     </div>
                   )}
 
-                  <div className="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
                     {regularPosts.map((post) => (
                       <ArticleCard
                         key={post.id}
-                        {...post}
+                        slug={post.slug}
+                        title={post.title}
+                        excerpt={post.excerpt}
+                        featuredImage={post.featured_image}
+                        category={post.category}
+                        readingTime={post.reading_time}
+                        viewCount={post.view_count}
+                        publishedAt={post.published_at}
+                        updatedAt={post.updated_at}
                         authorName={post.blog_authors?.name || 'Équipe MaSécurité'}
                       />
                     ))}
@@ -202,7 +220,7 @@ export default function Blog() {
               )}
             </div>
 
-            <div>
+            <div className="order-1 lg:order-2">
               <BlogSidebar popularArticles={popularPosts} />
             </div>
           </div>
