@@ -191,8 +191,7 @@ export default function Diagnostics() {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            itemId: testItem.id,
-            model: model
+            source_item_id: testItem.id
           })
         });
 
@@ -200,10 +199,11 @@ export default function Diagnostics() {
 
         if (result.error) {
           addResult('generation', 'error', `Erreur génération: ${result.error}`);
-        } else if (result.article) {
+        } else if (result.success) {
           addResult('generation', 'success', 'Article généré avec succès', {
-            title: result.article.title,
-            content_length: result.article.content?.length
+            post_id: result.post_id,
+            slug: result.slug,
+            tokens_used: result.tokens_used
           });
         } else {
           addResult('generation', 'error', 'Pas de contenu dans la réponse');

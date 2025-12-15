@@ -271,9 +271,7 @@ export default function AdminSchedule() {
               'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-              itemId: item.id,
-              model: aiSettings?.openai_model || 'gpt-4o-mini',
-              autoPublish: aiSettings?.schedule_auto_publish || false
+              source_item_id: item.id
             })
           });
 
@@ -283,12 +281,12 @@ export default function AdminSchedule() {
             throw new Error(result.error);
           }
 
-          if (!result.post) {
-            throw new Error('No post returned from generation');
+          if (!result.success) {
+            throw new Error('Generation failed');
           }
 
           generated++;
-          toast.success(`✅ Publié: ${result.post.title.substring(0, 40)}...`);
+          toast.success(`✅ Publié: ${result.slug}`);
 
         } catch (err: any) {
           console.error('Generation error for', item.title, ':', err);
