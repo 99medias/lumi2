@@ -22,6 +22,7 @@ import SourceManager from './pages/admin/SourceManager';
 import ContentQueue from './pages/admin/ContentQueue';
 import Dashboard from './pages/admin/Dashboard';
 import Schedule from './pages/admin/Schedule';
+import Diagnostics from './pages/admin/Diagnostics';
 import ScrollToTop from './components/ScrollToTop';
 
 function AppRouter() {
@@ -52,6 +53,7 @@ function AppRouter() {
         <Route path="/admin/sources" element={<SourceManager />} />
         <Route path="/admin/content-queue" element={<ContentQueue />} />
         <Route path="/admin/schedule" element={<Schedule />} />
+        <Route path="/admin/diagnostics" element={<Diagnostics />} />
       </Routes>
     </Router>
   );

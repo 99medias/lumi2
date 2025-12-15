@@ -249,6 +249,12 @@ export default function Dashboard() {
                 >
                   <span>📅</span> Planification
                 </Link>
+                <Link
+                  to="/admin/diagnostics"
+                  className="block w-full px-4 py-3 bg-red-600 text-white rounded-lg font-semibold hover:bg-red-700 transition-colors text-center flex items-center justify-center gap-2"
+                >
+                  <span>🔍</span> Diagnostics
+                </Link>
 
                 <button
                   onClick={async () => {
