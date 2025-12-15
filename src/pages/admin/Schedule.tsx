@@ -99,15 +99,9 @@ export default function AdminSchedule() {
     try {
       const { data: aiSettings } = await supabase
         .from('ai_settings')
-        .select('openai_api_key, openai_model, schedule_max_articles, schedule_min_relevance, schedule_auto_publish')
+        .select('openai_model, schedule_max_articles, schedule_min_relevance, schedule_auto_publish')
         .limit(1)
         .maybeSingle();
-
-      if (!aiSettings?.openai_api_key) {
-        toast.error('Configurez votre clé OpenAI dans Paramètres');
-        setIsRunning(false);
-        return;
-      }
 
       if (forceReset) {
         await supabase

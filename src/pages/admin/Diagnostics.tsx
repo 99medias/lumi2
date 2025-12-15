@@ -46,27 +46,20 @@ export default function Diagnostics() {
 
     // Step 2: Check AI Settings
     addResult('settings', 'running', 'Vérification des paramètres AI...');
-    let apiKey = '';
     let model = 'gpt-4o-mini';
     try {
       const { data, error } = await supabase
         .from('ai_settings')
-        .select('openai_api_key, openai_model, schedule_max_articles, schedule_min_relevance')
+        .select('openai_model, schedule_max_articles, schedule_min_relevance')
         .limit(1)
         .maybeSingle();
 
       if (error) throw error;
-      if (!data?.openai_api_key) {
-        addResult('settings', 'error', 'Clé API OpenAI non configurée');
-        setIsRunning(false);
-        return;
-      }
 
-      apiKey = data.openai_api_key;
-      model = data.openai_model || 'gpt-4o-mini';
+      model = data?.openai_model || 'gpt-4o-mini';
       addResult('settings', 'success', `Paramètres OK (Modèle: ${model})`, {
-        max_articles: data.schedule_max_articles,
-        min_relevance: data.schedule_min_relevance
+        max_articles: data?.schedule_max_articles,
+        min_relevance: data?.schedule_min_relevance
       });
     } catch (err: any) {
       addResult('settings', 'error', `Erreur: ${err.message}`);
@@ -152,35 +145,25 @@ export default function Diagnostics() {
     // Step 6: Test OpenAI Connection
     addResult('openai', 'running', 'Test de connexion OpenAI...');
     try {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/test-openai-connection`, {
         method: 'POST',
         headers: {
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
         },
         body: JSON.stringify({
-          model: model,
-          messages: [
-            { role: 'system', content: 'Tu es un assistant test.' },
-            { role: 'user', content: 'Réponds juste "OK"' }
-          ],
-          max_tokens: 10
+          model: model
         })
       });
 
-      const data = await response.json();
+      const result = await response.json();
 
-      if (data.error) {
-        addResult('openai', 'error', `Erreur OpenAI: ${data.error.message}`, {
-          error_type: data.error.type,
-          code: data.error.code
-        });
-      } else if (data.choices?.[0]?.message?.content) {
-        addResult('openai', 'success', 'OpenAI répond correctement', {
-          response: data.choices[0].message.content
+      if (result.success) {
+        addResult('openai', 'success', result.message, {
+          model: result.model
         });
       } else {
-        addResult('openai', 'error', 'Réponse OpenAI invalide', { data });
+        addResult('openai', 'error', result.message);
       }
     } catch (err: any) {
       addResult('openai', 'error', `Erreur de connexion OpenAI: ${err.message}`, {
@@ -322,7 +305,7 @@ export default function Diagnostics() {
               <li>• Désactivez votre ad blocker pour ce site</li>
             )}
             {results.find(r => r.step === 'settings' && r.status === 'error') && (
-              <li>• Configurez votre clé OpenAI dans Paramètres</li>
+              <li>• Vérifiez les paramètres AI dans Paramètres</li>
             )}
             {results.find(r => r.step === 'items' && r.status === 'error') && (
               <li>• Exécutez d'abord le check RSS dans l'onglet Planification</li>
