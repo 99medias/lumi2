@@ -142,7 +142,33 @@ export default function Diagnostics() {
       addResult('items', 'error', `Erreur: ${err.message}`);
     }
 
-    // Step 6: Test OpenAI Connection
+    // Step 6: Debug OpenAI API Key
+    addResult('debug', 'running', 'Diagnostic détaillé de la clé OpenAI...');
+    try {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/debug-openai`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+        }
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        addResult('debug', 'success', result.message, result.diagnostics);
+      } else {
+        addResult('debug', 'error', result.message, {
+          ...result.diagnostics,
+          help: result.help,
+          responseBody: result.responseBody
+        });
+      }
+    } catch (err: any) {
+      addResult('debug', 'error', `Erreur: ${err.message}`);
+    }
+
+    // Step 7: Test OpenAI Connection
     addResult('openai', 'running', 'Test de connexion OpenAI...');
     try {
       const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/test-openai-connection`, {
@@ -171,7 +197,7 @@ export default function Diagnostics() {
       });
     }
 
-    // Step 7: Test Article Generation
+    // Step 8: Test Article Generation
     addResult('generation', 'running', 'Test de génération d\'article...');
     try {
       const { data: testItem } = await supabase
