@@ -15,11 +15,13 @@ Deno.serve(async (req: Request) => {
   }
 
   try {
-    const { api_key, model } = await req.json();
+    const { model } = await req.json();
 
-    if (!api_key) {
+    const apiKey = Deno.env.get('OPENAI_API_KEY');
+
+    if (!apiKey) {
       return new Response(
-        JSON.stringify({ success: false, message: 'Clé API manquante' }),
+        JSON.stringify({ success: false, message: 'Clé API non configurée dans Supabase secrets' }),
         {
           status: 400,
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -30,7 +32,7 @@ Deno.serve(async (req: Request) => {
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${api_key}`,
+        'Authorization': `Bearer ${apiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
