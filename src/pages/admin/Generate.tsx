@@ -111,15 +111,6 @@ export default function AdminGenerate() {
     setToast({ type: 'info', message: '🤖 Génération en cours...' });
 
     try {
-      const { data: settings } = await supabase.from('ai_settings').select('openai_model').eq('id', 'default').maybeSingle();
-
-      const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
-      if (!openaiKey) {
-        setToast({ type: 'error', message: 'Clé OpenAI manquante dans les variables d\'environnement' });
-        setIsGenerating(false);
-        return;
-      }
-
       const { data: items } = await supabase.from('source_items').select('*').eq('status', 'new')
         .gte('relevance_score', minRelevance / 100).order('relevance_score', { ascending: false }).limit(maxArticles);
 
@@ -130,82 +121,41 @@ export default function AdminGenerate() {
       }
 
       let generated = 0;
+      let failed = 0;
+
       for (const item of items) {
         try {
-          await supabase.from('source_items').update({ status: 'processing' }).eq('id', item.id);
-
-          const response = await fetch('https://api.openai.com/v1/chat/completions', {
+          const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-article`;
+          const response = await fetch(apiUrl, {
             method: 'POST',
             headers: {
+              'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${openaiKey}`
             },
-            body: JSON.stringify({
-              model: settings?.openai_model || 'gpt-4o-mini',
-              messages: [
-                {
-                  role: 'system',
-                  content: `Tu es journaliste pour MaSécurité.be (Belgique). Écris en français belge. Mentionne Safeonweb.be, CCB, banques belges si pertinent. Inclus "Ce que vous devez faire". 500-700 mots. Retourne JSON: {"title":"...","excerpt":"...","content":"<p>HTML</p>","category":"alerte|guide|arnaque|actualite","tags":["..."]}`
-                },
-                {
-                  role: 'user',
-                  content: `Article sur: ${item.title}\n\nInfo: ${(item.original_content || '').substring(0, 1500)}`
-                }
-              ],
-              max_tokens: 2000
-            })
+            body: JSON.stringify({ source_item_id: item.id })
           });
 
-          const data = await response.json();
-          if (data.error) throw new Error(data.error.message);
+          const result = await response.json();
 
-          let article;
-          try {
-            const jsonMatch = data.choices[0].message.content.match(/\{[\s\S]*\}/);
-            article = jsonMatch ? JSON.parse(jsonMatch[0]) : { title: item.title, content: data.choices[0].message.content };
-          } catch {
-            article = { title: item.title, content: '<p>Contenu</p>' };
+          if (!response.ok) {
+            throw new Error(result.error || 'Generation failed');
           }
 
-          const title = article.title || item.title;
-          const slug = title.toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .replace(/[^a-z0-9]+/g, '-')
-            .substring(0, 60) + '-' + Date.now();
-
-          const { data: authors } = await supabase.from('blog_authors').select('id').limit(1);
-
-          const { data: post, error: postError } = await supabase.from('blog_posts').insert({
-            title,
-            slug,
-            excerpt: article.excerpt || title,
-            content: article.content || '<p>Contenu</p>',
-            category: article.category || 'actualite',
-            tags: article.tags || ['sécurité'],
-            author_id: authors?.[0]?.id,
-            status: 'published',
-            view_count: Math.floor(Math.random() * 500) + 50,
-            published_at: new Date().toISOString()
-          }).select().single();
-
-          if (postError) throw new Error(postError.message);
-
-          await supabase.from('source_items').update({
-            status: 'published',
-            generated_post_id: post.id
-          }).eq('id', item.id);
-
           generated++;
-          setToast({ type: 'success', message: `✅ ${title.substring(0, 35)}...` });
+          setToast({ type: 'success', message: `✅ Article généré (${generated}/${items.length})` });
         } catch (err: any) {
-          console.error(err);
-          await supabase.from('source_items').update({ status: 'failed' }).eq('id', item.id);
+          console.error('Generation error:', err);
+          failed++;
+          setToast({ type: 'error', message: `❌ Erreur: ${err.message}` });
         }
       }
 
-      setToast({ type: 'success', message: `🎉 ${generated}/${items.length} articles générés!` });
-      loadData();
+      if (generated > 0) {
+        setToast({ type: 'success', message: `🎉 ${generated} article(s) généré(s)${failed > 0 ? `, ${failed} échec(s)` : ''}!` });
+        loadData();
+      } else {
+        setToast({ type: 'error', message: 'Aucun article généré. Vérifiez la configuration OpenAI.' });
+      }
     } catch (err: any) {
       setToast({ type: 'error', message: err.message });
     } finally {
