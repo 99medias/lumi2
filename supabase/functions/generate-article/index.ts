@@ -165,20 +165,22 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    const { data: settings } = await supabase
-      .from('ai_settings')
-      .select('*')
-      .single();
+    const openaiApiKey = Deno.env.get('OPENAI_API_KEY');
 
-    if (!settings?.openai_api_key) {
+    if (!openaiApiKey) {
       return new Response(
-        JSON.stringify({ error: 'OpenAI API key not configured' }),
+        JSON.stringify({ error: 'OpenAI API key not configured in Supabase secrets' }),
         {
           status: 400,
           headers: { ...corsHeaders, 'Content-Type': 'application/json' },
         }
       );
     }
+
+    const { data: settings } = await supabase
+      .from('ai_settings')
+      .select('*')
+      .single();
 
     const { data: item } = await supabase
       .from('source_items')
@@ -210,7 +212,7 @@ Deno.serve(async (req: Request) => {
 
     if (!item.relevance_score) {
       const startTime = Date.now();
-      relevance = await calculateRelevance(settings.openai_api_key, settings.openai_model, item);
+      relevance = await calculateRelevance(openaiApiKey, settings.openai_model, item);
       const processingTime = Date.now() - startTime;
 
       await supabase.from('ai_generation_logs').insert({
@@ -233,7 +235,7 @@ Deno.serve(async (req: Request) => {
     }
 
     const startTime = Date.now();
-    const { article, usage } = await generateArticle(settings.openai_api_key, settings.openai_model, item, relevance);
+    const { article, usage } = await generateArticle(openaiApiKey, settings.openai_model, item, relevance);
     const processingTime = Date.now() - startTime;
 
     const title = article.title || item.title || 'Article sans titre';
