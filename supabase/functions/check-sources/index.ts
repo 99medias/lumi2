@@ -92,13 +92,22 @@ Deno.serve(async (req: Request) => {
     for (const source of sources) {
       try {
         if (source.type === 'rss') {
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 10000);
+
           const response = await fetch(source.url, {
             headers: {
               'User-Agent': 'MaSecurite.be Content Bot/1.0'
-            }
+            },
+            signal: controller.signal
           });
 
-          if (!response.ok) continue;
+          clearTimeout(timeout);
+
+          if (!response.ok) {
+            results.push({ source: source.name, status: 'error', error: `HTTP ${response.status}` });
+            continue;
+          }
 
           const xml = await response.text();
           const items = await parseRSS(xml);
@@ -133,7 +142,8 @@ Deno.serve(async (req: Request) => {
 
       } catch (error) {
         console.error(`Error processing source ${source.name}:`, error);
-        results.push({ source: source.name, status: 'error', error: error.message });
+        const errorMsg = error.name === 'AbortError' ? 'timeout' : error.message;
+        results.push({ source: source.name, status: 'error', error: errorMsg });
       }
     }
 

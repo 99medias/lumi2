@@ -46,61 +46,40 @@ export default function AdminGenerate() {
 
   async function checkSources() {
     setIsChecking(true);
-    setToast({ type: 'info', message: '🔍 Vérification des sources...' });
-    let newItems = 0;
+    setToast({ type: 'info', message: '🔍 Vérification des sources en cours...' });
 
     try {
-      const { data: sources } = await supabase.from('content_sources').select('*').eq('is_active', true);
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 60000);
 
-      for (const source of sources || []) {
-        try {
-          const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(source.url)}`);
-          if (!response.ok) continue;
-          const text = await response.text();
+      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/check-sources`;
+      const response = await fetch(apiUrl, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+        signal: controller.signal
+      });
 
-          const itemRegex = /<item[^>]*>([\s\S]*?)<\/item>/gi;
-          let match;
-          while ((match = itemRegex.exec(text)) !== null && newItems < 100) {
-            const xml = match[1];
-            const title = xml.match(/<title[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/title>/i)?.[1]?.replace(/<[^>]*>/g, '').trim() || '';
-            const link = xml.match(/<link[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/link>/i)?.[1]?.trim() || '';
-            const desc = xml.match(/<description[^>]*>(?:<!\[CDATA\[)?([\s\S]*?)(?:\]\]>)?<\/description>/i)?.[1]?.replace(/<[^>]*>/g, '').trim().substring(0, 1000) || '';
+      clearTimeout(timeout);
+      const result = await response.json();
 
-            if (!title || !link) continue;
-
-            const { data: existing } = await supabase.from('source_items').select('id').eq('original_url', link).maybeSingle();
-            if (existing) continue;
-
-            const content = (title + ' ' + desc).toLowerCase();
-            let score = 0.4;
-            ['belgique','belge','bruxelles','belfius','kbc','ing','bpost','itsme','proximus','safeonweb','ccb'].forEach(k => {
-              if (content.includes(k)) score += 0.1;
-            });
-            ['phishing','arnaque','fraude','sécurité','piratage','virus','malware','hacker','faille'].forEach(k => {
-              if (content.includes(k)) score += 0.05;
-            });
-            score = Math.min(score, 0.95);
-
-            await supabase.from('source_items').insert({
-              source_id: source.id,
-              title,
-              original_url: link,
-              original_content: desc,
-              summary: desc.substring(0, 500),
-              status: 'new',
-              relevance_score: score
-            });
-            newItems++;
-          }
-        } catch (e) {
-          console.error(source.name, e);
-        }
+      if (!response.ok) {
+        throw new Error(result.error || 'Erreur lors de la vérification des sources');
       }
 
-      setToast({ type: 'success', message: `✅ ${newItems} nouveaux articles détectés` });
+      const newItems = result.results?.filter((r: any) => r.status === 'added').length || 0;
+      setToast({ type: 'success', message: `✅ ${newItems} nouveaux articles détectés sur ${result.processed} sources` });
       loadData();
     } catch (err: any) {
-      setToast({ type: 'error', message: err.message });
+      console.error('Check sources error:', err);
+      if (err.name === 'AbortError') {
+        setToast({ type: 'error', message: 'Timeout: La vérification prend trop de temps. Réessayez.' });
+      } else {
+        setToast({ type: 'error', message: `Erreur: ${err.message}` });
+      }
     } finally {
       setIsChecking(false);
     }
