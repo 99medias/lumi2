@@ -44,11 +44,22 @@ Deno.serve(async (req: Request) => {
     });
 
     if (!response.ok) {
-      const error = await response.text();
+      const errorText = await response.text();
+      let errorMessage = `Erreur OpenAI (${response.status}): ${response.statusText}`;
+
+      try {
+        const errorData = JSON.parse(errorText);
+        if (errorData.error?.message) {
+          errorMessage = errorData.error.message;
+        }
+      } catch (e) {
+        errorMessage += ` - ${errorText}`;
+      }
+
       return new Response(
-        JSON.stringify({ 
-          success: false, 
-          message: `Erreur OpenAI: ${response.statusText}` 
+        JSON.stringify({
+          success: false,
+          message: errorMessage
         }),
         {
           status: 200,
