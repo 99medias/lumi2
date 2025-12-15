@@ -1072,7 +1072,7 @@ const translations = {
     },
     faq: {
       title: 'Questions Fréquentes',
-      helpText: 'Besoin d\'aide ? Contactez-nous au 01 89 71 28 66',
+      helpText: 'Besoin d\'aide ? Contactez-nous au +32 16 18 60 98',
       questions: [
         { question: "Comment accéder à mon espace Cloud ?", answer: "Une fois votre abonnement activé, vous recevrez vos identifiants de connexion par email. Vous pourrez accéder à votre espace Cloud depuis n'importe quel navigateur web ou via notre application dédiée." },
         { question: "Mes données sont-elles vraiment sécurisées ?", answer: "Absolument. Nous utilisons un système de chiffrement de bout en bout de niveau bancaire. Vos données sont stockées sur des serveurs sécurisés avec des sauvegardes automatiques quotidiennes." },
@@ -1209,7 +1209,7 @@ const translations = {
       info: {
         phone: {
           title: 'Téléphone',
-          value: '01 89 71 28 66',
+          value: '+32 16 18 60 98',
           hours: '9h à 21h du Lundi au Vendredi'
         },
         email: {
@@ -1515,7 +1515,7 @@ const translations = {
         ],
         button: 'Voir nos offres',
         call: 'Nous appeler au',
-        phone: '01 89 71 28 66',
+        phone: '+32 16 18 60 98',
         urgency: 'Vérifiez maintenant - vos données pourraient être compromises'
       },
       attribution: 'Données fournies par',
@@ -1541,7 +1541,7 @@ const translations = {
         state: 'État de formation',
         stateValue: 'Wyoming, USA',
         phone: 'Téléphone',
-        phoneValue: '01 89 71 28 66',
+        phoneValue: '+32 16 18 60 98',
         email: 'Email',
         emailValue: 'info@masecurite.be',
         contactTitle: 'Besoin de Plus d\'Informations ?',
@@ -1784,7 +1784,7 @@ const translations = {
         section2: {
           title: '2. Comment Demander un Remboursement',
           intro: 'Pour exercer votre droit de rétractation et demander un remboursement, vous pouvez :',
-          items: ['Remplir le formulaire en ligne disponible dans votre espace client', 'Nous appeler au 01 89 71 28 66 (disponible 24h/24, 7j/7)', 'Nous envoyer un email à info@masecurite.be avec votre numéro de commande', 'Nous écrire par courrier postal à : Digital Genesys Solutions LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
+          items: ['Remplir le formulaire en ligne disponible dans votre espace client', 'Nous appeler au +32 16 18 60 98 (disponible 24h/24, 7j/7)', 'Nous envoyer un email à info@masecurite.be avec votre numéro de commande', 'Nous écrire par courrier postal à : NEXORA AI SOLUTIONS LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
           advice: 'Conseil : Pour un traitement plus rapide, utilisez le formulaire en ligne ou contactez-nous par téléphone.'
         },
         section3: {
@@ -1869,7 +1869,7 @@ const translations = {
         section4: {
           title: '4. Droit de Rétractation',
           para1: 'Conformément au droit européen, vous disposez d\'un délai de 30 jours à compter de la souscription pour exercer votre droit de rétractation sans avoir à justifier de motifs.',
-          para2: 'Pour exercer ce droit, contactez notre service client par téléphone au 01 89 71 28 66 ou par email à info@masecurite.be.',
+          para2: 'Pour exercer ce droit, contactez notre service client par téléphone au +32 16 18 60 98 ou par email à info@masecurite.be.',
           important: 'Important : Si vous avez bénéficié de nos services durant cette période, un montant proportionnel au service utilisé sera retenu du remboursement.'
         },
         section5: {
@@ -1933,7 +1933,7 @@ const translations = {
           intro: 'Pour toute question concernant ces conditions générales, n\'hésitez pas à nous contacter :',
           company: 'Société',
           phone: 'Téléphone',
-          phoneValue: '01 89 71 28 66',
+          phoneValue: '+32 16 18 60 98',
           email: 'Email',
           address: 'Adresse'
         }
@@ -2920,7 +2920,7 @@ const translations = {
     },
     faq: {
       title: 'Frequently Asked Questions',
-      helpText: 'Need help? Contact us at 01 89 71 28 66',
+      helpText: 'Need help? Contact us at +32 16 18 60 98',
       questions: [
         { question: "How do I access my Cloud space?", answer: "Once your subscription is activated, you will receive your login credentials by email. You can access your Cloud space from any web browser or via our dedicated application." },
         { question: "Is my data really secure?", answer: "Absolutely. We use bank-level end-to-end encryption. Your data is stored on secure servers with automatic daily backups." },
@@ -3057,7 +3057,7 @@ const translations = {
       info: {
         phone: {
           title: 'Phone',
-          value: '01 89 71 28 66',
+          value: '+32 16 18 60 98',
           hours: 'Available 24/7'
         },
         email: {
@@ -3389,7 +3389,7 @@ const translations = {
         state: 'Formation state',
         stateValue: 'Wyoming, USA',
         phone: 'Phone',
-        phoneValue: '01 89 71 28 66',
+        phoneValue: '+32 16 18 60 98',
         email: 'Email',
         emailValue: 'info@masecurite.be',
         contactTitle: 'Need More Information?',
@@ -3632,7 +3632,7 @@ const translations = {
         section2: {
           title: '2. How to Request a Refund',
           intro: 'To exercise your right of withdrawal and request a refund, you can:',
-          items: ['Fill out the online form available in your customer area', 'Call us at 01 89 71 28 66 (available 24/7)', 'Email us at info@masecurite.be with your order number', 'Write to us by postal mail at: Digital Genesys Solutions LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
+          items: ['Fill out the online form available in your customer area', 'Call us at +32 16 18 60 98 (available 24/7)', 'Email us at info@masecurite.be with your order number', 'Write to us by postal mail at: NEXORA AI SOLUTIONS LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
           advice: 'Tip: For faster processing, use the online form or contact us by phone.'
         },
         section3: {
@@ -3717,7 +3717,7 @@ const translations = {
         section4: {
           title: '4. Right of Withdrawal',
           para1: 'In accordance with European law, you have a period of 30 days from the subscription to exercise your right of withdrawal without having to justify reasons.',
-          para2: 'To exercise this right, contact our customer service by phone at 01 89 71 28 66 or by email at info@masecurite.be.',
+          para2: 'To exercise this right, contact our customer service by phone at +32 16 18 60 98 or by email at info@masecurite.be.',
           important: 'Important: If you have benefited from our services during this period, an amount proportional to the service used will be deducted from the refund.'
         },
         section5: {
@@ -3781,7 +3781,7 @@ const translations = {
           intro: 'For any questions concerning these general terms, do not hesitate to contact us:',
           company: 'Company',
           phone: 'Phone',
-          phoneValue: '01 89 71 28 66',
+          phoneValue: '+32 16 18 60 98',
           email: 'Email',
           address: 'Address'
         }
@@ -5479,7 +5479,7 @@ const translations = {
         section2: {
           title: '2. Cómo Solicitar un Reembolso',
           intro: 'Para ejercer su derecho de desistimiento y solicitar un reembolso, puede:',
-          items: ['Complete el formulario en línea disponible en su área de cliente', 'Llámenos al 900 423 288 (disponible 24/7)', 'Envíenos un correo electrónico a info@masecurite.be con su número de pedido', 'Escríbanos por correo postal a: Digital Genesys Solutions LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
+          items: ['Complete el formulario en línea disponible en su área de cliente', 'Llámenos al 900 423 288 (disponible 24/7)', 'Envíenos un correo electrónico a info@masecurite.be con su número de pedido', 'Escríbanos por correo postal a: NEXORA AI SOLUTIONS LLC, 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA'],
           advice: 'Consejo: Para un procesamiento más rápido, use el formulario en línea o contáctenos por teléfono.'
         },
         section3: {

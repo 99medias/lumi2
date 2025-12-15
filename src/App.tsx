@@ -124,7 +124,7 @@ function App() {
               href="tel:+3216186098"
               className="px-8 py-4 bg-white text-gray-700 rounded-full font-semibold text-lg border-2 border-gray-200 hover:border-emerald-500 hover:text-emerald-600 transition-all flex items-center justify-center gap-2"
             >
-              <span>📞</span> 01 618 60 98
+              <span>📞</span> +32 16 18 60 98
             </a>
           </div>
 
@@ -139,10 +139,10 @@ function App() {
 
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
               <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mb-4 mx-auto">
-                <span className="text-2xl">🏠</span>
+                <span className="text-2xl">💻</span>
               </div>
-              <h3 className="font-semibold text-gray-900 mb-2">Intervention à domicile</h3>
-              <p className="text-gray-600 text-sm">Un technicien se déplace chez vous</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Assistance logicielle</h3>
+              <p className="text-gray-600 text-sm">Aide pour tous vos logiciels et applications</p>
             </div>
 
             <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
@@ -206,11 +206,11 @@ function App() {
 
             <div className="group p-8 bg-gradient-to-br from-cyan-50 to-white rounded-3xl border border-cyan-100 hover:shadow-xl transition-all">
               <div className="w-16 h-16 bg-cyan-500 rounded-2xl flex items-center justify-center mb-6">
-                <span className="text-3xl">🔧</span>
+                <span className="text-3xl">🖥️</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-3">Dépannage à domicile</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-3">Aide aux logiciels</h3>
               <p className="text-gray-600 mb-6">
-                Un technicien se déplace chez vous pour résoudre vos problèmes informatiques rapidement.
+                Assistance complète pour installer, configurer et utiliser tous vos logiciels au quotidien.
               </p>
               <div className="flex items-center justify-end">
                 <a href="/contact" className="text-cyan-600 font-medium group-hover:underline">
@@ -964,7 +964,7 @@ function App() {
               href="tel:+3216186098"
               className="px-8 py-4 bg-emerald-700 text-white rounded-full font-bold text-lg hover:bg-emerald-800 transition-all flex items-center justify-center gap-2"
             >
-              📞 01 618 60 98
+              📞 +32 16 18 60 98
             </a>
           </div>
 

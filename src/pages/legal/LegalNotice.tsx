@@ -31,7 +31,7 @@ function LegalNotice() {
             </h2>
             <div className="bg-slate-50 rounded-xl p-6 mb-6">
               <ul className="space-y-3 text-lg text-slate-700">
-                <li><strong>Raison sociale :</strong> Digital Genesys Solutions LLC (MaSécurité)</li>
+                <li><strong>Raison sociale :</strong> NEXORA AI SOLUTIONS LLC (MaSécurité)</li>
                 <li><strong>Forme juridique :</strong> Limited Liability Company (LLC)</li>
                 <li><strong>Numéro d'enregistrement :</strong> 3003074</li>
                 <li><strong>Date de formation :</strong> 16 décembre 2024</li>
@@ -39,7 +39,7 @@ function LegalNotice() {
                 <li><strong>Agent enregistré :</strong> Cindy's New Mexico LLC (5587298BA)</li>
                 <li><strong>Adresse de l'agent :</strong> 5203 Juan Tabo Blvd NE Suite 2a, Albuquerque, NM 87111, USA</li>
                 <li><strong>État de formation :</strong> New Mexico, USA</li>
-                <li><strong>Téléphone :</strong> 01 89 71 28 66</li>
+                <li><strong>Téléphone :</strong> +32 16 18 60 98</li>
                 <li><strong>Email :</strong> info@masecurite.be</li>
               </ul>
             </div>
@@ -84,7 +84,7 @@ function LegalNotice() {
               <p className="text-slate-700 mb-2"><strong>Délégué à la Protection des Données (DPO) :</strong></p>
               <ul className="space-y-2 text-slate-700">
                 <li><strong>Email :</strong> dpo@masecurite.be</li>
-                <li><strong>Téléphone :</strong> 01 89 71 28 66</li>
+                <li><strong>Téléphone :</strong> +32 16 18 60 98</li>
               </ul>
             </div>
 
@@ -182,9 +182,9 @@ function LegalNotice() {
                 Pour toute question concernant ces mentions légales, contactez-nous :
               </p>
               <ul className="space-y-2 text-slate-700">
-                <li><strong>Société :</strong> Digital Genesys Solutions LLC</li>
+                <li><strong>Société :</strong> NEXORA AI SOLUTIONS LLC</li>
                 <li><strong>Email :</strong> info@masecurite.be</li>
-                <li><strong>Téléphone :</strong> 01 89 71 28 66</li>
+                <li><strong>Téléphone :</strong> +32 16 18 60 98</li>
                 <li><strong>Adresse :</strong> 5203 Juan Tabo Blvd STE 2B, Albuquerque, NM 87111, USA</li>
               </ul>
             </div>
