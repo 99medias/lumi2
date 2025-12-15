@@ -184,46 +184,29 @@ export default function Diagnostics() {
       if (!testItem) {
         addResult('generation', 'error', 'Pas d\'item de test disponible');
       } else {
-        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-article`, {
           method: 'POST',
           headers: {
+            'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
           },
           body: JSON.stringify({
-            model: model,
-            messages: [
-              {
-                role: 'system',
-                content: `Tu es journaliste pour MaSécurité.be. RETOURNE UNIQUEMENT CE JSON:
-{"title":"Titre","meta_title":"Titre SEO","meta_description":"Description","excerpt":"Résumé","content":"<p>Article</p>","category":"alerte","tags":["sécurité"],"reading_time_minutes":4}`
-              },
-              {
-                role: 'user',
-                content: `Article sur: ${testItem.title}`
-              }
-            ],
-            response_format: { type: 'json_object' },
-            max_tokens: 500
+            itemId: testItem.id,
+            model: model
           })
         });
 
-        const data = await response.json();
+        const result = await response.json();
 
-        if (data.error) {
-          addResult('generation', 'error', `Erreur génération: ${data.error.message}`);
-        } else if (data.choices?.[0]?.message?.content) {
-          try {
-            const article = JSON.parse(data.choices[0].message.content);
-            addResult('generation', 'success', 'Article généré avec succès', {
-              title: article.title,
-              content_length: article.content?.length
-            });
-          } catch {
-            addResult('generation', 'error', 'Réponse OpenAI n\'est pas du JSON valide');
-          }
+        if (result.error) {
+          addResult('generation', 'error', `Erreur génération: ${result.error}`);
+        } else if (result.article) {
+          addResult('generation', 'success', 'Article généré avec succès', {
+            title: result.article.title,
+            content_length: result.article.content?.length
+          });
         } else {
-          addResult('generation', 'error', 'Pas de contenu dans la réponse OpenAI');
+          addResult('generation', 'error', 'Pas de contenu dans la réponse');
         }
       }
     } catch (err: any) {

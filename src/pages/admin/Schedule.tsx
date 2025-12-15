@@ -264,113 +264,31 @@ export default function AdminSchedule() {
         try {
           toast.info(`Génération: ${item.title.substring(0, 40)}...`);
 
-          await supabase.from('source_items').update({ status: 'processing' }).eq('id', item.id);
-
-          const openaiResponse = await fetch('https://api.openai.com/v1/chat/completions', {
+          const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-article`, {
             method: 'POST',
             headers: {
+              'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${aiSettings.openai_api_key}`
             },
             body: JSON.stringify({
-              model: aiSettings.openai_model || 'gpt-4o-mini',
-              messages: [
-                {
-                  role: 'system',
-                  content: `Tu es journaliste cybersécurité pour MaSécurité.be (Belgique).
-Écris TOUT en français belge. Mentionne Safeonweb.be, CCB, banques belges (Belfius, KBC, ING).
-Inclus une section "Ce que vous devez faire" avec 3-5 conseils pratiques.
-Article de 600-800 mots, ton accessible pour seniors.
-
-RETOURNE UNIQUEMENT CE JSON:
-{"title":"Titre en français","meta_title":"Titre SEO 60 car max","meta_description":"Description 155 car max","excerpt":"Résumé 200 car","content":"<p>Article HTML complet avec h2, ul, li</p>","category":"alerte","tags":["cybersécurité","belgique"],"reading_time_minutes":4}`
-                },
-                {
-                  role: 'user',
-                  content: `Réécris cet article pour le public belge senior:\n\nTitre: ${item.title}\n\nContenu: ${(item.original_content || item.summary || '').substring(0, 2000)}`
-                }
-              ],
-              response_format: { type: 'json_object' },
-              max_tokens: 2500,
-              temperature: 0.7
+              itemId: item.id,
+              model: aiSettings?.openai_model || 'gpt-4o-mini',
+              autoPublish: aiSettings?.schedule_auto_publish || false
             })
           });
 
-          if (!openaiResponse.ok) {
-            throw new Error(`OpenAI API error: ${openaiResponse.status}`);
+          const result = await response.json();
+
+          if (result.error) {
+            throw new Error(result.error);
           }
 
-          const openaiData = await openaiResponse.json();
-
-          if (openaiData.error) {
-            throw new Error(openaiData.error.message);
+          if (!result.post) {
+            throw new Error('No post returned from generation');
           }
-
-          if (!openaiData.choices?.[0]?.message?.content) {
-            throw new Error('OpenAI response missing content');
-          }
-
-          let article;
-          try {
-            const content = openaiData.choices[0].message.content;
-            const jsonMatch = content.match(/\{[\s\S]*\}/);
-            article = jsonMatch ? JSON.parse(jsonMatch[0]) : { title: item.title, content: `<p>${content}</p>` };
-          } catch (parseErr) {
-            console.error('JSON parse error:', parseErr);
-            article = {
-              title: item.title,
-              content: `<p>${openaiData.choices[0].message.content}</p>`,
-              excerpt: item.summary || item.title,
-              category: 'actualite',
-              tags: ['cybersécurité']
-            };
-          }
-
-          const title = article.title || item.title;
-          const slug = title
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/[\u0300-\u036f]/g, '')
-            .replace(/[^a-z0-9]+/g, '-')
-            .substring(0, 80) + '-' + Date.now();
-
-          const { data: authors } = await supabase.from('blog_authors').select('id').limit(1);
-
-          const { data: post, error: postError } = await supabase
-            .from('blog_posts')
-            .insert({
-              title: title,
-              slug: slug,
-              meta_title: article.meta_title || title.substring(0, 60),
-              meta_description: article.meta_description || article.excerpt || title,
-              excerpt: article.excerpt || title,
-              content: article.content || '<p>Contenu généré</p>',
-              category: article.category || 'actualite',
-              tags: article.tags || ['cybersécurité'],
-              author_id: authors?.[0]?.id || null,
-              status: settings.auto_publish ? 'published' : 'draft',
-              reading_time: article.reading_time_minutes || 4,
-              view_count: Math.floor(Math.random() * 800) + 200,
-              published_at: new Date().toISOString()
-            })
-            .select()
-            .single();
-
-          if (postError) {
-            throw new Error(`Database error: ${postError.message}`);
-          }
-
-          if (!post) {
-            throw new Error('Post creation returned no data');
-          }
-
-          await supabase
-            .from('source_items')
-            .update({ status: 'published', generated_post_id: post.id })
-            .eq('id', item.id);
 
           generated++;
-          toast.success(`✅ Publié: ${title.substring(0, 40)}...`);
+          toast.success(`✅ Publié: ${result.post.title.substring(0, 40)}...`);
 
         } catch (err: any) {
           console.error('Generation error for', item.title, ':', err);
