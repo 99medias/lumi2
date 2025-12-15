@@ -226,6 +226,12 @@ export default function Dashboard() {
 
               <div className="space-y-3">
                 <Link
+                  to="/admin/generate"
+                  className="block w-full px-4 py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-xl font-bold text-lg hover:opacity-90 transition-all text-center shadow-lg"
+                >
+                  🚀 Générer des Articles
+                </Link>
+                <Link
                   to="/admin/content-queue"
                   className="block w-full px-4 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors text-center"
                 >
