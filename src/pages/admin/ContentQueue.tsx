@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FileText, TrendingUp, Eye, Trash2, Sparkles, X, Loader, CheckCircle, AlertCircle, ExternalLink } from 'lucide-react';
+import { FileText, TrendingUp, Eye, Trash2, Sparkles, X, Loader, CheckCircle, ExternalLink } from 'lucide-react';
 import PageHeader from '../../components/PageHeader';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
@@ -39,6 +39,8 @@ export default function ContentQueue() {
   const [selectedItem, setSelectedItem] = useState<SourceItem | null>(null);
   const [processing, setProcessing] = useState<string | null>(null);
   const [toast, setToast] = useState<{ type: 'success' | 'error' | 'info'; message: string } | null>(null);
+  const [bulkProcessing, setBulkProcessing] = useState(false);
+  const [generatedArticle, setGeneratedArticle] = useState<{ slug: string; title: string } | null>(null);
 
   useEffect(() => {
     loadItems();
@@ -73,7 +75,7 @@ export default function ContentQueue() {
     }
   };
 
-  const handleGenerateArticle = async (itemId: string) => {
+  const handleGenerateArticle = async (itemId: string, showPopup = true) => {
     setProcessing(itemId);
 
     try {
@@ -95,18 +97,49 @@ export default function ContentQueue() {
         throw new Error(errorMsg);
       }
 
+      if (showPopup) {
+        setGeneratedArticle({ slug: result.slug, title: result.title || 'Article' });
+      }
+
       setToast({
         type: 'success',
-        message: `Article généré avec succès! Titre: ${result.slug} - Tokens: ${result.tokens_used} - Coût: $${result.estimated_cost.toFixed(4)}`
+        message: `Article généré avec succès! - Tokens: ${result.tokens_used} - Coût: $${result.estimated_cost.toFixed(4)}`
       });
       loadItems();
+      return true;
     } catch (error: unknown) {
       console.error('Error generating article:', error);
       const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
       setToast({ type: 'error', message: `Erreur lors de la génération: ${errorMessage}` });
+      return false;
     } finally {
       setProcessing(null);
     }
+  };
+
+  const handleBulkGenerate = async (count: number | 'all') => {
+    setBulkProcessing(true);
+    const newItems = items.filter(item => item.status === 'new');
+    const itemsToProcess = count === 'all' ? newItems : newItems.slice(0, count);
+
+    let successCount = 0;
+    let failCount = 0;
+
+    for (const item of itemsToProcess) {
+      const success = await handleGenerateArticle(item.id, false);
+      if (success) {
+        successCount++;
+      } else {
+        failCount++;
+      }
+    }
+
+    setBulkProcessing(false);
+    setToast({
+      type: successCount > 0 ? 'success' : 'error',
+      message: `Génération terminée: ${successCount} réussi(s), ${failCount} échec(s)`
+    });
+    loadItems();
   };
 
   const handleIgnore = async (itemId: string) => {
@@ -172,14 +205,15 @@ export default function ContentQueue() {
     return colors[category as keyof typeof colors] || 'bg-gray-100 text-gray-700';
   };
 
-  const formatTimeAgo = (timestamp: string) => {
+  const formatDate = (timestamp: string) => {
     const date = new Date(timestamp);
-    const now = new Date();
-    const diffMinutes = Math.floor((now.getTime() - date.getTime()) / 60000);
-
-    if (diffMinutes < 60) return `il y a ${diffMinutes} min`;
-    if (diffMinutes < 1440) return `il y a ${Math.floor(diffMinutes / 60)} h`;
-    return `il y a ${Math.floor(diffMinutes / 1440)} j`;
+    return new Intl.DateTimeFormat('fr-BE', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    }).format(date);
   };
 
   const getRelevanceColor = (score: number | null) => {
@@ -245,6 +279,67 @@ export default function ContentQueue() {
             </div>
 
             <div className="p-6">
+              {activeTab === 'new' && items.length > 0 && (
+                <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
+                  <h3 className="text-sm font-bold text-gray-900 mb-3">Génération en masse</h3>
+                  <div className="flex flex-wrap gap-3">
+                    <button
+                      onClick={() => handleBulkGenerate(5)}
+                      disabled={bulkProcessing || items.length < 5}
+                      className="px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    >
+                      {bulkProcessing ? (
+                        <>
+                          <Loader className="w-4 h-4 animate-spin" />
+                          Génération...
+                        </>
+                      ) : (
+                        <>
+                          <Sparkles className="w-4 h-4" />
+                          Générer 5
+                        </>
+                      )}
+                    </button>
+                    <button
+                      onClick={() => handleBulkGenerate(10)}
+                      disabled={bulkProcessing || items.length < 10}
+                      className="px-6 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    >
+                      {bulkProcessing ? (
+                        <>
+                          <Loader className="w-4 h-4 animate-spin" />
+                          Génération...
+                        </>
+                      ) : (
+                        <>
+                          <Sparkles className="w-4 h-4" />
+                          Générer 10
+                        </>
+                      )}
+                    </button>
+                    <button
+                      onClick={() => handleBulkGenerate('all')}
+                      disabled={bulkProcessing}
+                      className="px-6 py-2 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-lg font-semibold hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                    >
+                      {bulkProcessing ? (
+                        <>
+                          <Loader className="w-4 h-4 animate-spin" />
+                          Génération...
+                        </>
+                      ) : (
+                        <>
+                          <Sparkles className="w-4 h-4" />
+                          Générer Tout ({items.length})
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  <p className="text-xs text-gray-600 mt-2">
+                    Les articles seront générés séquentiellement et déplacés vers "Publié" automatiquement.
+                  </p>
+                </div>
+              )}
               {items.length === 0 ? (
                 <div className="text-center py-12">
                   <FileText className="w-16 h-16 text-gray-300 mx-auto mb-4" />
@@ -283,20 +378,20 @@ export default function ContentQueue() {
 
                           {item.relevance_reason && (
                             <p className="text-sm text-gray-600 mb-2">
-                              💡 {item.relevance_reason}
+                              {item.relevance_reason}
                             </p>
                           )}
 
                           {item.suggested_angle && (
                             <p className="text-sm text-blue-600 mb-2">
-                              📝 Angle suggéré: {item.suggested_angle}
+                              Angle suggéré: {item.suggested_angle}
                             </p>
                           )}
 
                           <div className="flex items-center gap-4 text-xs text-gray-500">
                             <span>Source: {item.content_sources.name}</span>
                             <span>•</span>
-                            <span>{formatTimeAgo(item.detected_at)}</span>
+                            <span>{formatDate(item.detected_at)}</span>
                           </div>
                         </div>
 
@@ -450,6 +545,36 @@ export default function ContentQueue() {
                   </div>
                 </div>
               )}
+            </div>
+          </div>
+        </div>
+      )}
+      {generatedArticle && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6">
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="w-10 h-10 text-green-600" />
+              </div>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">Article publié!</h2>
+              <p className="text-gray-600">{generatedArticle.title}</p>
+            </div>
+            <div className="flex gap-3">
+              <button
+                onClick={() => setGeneratedArticle(null)}
+                className="flex-1 px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors"
+              >
+                Fermer
+              </button>
+              <Link
+                to={`/blog/${generatedArticle.slug}`}
+                target="_blank"
+                onClick={() => setGeneratedArticle(null)}
+                className="flex-1 px-6 py-3 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors text-center flex items-center justify-center gap-2"
+              >
+                <ExternalLink className="w-4 h-4" />
+                Voir l'article
+              </Link>
             </div>
           </div>
         </div>
