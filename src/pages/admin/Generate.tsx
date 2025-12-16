@@ -7,6 +7,9 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import PageHeader from '../../components/PageHeader';
 
+// Helper function to add delay between API calls
+const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 export default function AdminGenerate() {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +17,7 @@ export default function AdminGenerate() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [stats, setStats] = useState({ posts: 0, sources: 0, pending: 0 });
   const [pendingItems, setPendingItems] = useState<any[]>([]);
-  const [maxArticles, setMaxArticles] = useState(3);
+  const [maxArticles, setMaxArticles] = useState(2);
   const [minRelevance, setMinRelevance] = useState(40);
   const [toast, setToast] = useState<{ type: 'success' | 'error' | 'info'; message: string } | null>(null);
 
@@ -102,8 +105,18 @@ export default function AdminGenerate() {
       let generated = 0;
       let failed = 0;
 
-      for (const item of items) {
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+
         try {
+          // Add 3 second delay between API calls to avoid rate limits
+          if (i > 0) {
+            setToast({ type: 'info', message: `⏳ Attente pour éviter les limites API... (${i}/${items.length})` });
+            await delay(3000);
+          }
+
+          setToast({ type: 'info', message: `🤖 Génération de l'article ${i + 1}/${items.length}...` });
+
           const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-article`;
           const response = await fetch(apiUrl, {
             method: 'POST',
@@ -117,6 +130,11 @@ export default function AdminGenerate() {
           const result = await response.json();
 
           if (!response.ok) {
+            // Check for rate limit errors
+            if (response.status === 429 || result.error?.includes('rate_limit') || result.error?.includes('Rate limit')) {
+              setToast({ type: 'error', message: '⏳ Limite API atteinte. Attendez 1 minute et réessayez.' });
+              throw new Error('Rate limit exceeded');
+            }
             throw new Error(result.error || 'Generation failed');
           }
 
@@ -125,7 +143,13 @@ export default function AdminGenerate() {
         } catch (err: any) {
           console.error('Generation error:', err);
           failed++;
-          setToast({ type: 'error', message: `❌ Erreur: ${err.message}` });
+
+          // Show specific error message for rate limits
+          if (err.message.includes('rate_limit') || err.message.includes('Rate limit')) {
+            setToast({ type: 'error', message: `⏳ Limite API atteinte. Attendez 1 minute et réessayez.` });
+          } else {
+            setToast({ type: 'error', message: `❌ Erreur: ${err.message}` });
+          }
         }
       }
 
