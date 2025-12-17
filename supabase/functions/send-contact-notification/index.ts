@@ -207,10 +207,10 @@ Solutions Cloud sécurisées pour particuliers et professionnels
     `;
 
     const { data, error } = await resend.emails.send({
-      from: "MaSécurité <noreply@masecurite.be>",
+      from: "MaSécurité <noreply@masecurite.net>",
       to: [
         "customer-requests-aaaaop3vtssop7wgzcc5dfunyi@barqsecure.slack.com",
-        "info@masecurite.be"
+        "info@masecurite.net"
       ],
       replyTo: formData.email,
       subject: `Nouveau Contact - ${subjectLabel}`,

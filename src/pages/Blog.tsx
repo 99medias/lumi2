@@ -117,12 +117,12 @@ export default function Blog() {
       getWebSiteSchema(),
       {
         "@type": "Blog",
-        "name": "Centre de Ressources Cybersécurité - MaSécurité.be",
+        "name": "Centre de Ressources Cybersécurité - MaSécurité.net",
         "description": "Actualités, guides et alertes pour votre sécurité numérique en Belgique",
-        "url": "https://masecurite.be/blog",
+        "url": "https://masecurite.net/blog",
         "publisher": {
           "@type": "Organization",
-          "name": "MaSécurité.be"
+          "name": "MaSécurité.net"
         }
       }
     ]

@@ -97,7 +97,7 @@ Deno.serve(async (req: Request) => {
 
           const response = await fetch(source.url, {
             headers: {
-              'User-Agent': 'MaSecurite.be Content Bot/1.0'
+              'User-Agent': 'MaSecurite.net Content Bot/1.0'
             },
             signal: controller.signal
           });

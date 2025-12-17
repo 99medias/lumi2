@@ -298,7 +298,7 @@ export default function Settings() {
                         type="email"
                         value={settings.notification_email || ''}
                         onChange={(e) => setSettings({ ...settings, notification_email: e.target.value })}
-                        placeholder="admin@masecurite.be"
+                        placeholder="admin@masecurite.net"
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
                       />
                     </div>

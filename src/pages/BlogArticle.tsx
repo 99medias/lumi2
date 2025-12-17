@@ -185,21 +185,21 @@ export default function BlogArticle() {
       "@type": "Person",
       "name": post.author.name,
       "jobTitle": post.author.title,
-      "url": `https://masecurite.be/auteurs/${post.author.slug}`
+      "url": `https://masecurite.net/auteurs/${post.author.slug}`
     },
     "publisher": {
       "@type": "Organization",
-      "name": "MaSécurité.be",
+      "name": "MaSécurité.net",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://masecurite.be/green_modern_marketing_logo.png"
+        "url": "https://masecurite.net/green_modern_marketing_logo.png"
       }
     },
     "datePublished": post.published_at,
     "dateModified": post.updated_at,
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://masecurite.be/blog/${post.slug}`
+      "@id": `https://masecurite.net/blog/${post.slug}`
     }
   };
 

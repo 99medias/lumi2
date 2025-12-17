@@ -52,7 +52,7 @@ Respond with JSON only:
 }
 
 async function generateArticle(openaiKey: string, model: string, item: any, relevance: any) {
-  const prompt = `You are a Belgian cybersecurity journalist writing for MaSécurité.be.
+  const prompt = `You are a Belgian cybersecurity journalist writing for MaSécurité.net.
 Your audience is French-speaking Belgian consumers (not technical experts).
 
 IMPORTANT: Write the ENTIRE article in French (Belgian French).

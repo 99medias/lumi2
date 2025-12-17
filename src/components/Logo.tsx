@@ -34,7 +34,7 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
           fontWeight="700"
           fill="white"
         >
-          .be
+          .net
         </text>
 
         <g transform="translate(180, 3)">
@@ -94,7 +94,7 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
           fontWeight="700"
           fill="white"
         >
-          .be
+          .net
         </text>
 
         <g transform="translate(180, 3)">
@@ -154,7 +154,7 @@ function Logo({ className = '', variant = 'full' }: LogoProps) {
           fontWeight="700"
           fill="white"
         >
-          .be
+          .net
         </text>
 
         <g transform="translate(154, 2)">

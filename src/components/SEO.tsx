@@ -14,12 +14,12 @@ export default function SEO({
   title = 'MaSécurité.be - Votre tranquillité digitale | Cybersécurité Belgique',
   description = 'Protection complète pour votre famille et votre vie numérique. MaSécurité.be offre des solutions de cybersécurité simples et efficaces pour particuliers en Belgique. Support local 24/7.',
   keywords = 'sécurité informatique Belgique, antivirus Belgique, protection famille, dépannage PC Bruxelles, cybersécurité particuliers, VPN Belgique, protection identité, support technique local',
-  ogImage = 'https://masecurite.be/green_modern_marketing_logo.png',
+  ogImage = 'https://masecurite.net/green_modern_marketing_logo.png',
   ogType = 'website',
   structuredData
 }: SEOProps) {
   const location = useLocation();
-  const canonicalUrl = `https://masecurite.be${location.pathname}`;
+  const canonicalUrl = `https://masecurite.net${location.pathname}`;
 
   useEffect(() => {
     document.title = title;

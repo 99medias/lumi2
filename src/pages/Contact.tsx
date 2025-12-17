@@ -117,7 +117,7 @@ function Contact() {
       title: t('contact.info.email.title'),
       subtitle: t('contact.info.email.responseTime'),
       value: t('contact.info.email.value'),
-      link: 'mailto:info@masecurite.be',
+      link: 'mailto:info@masecurite.net',
       color: 'from-emerald-400 to-emerald-500',
       bgColor: 'from-emerald-50 to-emerald-50'
     },

@@ -123,7 +123,7 @@ export default function BlogSidebar({ popularArticles = [] }: BlogSidebarProps) 
         </div>
         <div className="mt-4 pt-4 border-t border-gray-100">
           <p className="text-xs text-gray-600">
-            MaSécurité.be collabore avec les autorités belges pour votre protection.
+            MaSécurité.net collabore avec les autorités belges pour votre protection.
           </p>
         </div>
       </div>
