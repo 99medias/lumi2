@@ -1,7 +1,7 @@
 export const getOrganizationSchema = () => ({
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "MaSécurité.be",
+  "name": "MaSécurité.net",
   "url": "https://masecurite.net",
   "logo": "https://masecurite.net/green_modern_marketing_logo.png",
   "description": "Protection complète pour votre famille et votre vie numérique. Solutions de cybersécurité simples et efficaces pour particuliers en Belgique.",
@@ -25,7 +25,7 @@ export const getOrganizationSchema = () => ({
 export const getWebSiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "MaSécurité.be",
+  "name": "MaSécurité.net",
   "url": "https://masecurite.net",
   "description": "Protection complète pour votre famille et votre vie numérique",
   "publisher": {
